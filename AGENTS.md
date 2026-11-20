@@ -13,6 +13,10 @@ source; tool-specific files (such as `CLAUDE.md`) import it rather than repeat i
 
 ## Audience
 
+- Primary: personal work, family work, and general Oinam work and projects.
+- Later, possibly, the public. Write and build so that opening it up needs no rework: no private
+  data, no personal details, and no secrets in the repository.
+
 ## Visibility
 
 ## Standards
