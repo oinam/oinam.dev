@@ -1,5 +1,7 @@
-# oinam.dev
+# Oinam.DEV
 
-AI, AI agents, and agent harnesses for personal, family, and Oinam work.
+> Design, and development assets, ideas, standards, for AI, and their agents, tools, harnesses, and all the shebang.
 
-Agents: start with [AGENTS.md](AGENTS.md).
+https://oinam.dev
+
+For AI Agents: start with [AGENTS.md](AGENTS.md).
