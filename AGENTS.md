@@ -51,3 +51,6 @@ until every point below holds.
 - American English with the Oxford comma.
 
 ## Ownership
+
+- `README.md` belongs to the owner. Agents do not edit it unless the owner gives explicit
+  permission for that specific change.
