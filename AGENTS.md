@@ -5,6 +5,10 @@ source; tool-specific files (such as `CLAUDE.md`) import it rather than repeat i
 
 ## Purpose
 
+- This is the starting point to hand any AI at the beginning of design and development work.
+- Read this file first. It sets the scope, audience, standards, and style that every oinam.dev
+  project inherits. A project may add its own rules on top, but not loosen these.
+
 ## Scope
 
 - This repository is only for AI: AI agents, agent harnesses, prompts, skills, evals, and the
