@@ -7,6 +7,10 @@ source; tool-specific files (such as `CLAUDE.md`) import it rather than repeat i
 
 ## Scope
 
+- This repository is only for AI: AI agents, agent harnesses, prompts, skills, evals, and the
+  tooling around them.
+- Anything that is not about AI belongs in another repository.
+
 ## Audience
 
 ## Visibility
