@@ -26,6 +26,9 @@ source; tool-specific files (such as `CLAUDE.md`) import it rather than repeat i
 - GitHub repositories under oinam.dev are public by default.
 - Treat everything committed as published. A repository is made private only by explicit choice,
   never by default.
+- Every oinam.dev repository carries the GitHub topic `oinam-dev`, so the group can be filtered on
+  GitHub. (Topics allow only lowercase letters, numbers, and hyphens, so no dot.) Grouping uses
+  topics only; no custom properties.
 
 ## Standards
 
