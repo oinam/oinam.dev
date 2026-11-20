@@ -42,4 +42,8 @@ until every point below holds.
 
 ## Writing style
 
+- Plain text. No emoji or emoticons, in code, comments, docs, commit messages, or output, unless a
+  specific case truly needs one.
+- American English with the Oxford comma.
+
 ## Ownership
