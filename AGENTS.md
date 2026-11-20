@@ -19,6 +19,10 @@ source; tool-specific files (such as `CLAUDE.md`) import it rather than repeat i
 
 ## Visibility
 
+- GitHub repositories under oinam.dev are public by default.
+- Treat everything committed as published. A repository is made private only by explicit choice,
+  never by default.
+
 ## Standards
 
 ## Writing style
