@@ -97,7 +97,15 @@ test("it takes every stylesheet and script of the system, with its documents and
     system.filter((name) => !taken.includes(name)),
     [],
   );
-  for (const name of ["guide.md", "why.md", "CHANGELOG.md", "tokens.json", "registry.json"]) {
+  for (const name of [
+    "guide.md",
+    "why.md",
+    "CHANGELOG.md",
+    "tokens.json",
+    "contract.json",
+    "registry.json",
+    "tools/lint.js",
+  ]) {
     assert.ok(taken.includes(name), name);
   }
 });

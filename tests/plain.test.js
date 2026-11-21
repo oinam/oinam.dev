@@ -18,10 +18,23 @@ test("the site ships no dependencies, only tools for working on it", () => {
 });
 
 test("scripts import only the files beside them", () => {
+  // The tools run in Node, on the project's machine, and may use what Node provides.
+  const tools = /^public\/ui\/tools\//;
+
   for (const path of find("public/**/*.js")) {
+    if (tools.test(path)) continue;
     const imports = [...read(path).matchAll(/^import\s[^"']*["']([^"']+)["']/gm)];
     for (const [, specifier] of imports) {
       assert.match(specifier, /^\.\//, `${path} imports "${specifier}"`);
+    }
+  }
+});
+
+test("the tools use Node itself, and nothing that has to be installed", () => {
+  for (const path of find("public/ui/tools/**/*.js")) {
+    const imports = [...read(path).matchAll(/^import\s[^"']*["']([^"']+)["']/gm)];
+    for (const [, specifier] of imports) {
+      assert.match(specifier, /^(node:|\.\.?\/)/, `${path} imports "${specifier}"`);
     }
   }
 });

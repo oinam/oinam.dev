@@ -7,11 +7,6 @@ produces.
 
 ## To do
 
-- [ ] **A linter for pages built with the system.** One command an agent runs on its own output.
-      It fails on a raw color, an unknown `o-` element or attribute, a control with no label, a
-      card inside a card, two solid buttons side by side, an inline style. The garden has this
-      kind of gate for designs; pages have none. Agents are good at fixing what a tool reports and
-      poor at remembering rules.
 - [ ] **Evals.** The standards here say anything that drives a model ships with evals, and the
       guide drives models. A set of briefs ("a pricing page", "a settings screen"), run through
       several agents, scored by the linter and by a look at the rendered page. It shows which
@@ -31,6 +26,8 @@ produces.
 
 ## Done
 
+- [x] **A linter for pages built with the system.** `public/ui/tools/lint.js`: one command, 21
+      rules, no dependencies. It reads the contract, and this site passes it. (0.4.0)
 - [x] **A contract a machine can read.** `public/ui/contract.json`: what each element and class
       accepts, with tests that hold it to the stylesheets. The linter reads it. (0.4.0)
 - [x] **Design tokens in the standard JSON format.** `public/ui/tokens.json`, in the Design Tokens

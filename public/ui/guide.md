@@ -180,6 +180,41 @@ Open the page. Do not only read its source.
 
 Then tell the owner what you were unsure of. Do not hide it.
 
+## Check your work
+
+Before you hand a page back, run the linter on it. It needs Node and nothing else.
+
+```sh
+node ui/tools/lint.js path/to/page.html path/to/styles.css
+node ui/tools/lint.js site/
+```
+
+It reads the page as text and checks what a program can check:
+
+- every `o-` element, attribute, and value is one the system has, and every class of the system is
+  on an element it is for (`contract.json` is the list it reads);
+- an element has the part it is built around, and no card sits inside a card;
+- every control, button, and picture has a name;
+- ids are not repeated, and nothing points at an id that is not there;
+- headings do not skip a level, and there is one `h1`;
+- no `style` attribute, no color or font written out raw, no gradient, no forced capitals, no
+  `!important`, no emoji;
+- no two solid buttons side by side;
+- the system is not loaded from oinam.dev.
+
+It prints the file, the line, the rule, and what to do, and exits with 1 if it found anything. Mend
+what it reports and run it again until it is clean. `--json` gives the findings as data, and
+`--rules` lists every rule with its reason.
+
+If a rule is wrong for one line, set it aside there and say why. The reason is required.
+
+```html
+<!-- lint-allow two-solid-buttons: yes and no are equal choices here -->
+```
+
+A clean result means the page is well formed, not that it looks right. The linter never runs the
+page. Look at it too.
+
 ## A complete page
 
 ```html

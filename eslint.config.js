@@ -15,6 +15,11 @@ export default [
     languageOptions: { sourceType: "script" },
   },
   {
+    // Tools that a project runs with Node, not that a browser loads.
+    files: ["public/ui/tools/**/*.js"],
+    languageOptions: { globals: globals.node },
+  },
+  {
     files: ["*.config.js"],
     languageOptions: { globals: globals.node },
   },

@@ -184,3 +184,8 @@ test("why.md gives every decision the same four parts", () => {
     }
   }
 });
+
+test("every tool is in the registry, and every tool the registry names exists", () => {
+  const folder = readdirSync(new URL("tools/", UI)).map((name) => `tools/${name}`);
+  assert.deepEqual(folder.toSorted(), registry.tools.toSorted());
+});
