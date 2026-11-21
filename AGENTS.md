@@ -74,6 +74,36 @@ Some things are kept by hand, because there is no build step to keep them:
 The site's own styles and its search are in `public/assets/`. Everything else it wears comes from
 the components, which it uses the same way anyone else would.
 
+## Components
+
+`public/ui/` is Oinam UI: the components an agent is pointed at to start designing. Its guide for
+agents is `public/ui/guide.md`, served at https://oinam.dev/ui/guide.md. Read that to use the
+components; read this to change them.
+
+- **Plain HTML, CSS, and JavaScript.** No React, no framework of any kind, no build step, and no
+  dependencies. Every file runs exactly as it is written. People should be able to read it, learn
+  from it, and build their own.
+- **Web components are the structure.** Anything HTML has no element for is a custom element with
+  an `o-` name, such as `<o-card>`. A native element that already does the job takes a class
+  instead, such as `<button class="button">`; it is never wrapped or rebuilt.
+- **Script is the exception.** Most elements are styled by CSS alone. One that needs behavior wraps
+  ordinary HTML in the light DOM, with no shadow DOM, so the page reads correctly before the script
+  runs and where it never does.
+- **Tokens only.** Every color, size, and shape is a custom property from `tokens.css`. Two colors
+  do all the work, and no component adds a hue.
+- **Each file stands alone.** One component, one stylesheet, and one script if it needs one, each
+  opening with a comment that shows the markup. `ui.css` and `ui.js` gather them.
+
+A new component is added in each of these places, and the tests fail until it is:
+
+- its files in `public/ui/`, gathered into `ui.css` and, for a script, `ui.js`
+- `public/ui/registry.json`, the components as data
+- `public/ui/guide.md`, under a heading of its own
+- `public/ui/index.html`, as a specimen in an `<o-example>`, with a link in the contents
+- `public/search.json`
+
+Elements with behavior are tested in `tests/`, against the DOM that `tests/dom.js` sets up.
+
 ## Development
 
 [mise](https://mise.jdx.dev) pins the tools and runs every task. `mise.toml` is the one place they
