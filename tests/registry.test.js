@@ -147,3 +147,14 @@ test("every font comes with its stylesheet, its license, and a place in the guid
     assert.ok(guide.includes(`\`${sheet}\``), `guide.md does not mention ${sheet}`);
   }
 });
+
+test("the guide says how to make a first draft that does not look generated", () => {
+  for (const heading of [
+    "## Make the first draft look made",
+    "### Start from what the page has to say",
+    "### Then leave out the habits",
+    "### Before you hand it back, look at it",
+  ]) {
+    assert.ok(guide.includes(`${heading}\n`), heading);
+  }
+});

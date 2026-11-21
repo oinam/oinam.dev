@@ -84,6 +84,10 @@ the components, which it uses the same way anyone else would.
 agents is `public/ui/guide.md`, served at https://oinam.dev/ui/guide.md. Read that to use the
 components; read this to change them.
 
+- **The point of it.** A page designed by an AI with these components should not look like the page
+  every AI makes, and the first draft is the one that counts. The components carry the surface;
+  `guide.md` carries the judgment, under "Make the first draft look made". Hold a new component, and
+  every page of this site, to that section.
 - **Plain HTML, CSS, and JavaScript.** No React, no framework of any kind, no build step, and no
   dependencies. Every file runs exactly as it is written. People should be able to read it, learn
   from it, and build their own.

@@ -2,7 +2,8 @@
 
 A design system in plain HTML, CSS, and JavaScript. No framework, no build step, and no
 dependencies. This page is the whole of it, written for an AI agent to read once and then design
-with.
+with. It exists so that the first draft of a page does not look like every other page an AI has
+made.
 
 - Live examples, for people: https://oinam.dev/ui/
 - The same as data: https://oinam.dev/ui/registry.json
@@ -117,13 +118,58 @@ elements are already styled.
 - **No inline styles.** Add a class and a rule to the page's own stylesheet instead. Page styles
   written outside a cascade layer always win over the system's, so no `!important` is needed.
 - **No emoji.** Plain text.
-- **Sentence case.** Headings and labels are written like sentences. No all-caps kickers, and no
-  decorative numbers on sections.
-- **One surface deep.** Do not put a card inside a card. Reach for spacing and type before a border
-  or a box, and use one solid button per group, for the main action.
-- **Honest copy.** Do not invent numbers, quotes, or logos. If a fact is not known, leave it out.
-- **Every state.** A control must look right at rest, on hover, with keyboard focus, when pressed,
-  when disabled, and when busy or invalid. The components already do; keep it so in page styles.
+
+## Make the first draft look made
+
+A page built with this system should not look like the page every AI makes. The components take
+care of the surface: there are no gradients here, no glows, and one pair of colors. The rest is
+judgment, and it is yours. The first draft is the one that must not look generated, because it is
+the one the owner sees.
+
+### Start from what the page has to say
+
+- Write down, in one sentence, what the reader came for. That is the first thing on the page.
+- Let the content choose the layout. Do not reach for hero, three cards, call to action, footer. A
+  price list is a table. A process is a numbered list. A choice is two things side by side. An
+  article is `<o-prose>`.
+- One thing leads on each screen. If everything is the same size and weight, nothing has been
+  decided yet.
+- Use real words. If you were not given the copy, write plain and specific copy from what you know,
+  and tell the owner which parts you wrote. Never invent a number, a quote, a customer, or a logo.
+
+### Then leave out the habits
+
+- No label in capitals above every heading, and no "01, 02, 03" on sections. Headings and labels
+  are written like sentences.
+- No row of three or four equal cards, each an icon, a title, and a sentence.
+- No icon that is only decoration, and no emoji standing in for one.
+- No badge on ordinary text. A badge is for a status.
+- No card inside a card, and no box around what spacing already groups. Reach for space and type
+  before a border.
+- No two solid buttons side by side. One main action per group; the rest are outline or ghost.
+- No centered paragraphs. Center a short heading at most. Set everything else from the left, in
+  lines of 60 to 70 characters; `<o-wrap narrow>` and `<o-prose>` do this.
+- No heading that could sit on any site, such as "Unlock your potential". Say the particular thing.
+- No button that says "Get started" or "Learn more". Say what it does: "Book a berth", "Read the
+  guide".
+- No motion that is not the answer to something the reader just did.
+- No section added to make the page longer. Short is fine.
+
+### Before you hand it back, look at it
+
+Open the page. Do not only read its source.
+
+- At 320, 768, and 1440 pixels wide: nothing runs off the side, and no button's label wraps.
+- In light, and in dark.
+- With the keyboard alone: every control can be reached, and you can see where you are.
+- In every state the page can be in: empty, loading, wrong input, a very long name, no results. A
+  control must look right at rest, on hover, with focus, when pressed, when disabled, and when busy
+  or invalid.
+- Read only the headings, top to bottom. They should tell the page's story by themselves.
+- Ask of each border, box, badge, and sentence: if it went, would anything be lost? If not, take
+  it out.
+
+Then tell the owner what you were unsure of. Do not hide it.
 
 ## A complete page
 
