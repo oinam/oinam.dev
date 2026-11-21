@@ -1,0 +1,7 @@
+# Everyone is welcome, crawlers and AI agents included.
+# Agents: start at https://oinam.dev/llms.txt
+
+User-agent: *
+Allow: /
+
+Sitemap: https://oinam.dev/sitemap.xml

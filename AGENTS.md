@@ -47,6 +47,48 @@ until every point below holds.
 - **Documented.** Each project states how to install, lint, format, test, and run evals in one
   place, and keeps it current.
 
+## Website
+
+The site at https://oinam.dev is the `public/` folder, served as it is by Cloudflare Pages. Every
+push to `main` deploys it.
+
+- **For AI first.** Agents and AI tools are the readers; people mostly look. Content lives in the
+  HTML itself, in semantic markup, and reads the same with scripts off. `public/llms.txt` maps the
+  site for language models.
+- **Static.** No build step, no framework, no server code, and no third-party requests. A page is a
+  file. Reach for Cloudflare's dynamic features only when a static file cannot do the job.
+- **Fast.** System fonts, one stylesheet, and as little script as a page can get by on. Scripts
+  enhance; no content waits on them.
+- **Open.** No accounts, and nothing behind a sign-in.
+- **Crafted.** Write it the way a veteran programmer would at leisure, over a period of time:
+  plain, unhurried, and pretty. Comment where a reader would otherwise stumble, say why rather than
+  what, and stop there.
+
+Some things are kept by hand, because there is no build step to keep them:
+
+- The header and footer are repeated in every page under `public/`. Change them in all pages
+  together.
+- A new page is added to `public/search.json` (the search index), `public/sitemap.xml`, and
+  `public/llms.txt`.
+
+The design uses two colors: ink, which is nearly black, and cloud, which is nearly white. Both are
+defined once, at the top of `public/assets/site.css`, and every other shade is mixed from them.
+
+## Development
+
+Needs Node 22 or later.
+
+- `npm install` sets up the tools.
+- `npm run dev` serves the site the way Cloudflare does, headers and 404 page included. It needs
+  [Wrangler](https://developers.cloudflare.com/workers/wrangler/) installed.
+- `npm run format` formats everything with Prettier.
+- `npm run lint` lints the scripts (ESLint), styles (Stylelint), and pages (html-validate).
+- `npm test` runs the test suite with Node's test runner.
+- `npm run check` runs the format check, the linters, and the tests. CI runs the same command on
+  every push and pull request.
+
+There are no evals yet, because nothing here drives or wraps a model yet.
+
 ## Writing style
 
 - Plain text. No emoji or emoticons, in code, comments, docs, commit messages, or output, unless a

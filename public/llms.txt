@@ -1,0 +1,18 @@
+# Oinam.DEV
+
+> Design and development assets, ideas, and standards for AI, and their agents, tools, and harnesses. Open and free, with no accounts.
+
+This site is written for AI agents first; people mostly look at it. Every page is static HTML, and reads the same with scripts off.
+
+## Start here
+
+- [AGENTS.md](https://raw.githubusercontent.com/oinam/oinam.dev/main/AGENTS.md): The canonical instructions for any agent working in or pointed at the repository: its scope, audience, standards, and style.
+- [Docs](https://oinam.dev/docs/): Where the documentation begins.
+
+## Source
+
+- [Repository](https://github.com/oinam/oinam.dev): Everything here, under the MIT license.
+
+## Optional
+
+- [Play](https://oinam.dev/play/): Coming soon. A place to tinker with the design and the tools.

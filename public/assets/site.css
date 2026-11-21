@@ -578,6 +578,17 @@ kbd {
   }
 }
 
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 0.6;
+  }
+}
+
 @keyframes shimmer {
   from {
     opacity: 0.15;
@@ -698,7 +709,10 @@ kbd {
   list-style: none;
 }
 
-/* Anyone who asks for less motion gets a still picture. */
+/*
+ * Anyone who asks for less motion gets a still picture: nothing drifts,
+ * travels, or grows. The two lights still glow in turn, by opacity alone.
+ */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -708,7 +722,15 @@ kbd {
     animation: none !important;
   }
 
-  .scene-moving {
+  .scene-travel {
     display: none;
+  }
+
+  .scene-pulse {
+    animation: glow 6s ease-in-out infinite !important;
+  }
+
+  .scene-pulse-late {
+    animation-delay: 3s !important;
   }
 }

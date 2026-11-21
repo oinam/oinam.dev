@@ -25,6 +25,11 @@
     "text": "Coming soon. A place to tinker with the design and the tools."
   },
   {
+    "title": "llms.txt",
+    "url": "/llms.txt",
+    "text": "A plain-text map of this site for language models."
+  },
+  {
     "title": "AGENTS.md",
     "url": "https://github.com/oinam/oinam.dev/blob/main/AGENTS.md",
     "text": "The canonical instructions for any AI agent working in or pointed at the repository."

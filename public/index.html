@@ -12,6 +12,7 @@
     />
     <link rel="canonical" href="https://oinam.dev/" />
 
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/assets/site.css" />
     <script src="/assets/theme.js"></script>
     <script type="module" src="/assets/site.js"></script>
@@ -234,7 +235,7 @@
 
             <!-- Something small and far away, crossing once every minute and a half. -->
             <use href="#orbit" stroke-width="0.75" stroke-dasharray="1 9" opacity="0.45" />
-            <circle class="scene-moving" r="2.5" fill="currentColor" stroke="none" opacity="0">
+            <circle class="scene-travel" r="2.5" fill="currentColor" stroke="none" opacity="0">
               <animateMotion dur="90s" repeatCount="indefinite">
                 <mpath href="#orbit" />
               </animateMotion>
@@ -257,7 +258,7 @@
               <path d="M-1-49v-10h2v10Z" />
               <circle cy="-61" r="2" />
             </g>
-            <circle class="scene-moving scene-pulse" cx="232" cy="376" r="3" />
+            <circle class="scene-pulse" cx="232" cy="376" r="3" />
             <path stroke-width="1.5" opacity="0.5" d="M304 390v-36m0 16l-8-9m8 1l7-8" />
 
             <!-- The relay mast on the far shoulder, answering the lantern. -->
@@ -266,7 +267,7 @@
               <path stroke-width="0.75" d="M1290 250l-22 76m22-76l22 76m-30-64h16m-12-14h8" />
               <circle cx="1290" cy="232" r="2" fill="currentColor" stroke="none" />
             </g>
-            <circle class="scene-moving scene-pulse scene-pulse-late" cx="1290" cy="232" r="3" />
+            <circle class="scene-pulse scene-pulse-late" cx="1290" cy="232" r="3" />
 
             <!-- Still water, barely moving. -->
             <g stroke-width="0.75" opacity="0.5">
@@ -308,6 +309,7 @@
         <p>Oinam.DEV. Open and free, under the MIT license.</p>
         <ul>
           <li><a href="/docs/">Docs</a></li>
+          <li><a href="/llms.txt">llms.txt</a></li>
           <li><a href="https://github.com/oinam/oinam.dev">GitHub</a></li>
         </ul>
       </div>
