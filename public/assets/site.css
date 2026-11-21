@@ -424,6 +424,16 @@ o-theme:not(:defined) {
   color: var(--color-ink);
 }
 
+/* The version sits beside the title, in the voice of code, and does not shout. */
+
+.version {
+  margin-left: var(--space-2);
+  color: var(--color-ink-faint);
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  letter-spacing: 0;
+}
+
 .specimen {
   padding-top: var(--space-12);
   scroll-margin-top: var(--header);

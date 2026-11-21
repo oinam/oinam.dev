@@ -98,3 +98,20 @@ test("the design is Base, and the tokens say so", () => {
   assert.match(read("tokens.css"), /^\/\*\n \* Tokens: Base\n/);
   assert.ok(guide.includes("## Base and variations\n"));
 });
+
+test("every place that names the version names the same one", () => {
+  const { version } = registry;
+  const manifest = JSON.parse(readFileSync(new URL("../../package.json", UI), "utf8"));
+
+  assert.match(version, /^\d+\.\d+\.\d+$/);
+  assert.equal(manifest.version, version, "package.json");
+  assert.ok(guide.startsWith(`# Oinam UI v${version}\n`), "the title of guide.md");
+  assert.ok(page.includes(`<span class="version">v${version}</span>`), "the components page");
+  assert.ok(read("ui.css").startsWith(`/*\n * Oinam UI v${version}\n`), "the header of ui.css");
+  assert.match(read("CHANGELOG.md"), new RegExp(`^## ${version.replaceAll(".", "\\.")}$`, "m"));
+});
+
+test("the newest entry in the changelog is the current version", () => {
+  const [, newest] = read("CHANGELOG.md").match(/^## (\S+)$/m);
+  assert.equal(newest, registry.version);
+});

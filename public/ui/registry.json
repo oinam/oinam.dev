@@ -1,5 +1,6 @@
 {
   "name": "Oinam UI",
+  "version": "0.1.0",
   "description": "A design system in plain HTML, CSS, and JavaScript: custom elements for structure, native elements for the work, and no framework or build step.",
   "design": "Base",
   "variations": [],
@@ -14,7 +15,7 @@
     "head": "theme-init.js"
   },
   "foundation": ["tokens.css", "base.css"],
-  "docs": ["guide.md"],
+  "docs": ["guide.md", "CHANGELOG.md"],
   "components": [
     {
       "name": "wrap",

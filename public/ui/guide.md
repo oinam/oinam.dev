@@ -1,4 +1,4 @@
-# Oinam UI
+# Oinam UI v0.1.0
 
 A design system in plain HTML, CSS, and JavaScript. No framework, no build step, and no
 dependencies. This page is the whole of it, written for an AI agent to read once and then design
@@ -6,6 +6,7 @@ with.
 
 - Live examples, for people: https://oinam.dev/ui/
 - The same as data: https://oinam.dev/ui/registry.json
+- What changed in each version: https://oinam.dev/ui/CHANGELOG.md
 - Source: https://github.com/oinam/oinam.dev/tree/main/public/ui
 
 ## Install

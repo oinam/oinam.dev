@@ -108,6 +108,12 @@ A new component is added in each of these places, and the tests fail until it is
 - `public/ui/index.html`, as a specimen in an `<o-example>`, with a link in the contents
 - `public/search.json`
 
+A new version is named in each of these places, and the tests fail until they agree:
+
+- `version` in `public/ui/registry.json` and in `package.json`
+- the title of `public/ui/guide.md` and of the components page, and the header of `ui.css`
+- a new entry at the top of `public/ui/CHANGELOG.md`
+
 Elements with behavior are tested in `tests/`, against the DOM that `tests/dom.js` sets up.
 
 ## Development
