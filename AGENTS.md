@@ -103,7 +103,8 @@ components; read this to change them.
 - **Web components are the structure.** Anything HTML has no element for is a custom element with
   an `o-` name, such as `<o-card>`. A native element that already does the job takes a class
   instead, such as `<button class="button">`; it is never wrapped or rebuilt.
-- **Script is the exception.** Most elements are styled by CSS alone. One that needs behavior wraps
+- **Script is the exception.** Most elements are styled by CSS alone, and the browser's own
+  `popover`, `<dialog>`, `<details>`, and form controls are used before any script is written. One that needs behavior wraps
   ordinary HTML in the light DOM, with no shadow DOM, so the page reads correctly before the script
   runs and where it never does.
 - **Tokens only.** Every color, size, and shape is a custom property from `tokens.css`. Two colors

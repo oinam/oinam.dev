@@ -468,6 +468,12 @@ o-theme:not(:defined) {
   color: var(--color-ink-soft);
 }
 
+/* Lets one piece of a specimen take the room that is left. */
+
+.specimen-fill {
+  flex: 1;
+}
+
 .swatch {
   height: 4rem;
   border: 1px solid var(--color-line);

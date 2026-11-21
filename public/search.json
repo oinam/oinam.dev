@@ -85,9 +85,54 @@
     "text": "Frames a plain table and lets a wide one scroll sideways."
   },
   {
+    "title": "Avatar",
+    "url": "/ui/#avatar",
+    "text": "A small round picture of someone, or their initials."
+  },
+  {
+    "title": "Item",
+    "url": "/ui/#item",
+    "text": "One row in a list: something to know it by, a title and a line, and an action."
+  },
+  {
+    "title": "Empty",
+    "url": "/ui/#empty",
+    "text": "Stands where content will be once there is some."
+  },
+  {
+    "title": "Skeleton",
+    "url": "/ui/#skeleton",
+    "text": "Holds the place of something that is still loading."
+  },
+  {
+    "title": "Spinner",
+    "url": "/ui/#spinner",
+    "text": "Says that something is under way."
+  },
+  {
+    "title": "Progress",
+    "url": "/ui/#progress",
+    "text": "How far along something is, on a <progress>."
+  },
+  {
+    "title": "Ratio",
+    "url": "/ui/#ratio",
+    "text": "Keeps a picture, a video, or a frame to a fixed shape."
+  },
+  {
+    "title": "Scroll",
+    "url": "/ui/#scroll",
+    "text": "A frame for something too long to show at once."
+  },
+  {
     "title": "Button",
     "url": "/ui/#button",
     "text": "A button, on a <button> or an <a>."
+  },
+  {
+    "title": "Button group",
+    "url": "/ui/#button-group",
+    "text": "Joins buttons that belong together into one piece."
   },
   {
     "title": "Field",
@@ -95,9 +140,34 @@
     "text": "A label, its control, and a line of help, kept together."
   },
   {
+    "title": "Input group",
+    "url": "/ui/#input-group",
+    "text": "Puts a unit, a prefix, or a button inside the frame of a field."
+  },
+  {
     "title": "Choice and switch",
     "url": "/ui/#choice",
     "text": "A checkbox, a radio button, or a switch, with its label."
+  },
+  {
+    "title": "Slider",
+    "url": "/ui/#slider",
+    "text": "A value chosen by sliding, on an <input type=\"range\">."
+  },
+  {
+    "title": "Toggle",
+    "url": "/ui/#toggle",
+    "text": "A button that stays pressed, alone or in a group."
+  },
+  {
+    "title": "Breadcrumb",
+    "url": "/ui/#breadcrumb",
+    "text": "Where this page sits, from the top down."
+  },
+  {
+    "title": "Pagination",
+    "url": "/ui/#pagination",
+    "text": "Links to the pages of a long list."
   },
   {
     "title": "Accordion",
@@ -112,7 +182,22 @@
   {
     "title": "Dialog",
     "url": "/ui/#dialog",
-    "text": "A modal, on a <dialog>, opened and closed without script."
+    "text": "A modal or a drawer, on a <dialog>, opened and closed without script."
+  },
+  {
+    "title": "Popover",
+    "url": "/ui/#popover",
+    "text": "A small panel that opens under the button that names it."
+  },
+  {
+    "title": "Menu",
+    "url": "/ui/#menu",
+    "text": "A button and the short list of actions it opens."
+  },
+  {
+    "title": "Tooltip",
+    "url": "/ui/#tooltip",
+    "text": "A few words about a control, on hover or focus."
   },
   {
     "title": "Copy",
@@ -123,6 +208,11 @@
     "title": "Theme",
     "url": "/ui/#theme",
     "text": "A light and dark toggle that remembers the choice."
+  },
+  {
+    "title": "Toast",
+    "url": "/ui/#toast",
+    "text": "Brief messages that appear in a corner and go away again."
   },
   {
     "title": "Example",

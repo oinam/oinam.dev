@@ -15,3 +15,5 @@ import "./example.js";
 import "./tabs.js";
 import "./copy.js";
 import "./theme.js";
+import "./menu.js";
+import "./toast.js";

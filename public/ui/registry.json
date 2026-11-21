@@ -1,6 +1,6 @@
 {
   "name": "Oinam UI",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A design system in plain HTML, CSS, and JavaScript: custom elements for structure, native elements for the work, and no framework or build step.",
   "design": "Base",
   "variations": "https://oinam.dev/garden/variations.json",
@@ -133,12 +133,84 @@
       "description": "Frames a plain table and lets a wide one scroll sideways."
     },
     {
+      "name": "avatar",
+      "title": "Avatar",
+      "use": "<o-avatar>",
+      "files": ["avatar.css"],
+      "script": false,
+      "description": "A small round picture of someone, or their initials."
+    },
+    {
+      "name": "item",
+      "title": "Item",
+      "use": "<o-item>",
+      "files": ["item.css"],
+      "script": false,
+      "description": "One row in a list: something to know it by, a title and a line, and an action."
+    },
+    {
+      "name": "empty",
+      "title": "Empty",
+      "use": "<o-empty>",
+      "files": ["empty.css", "button.css"],
+      "script": false,
+      "description": "Stands where content will be once there is some."
+    },
+    {
+      "name": "skeleton",
+      "title": "Skeleton",
+      "use": "<o-skeleton>",
+      "files": ["skeleton.css"],
+      "script": false,
+      "description": "Holds the place of something that is still loading."
+    },
+    {
+      "name": "spinner",
+      "title": "Spinner",
+      "use": "<o-spinner>",
+      "files": ["spinner.css"],
+      "script": false,
+      "description": "Says that something is under way."
+    },
+    {
+      "name": "progress",
+      "title": "Progress",
+      "use": ".progress",
+      "files": ["progress.css"],
+      "script": false,
+      "description": "How far along something is, on a <progress>."
+    },
+    {
+      "name": "ratio",
+      "title": "Ratio",
+      "use": "<o-ratio>",
+      "files": ["ratio.css"],
+      "script": false,
+      "description": "Keeps a picture, a video, or a frame to a fixed shape."
+    },
+    {
+      "name": "scroll",
+      "title": "Scroll",
+      "use": "<o-scroll>",
+      "files": ["scroll.css"],
+      "script": false,
+      "description": "A frame for something too long to show at once."
+    },
+    {
       "name": "button",
       "title": "Button",
       "use": ".button",
       "files": ["button.css"],
       "script": false,
       "description": "A button, on a <button> or an <a>."
+    },
+    {
+      "name": "button-group",
+      "title": "Button group",
+      "use": "<o-button-group>",
+      "files": ["button-group.css", "button.css"],
+      "script": false,
+      "description": "Joins buttons that belong together into one piece."
     },
     {
       "name": "field",
@@ -149,12 +221,52 @@
       "description": "A label, its control, and a line of help, kept together."
     },
     {
+      "name": "input-group",
+      "title": "Input group",
+      "use": "<o-input-group>",
+      "files": ["input-group.css", "form.css", "button.css"],
+      "script": false,
+      "description": "Puts a unit, a prefix, or a button inside the frame of a field."
+    },
+    {
       "name": "choice",
       "title": "Choice and switch",
       "use": ".choice, input[role=\"switch\"]",
       "files": ["form.css"],
       "script": false,
       "description": "A checkbox, a radio button, or a switch, with its label."
+    },
+    {
+      "name": "slider",
+      "title": "Slider",
+      "use": ".slider",
+      "files": ["slider.css"],
+      "script": false,
+      "description": "A value chosen by sliding, on an <input type=\"range\">."
+    },
+    {
+      "name": "toggle",
+      "title": "Toggle",
+      "use": ".toggle, <o-toggle-group>",
+      "files": ["toggle.css"],
+      "script": false,
+      "description": "A button that stays pressed, alone or in a group."
+    },
+    {
+      "name": "breadcrumb",
+      "title": "Breadcrumb",
+      "use": ".breadcrumb",
+      "files": ["breadcrumb.css"],
+      "script": false,
+      "description": "Where this page sits, from the top down."
+    },
+    {
+      "name": "pagination",
+      "title": "Pagination",
+      "use": ".pagination",
+      "files": ["pagination.css"],
+      "script": false,
+      "description": "Links to the pages of a long list."
     },
     {
       "name": "accordion",
@@ -178,7 +290,31 @@
       "use": ".dialog",
       "files": ["dialog.css", "button.css"],
       "script": false,
-      "description": "A modal, on a <dialog>, opened and closed without script."
+      "description": "A modal or a drawer, on a <dialog>, opened and closed without script."
+    },
+    {
+      "name": "popover",
+      "title": "Popover",
+      "use": ".popover",
+      "files": ["popover.css", "button.css"],
+      "script": false,
+      "description": "A small panel that opens under the button that names it."
+    },
+    {
+      "name": "menu",
+      "title": "Menu",
+      "use": "<o-menu>",
+      "files": ["menu.css", "menu.js", "popover.css", "button.css"],
+      "script": true,
+      "description": "A button and the short list of actions it opens."
+    },
+    {
+      "name": "tooltip",
+      "title": "Tooltip",
+      "use": "<o-tooltip>",
+      "files": ["tooltip.css"],
+      "script": false,
+      "description": "A few words about a control, on hover or focus."
     },
     {
       "name": "copy",
@@ -195,6 +331,14 @@
       "files": ["theme.js", "theme-init.js"],
       "script": true,
       "description": "A light and dark toggle that remembers the choice."
+    },
+    {
+      "name": "toast",
+      "title": "Toast",
+      "use": "<o-toast>",
+      "files": ["toast.css", "toast.js", "button.css"],
+      "script": true,
+      "description": "Brief messages that appear in a corner and go away again."
     },
     {
       "name": "example",

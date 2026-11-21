@@ -1,4 +1,4 @@
-# Oinam UI v0.1.0
+# Oinam UI v0.2.0
 
 A design system in plain HTML, CSS, and JavaScript. No framework, no build step, and no
 dependencies. This page is the whole of it, written for an AI agent to read once and then design
@@ -93,14 +93,15 @@ the folder can be upgraded without a merge.
 Three rules cover the whole system.
 
 1. **A native element that does the job gets a class.** A button is a `<button class="button">`.
-   A text field is an `<input class="input">`. The classes are `.button`, `.input`, `.choice`,
-   `.dialog`, `.eyebrow`, and `.lede`. Variants of these are `data-` attributes:
-   `data-variant="outline"`, `data-size="small"`.
+   A text field is an `<input class="input">`. The classes are `.button`, `.input`, `.choice`, `.toggle`, `.slider`, `.progress`,
+   `.dialog`, `.popover`, `.breadcrumb`, `.pagination`, `.eyebrow`, and `.lede`.button`, `.input`, `.choice`,
+`.dialog`, `.eyebrow`, and `.lede`. Variants of these are `data-`attributes:`data-variant="outline"`, `data-size="small"`.
 2. **Anything HTML has no element for is a custom element.** Structure is spelled out in the tag
    names: `<o-stack>`, `<o-card>`, `<o-field>`. Every one starts with `o-`. Variants of these are
    plain attributes: `variant="warning"`, `gap="6"`.
 3. **Script is the exception.** Most of the elements are styled by CSS alone and work with scripts
-   off. Only four have behavior: `<o-tabs>`, `<o-copy>`, `<o-theme>`, and `<o-example>`. Each of
+   off. Only six have behavior: `<o-tabs>`, `<o-menu>`, `<o-copy>`, `<o-theme>`, `<o-toast>`, and
+   `<o-example>`. Each of
    them wraps ordinary HTML that still reads correctly if the script never runs.
 
 Write plain, semantic HTML inside all of them: headings, paragraphs, lists, links. Unclassed
@@ -464,6 +465,114 @@ sideways.
 </o-table>
 ```
 
+### Avatar
+
+`<o-avatar>` is a small round picture of someone, or their initials when there is no picture. `size` takes `small` or `large`.
+
+```html
+<o-avatar><img src="/people/asha.jpg" alt="Asha Rao" /></o-avatar>
+<o-avatar size="large" role="img" aria-label="Asha Rao">AR</o-avatar>
+```
+
+With initials, give it `role="img"` and an `aria-label` with the full name.
+
+### Item
+
+`<o-item>` is one row in a list of things: something to recognize it by, a `<div>` with a title and a line under it, and an action at the end. Rows that follow one another are ruled apart.
+
+```html
+<div>
+  <o-item>
+    <o-avatar role="img" aria-label="Asha Rao">AR</o-avatar>
+    <div>
+      <strong>Asha Rao</strong>
+      <p>Harbor master</p>
+    </div>
+    <button class="button" data-variant="outline" data-size="small" type="button">Call</button>
+  </o-item>
+  <o-item>
+    <o-avatar role="img" aria-label="Tomas Lind">TL</o-avatar>
+    <div>
+      <strong>Tomas Lind</strong>
+      <p>Night watch</p>
+    </div>
+    <button class="button" data-variant="outline" data-size="small" type="button">Call</button>
+  </o-item>
+</div>
+```
+
+### Empty
+
+`<o-empty>` stands where content will be once there is some. Say what is missing, and offer the one thing to do about it.
+
+```html
+<o-empty>
+  <h3>No bookings yet</h3>
+  <p>When a boat books a berth, it shows up here.</p>
+  <button class="button" type="button">Book a berth</button>
+</o-empty>
+```
+
+### Skeleton
+
+`<o-skeleton>` holds the place of something that is still loading. It is a line of text by default; `shape` takes `circle` or `block`.
+
+```html
+<o-stack gap="2" aria-busy="true">
+  <o-skeleton></o-skeleton>
+  <o-skeleton></o-skeleton>
+  <o-skeleton shape="block"></o-skeleton>
+</o-stack>
+```
+
+Put `aria-busy="true"` on the container while it loads, and remove it when the content arrives. Set a width in the page's own styles if a line should be shorter than its container.
+
+### Spinner
+
+`<o-spinner>` says that something is under way. It takes the size of the text around it.
+
+```html
+<o-row>
+  <o-spinner role="status" aria-label="Loading the tide table"></o-spinner>
+  <span>Loading the tide table</span>
+</o-row>
+```
+
+Give it `role="status"` and an `aria-label` that names what is happening. Inside a button, use `aria-busy="true"` on the button instead.
+
+### Progress
+
+`class="progress"` on a `<progress>`, which already knows how far along it is and tells a screen reader so.
+
+```html
+<o-stack gap="2">
+  <label for="progress-upload">Uploading the chart</label>
+  <progress class="progress" id="progress-upload" value="40" max="100">40%</progress>
+</o-stack>
+```
+
+### Ratio
+
+`<o-ratio>` keeps a picture, a video, or a frame to a fixed shape, and crops it to fit. It is 16 by 9 unless `ratio` says `4/3`, `1/1`, or `21/9`.
+
+```html
+<o-ratio ratio="4/3">
+  <img src="/harbor.jpg" alt="The harbor at low water" />
+</o-ratio>
+```
+
+### Scroll
+
+`<o-scroll>` is a frame for something too long to show at once. It scrolls inside, with a thin bar, so the page keeps its length.
+
+```html
+<o-scroll tabindex="0" role="group" aria-label="Arrivals this week">
+  <p>...</p>
+</o-scroll>
+```
+
+Give it `tabindex="0"`, `role="group"`, and an `aria-label`, so the keyboard can reach it and scroll. It is 16rem tall at most; set `--scroll` on it in the page's styles for another height.
+
 ## Controls
 
 ### Button
@@ -519,6 +628,104 @@ A checkbox or a radio button sits inside a `<label class="choice">`. A switch is
 <label class="choice"><input type="checkbox" /> Send me the changelog</label>
 <label class="choice"><input type="radio" name="plan" /> Monthly</label>
 <label class="choice"><input type="checkbox" role="switch" /> Deploy on push</label>
+```
+
+### Button group
+
+`<o-button-group>` joins buttons that belong together into one piece. It suits outline buttons best.
+
+```html
+<o-button-group role="group" aria-label="Zoom">
+  <button class="button" data-variant="outline" type="button">Out</button>
+  <button class="button" data-variant="outline" type="button">Reset</button>
+  <button class="button" data-variant="outline" type="button">In</button>
+</o-button-group>
+```
+
+Give it `role="group"` and an `aria-label` that says what the buttons have in common.
+
+### Input group
+
+`<o-input-group>` puts something before or after a field, inside its frame: a `<span>` for a unit or a prefix, or a small button.
+
+```html
+<o-stack>
+  <o-field>
+    <label for="input-group-length">Length</label>
+    <o-input-group>
+      <input class="input" id="input-group-length" type="number" inputmode="decimal" />
+      <span>meters</span>
+    </o-input-group>
+  </o-field>
+  <o-field>
+    <label for="input-group-site">Website</label>
+    <o-input-group>
+      <span>https://</span>
+      <input class="input" id="input-group-site" type="text" />
+      <button class="button" data-size="small" type="button">Check</button>
+    </o-input-group>
+  </o-field>
+</o-stack>
+```
+
+It goes where the `.input` would go, inside an `<o-field>`.
+
+### Slider
+
+`class="slider"` on an `<input type="range">`, which already works with the keyboard and with touch.
+
+```html
+<o-field>
+  <label for="slider-draft">Draft, in meters</label>
+  <input class="slider" id="slider-draft" type="range" min="0" max="5" step="0.1" value="1.8" />
+</o-field>
+```
+
+### Toggle
+
+A toggle is a button that stays pressed. It is a checkbox underneath, so it needs no script and sends its value with a form: `class="toggle"` on the `<label>` around the `<input>`. `<o-toggle-group>` sets several side by side in one frame; with radio buttons of one name inside, only one can be pressed at a time.
+
+```html
+<o-row gap="6">
+  <label class="toggle"><input type="checkbox" checked /> Shore power</label>
+  <o-toggle-group role="group" aria-label="View">
+    <label class="toggle"><input type="radio" name="toggle-view" checked /> List</label>
+    <label class="toggle"><input type="radio" name="toggle-view" /> Map</label>
+    <label class="toggle"><input type="radio" name="toggle-view" /> Tides</label>
+  </o-toggle-group>
+</o-row>
+```
+
+## Navigation
+
+### Breadcrumb
+
+`class="breadcrumb"` on the `<nav>` around an ordered list of links: where this page sits, from the top down. The last item is the page itself, and is not a link.
+
+```html
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/ui/">Components</a></li>
+    <li aria-current="page">Breadcrumb</li>
+  </ol>
+</nav>
+```
+
+### Pagination
+
+`class="pagination"` on the `<nav>` around a list of page links. The page being shown has `aria-current="page"`.
+
+```html
+<nav class="pagination" aria-label="Pages">
+  <ul>
+    <li><a href="?page=1">Previous</a></li>
+    <li><a href="?page=1">1</a></li>
+    <li><a href="?page=2" aria-current="page">2</a></li>
+    <li><a href="?page=3">3</a></li>
+    <li><a href="?page=3">Next</a></li>
+  </ul>
+</nav>
 ```
 
 ## Disclosure
@@ -583,6 +790,77 @@ and `command`; there is no script to write. `closedby="any"` lets a click outsid
 </dialog>
 ```
 
+`data-side` takes `right`, `left`, or `bottom`, and makes it a drawer: a panel that slides in from
+that edge, for a form or a set of details beside the page.
+
+```html
+<dialog
+  class="dialog"
+  id="details"
+  data-side="right"
+  aria-labelledby="details-title"
+  closedby="any"
+>
+  <h2 id="details-title">Berth 12</h2>
+  <p>East quay, deep water.</p>
+</dialog>
+```
+
+For a question that must be answered, give the dialog `role="alertdialog"` and leave off `closedby`,
+so that only its buttons can close it.
+
+### Popover
+
+`class="popover"` on any element with the `popover` attribute. The browser opens it from the button that names it with `popovertarget`, closes it on Escape or a click elsewhere, and keeps it above everything. There is no script to write.
+
+```html
+<button class="button" data-variant="outline" type="button" popovertarget="popover-hours">
+  Office hours
+</button>
+
+<div class="popover" id="popover-hours" popover>
+  <strong>Office hours</strong>
+  <p>Eight to five, every day but Sunday.</p>
+</div>
+```
+
+It opens under its button, and moves above or to the other side when there is no room. In a browser that cannot place it by its button, it opens in the middle of the page. Use it in place of a card that appears on hover, which touch cannot reach.
+
+### Menu (needs script)
+
+`<o-menu>` is a button and the short list of actions it opens. The list is a popover of plain `<button>` and `<a>` elements, with `<hr>` between groups. The arrow keys move between items, and choosing one closes the list. Without the script, Tab still reaches every item.
+
+```html
+<o-menu>
+  <button class="button" data-variant="outline" type="button" popovertarget="menu-berth">
+    Berth 12
+  </button>
+  <div class="popover" id="menu-berth" popover>
+    <button type="button">Rename</button>
+    <a href="#menu">Open</a>
+    <hr />
+    <button type="button" disabled>Release</button>
+  </div>
+</o-menu>
+```
+
+With the `context` attribute, the list opens where the pointer is on a right click anywhere inside the element, and needs no button: `<o-menu context>` around the region, with the popover inside it.
+
+### Tooltip
+
+`<o-tooltip>` shows a few words about a control when the pointer is over it or the keyboard is on it. Inside go the control and a `<span role="tooltip">`, tied together with `aria-describedby`.
+
+```html
+<o-tooltip>
+  <button class="button" data-variant="outline" type="button" aria-describedby="tooltip-release">
+    Release
+  </button>
+  <span role="tooltip" id="tooltip-release">Frees the berth for the next boat</span>
+</o-tooltip>
+```
+
+Keep it to a hint. Touch cannot reach a tooltip, so anything a person must read or press belongs on the page or in a popover.
+
 ## Utilities
 
 ### Copy (needs script)
@@ -618,9 +896,26 @@ is for documentation pages.
 </o-example>
 ```
 
+### Toast (needs script)
+
+`<o-toast>` is where brief messages appear, in a corner, and go away again. A button with `data-toast` shows its message when pressed, with no script of your own.
+
+```html
+<button
+  class="button"
+  data-variant="outline"
+  type="button"
+  data-toast="Berth 12 is yours until Friday"
+>
+  Book the berth
+</button>
+```
+
+From script: `import { toast } from "/ui/toast.js"`, then `toast("Saved")`. A message stays for six seconds or until dismissed, and is announced to screen readers without taking the focus. A toast is for news that needs no answer; anything a person must act on belongs in the page or in a dialog.
+
 ## When something is missing
 
-There is no menu, tooltip, toast, or date picker yet, and a real project will find other gaps. When
+There is no combobox, date picker, or chart yet, and a real project will find other gaps. When
 a page needs something the system does not have:
 
 1. **Build it in the project, by the same rules.** A native element with a class where one does the

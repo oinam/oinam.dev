@@ -14,6 +14,28 @@ The numbers mean what they say:
 - The first number changes when a page that worked may stop working: a class, an element, an
   attribute, or a token was renamed or removed. Before 1.0.0, the middle number does this job too.
 
+## 0.2.0
+
+2026-11-21
+
+Eighteen more components, most of them native elements with a class or custom elements styled by
+CSS alone.
+
+- Content: `<o-avatar>`, `<o-item>`, `<o-empty>`, `<o-skeleton>`, `<o-spinner>`, `.progress`,
+  `<o-ratio>`, `<o-scroll>`.
+- Controls: `<o-button-group>`, `<o-input-group>`, `.slider`, `.toggle` and `<o-toggle-group>`.
+- Navigation: `.breadcrumb`, `.pagination`.
+- Disclosure: `.popover`, `<o-menu>`, `<o-tooltip>`, and drawers, which are a `.dialog` with
+  `data-side`.
+- Utilities: `<o-toast>`.
+- The header of the site shows the version, and the garden opened.
+
+### What to do
+
+Nothing. Everything in this version is an addition, and no page that worked needs to change. If the
+project links the files one by one, not through `ui.css` and `ui.js`, the new ones are there to
+link when a page uses them.
+
 ## 0.1.0
 
 2026-11-21

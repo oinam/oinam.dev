@@ -38,7 +38,7 @@
             <span class="brand-name">Oinam<span class="brand-tld">.DEV</span></span>
           </a>
           <a class="brand-version" href="/ui/CHANGELOG.md" title="What changed in each version"
-            >v0.1.0</a
+            >v0.2.0</a
           >
         </div>
 
@@ -116,10 +116,10 @@
               <li><a href="#install">Install</a></li>
               <li><a href="#tokens">Tokens</a></li>
               <li class="eyebrow">Layout</li>
+              <li><a href="#wrap">Wrap</a></li>
               <li><a href="#stack">Stack</a></li>
               <li><a href="#row">Row</a></li>
               <li><a href="#grid">Grid</a></li>
-              <li><a href="#wrap">Wrap</a></li>
               <li class="eyebrow">Content</li>
               <li><a href="#text">Text</a></li>
               <li><a href="#prose">Prose</a></li>
@@ -127,17 +127,36 @@
               <li><a href="#badge">Badge</a></li>
               <li><a href="#alert">Alert</a></li>
               <li><a href="#table">Table</a></li>
+              <li><a href="#avatar">Avatar</a></li>
+              <li><a href="#item">Item</a></li>
+              <li><a href="#empty">Empty</a></li>
+              <li><a href="#skeleton">Skeleton</a></li>
+              <li><a href="#spinner">Spinner</a></li>
+              <li><a href="#progress">Progress</a></li>
+              <li><a href="#ratio">Ratio</a></li>
+              <li><a href="#scroll">Scroll</a></li>
               <li class="eyebrow">Controls</li>
               <li><a href="#button">Button</a></li>
+              <li><a href="#button-group">Button group</a></li>
               <li><a href="#field">Field</a></li>
+              <li><a href="#input-group">Input group</a></li>
               <li><a href="#choice">Choice and switch</a></li>
+              <li><a href="#slider">Slider</a></li>
+              <li><a href="#toggle">Toggle</a></li>
+              <li class="eyebrow">Navigation</li>
+              <li><a href="#breadcrumb">Breadcrumb</a></li>
+              <li><a href="#pagination">Pagination</a></li>
               <li class="eyebrow">Disclosure</li>
               <li><a href="#accordion">Accordion</a></li>
               <li><a href="#tabs">Tabs</a></li>
               <li><a href="#dialog">Dialog</a></li>
+              <li><a href="#popover">Popover</a></li>
+              <li><a href="#menu">Menu</a></li>
+              <li><a href="#tooltip">Tooltip</a></li>
               <li class="eyebrow">Utilities</li>
               <li><a href="#copy">Copy</a></li>
               <li><a href="#theme">Theme</a></li>
+              <li><a href="#toast">Toast</a></li>
               <li><a href="#example">Example</a></li>
               <li class="eyebrow">More</li>
               <li><a href="#contribute">Contribute</a></li>
@@ -146,7 +165,7 @@
 
           <div class="page">
             <o-stack gap="4">
-              <h1>Oinam UI <span class="version">v0.1.0</span></h1>
+              <h1>Oinam UI <span class="version">v0.2.0</span></h1>
               <p class="lede">
                 Components in plain HTML, CSS, and JavaScript, made so that the first draft of a
                 page does not look like every other page an AI has made. Custom elements give a page
@@ -255,6 +274,20 @@
               </o-stack>
             </section>
 
+            <section class="specimen" id="wrap">
+              <o-stack>
+                <h2>Wrap</h2>
+                <p>
+                  <code>&lt;o-wrap&gt;</code> centers the page content and keeps it off the edges.
+                  It is 1600px wide at most; add <code>narrow</code> for a page of reading.
+                </p>
+                <o-example>
+                  <o-wrap narrow>
+                    <p>The content of the page goes here.</p>
+                  </o-wrap>
+                </o-example>
+              </o-stack>
+            </section>
             <section class="specimen" id="stack">
               <o-stack>
                 <h2>Stack</h2>
@@ -305,20 +338,6 @@
                     <o-card>Three</o-card>
                     <o-card>Four</o-card>
                   </o-grid>
-                </o-example>
-              </o-stack>
-            </section>
-            <section class="specimen" id="wrap">
-              <o-stack>
-                <h2>Wrap</h2>
-                <p>
-                  <code>&lt;o-wrap&gt;</code> centers the page content and keeps it off the edges.
-                  It is 1600px wide at most; add <code>narrow</code> for a page of reading.
-                </p>
-                <o-example>
-                  <o-wrap narrow>
-                    <p>The content of the page goes here.</p>
-                  </o-wrap>
                 </o-example>
               </o-stack>
             </section>
@@ -470,6 +489,163 @@
                 </o-example>
               </o-stack>
             </section>
+            <section class="specimen" id="avatar">
+              <o-stack>
+                <h2>Avatar</h2>
+                <p>
+                  <code>&lt;o-avatar&gt;</code> is a small round picture of someone, or their
+                  initials when there is no picture. <code>size</code> takes <code>small</code> or
+                  <code>large</code>.
+                </p>
+                <o-example>
+                  <o-row>
+                    <o-avatar size="small" role="img" aria-label="Asha Rao">AR</o-avatar>
+                    <o-avatar role="img" aria-label="Asha Rao">AR</o-avatar>
+                    <o-avatar size="large" role="img" aria-label="Asha Rao">AR</o-avatar>
+                  </o-row>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="item">
+              <o-stack>
+                <h2>Item</h2>
+                <p>
+                  <code>&lt;o-item&gt;</code> is one row in a list of things: something to recognize
+                  it by, a <code>&lt;div&gt;</code> with a title and a line under it, and an action
+                  at the end. Rows that follow one another are ruled apart.
+                </p>
+                <o-example>
+                  <div>
+                    <o-item>
+                      <o-avatar role="img" aria-label="Asha Rao">AR</o-avatar>
+                      <div>
+                        <strong>Asha Rao</strong>
+                        <p>Harbor master</p>
+                      </div>
+                      <button class="button" data-variant="outline" data-size="small" type="button">
+                        Call
+                      </button>
+                    </o-item>
+                    <o-item>
+                      <o-avatar role="img" aria-label="Tomas Lind">TL</o-avatar>
+                      <div>
+                        <strong>Tomas Lind</strong>
+                        <p>Night watch</p>
+                      </div>
+                      <button class="button" data-variant="outline" data-size="small" type="button">
+                        Call
+                      </button>
+                    </o-item>
+                  </div>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="empty">
+              <o-stack>
+                <h2>Empty</h2>
+                <p>
+                  <code>&lt;o-empty&gt;</code> stands where content will be once there is some. Say
+                  what is missing, and offer the one thing to do about it.
+                </p>
+                <o-example>
+                  <o-empty>
+                    <h3>No bookings yet</h3>
+                    <p>When a boat books a berth, it shows up here.</p>
+                    <button class="button" type="button">Book a berth</button>
+                  </o-empty>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="skeleton">
+              <o-stack>
+                <h2>Skeleton</h2>
+                <p>
+                  <code>&lt;o-skeleton&gt;</code> holds the place of something that is still
+                  loading. It is a line of text by default; <code>shape</code> takes
+                  <code>circle</code> or <code>block</code>.
+                </p>
+                <o-example>
+                  <o-row aria-busy="true">
+                    <o-skeleton shape="circle"></o-skeleton>
+                    <o-stack gap="2" class="specimen-fill">
+                      <o-skeleton></o-skeleton>
+                      <o-skeleton></o-skeleton>
+                    </o-stack>
+                  </o-row>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="spinner">
+              <o-stack>
+                <h2>Spinner</h2>
+                <p>
+                  <code>&lt;o-spinner&gt;</code> says that something is under way. It takes the size
+                  of the text around it.
+                </p>
+                <o-example>
+                  <o-row>
+                    <o-spinner role="status" aria-label="Loading the tide table"></o-spinner>
+                    <span>Loading the tide table</span>
+                  </o-row>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="progress">
+              <o-stack>
+                <h2>Progress</h2>
+                <p>
+                  <code>class="progress"</code> on a <code>&lt;progress&gt;</code>, which already
+                  knows how far along it is and tells a screen reader so.
+                </p>
+                <o-example>
+                  <o-stack gap="2">
+                    <label for="progress-upload">Uploading the chart</label>
+                    <progress class="progress" id="progress-upload" value="40" max="100">
+                      40%
+                    </progress>
+                  </o-stack>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="ratio">
+              <o-stack>
+                <h2>Ratio</h2>
+                <p>
+                  <code>&lt;o-ratio&gt;</code> keeps a picture, a video, or a frame to a fixed
+                  shape, and crops it to fit. It is 16 by 9 unless <code>ratio</code> says
+                  <code>4/3</code>, <code>1/1</code>, or <code>21/9</code>.
+                </p>
+                <o-example>
+                  <o-ratio ratio="21/9">
+                    <img src="/assets/logo.svg" alt="The Oinam mark, cropped to a wide frame" />
+                  </o-ratio>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="scroll">
+              <o-stack>
+                <h2>Scroll</h2>
+                <p>
+                  <code>&lt;o-scroll&gt;</code> is a frame for something too long to show at once.
+                  It scrolls inside, with a thin bar, so the page keeps its length.
+                </p>
+                <o-example>
+                  <o-scroll tabindex="0" role="group" aria-label="Arrivals this week">
+                    <o-stack gap="3">
+                      <p>Monday: Kestrel, Marguerite, Two Brothers.</p>
+                      <p>Tuesday: Halcyon, Petrel.</p>
+                      <p>Wednesday: none expected.</p>
+                      <p>Thursday: Northern Light, Wren, Curlew, Sandpiper.</p>
+                      <p>Friday: Kestrel returns. Osprey, Tern.</p>
+                      <p>Saturday: the regatta fleet, from noon.</p>
+                      <p>Sunday: the office is closed. Berths stay open.</p>
+                      <p>Next Monday: Marguerite leaves on the morning tide.</p>
+                      <p>Next Tuesday: dredging at the entrance until four.</p>
+                    </o-stack>
+                  </o-scroll>
+                </o-example>
+              </o-stack>
+            </section>
             <section class="specimen" id="button">
               <o-stack>
                 <h2>Button</h2>
@@ -494,6 +670,22 @@
                     <button class="button" type="button">Default</button>
                     <a class="button" data-size="large" href="/docs/">A large link</a>
                   </o-row>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="button-group">
+              <o-stack>
+                <h2>Button group</h2>
+                <p>
+                  <code>&lt;o-button-group&gt;</code> joins buttons that belong together into one
+                  piece. It suits outline buttons best.
+                </p>
+                <o-example>
+                  <o-button-group role="group" aria-label="Zoom">
+                    <button class="button" data-variant="outline" type="button">Out</button>
+                    <button class="button" data-variant="outline" type="button">Reset</button>
+                    <button class="button" data-variant="outline" type="button">In</button>
+                  </o-button-group>
                 </o-example>
               </o-stack>
             </section>
@@ -534,6 +726,39 @@
                 </o-example>
               </o-stack>
             </section>
+            <section class="specimen" id="input-group">
+              <o-stack>
+                <h2>Input group</h2>
+                <p>
+                  <code>&lt;o-input-group&gt;</code> puts something before or after a field, inside
+                  its frame: a <code>&lt;span&gt;</code> for a unit or a prefix, or a small button.
+                </p>
+                <o-example>
+                  <o-stack>
+                    <o-field>
+                      <label for="input-group-length">Length</label>
+                      <o-input-group>
+                        <input
+                          class="input"
+                          id="input-group-length"
+                          type="number"
+                          inputmode="decimal"
+                        />
+                        <span>meters</span>
+                      </o-input-group>
+                    </o-field>
+                    <o-field>
+                      <label for="input-group-site">Website</label>
+                      <o-input-group>
+                        <span>https://</span>
+                        <input class="input" id="input-group-site" type="text" />
+                        <button class="button" data-size="small" type="button">Check</button>
+                      </o-input-group>
+                    </o-field>
+                  </o-stack>
+                </o-example>
+              </o-stack>
+            </section>
             <section class="specimen" id="choice">
               <o-stack>
                 <h2>Choice and switch</h2>
@@ -555,6 +780,92 @@
                       ><input type="checkbox" role="switch" checked /> Deploy on push</label
                     >
                   </o-stack>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="slider">
+              <o-stack>
+                <h2>Slider</h2>
+                <p>
+                  <code>class="slider"</code> on an <code>&lt;input type="range"&gt;</code>, which
+                  already works with the keyboard and with touch.
+                </p>
+                <o-example>
+                  <o-field>
+                    <label for="slider-draft">Draft, in meters</label>
+                    <input
+                      class="slider"
+                      id="slider-draft"
+                      type="range"
+                      min="0"
+                      max="5"
+                      step="0.1"
+                      value="1.8"
+                    />
+                  </o-field>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="toggle">
+              <o-stack>
+                <h2>Toggle</h2>
+                <p>
+                  A toggle is a button that stays pressed. It is a checkbox underneath, so it needs
+                  no script and sends its value with a form: <code>class="toggle"</code> on the
+                  <code>&lt;label&gt;</code> around the <code>&lt;input&gt;</code>.
+                  <code>&lt;o-toggle-group&gt;</code> sets several side by side in one frame; with
+                  radio buttons of one name inside, only one can be pressed at a time.
+                </p>
+                <o-example>
+                  <o-row gap="6">
+                    <label class="toggle"><input type="checkbox" checked /> Shore power</label>
+                    <o-toggle-group role="group" aria-label="View">
+                      <label class="toggle"
+                        ><input type="radio" name="toggle-view" checked /> List</label
+                      >
+                      <label class="toggle"><input type="radio" name="toggle-view" /> Map</label>
+                      <label class="toggle"><input type="radio" name="toggle-view" /> Tides</label>
+                    </o-toggle-group>
+                  </o-row>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="breadcrumb">
+              <o-stack>
+                <h2>Breadcrumb</h2>
+                <p>
+                  <code>class="breadcrumb"</code> on the <code>&lt;nav&gt;</code> around an ordered
+                  list of links: where this page sits, from the top down. The last item is the page
+                  itself, and is not a link.
+                </p>
+                <o-example>
+                  <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/ui/">Components</a></li>
+                      <li aria-current="page">Breadcrumb</li>
+                    </ol>
+                  </nav>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="pagination">
+              <o-stack>
+                <h2>Pagination</h2>
+                <p>
+                  <code>class="pagination"</code> on the <code>&lt;nav&gt;</code> around a list of
+                  page links. The page being shown has <code>aria-current="page"</code>.
+                </p>
+                <o-example>
+                  <nav class="pagination" aria-label="Pages">
+                    <ul>
+                      <li><a href="#pagination">Previous</a></li>
+                      <li><a href="#pagination">1</a></li>
+                      <li><a href="#pagination" aria-current="page">2</a></li>
+                      <li><a href="#pagination">3</a></li>
+                      <li><a href="#pagination">Next</a></li>
+                    </ul>
+                  </nav>
                 </o-example>
               </o-stack>
             </section>
@@ -616,7 +927,8 @@
                 <p>
                   A class on <code>&lt;dialog&gt;</code>, which already traps focus, closes on
                   Escape, and dims the page. The buttons open and close it by naming it, so there is
-                  no script to write.
+                  no script to write. With <code>data-side</code> it is a drawer that slides in from
+                  an edge.
                 </p>
                 <o-example>
                   <button
@@ -658,6 +970,120 @@
                     </footer>
                   </dialog>
                 </o-example>
+                <o-example>
+                  <button
+                    class="button"
+                    data-variant="outline"
+                    type="button"
+                    commandfor="dialog-drawer"
+                    command="show-modal"
+                  >
+                    Open the drawer
+                  </button>
+
+                  <dialog
+                    class="dialog"
+                    id="dialog-drawer"
+                    data-side="right"
+                    aria-labelledby="dialog-drawer-title"
+                    closedby="any"
+                  >
+                    <h2 id="dialog-drawer-title">Berth 12</h2>
+                    <p>East quay, deep water. Shore power and fresh water at the berth.</p>
+                    <footer>
+                      <button
+                        class="button"
+                        type="button"
+                        commandfor="dialog-drawer"
+                        command="close"
+                      >
+                        Done
+                      </button>
+                    </footer>
+                  </dialog>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="popover">
+              <o-stack>
+                <h2>Popover</h2>
+                <p>
+                  <code>class="popover"</code> on any element with the
+                  <code>popover</code> attribute. The browser opens it from the button that names it
+                  with <code>popovertarget</code>, closes it on Escape or a click elsewhere, and
+                  keeps it above everything. There is no script to write.
+                </p>
+                <o-example>
+                  <button
+                    class="button"
+                    data-variant="outline"
+                    type="button"
+                    popovertarget="popover-hours"
+                  >
+                    Office hours
+                  </button>
+
+                  <div class="popover" id="popover-hours" popover>
+                    <strong>Office hours</strong>
+                    <p>Eight to five, every day but Sunday.</p>
+                  </div>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="menu">
+              <o-stack>
+                <h2>Menu</h2>
+                <p>
+                  <code>&lt;o-menu&gt;</code> is a button and the short list of actions it opens.
+                  The list is a popover of plain <code>&lt;button&gt;</code> and
+                  <code>&lt;a&gt;</code> elements, with <code>&lt;hr&gt;</code> between groups. The
+                  arrow keys move between items, and choosing one closes the list. Without the
+                  script, Tab still reaches every item.
+                </p>
+                <o-example>
+                  <o-menu>
+                    <button
+                      class="button"
+                      data-variant="outline"
+                      type="button"
+                      popovertarget="menu-berth"
+                    >
+                      Berth 12
+                    </button>
+                    <div class="popover" id="menu-berth" popover>
+                      <button type="button">Rename</button>
+                      <a href="#menu">Open</a>
+                      <hr />
+                      <button type="button" disabled>Release</button>
+                    </div>
+                  </o-menu>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="tooltip">
+              <o-stack>
+                <h2>Tooltip</h2>
+                <p>
+                  <code>&lt;o-tooltip&gt;</code> shows a few words about a control when the pointer
+                  is over it or the keyboard is on it. Inside go the control and a
+                  <code>&lt;span role="tooltip"&gt;</code>, tied together with
+                  <code>aria-describedby</code>.
+                </p>
+                <o-example>
+                  <o-tooltip>
+                    <button
+                      class="button"
+                      data-variant="outline"
+                      type="button"
+                      aria-describedby="tooltip-release"
+                    >
+                      Release
+                    </button>
+                    <span role="tooltip" id="tooltip-release"
+                      >Frees the berth for the next boat</span
+                    >
+                  </o-tooltip>
+                </o-example>
               </o-stack>
             </section>
             <section class="specimen" id="copy">
@@ -687,6 +1113,26 @@
                       Switch theme
                     </button>
                   </o-theme>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="toast">
+              <o-stack>
+                <h2>Toast</h2>
+                <p>
+                  <code>&lt;o-toast&gt;</code> is where brief messages appear, in a corner, and go
+                  away again. A button with <code>data-toast</code> shows its message when pressed,
+                  with no script of your own.
+                </p>
+                <o-example>
+                  <button
+                    class="button"
+                    data-variant="outline"
+                    type="button"
+                    data-toast="Berth 12 is yours until Friday"
+                  >
+                    Book the berth
+                  </button>
                 </o-example>
               </o-stack>
             </section>
