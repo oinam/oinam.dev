@@ -14,6 +14,20 @@ The numbers mean what they say:
 - The first number changes when a page that worked may stop working: a class, an element, an
   attribute, or a token was renamed or removed. Before 1.0.0, the middle number does this job too.
 
+## 0.3.0
+
+2026-11-21
+
+- `tokens.json`: the tokens in the Design Tokens format (2025.10), for tools that cannot read CSS.
+  It holds the same values as `tokens.css`, which is still what a page uses.
+- `why.md`: what each rule of the system protects, what it costs, and when to think again.
+- The Oinam mark on the site is redrawn from its geometry.
+
+### What to do
+
+Nothing. Both files are additions, and no page needs to change. If the project has a variation,
+`tokens.json` still describes Base, not the variation.
+
 ## 0.2.0
 
 2026-11-21

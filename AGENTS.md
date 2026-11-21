@@ -107,7 +107,9 @@ components; read this to change them.
   `popover`, `<dialog>`, `<details>`, and form controls are used before any script is written. One that needs behavior wraps
   ordinary HTML in the light DOM, with no shadow DOM, so the page reads correctly before the script
   runs and where it never does.
-- **Tokens only.** Every color, size, and shape is a custom property from `tokens.css`. Two colors
+- **Tokens only.** Every color, size, and shape is a custom property from `tokens.css`, and is
+  written a second time in `tokens.json`, in the Design Tokens format; a test holds the two
+  together, so change both. Two colors
   do all the work, and no component adds a hue.
 - **Base, and variations of it.** The values in `tokens.css` are Base, the default design. A
   variation is a new look made by changing tokens and nothing else, kept in a stylesheet of its
@@ -121,6 +123,9 @@ components; read this to change them.
 - **Made to be taken.** A project does not link to oinam.dev; it takes a copy with
   `public/ui/install.sh` and owns it. So nothing in a stylesheet or a script may name another
   site, and the installer takes exactly the files `registry.json` names.
+
+The reasons behind these rules are in `public/ui/why.md`. A change to a rule changes that page
+too. What is still missing for agents is listed in `docs/ai-native.md`.
 
 A new component is added in each of these places, and the tests fail until it is:
 

@@ -225,6 +225,16 @@
     "text": "The whole system as one page of plain text, for AI agents."
   },
   {
+    "title": "Why",
+    "url": "/ui/why.md",
+    "text": "What each rule of the system protects, what it costs, and when it may be bent."
+  },
+  {
+    "title": "Tokens as data",
+    "url": "/ui/tokens.json",
+    "text": "The tokens in the Design Tokens format, for tools that cannot read CSS."
+  },
+  {
     "title": "Play",
     "url": "/play/",
     "text": "Change the fonts, corners, and colors, watch every component follow, and take the variation away."

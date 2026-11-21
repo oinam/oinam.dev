@@ -87,7 +87,7 @@ test.afterEach(() => {
   rmSync(project, { recursive: true, force: true });
 });
 
-test("it takes every stylesheet and script of the system, and the guide", async () => {
+test("it takes every stylesheet and script of the system, with its documents and data", async () => {
   await install();
 
   const taken = tree(join(project, "ui"));
@@ -97,8 +97,9 @@ test("it takes every stylesheet and script of the system, and the guide", async 
     system.filter((name) => !taken.includes(name)),
     [],
   );
-  assert.ok(taken.includes("guide.md"));
-  assert.ok(taken.includes("registry.json"));
+  for (const name of ["guide.md", "why.md", "CHANGELOG.md", "tokens.json", "registry.json"]) {
+    assert.ok(taken.includes(name), name);
+  }
 });
 
 test("it leaves the site's own page behind", async () => {

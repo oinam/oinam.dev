@@ -166,3 +166,21 @@ test("the guide says how to make a first draft that does not look generated", ()
     assert.ok(guide.includes(`${heading}\n`), heading);
   }
 });
+
+test("the documents and data the registry names exist, so the installer can take them", () => {
+  for (const name of [...registry.docs, ...registry.data]) {
+    assert.ok(read(name).length > 0, name);
+  }
+});
+
+test("why.md gives every decision the same four parts", () => {
+  const entries = read("why.md").split(/^## /m).slice(1);
+
+  assert.ok(entries.length > 0);
+  for (const entry of entries) {
+    const [title] = entry.split("\n");
+    for (const part of ["**Decision.**", "**Why.**", "**What it costs.**", "**Revisit"]) {
+      assert.ok(entry.includes(part), `"${title}" has no ${part}`);
+    }
+  }
+});

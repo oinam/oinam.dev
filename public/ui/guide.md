@@ -1,4 +1,4 @@
-# Oinam UI v0.2.0
+# Oinam UI v0.3.0
 
 A design system in plain HTML, CSS, and JavaScript. No framework, no build step, and no
 dependencies. This page is the whole of it, written for an AI agent to read once and then design
@@ -10,6 +10,7 @@ for.
 
 - Live examples, for people: https://oinam.dev/ui/
 - The same as data: https://oinam.dev/ui/registry.json
+- Why each rule is the way it is: https://oinam.dev/ui/why.md
 - What changed in each version: https://oinam.dev/ui/CHANGELOG.md
 - Source: https://github.com/oinam/oinam.dev/tree/main/public/ui
 
@@ -108,6 +109,9 @@ Write plain, semantic HTML inside all of them: headings, paragraphs, lists, link
 elements are already styled.
 
 ## Rules for designing with it
+
+What each rule protects, and when it may be bent, is in `why.md`. Read that before you break one,
+or when the owner asks you to.
 
 - **Two colors only.** Ink is nearly black; cloud is nearly white. Everything else is ink mixed
   into cloud. Do not add a hue. Show emphasis with weight, size, a border, or by swapping ink and
@@ -224,7 +228,8 @@ Then tell the owner what you were unsure of. Do not hide it.
 
 ## Tokens
 
-All of them are custom properties on `:root`, defined in `tokens.css`.
+All of them are custom properties on `:root`, defined in `tokens.css`. The same values are in
+`tokens.json`, in the Design Tokens format, for a tool that cannot read CSS; a page uses the CSS.
 
 | Token                           | Value                                   | Use                                            |
 | ------------------------------- | --------------------------------------- | ---------------------------------------------- |
