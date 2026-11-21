@@ -23,6 +23,8 @@ Tools and documents for agents. Nothing in the components changed.
 - `contract.json`: what each element and class accepts, as data: its attributes, their values, what
   it must contain, and where it may not go.
 - `tools/lint.js`: a linter for pages built with the system. An agent runs it on what it wrote.
+- `tools/see.js`: pictures of a page at three widths, in light and in dark, from a browser already
+  on the machine.
 
 ### What to do
 

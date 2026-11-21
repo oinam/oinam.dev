@@ -126,7 +126,7 @@ components; read this to change them.
 
 `public/ui/tools/` holds what a project runs with Node, and may use what Node itself provides but
 nothing that has to be installed. `tools/lint.js` checks a page against the rules a program can
-check; this site must pass it, and a rule added to the guide that can be checked is added there.
+check, and `tools/see.js` takes pictures of one at three widths in light and dark; this site must pass it, and a rule added to the guide that can be checked is added there.
 
 The reasons behind these rules are in `public/ui/why.md`. A change to a rule changes that page
 too. What is still missing for agents is listed in `docs/ai-native.md`.

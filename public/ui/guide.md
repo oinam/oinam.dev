@@ -215,6 +215,25 @@ If a rule is wrong for one line, set it aside there and say why. The reason is r
 A clean result means the page is well formed, not that it looks right. The linter never runs the
 page. Look at it too.
 
+### See it
+
+`see.js` opens the page in a browser already on the machine and saves a picture of the whole page at
+320, 768, and 1440 wide, in light and in dark. It needs Node 22 and Chrome, Chromium, Edge, or
+Brave, and installs nothing.
+
+```sh
+node ui/tools/see.js http://localhost:8788/pricing/
+node ui/tools/see.js --root site pricing/index.html
+```
+
+Give it an address, or a file with `--root`, which serves that folder for as long as the pictures
+take. The pictures go in `seen/`; `--out`, `--widths`, and `--themes` change that. It also reports
+what a picture can hide: a page that runs off the side at some width, and any error the page threw,
+and it exits with 1 if it found one.
+
+Then open the pictures and read them the way the owner will. Ask the questions under "Before you
+hand it back, look at it". Do not commit the `seen/` folder.
+
 ## A complete page
 
 ```html

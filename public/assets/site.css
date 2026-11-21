@@ -252,7 +252,8 @@ o-theme:not(:defined) {
 /* On the narrowest phones, only the components keep their link. The rest are in the footer. */
 
 @media (width < 24rem) {
-  .site-nav a:not([href="/ui/"]) {
+  .site-nav a:not([href="/ui/"]),
+  .brand-version {
     display: none;
   }
 }
@@ -403,6 +404,24 @@ o-theme:not(:defined) {
   font-family: var(--font-mono);
   font-weight: 400;
   white-space: nowrap;
+}
+
+/* On a phone, each row becomes a pair of lines: where, then what. */
+
+@media (width < 40rem) {
+  .ledger thead {
+    display: none;
+  }
+
+  .ledger tr {
+    display: grid;
+    gap: var(--space-1);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .ledger :is(th, td) {
+    padding: 0;
+  }
 }
 
 @keyframes rise {

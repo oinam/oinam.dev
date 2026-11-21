@@ -105,6 +105,7 @@ test("it takes every stylesheet and script of the system, with its documents and
     "contract.json",
     "registry.json",
     "tools/lint.js",
+    "tools/see.js",
   ]) {
     assert.ok(taken.includes(name), name);
   }
@@ -136,7 +137,11 @@ test("nothing it installs points back at oinam.dev to load anything", async () =
   await install();
 
   const folder = join(project, "ui");
-  for (const name of tree(folder).filter((name) => /\.(css|js)$/.test(name))) {
+  // The tools run in Node, on the project's machine. A page never loads them.
+  const loaded = tree(folder).filter(
+    (name) => /\.(css|js)$/.test(name) && !name.startsWith("tools/"),
+  );
+  for (const name of loaded) {
     const code = readFileSync(join(folder, name), "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
     assert.doesNotMatch(code, /https?:\/\//, `${name} names another site outside a comment`);
   }
