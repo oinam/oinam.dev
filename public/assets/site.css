@@ -180,6 +180,9 @@ kbd {
 }
 
 .brand {
+  display: inline-flex;
+  gap: 0.625rem;
+  align-items: center;
   justify-self: start;
   font-size: 1.125rem;
   font-weight: 650;
@@ -187,7 +190,14 @@ kbd {
   text-decoration: none;
 }
 
-.brand span {
+.brand-mark {
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 4px;
+}
+
+.brand-tld {
   color: var(--ink-faint);
 }
 
