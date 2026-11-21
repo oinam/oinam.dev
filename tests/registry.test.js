@@ -6,7 +6,7 @@
  */
 
 import assert from "node:assert/strict";
-import { readdirSync, readFileSync } from "node:fs";
+import { globSync, readdirSync, readFileSync } from "node:fs";
 import { test } from "node:test";
 
 const UI = new URL("../public/ui/", import.meta.url);
@@ -108,6 +108,14 @@ test("every place that names the version names the same one", () => {
   assert.ok(guide.startsWith(`# Oinam UI v${version}\n`), "the title of guide.md");
   assert.ok(page.includes(`<span class="version">v${version}</span>`), "the components page");
   assert.ok(read("ui.css").startsWith(`/*\n * Oinam UI v${version}\n`), "the header of ui.css");
+  for (const path of globSync("**/*.html", { cwd: new URL("../", UI) })) {
+    const html = readFileSync(new URL(`../${path}`, UI), "utf8");
+    assert.match(
+      html,
+      new RegExp(`class="brand-version"[^>]*>v${version}<`),
+      `the header of ${path}`,
+    );
+  }
   assert.match(read("CHANGELOG.md"), new RegExp(`^## ${version.replaceAll(".", "\\.")}$`, "m"));
 });
 

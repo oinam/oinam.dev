@@ -57,6 +57,26 @@ main {
   height: var(--header);
 }
 
+.brand-group {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  justify-self: start;
+}
+
+/* The version of the components, so a visitor can tell how far this has moved from their copy. */
+
+.brand-version {
+  color: var(--color-ink-faint);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-decoration: none;
+}
+
+.brand-version:hover {
+  color: var(--color-ink);
+}
+
 .brand {
   display: inline-flex;
   gap: 0.625rem;

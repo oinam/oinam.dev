@@ -127,6 +127,7 @@ A new version is named in each of these places, and the tests fail until they ag
 
 - `version` in `public/ui/registry.json` and in `package.json`
 - the title of `public/ui/guide.md` and of the components page, and the header of `ui.css`
+- beside the site title, in the header of every page
 - a new entry at the top of `public/ui/CHANGELOG.md`
 
 Projects take a copy of the components and upgrade it later, with an agent reading the changelog to
