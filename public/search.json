@@ -231,32 +231,32 @@
   },
   {
     "title": "Pattern: a form",
-    "url": "/ui/patterns/form.html",
+    "url": "/ui/patterns/form",
     "text": "One narrow column, fields grouped under names, help under each field, and one button that says what it does."
   },
   {
     "title": "Pattern: a table view",
-    "url": "/ui/patterns/table.html",
+    "url": "/ui/patterns/table",
     "text": "Many like things as a table, with one main action, a filter, a status, and each row's actions in a menu."
   },
   {
     "title": "Pattern: settings",
-    "url": "/ui/patterns/settings.html",
+    "url": "/ui/patterns/settings",
     "text": "Rows with a name on one side and a control on the other, and a dangerous action that asks first."
   },
   {
     "title": "Pattern: a list, empty and full",
-    "url": "/ui/patterns/list.html",
+    "url": "/ui/patterns/list",
     "text": "The same list with boats expected, with none, and while it loads."
   },
   {
     "title": "Pattern: an article",
-    "url": "/ui/patterns/article.html",
+    "url": "/ui/patterns/article",
     "text": "Writing in one column: a date, a title, a lede, plain prose, a table, and one thing not to miss."
   },
   {
     "title": "Pattern: a dashboard",
-    "url": "/ui/patterns/dashboard.html",
+    "url": "/ui/patterns/dashboard",
     "text": "A sentence that says what matters now, what needs a decision, and the figures beside it. No charts."
   },
   {

@@ -29,10 +29,12 @@ test("every pattern in the folder is in the registry, and the other way round", 
 });
 
 test("every pattern is in the guide's table and on the patterns page", () => {
+  // The site links to a pattern without ".html", which is where the host serves it.
+  // The guide names the file, which is what a project's own copy has.
   for (const { name, title, file, shows } of pages) {
     assert.ok(guide.includes(`| \`${file}\` | ${title} |`), `guide.md does not list ${file}`);
     assert.ok(
-      index.includes(`href="/ui/patterns/${name}.html">${title}</a>`),
+      index.includes(`href="/ui/patterns/${name}">${title}</a>`),
       `${name} is not on the page`,
     );
     assert.ok(index.includes(shows), `${name}: the page does not say what it shows`);

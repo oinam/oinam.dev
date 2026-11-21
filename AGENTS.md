@@ -133,7 +133,8 @@ Protocol; this site must pass it, and a rule added to the guide that can be chec
 `public/ui/patterns/` holds whole pages built from the components, for an agent to follow when
 composing one. Each is a page by itself, opens with a comment that says why it is laid out as it
 is, uses only the system and `patterns.css`, and must pass the linter. A new one is added to
-`registry.json`, the guide's table, and the patterns page.
+`registry.json`, the guide's table, and the patterns page. The site links to a pattern without
+`.html`, because Cloudflare Pages serves it there and redirects the longer address.
 
 The reasons behind these rules are in `public/ui/why.md`. A change to a rule changes that page
 too. What is still missing for agents is listed in `docs/ai-native.md`.
