@@ -66,10 +66,57 @@ test("a component is marked as needing script exactly when it lists one", () => 
   }
 });
 
-test("every component is in the guide, under its own heading", () => {
-  for (const { title, script } of registry.components) {
-    const heading = `### ${title}${script ? " (needs script)" : ""}\n`;
-    assert.ok(guide.includes(heading), `guide.md has no "${heading.trim()}"`);
+test("every component has a page of its own, and the guide's table points at it", () => {
+  // The formatter pads the columns of a table, so compare with the padding taken out.
+  const table = guide.replace(/ +\|/g, " |").replace(/\| +/g, "| ");
+
+  for (const { name, title, description, doc } of registry.components) {
+    assert.equal(doc, `components/${name}.md`);
+    assert.ok(
+      read(doc).startsWith(`# ${title}\n\n${description}\n`),
+      `${doc} does not open as the registry says`,
+    );
+    assert.ok(
+      table.includes(`| ${title} |`) && table.includes(`| \`${doc}\` |`),
+      `guide.md does not list ${name}`,
+    );
+  }
+});
+
+test("every page in the components folder belongs to a component", () => {
+  const folder = readdirSync(new URL("components/", UI)).map((file) => `components/${file}`);
+  assert.deepEqual(
+    folder.toSorted(),
+    registry.components.map((component) => component.doc).toSorted(),
+  );
+});
+
+test("a component's page says so when it needs its script", () => {
+  for (const { doc, script } of registry.components) {
+    assert.equal(read(doc).includes("It needs its script"), script, doc);
+  }
+});
+
+test("a component's page shows every attribute and value the contract gives it", () => {
+  const contract = JSON.parse(read("contract.json"));
+  const entries = [...Object.entries(contract.elements), ...Object.entries(contract.classes)];
+
+  for (const [subject, { component, attributes }] of entries) {
+    const page = read(`components/${component}.md`);
+    for (const [attribute, values] of Object.entries(attributes)) {
+      assert.ok(
+        page.includes(attribute),
+        `${component}.md never mentions ${attribute} of ${subject}`,
+      );
+      for (const value of Array.isArray(values) ? values : []) {
+        // "false" is the absence of the thing, which a page need not spell out.
+        if (value === "false") continue;
+        assert.ok(
+          new RegExp(`[\`"]${value.replace("/", "\\/")}[\`"]`).test(page),
+          `${component}.md never shows ${attribute}="${value}"`,
+        );
+      }
+    }
   }
 });
 
@@ -80,16 +127,17 @@ test("every component is on the components page, with a link in its contents", (
   }
 });
 
-test("the guide names every custom element the stylesheets define", () => {
+test("every custom element the stylesheets define is shown on a component's page", () => {
   const css = files
     .filter((name) => name.endsWith(".css"))
     .map(read)
     .join("\n");
-  const elements = new Set(css.match(/\bo-[a-z]+\b/g));
+  const elements = new Set(css.match(/\bo-[a-z]+(?:-[a-z]+)*\b/g));
+  const pages = registry.components.map((component) => read(component.doc)).join("\n");
 
   assert.ok(elements.size > 0);
   for (const element of elements) {
-    assert.ok(guide.includes(`<${element}`), `guide.md never shows <${element}>`);
+    assert.ok(pages.includes(`<${element}`), `no component's page shows <${element}>`);
   }
 });
 

@@ -26,6 +26,8 @@ Tools and documents for agents. Nothing in the components changed.
 - `patterns/`: six whole pages built from the components, each with a note on why it is laid out
   as it is: a form, a table view, settings, a list empty and full, an article, and a dashboard.
 - `<o-table>` keeps anything placed absolutely inside it within its own scrolling.
+- The guide is half as long. It keeps the rules and a table of the components, and each component
+  now has a page of its own in `components/`, read when it is used.
 - `tools/see.js`: pictures of a page at three widths, in light and in dark, from a browser already
   on the machine.
 

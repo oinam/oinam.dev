@@ -159,18 +159,22 @@ is not enough of it.
 **Revisit when** a label carries real information: a date, a status, a category the reader filters
 by.
 
-## One page of plain text for agents
+## A short guide in plain text, and a page for each component
 
-**Decision.** The whole system is described in `guide.md`, which an agent reads once. An owner
-hands an agent one address, the front page, and the front page sends it on.
+**Decision.** `guide.md` is the core: how to take the system, the rules, the judgment, and the list
+of components. Each component has a page of its own, read when it is used. An owner hands an agent
+one address, the front page, and the front page sends it on.
 
-**Why.** An agent follows what it has read, and it reads plain text best. One address is one thing
-for a person to remember and one thing that cannot go out of date in a hundred prompts.
+**Why.** An agent follows what it has read, and it reads plain text best. The rules are read every
+time, so they are kept short; a component's markup is needed only when that component is. One
+address is one thing for a person to remember, and one thing that cannot go out of date in a
+hundred prompts.
 
-**What it costs.** The guide grows with every component, and all of it is read every time.
+**What it costs.** An agent has to fetch a second page before it uses a component, and one that
+does not will guess. The linter is there to catch the guess.
 
-**Revisit when** the guide is long enough that agents skim it. Then split it into a short core and
-a file per component, fetched as needed.
+**Revisit when** the evals show agents guessing at markup they did not read. Then put the most used
+components back in the core.
 
 ## Tests in place of trust
 

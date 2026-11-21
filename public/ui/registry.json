@@ -102,7 +102,8 @@
       "use": "<o-wrap>",
       "files": ["layout.css"],
       "script": false,
-      "description": "Centers the page content and keeps it off the edges."
+      "description": "Centers the page content and keeps it off the edges.",
+      "doc": "components/wrap.md"
     },
     {
       "name": "stack",
@@ -110,7 +111,8 @@
       "use": "<o-stack>",
       "files": ["layout.css"],
       "script": false,
-      "description": "A column. Children sit one under the other, a gap apart."
+      "description": "A column. Children sit one under the other, a gap apart.",
+      "doc": "components/stack.md"
     },
     {
       "name": "row",
@@ -118,7 +120,8 @@
       "use": "<o-row>",
       "files": ["layout.css"],
       "script": false,
-      "description": "A row that wraps. Children sit side by side, a gap apart."
+      "description": "A row that wraps. Children sit side by side, a gap apart.",
+      "doc": "components/row.md"
     },
     {
       "name": "grid",
@@ -126,7 +129,8 @@
       "use": "<o-grid>",
       "files": ["layout.css"],
       "script": false,
-      "description": "Equal columns, as many as fit, with no breakpoints."
+      "description": "Equal columns, as many as fit, with no breakpoints.",
+      "doc": "components/grid.md"
     },
     {
       "name": "text",
@@ -134,7 +138,8 @@
       "use": ".eyebrow, .lede",
       "files": ["text.css"],
       "script": false,
-      "description": "A small label above a heading, and an opening paragraph a size up."
+      "description": "A small label above a heading, and an opening paragraph a size up.",
+      "doc": "components/text.md"
     },
     {
       "name": "prose",
@@ -142,7 +147,8 @@
       "use": "<o-prose>",
       "files": ["text.css"],
       "script": false,
-      "description": "A run of writing. Plain headings, paragraphs, and lists get their rhythm."
+      "description": "A run of writing. Plain headings, paragraphs, and lists get their rhythm.",
+      "doc": "components/prose.md"
     },
     {
       "name": "card",
@@ -150,7 +156,8 @@
       "use": "<o-card>",
       "files": ["card.css"],
       "script": false,
-      "description": "Groups related things on a raised surface."
+      "description": "Groups related things on a raised surface.",
+      "doc": "components/card.md"
     },
     {
       "name": "badge",
@@ -158,7 +165,8 @@
       "use": "<o-badge>",
       "files": ["badge.css"],
       "script": false,
-      "description": "A small label: a status, a count, a \"new\"."
+      "description": "A small label: a status, a count, a \"new\".",
+      "doc": "components/badge.md"
     },
     {
       "name": "alert",
@@ -166,7 +174,8 @@
       "use": "<o-alert>",
       "files": ["alert.css"],
       "script": false,
-      "description": "Sets a message apart: a note, a warning, or danger."
+      "description": "Sets a message apart: a note, a warning, or danger.",
+      "doc": "components/alert.md"
     },
     {
       "name": "table",
@@ -174,7 +183,8 @@
       "use": "<o-table>",
       "files": ["table.css"],
       "script": false,
-      "description": "Frames a plain table and lets a wide one scroll sideways."
+      "description": "Frames a plain table and lets a wide one scroll sideways.",
+      "doc": "components/table.md"
     },
     {
       "name": "avatar",
@@ -182,7 +192,8 @@
       "use": "<o-avatar>",
       "files": ["avatar.css"],
       "script": false,
-      "description": "A small round picture of someone, or their initials."
+      "description": "A small round picture of someone, or their initials.",
+      "doc": "components/avatar.md"
     },
     {
       "name": "item",
@@ -190,7 +201,8 @@
       "use": "<o-item>",
       "files": ["item.css"],
       "script": false,
-      "description": "One row in a list: something to know it by, a title and a line, and an action."
+      "description": "One row in a list: something to know it by, a title and a line, and an action.",
+      "doc": "components/item.md"
     },
     {
       "name": "empty",
@@ -198,7 +210,8 @@
       "use": "<o-empty>",
       "files": ["empty.css", "button.css"],
       "script": false,
-      "description": "Stands where content will be once there is some."
+      "description": "Stands where content will be once there is some.",
+      "doc": "components/empty.md"
     },
     {
       "name": "skeleton",
@@ -206,7 +219,8 @@
       "use": "<o-skeleton>",
       "files": ["skeleton.css"],
       "script": false,
-      "description": "Holds the place of something that is still loading."
+      "description": "Holds the place of something that is still loading.",
+      "doc": "components/skeleton.md"
     },
     {
       "name": "spinner",
@@ -214,7 +228,8 @@
       "use": "<o-spinner>",
       "files": ["spinner.css"],
       "script": false,
-      "description": "Says that something is under way."
+      "description": "Says that something is under way.",
+      "doc": "components/spinner.md"
     },
     {
       "name": "progress",
@@ -222,7 +237,8 @@
       "use": ".progress",
       "files": ["progress.css"],
       "script": false,
-      "description": "How far along something is, on a <progress>."
+      "description": "How far along something is, on a <progress>.",
+      "doc": "components/progress.md"
     },
     {
       "name": "ratio",
@@ -230,7 +246,8 @@
       "use": "<o-ratio>",
       "files": ["ratio.css"],
       "script": false,
-      "description": "Keeps a picture, a video, or a frame to a fixed shape."
+      "description": "Keeps a picture, a video, or a frame to a fixed shape.",
+      "doc": "components/ratio.md"
     },
     {
       "name": "scroll",
@@ -238,7 +255,8 @@
       "use": "<o-scroll>",
       "files": ["scroll.css"],
       "script": false,
-      "description": "A frame for something too long to show at once."
+      "description": "A frame for something too long to show at once.",
+      "doc": "components/scroll.md"
     },
     {
       "name": "button",
@@ -246,7 +264,8 @@
       "use": ".button",
       "files": ["button.css"],
       "script": false,
-      "description": "A button, on a <button> or an <a>."
+      "description": "A button, on a <button> or an <a>.",
+      "doc": "components/button.md"
     },
     {
       "name": "button-group",
@@ -254,7 +273,8 @@
       "use": "<o-button-group>",
       "files": ["button-group.css", "button.css"],
       "script": false,
-      "description": "Joins buttons that belong together into one piece."
+      "description": "Joins buttons that belong together into one piece.",
+      "doc": "components/button-group.md"
     },
     {
       "name": "field",
@@ -262,7 +282,8 @@
       "use": "<o-field>, .input",
       "files": ["form.css"],
       "script": false,
-      "description": "A label, its control, and a line of help, kept together."
+      "description": "A label, its control, and a line of help, kept together.",
+      "doc": "components/field.md"
     },
     {
       "name": "input-group",
@@ -270,7 +291,8 @@
       "use": "<o-input-group>",
       "files": ["input-group.css", "form.css", "button.css"],
       "script": false,
-      "description": "Puts a unit, a prefix, or a button inside the frame of a field."
+      "description": "Puts a unit, a prefix, or a button inside the frame of a field.",
+      "doc": "components/input-group.md"
     },
     {
       "name": "choice",
@@ -278,7 +300,8 @@
       "use": ".choice, input[role=\"switch\"]",
       "files": ["form.css"],
       "script": false,
-      "description": "A checkbox, a radio button, or a switch, with its label."
+      "description": "A checkbox, a radio button, or a switch, with its label.",
+      "doc": "components/choice.md"
     },
     {
       "name": "slider",
@@ -286,7 +309,8 @@
       "use": ".slider",
       "files": ["slider.css"],
       "script": false,
-      "description": "A value chosen by sliding, on an <input type=\"range\">."
+      "description": "A value chosen by sliding, on an <input type=\"range\">.",
+      "doc": "components/slider.md"
     },
     {
       "name": "toggle",
@@ -294,7 +318,8 @@
       "use": ".toggle, <o-toggle-group>",
       "files": ["toggle.css"],
       "script": false,
-      "description": "A button that stays pressed, alone or in a group."
+      "description": "A button that stays pressed, alone or in a group.",
+      "doc": "components/toggle.md"
     },
     {
       "name": "breadcrumb",
@@ -302,7 +327,8 @@
       "use": ".breadcrumb",
       "files": ["breadcrumb.css"],
       "script": false,
-      "description": "Where this page sits, from the top down."
+      "description": "Where this page sits, from the top down.",
+      "doc": "components/breadcrumb.md"
     },
     {
       "name": "pagination",
@@ -310,7 +336,8 @@
       "use": ".pagination",
       "files": ["pagination.css"],
       "script": false,
-      "description": "Links to the pages of a long list."
+      "description": "Links to the pages of a long list.",
+      "doc": "components/pagination.md"
     },
     {
       "name": "accordion",
@@ -318,7 +345,8 @@
       "use": "<o-accordion>",
       "files": ["accordion.css"],
       "script": false,
-      "description": "A set of <details> that open and close."
+      "description": "A set of <details> that open and close.",
+      "doc": "components/accordion.md"
     },
     {
       "name": "tabs",
@@ -326,7 +354,8 @@
       "use": "<o-tabs>",
       "files": ["tabs.css", "tabs.js"],
       "script": true,
-      "description": "Turns a run of sections into tabs."
+      "description": "Turns a run of sections into tabs.",
+      "doc": "components/tabs.md"
     },
     {
       "name": "dialog",
@@ -334,7 +363,8 @@
       "use": ".dialog",
       "files": ["dialog.css", "button.css"],
       "script": false,
-      "description": "A modal or a drawer, on a <dialog>, opened and closed without script."
+      "description": "A modal or a drawer, on a <dialog>, opened and closed without script.",
+      "doc": "components/dialog.md"
     },
     {
       "name": "popover",
@@ -342,7 +372,8 @@
       "use": ".popover",
       "files": ["popover.css", "button.css"],
       "script": false,
-      "description": "A small panel that opens under the button that names it."
+      "description": "A small panel that opens under the button that names it.",
+      "doc": "components/popover.md"
     },
     {
       "name": "menu",
@@ -350,7 +381,8 @@
       "use": "<o-menu>",
       "files": ["menu.css", "menu.js", "popover.css", "button.css"],
       "script": true,
-      "description": "A button and the short list of actions it opens."
+      "description": "A button and the short list of actions it opens.",
+      "doc": "components/menu.md"
     },
     {
       "name": "tooltip",
@@ -358,7 +390,8 @@
       "use": "<o-tooltip>",
       "files": ["tooltip.css"],
       "script": false,
-      "description": "A few words about a control, on hover or focus."
+      "description": "A few words about a control, on hover or focus.",
+      "doc": "components/tooltip.md"
     },
     {
       "name": "copy",
@@ -366,7 +399,8 @@
       "use": "<o-copy>",
       "files": ["copy.css", "copy.js", "button.css"],
       "script": true,
-      "description": "Adds a copy button to a block of code."
+      "description": "Adds a copy button to a block of code.",
+      "doc": "components/copy.md"
     },
     {
       "name": "theme",
@@ -374,7 +408,8 @@
       "use": "<o-theme>",
       "files": ["theme.js", "theme-init.js"],
       "script": true,
-      "description": "A light and dark toggle that remembers the choice."
+      "description": "A light and dark toggle that remembers the choice.",
+      "doc": "components/theme.md"
     },
     {
       "name": "toast",
@@ -382,7 +417,8 @@
       "use": "<o-toast>",
       "files": ["toast.css", "toast.js", "button.css"],
       "script": true,
-      "description": "Brief messages that appear in a corner and go away again."
+      "description": "Brief messages that appear in a corner and go away again.",
+      "doc": "components/toast.md"
     },
     {
       "name": "example",
@@ -398,7 +434,8 @@
         "button.css"
       ],
       "script": true,
-      "description": "Shows markup at work and prints its source beside it."
+      "description": "Shows markup at work and prints its source beside it.",
+      "doc": "components/example.md"
     }
   ]
 }

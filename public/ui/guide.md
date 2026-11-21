@@ -1,8 +1,9 @@
 # Oinam UI v0.4.0
 
 A design system in plain HTML, CSS, and JavaScript. No framework, no build step, and no
-dependencies. This page is the whole of it, written for an AI agent to read once and then design
-with. It exists so that the first draft of a page does not look like every other page an AI has
+dependencies. This page is the core of it, written for an AI agent to read once and then design
+with: how to take it, the rules, and the list of components. Each component then has a short page
+of its own, read when it is used. It exists so that the first draft of a page does not look like every other page an AI has
 made.
 
 If you were sent to https://oinam.dev/ and told to build with it, this is the page you were sent
@@ -405,593 +406,64 @@ To try these on every component at once, see https://oinam.dev/play/.
 The page follows the system setting. `data-theme="light"` or `data-theme="dark"` on `<html>` forces
 one; `<o-theme>` sets it for you.
 
-## Layout
-
-### Wrap
-
-`<o-wrap>` centers the page content and keeps it off the edges. 1600px wide at most. Add `narrow`
-for a page of reading (56rem).
-
-```html
-<o-wrap narrow>
-  <p>The content of the page.</p>
-</o-wrap>
-```
-
-### Stack
-
-`<o-stack>` is a column. `gap` takes a space step: `1`, `2`, `3`, `4` (default), `6`, `8`, `12`,
-`16`. `align` takes `start` or `center`; without it, children stretch to full width.
-
-```html
-<o-stack gap="2">
-  <h2>Title</h2>
-  <p>Text under it.</p>
-</o-stack>
-```
-
-### Row
-
-`<o-row>` is a row that wraps. `gap` as above (default `3`). `justify` takes `between`, `center`,
-or `end`. `align` takes `start` or `baseline`; the default centers children vertically.
-
-```html
-<o-row justify="between">
-  <strong>Invoice 204</strong>
-  <button class="button" type="button">Pay</button>
-</o-row>
-```
-
-### Grid
-
-`<o-grid>` lays out equal columns, as many as fit, with no breakpoints. `gap` as above (default
-`6`). `min` sets how narrow a column may get: `small` (11rem), the default (16rem), or `large`
-(24rem).
-
-```html
-<o-grid min="large" gap="8">
-  <o-card>One</o-card>
-  <o-card>Two</o-card>
-</o-grid>
-```
-
-## Content
-
-### Text
-
-Headings (`h1` to `h4`) are set in the serif. Paragraphs, links, `<code>`, `<kbd>`, `<pre>`,
-`<hr>`, `<strong>`, and `<small>` are styled as they are.
-
-- `class="eyebrow"`: a small label above a heading, such as a date or a section name.
-- `class="lede"`: the opening paragraph, a size up.
-
-```html
-<p class="eyebrow">Field notes</p>
-<h1>A heading</h1>
-<p class="lede">The opening paragraph.</p>
-```
-
-### Prose
-
-`<o-prose>` is for a run of writing, such as an article. It gives plain headings, paragraphs, and
-lists their spacing, so the HTML inside needs no classes.
-
-```html
-<o-prose>
-  <h1>Standards</h1>
-  <p>A change is not done until every point below holds.</p>
-  <h2>Linted</h2>
-  <ul>
-    <li>Zero warnings.</li>
-  </ul>
-</o-prose>
-```
-
-### Card
-
-`<o-card>` groups related things on a raised surface. A `<footer>` inside holds actions and stays
-at the bottom, so cards in a row line up.
-
-```html
-<o-card>
-  <h3>Standards</h3>
-  <p>The rules every project inherits.</p>
-  <footer><a class="button" data-variant="outline" href="/docs/">Read</a></footer>
-</o-card>
-```
-
-### Badge
-
-`<o-badge>` is a small label. `variant="solid"` fills it.
-
-```html
-<o-badge>Soon</o-badge> <o-badge variant="solid">New</o-badge>
-```
-
-### Alert
-
-`<o-alert>` sets a message apart. `variant` takes `warning` (a heavy frame) or `danger` (ink and
-cloud swapped); without it, the alert is a note. Give it `role="note"`, or `role="alert"` when it appears in answer to something the reader
-just did. Open with a `<strong>` title.
-
-```html
-<o-alert variant="warning" role="note">
-  <strong>Warning</strong>
-  <p>This rewrites history.</p>
-</o-alert>
-```
-
-### Table
-
-`<o-table>` goes around a plain `<table>`. It draws the frame and lets a wide table scroll
-sideways.
-
-```html
-<o-table>
-  <table>
-    <thead>
-      <tr>
-        <th scope="col">Token</th>
-        <th scope="col">Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">--space-4</th>
-        <td>1rem</td>
-      </tr>
-    </tbody>
-  </table>
-</o-table>
-```
-
-### Avatar
-
-`<o-avatar>` is a small round picture of someone, or their initials when there is no picture. `size` takes `small` or `large`.
-
-```html
-<o-avatar><img src="/people/asha.jpg" alt="Asha Rao" /></o-avatar>
-<o-avatar size="large" role="img" aria-label="Asha Rao">AR</o-avatar>
-```
-
-With initials, give it `role="img"` and an `aria-label` with the full name.
-
-### Item
-
-`<o-item>` is one row in a list of things: something to recognize it by, a `<div>` with a title and a line under it, and an action at the end. Rows that follow one another are ruled apart.
-
-```html
-<div>
-  <o-item>
-    <o-avatar role="img" aria-label="Asha Rao">AR</o-avatar>
-    <div>
-      <strong>Asha Rao</strong>
-      <p>Harbor master</p>
-    </div>
-    <button class="button" data-variant="outline" data-size="small" type="button">Call</button>
-  </o-item>
-  <o-item>
-    <o-avatar role="img" aria-label="Tomas Lind">TL</o-avatar>
-    <div>
-      <strong>Tomas Lind</strong>
-      <p>Night watch</p>
-    </div>
-    <button class="button" data-variant="outline" data-size="small" type="button">Call</button>
-  </o-item>
-</div>
-```
-
-### Empty
-
-`<o-empty>` stands where content will be once there is some. Say what is missing, and offer the one thing to do about it.
-
-```html
-<o-empty>
-  <h3>No bookings yet</h3>
-  <p>When a boat books a berth, it shows up here.</p>
-  <button class="button" type="button">Book a berth</button>
-</o-empty>
-```
-
-### Skeleton
-
-`<o-skeleton>` holds the place of something that is still loading. It is a line of text by default; `shape` takes `circle` or `block`.
-
-```html
-<o-stack gap="2" aria-busy="true">
-  <o-skeleton></o-skeleton>
-  <o-skeleton></o-skeleton>
-  <o-skeleton shape="block"></o-skeleton>
-</o-stack>
-```
-
-Put `aria-busy="true"` on the container while it loads, and remove it when the content arrives. Set a width in the page's own styles if a line should be shorter than its container.
-
-### Spinner
-
-`<o-spinner>` says that something is under way. It takes the size of the text around it.
-
-```html
-<o-row>
-  <o-spinner role="status" aria-label="Loading the tide table"></o-spinner>
-  <span>Loading the tide table</span>
-</o-row>
-```
-
-Give it `role="status"` and an `aria-label` that names what is happening. Inside a button, use `aria-busy="true"` on the button instead.
-
-### Progress
-
-`class="progress"` on a `<progress>`, which already knows how far along it is and tells a screen reader so.
-
-```html
-<o-stack gap="2">
-  <label for="progress-upload">Uploading the chart</label>
-  <progress class="progress" id="progress-upload" value="40" max="100">40%</progress>
-</o-stack>
-```
-
-### Ratio
-
-`<o-ratio>` keeps a picture, a video, or a frame to a fixed shape, and crops it to fit. It is 16 by 9 unless `ratio` says `4/3`, `1/1`, or `21/9`.
-
-```html
-<o-ratio ratio="4/3">
-  <img src="/harbor.jpg" alt="The harbor at low water" />
-</o-ratio>
-```
-
-### Scroll
-
-`<o-scroll>` is a frame for something too long to show at once. It scrolls inside, with a thin bar, so the page keeps its length.
-
-```html
-<o-scroll tabindex="0" role="group" aria-label="Arrivals this week">
-  <p>...</p>
-</o-scroll>
-```
-
-Give it `tabindex="0"`, `role="group"`, and an `aria-label`, so the keyboard can reach it and scroll. It is 16rem tall at most; set `--scroll` on it in the page's styles for another height.
-
-## Controls
-
-### Button
-
-`class="button"` on a `<button>` or an `<a>`.
-
-- `data-variant`: `outline` or `ghost`. Without it, the button is solid ink. Use one solid button
-  per group, for the main action.
-- `data-size`: `small`, `large`, or `icon` (a square, for a lone icon; give it an `aria-label`).
-- `disabled`, or `aria-disabled="true"` on a link.
-- `aria-busy="true"` while it works: it shows a spinner and takes no more presses.
-
-```html
-<button class="button" type="button">Save</button>
-<button class="button" data-variant="outline" type="button">Preview</button>
-<button class="button" data-variant="ghost" data-size="small" type="button">Cancel</button>
-<a class="button" data-size="large" href="/docs/">Read the docs</a>
-```
-
-### Field
-
-`<o-field>` keeps a label, its control, and a line of help together. The control takes
-`class="input"`, whether it is an `<input>`, a `<select>`, or a `<textarea>`. Always pair the
-`<label for>` with the control's `id`.
-
-```html
-<o-field>
-  <label for="email">Email</label>
-  <input class="input" id="email" type="email" aria-describedby="email-help" />
-  <small id="email-help">Used for sign-in only.</small>
-</o-field>
-
-<o-field>
-  <label for="role">Role</label>
-  <select class="input" id="role">
-    <option>Reader</option>
-    <option>Editor</option>
-  </select>
-</o-field>
-```
-
-Put several fields in an `<o-stack>`. An invalid field shows a dashed border once the visitor has
-touched it; use the browser's own validation attributes (`required`, `type`, `pattern`). For an
-error found on the server, set `aria-invalid="true"` on the control and say what is wrong in the
-`<small>`.
-
-### Choice and switch
-
-A checkbox or a radio button sits inside a `<label class="choice">`. A switch is a checkbox with
-`role="switch"`.
-
-```html
-<label class="choice"><input type="checkbox" /> Send me the changelog</label>
-<label class="choice"><input type="radio" name="plan" /> Monthly</label>
-<label class="choice"><input type="checkbox" role="switch" /> Deploy on push</label>
-```
-
-### Button group
-
-`<o-button-group>` joins buttons that belong together into one piece. It suits outline buttons best.
-
-```html
-<o-button-group role="group" aria-label="Zoom">
-  <button class="button" data-variant="outline" type="button">Out</button>
-  <button class="button" data-variant="outline" type="button">Reset</button>
-  <button class="button" data-variant="outline" type="button">In</button>
-</o-button-group>
-```
-
-Give it `role="group"` and an `aria-label` that says what the buttons have in common.
-
-### Input group
-
-`<o-input-group>` puts something before or after a field, inside its frame: a `<span>` for a unit or a prefix, or a small button.
-
-```html
-<o-stack>
-  <o-field>
-    <label for="input-group-length">Length</label>
-    <o-input-group>
-      <input class="input" id="input-group-length" type="number" inputmode="decimal" />
-      <span>meters</span>
-    </o-input-group>
-  </o-field>
-  <o-field>
-    <label for="input-group-site">Website</label>
-    <o-input-group>
-      <span>https://</span>
-      <input class="input" id="input-group-site" type="text" />
-      <button class="button" data-size="small" type="button">Check</button>
-    </o-input-group>
-  </o-field>
-</o-stack>
-```
-
-It goes where the `.input` would go, inside an `<o-field>`.
-
-### Slider
-
-`class="slider"` on an `<input type="range">`, which already works with the keyboard and with touch.
-
-```html
-<o-field>
-  <label for="slider-draft">Draft, in meters</label>
-  <input class="slider" id="slider-draft" type="range" min="0" max="5" step="0.1" value="1.8" />
-</o-field>
-```
-
-### Toggle
-
-A toggle is a button that stays pressed. It is a checkbox underneath, so it needs no script and sends its value with a form: `class="toggle"` on the `<label>` around the `<input>`. `<o-toggle-group>` sets several side by side in one frame; with radio buttons of one name inside, only one can be pressed at a time.
-
-```html
-<o-row gap="6">
-  <label class="toggle"><input type="checkbox" checked /> Shore power</label>
-  <o-toggle-group role="group" aria-label="View">
-    <label class="toggle"><input type="radio" name="toggle-view" checked /> List</label>
-    <label class="toggle"><input type="radio" name="toggle-view" /> Map</label>
-    <label class="toggle"><input type="radio" name="toggle-view" /> Tides</label>
-  </o-toggle-group>
-</o-row>
-```
-
-## Navigation
-
-### Breadcrumb
-
-`class="breadcrumb"` on the `<nav>` around an ordered list of links: where this page sits, from the top down. The last item is the page itself, and is not a link.
-
-```html
-<nav class="breadcrumb" aria-label="Breadcrumb">
-  <ol>
-    <li><a href="/">Home</a></li>
-    <li><a href="/ui/">Components</a></li>
-    <li aria-current="page">Breadcrumb</li>
-  </ol>
-</nav>
-```
-
-### Pagination
-
-`class="pagination"` on the `<nav>` around a list of page links. The page being shown has `aria-current="page"`.
-
-```html
-<nav class="pagination" aria-label="Pages">
-  <ul>
-    <li><a href="?page=1">Previous</a></li>
-    <li><a href="?page=1">1</a></li>
-    <li><a href="?page=2" aria-current="page">2</a></li>
-    <li><a href="?page=3">3</a></li>
-    <li><a href="?page=3">Next</a></li>
-  </ul>
-</nav>
-```
-
-## Disclosure
-
-### Accordion
-
-`<o-accordion>` goes around a set of `<details>`. Give them all the same `name` to keep one open at
-a time. Add `open` to the one that starts open.
-
-```html
-<o-accordion>
-  <details name="faq" open>
-    <summary>Is it free?</summary>
-    <p>Yes.</p>
-  </details>
-  <details name="faq">
-    <summary>Do I need a framework?</summary>
-    <p>No.</p>
-  </details>
-</o-accordion>
-```
-
-### Tabs (needs script)
-
-`<o-tabs>` turns a run of `<section>` elements into tabs. Each section opens with a heading, which
-becomes the name of its tab. `label` names the set for screen readers. Without the script, the
-sections follow one another under their headings.
-
-```html
-<o-tabs label="Install">
-  <section>
-    <h3>Link it</h3>
-    <p>Point a stylesheet at oinam.dev.</p>
-  </section>
-  <section>
-    <h3>Copy it</h3>
-    <p>Take the files you need.</p>
-  </section>
-</o-tabs>
-```
-
-It fires `change` when the tab changes; its `selected` property is the index, and `select(index)`
-shows a tab.
-
-### Dialog
-
-`class="dialog"` on a `<dialog>`. Buttons open and close it by naming its `id`, with `commandfor`
-and `command`; there is no script to write. `closedby="any"` lets a click outside close it.
-
-```html
-<button class="button" type="button" commandfor="confirm" command="show-modal">Delete</button>
-
-<dialog class="dialog" id="confirm" aria-labelledby="confirm-title" closedby="any">
-  <h2 id="confirm-title">Delete the file?</h2>
-  <p>This cannot be undone.</p>
-  <footer>
-    <button class="button" data-variant="ghost" type="button" commandfor="confirm" command="close">
-      Cancel
-    </button>
-    <button class="button" type="button">Delete</button>
-  </footer>
-</dialog>
-```
-
-`data-side` takes `right`, `left`, or `bottom`, and makes it a drawer: a panel that slides in from
-that edge, for a form or a set of details beside the page.
-
-```html
-<dialog
-  class="dialog"
-  id="details"
-  data-side="right"
-  aria-labelledby="details-title"
-  closedby="any"
->
-  <h2 id="details-title">Berth 12</h2>
-  <p>East quay, deep water.</p>
-</dialog>
-```
-
-For a question that must be answered, give the dialog `role="alertdialog"` and leave off `closedby`,
-so that only its buttons can close it.
-
-### Popover
-
-`class="popover"` on any element with the `popover` attribute. The browser opens it from the button that names it with `popovertarget`, closes it on Escape or a click elsewhere, and keeps it above everything. There is no script to write.
-
-```html
-<button class="button" data-variant="outline" type="button" popovertarget="popover-hours">
-  Office hours
-</button>
-
-<div class="popover" id="popover-hours" popover>
-  <strong>Office hours</strong>
-  <p>Eight to five, every day but Sunday.</p>
-</div>
-```
-
-It opens under its button, and moves above or to the other side when there is no room. In a browser that cannot place it by its button, it opens in the middle of the page. Use it in place of a card that appears on hover, which touch cannot reach.
-
-### Menu (needs script)
-
-`<o-menu>` is a button and the short list of actions it opens. The list is a popover of plain `<button>` and `<a>` elements, with `<hr>` between groups. The arrow keys move between items, and choosing one closes the list. Without the script, Tab still reaches every item.
-
-```html
-<o-menu>
-  <button class="button" data-variant="outline" type="button" popovertarget="menu-berth">
-    Berth 12
-  </button>
-  <div class="popover" id="menu-berth" popover>
-    <button type="button">Rename</button>
-    <a href="#menu">Open</a>
-    <hr />
-    <button type="button" disabled>Release</button>
-  </div>
-</o-menu>
-```
-
-With the `context` attribute, the list opens where the pointer is on a right click anywhere inside the element, and needs no button: `<o-menu context>` around the region, with the popover inside it.
-
-### Tooltip
-
-`<o-tooltip>` shows a few words about a control when the pointer is over it or the keyboard is on it. Inside go the control and a `<span role="tooltip">`, tied together with `aria-describedby`.
-
-```html
-<o-tooltip>
-  <button class="button" data-variant="outline" type="button" aria-describedby="tooltip-release">
-    Release
-  </button>
-  <span role="tooltip" id="tooltip-release">Frees the berth for the next boat</span>
-</o-tooltip>
-```
-
-Keep it to a hint. Touch cannot reach a tooltip, so anything a person must read or press belongs on the page or in a popover.
-
-## Utilities
-
-### Copy (needs script)
-
-`<o-copy>` goes around a `<pre>` and adds a button that copies its text.
-
-```html
-<o-copy>
-  <pre><code>mise run check</code></pre>
-</o-copy>
-```
-
-### Theme (needs script)
-
-`<o-theme>` goes around a `<button>` and makes it a light and dark toggle. It remembers the choice
-and follows the system until one is made. It keeps the button's `aria-label` current. To hide the
-button until the script is ready, add `o-theme:not(:defined) { visibility: hidden; }` to the page.
-
-```html
-<o-theme>
-  <button class="button" data-variant="ghost" type="button">Switch theme</button>
-</o-theme>
-```
-
-### Example (needs script)
-
-`<o-example>` shows a piece of markup live and prints its source beside it, with a copy button. It
-is for documentation pages.
-
-```html
-<o-example>
-  <button class="button" type="button">Save</button>
-</o-example>
-```
-
-### Toast (needs script)
-
-`<o-toast>` is where brief messages appear, in a corner, and go away again. A button with `data-toast` shows its message when pressed, with no script of your own.
-
-```html
-<button
-  class="button"
-  data-variant="outline"
-  type="button"
-  data-toast="Berth 12 is yours until Friday"
->
-  Book the berth
-</button>
-```
-
-From script: `import { toast } from "/ui/toast.js"`, then `toast("Saved")`. A message stays for six seconds or until dismissed, and is announced to screen readers without taking the focus. A toast is for news that needs no answer; anything a person must act on belongs in the page or in a dialog.
+## Components
+
+Each component has a page of its own, with its markup, its attributes, and what to watch for. Read
+the page of a component before you use it for the first time; do not guess at its markup. The pages
+are in `ui/components/` in the project's copy, and at `https://oinam.dev/ui/components/<name>.md`.
+`contract.json` has the same attributes and values as data.
+
+The four layout elements are in every page, so here they are in brief:
+
+- `<o-wrap>` centers the page and keeps it off the edges. `narrow` is for a page of reading.
+- `<o-stack>` is a column. `gap` takes `1`, `2`, `3`, `4`, `6`, `8`, `12`, or `16`; `align` takes
+  `start` or `center`.
+- `<o-row>` is a row that wraps. `gap` as above; `justify` takes `between`, `center`, or `end`;
+  `align` takes `start` or `baseline`.
+- `<o-grid>` is equal columns, as many as fit. `gap` as above; `min` takes `small` or `large`.
+
+| Component         | Use                             | What it is                                                                     | Its page                     |
+| ----------------- | ------------------------------- | ------------------------------------------------------------------------------ | ---------------------------- |
+| Wrap              | `<o-wrap>`                      | Centers the page content and keeps it off the edges.                           | `components/wrap.md`         |
+| Stack             | `<o-stack>`                     | A column. Children sit one under the other, a gap apart.                       | `components/stack.md`        |
+| Row               | `<o-row>`                       | A row that wraps. Children sit side by side, a gap apart.                      | `components/row.md`          |
+| Grid              | `<o-grid>`                      | Equal columns, as many as fit, with no breakpoints.                            | `components/grid.md`         |
+| Text              | `.eyebrow, .lede`               | A small label above a heading, and an opening paragraph a size up.             | `components/text.md`         |
+| Prose             | `<o-prose>`                     | A run of writing. Plain headings, paragraphs, and lists get their rhythm.      | `components/prose.md`        |
+| Card              | `<o-card>`                      | Groups related things on a raised surface.                                     | `components/card.md`         |
+| Badge             | `<o-badge>`                     | A small label: a status, a count, a "new".                                     | `components/badge.md`        |
+| Alert             | `<o-alert>`                     | Sets a message apart: a note, a warning, or danger.                            | `components/alert.md`        |
+| Table             | `<o-table>`                     | Frames a plain table and lets a wide one scroll sideways.                      | `components/table.md`        |
+| Avatar            | `<o-avatar>`                    | A small round picture of someone, or their initials.                           | `components/avatar.md`       |
+| Item              | `<o-item>`                      | One row in a list: something to know it by, a title and a line, and an action. | `components/item.md`         |
+| Empty             | `<o-empty>`                     | Stands where content will be once there is some.                               | `components/empty.md`        |
+| Skeleton          | `<o-skeleton>`                  | Holds the place of something that is still loading.                            | `components/skeleton.md`     |
+| Spinner           | `<o-spinner>`                   | Says that something is under way.                                              | `components/spinner.md`      |
+| Progress          | `.progress`                     | How far along something is, on a <progress>.                                   | `components/progress.md`     |
+| Ratio             | `<o-ratio>`                     | Keeps a picture, a video, or a frame to a fixed shape.                         | `components/ratio.md`        |
+| Scroll            | `<o-scroll>`                    | A frame for something too long to show at once.                                | `components/scroll.md`       |
+| Button            | `.button`                       | A button, on a <button> or an <a>.                                             | `components/button.md`       |
+| Field             | `<o-field>, .input`             | A label, its control, and a line of help, kept together.                       | `components/field.md`        |
+| Choice and switch | `.choice, input[role="switch"]` | A checkbox, a radio button, or a switch, with its label.                       | `components/choice.md`       |
+| Button group      | `<o-button-group>`              | Joins buttons that belong together into one piece.                             | `components/button-group.md` |
+| Input group       | `<o-input-group>`               | Puts a unit, a prefix, or a button inside the frame of a field.                | `components/input-group.md`  |
+| Slider            | `.slider`                       | A value chosen by sliding, on an <input type="range">.                         | `components/slider.md`       |
+| Toggle            | `.toggle, <o-toggle-group>`     | A button that stays pressed, alone or in a group.                              | `components/toggle.md`       |
+| Breadcrumb        | `.breadcrumb`                   | Where this page sits, from the top down.                                       | `components/breadcrumb.md`   |
+| Pagination        | `.pagination`                   | Links to the pages of a long list.                                             | `components/pagination.md`   |
+| Accordion         | `<o-accordion>`                 | A set of <details> that open and close.                                        | `components/accordion.md`    |
+| Tabs              | `<o-tabs>`                      | Turns a run of sections into tabs.                                             | `components/tabs.md`         |
+| Dialog            | `.dialog`                       | A modal or a drawer, on a <dialog>, opened and closed without script.          | `components/dialog.md`       |
+| Popover           | `.popover`                      | A small panel that opens under the button that names it.                       | `components/popover.md`      |
+| Menu              | `<o-menu>`                      | A button and the short list of actions it opens.                               | `components/menu.md`         |
+| Tooltip           | `<o-tooltip>`                   | A few words about a control, on hover or focus.                                | `components/tooltip.md`      |
+| Copy              | `<o-copy>`                      | Adds a copy button to a block of code.                                         | `components/copy.md`         |
+| Theme             | `<o-theme>`                     | A light and dark toggle that remembers the choice.                             | `components/theme.md`        |
+| Example           | `<o-example>`                   | Shows markup at work and prints its source beside it.                          | `components/example.md`      |
+| Toast             | `<o-toast>`                     | Brief messages that appear in a corner and go away again.                      | `components/toast.md`        |
+
+Marked "needs script" on their pages: Tabs, Menu, Copy, Theme, Toast, and Example. Everything else
+is CSS alone.
 
 ## When something is missing
 

@@ -11,14 +11,15 @@ produces.
       guide drives models. A set of briefs ("a pricing page", "a settings screen"), run through
       several agents, scored by the linter and by a look at the rendered page. It shows which
       rules agents ignore, and whether a change to the guide helps or hurts.
-- [ ] **A shorter guide.** It is one file, read in full every time, and it grows with each
-      component. Split it into a short core (the rules, layout, and the judgment) and a file per
-      component, fetched as needed.
 - [ ] **Delivery where agents already work.** A skill, and perhaps a small MCP server, so an agent
       can ask for one component without fetching a web page.
 
 ## Done
 
+- [x] **A shorter guide.** `guide.md` went from about 1,000 lines to under 500: the rules, the
+      judgment, and a table of components. Each component has its own page in
+      `public/ui/components/`. Whether agents then read those pages is for the evals to say.
+      (0.4.0)
 - [x] **Patterns, not only parts.** `public/ui/patterns/`: six whole pages, each with a note on
       why it is laid out as it is. Six, not the dozen first suggested; add one when a project
       needs a page none of these is near. (0.4.0)
