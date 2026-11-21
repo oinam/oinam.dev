@@ -1,0 +1,115 @@
+/*
+ * Layout
+ *
+ * Four elements cover most pages. Each does one thing, and they nest.
+ *
+ * <o-wrap>   Centers the page content and keeps it off the edges.
+ * <o-stack>  A column. Children sit one under the other, a gap apart.
+ * <o-row>    A row that wraps. Children sit side by side, a gap apart.
+ * <o-grid>   Equal columns, as many as fit. No breakpoints needed.
+ *
+ * gap="1|2|3|4|6|8|12|16" sets the gap on any of them, in space steps.
+ */
+
+o-wrap {
+  display: block;
+  width: 100%;
+  max-width: var(--wrap, 1600px);
+  margin-inline: auto;
+  padding-inline: var(--gutter, clamp(1.25rem, 4vw, 3rem));
+}
+
+/* narrow suits a page of reading; the default suits everything else. */
+
+o-wrap[narrow] {
+  --wrap: 56rem;
+}
+
+o-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap, var(--space-4));
+}
+
+o-stack[align="start"] {
+  align-items: flex-start;
+}
+
+o-stack[align="center"] {
+  align-items: center;
+}
+
+o-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap, var(--space-3));
+  align-items: center;
+}
+
+o-row[align="start"] {
+  align-items: flex-start;
+}
+
+o-row[align="baseline"] {
+  align-items: baseline;
+}
+
+o-row[justify="between"] {
+  justify-content: space-between;
+}
+
+o-row[justify="center"] {
+  justify-content: center;
+}
+
+o-row[justify="end"] {
+  justify-content: flex-end;
+}
+
+/* A column is never narrower than --min, and never wider than the grid. */
+
+o-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--min, 16rem), 100%), 1fr));
+  gap: var(--gap, var(--space-6));
+}
+
+o-grid[min="small"] {
+  --min: 11rem;
+}
+
+o-grid[min="large"] {
+  --min: 24rem;
+}
+
+:is(o-stack, o-row, o-grid)[gap="1"] {
+  --gap: var(--space-1);
+}
+
+:is(o-stack, o-row, o-grid)[gap="2"] {
+  --gap: var(--space-2);
+}
+
+:is(o-stack, o-row, o-grid)[gap="3"] {
+  --gap: var(--space-3);
+}
+
+:is(o-stack, o-row, o-grid)[gap="4"] {
+  --gap: var(--space-4);
+}
+
+:is(o-stack, o-row, o-grid)[gap="6"] {
+  --gap: var(--space-6);
+}
+
+:is(o-stack, o-row, o-grid)[gap="8"] {
+  --gap: var(--space-8);
+}
+
+:is(o-stack, o-row, o-grid)[gap="12"] {
+  --gap: var(--space-12);
+}
+
+:is(o-stack, o-row, o-grid)[gap="16"] {
+  --gap: var(--space-16);
+}

@@ -10,12 +10,17 @@ export default [
     languageOptions: { globals: globals.browser },
   },
   {
-    // The theme script loads as a classic script so it can run before first paint.
-    files: ["public/assets/theme.js"],
+    // A plain script, not a module, so it can run before first paint.
+    files: ["public/ui/theme-init.js"],
     languageOptions: { sourceType: "script" },
   },
   {
-    files: ["tests/**/*.js", "*.config.js"],
+    files: ["*.config.js"],
     languageOptions: { globals: globals.node },
+  },
+  {
+    // The tests run in Node, against a DOM that tests/dom.js puts on the global scope.
+    files: ["tests/**/*.js"],
+    languageOptions: { globals: { ...globals.node, ...globals.browser } },
   },
 ];

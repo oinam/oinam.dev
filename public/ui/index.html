@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>Components - Oinam.DEV</title>
+    <meta
+      name="description"
+      content="Oinam UI: components in plain HTML, CSS, and JavaScript, built on custom elements, with no framework and no build step."
+    />
+    <link rel="canonical" href="https://oinam.dev/ui/" />
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="/ui/guide.md"
+      title="The same, as plain text for agents"
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/ui/ui.css" />
+    <link rel="stylesheet" href="/assets/site.css" />
+    <script src="/ui/theme-init.js"></script>
+    <script type="module" src="/ui/ui.js"></script>
+    <script type="module" src="/assets/site.js"></script>
+  </head>
+
+  <body>
+    <a class="skip button" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <o-wrap>
+        <a class="brand" href="/" aria-label="Oinam.DEV, home">
+          <svg class="brand-mark" viewBox="0 0 600 600" aria-hidden="true">
+            <use href="/assets/logo.svg#mark" />
+          </svg>
+          <span class="brand-name">Oinam<span class="brand-tld">.DEV</span></span>
+        </a>
+
+        <button class="search" type="button" aria-label="Search" data-search-open>
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" />
+          </svg>
+          <span class="search-text">Search</span>
+          <span class="search-keys" aria-hidden="true"
+            ><kbd data-command-key>&#8984;K</kbd><kbd>/</kbd></span
+          >
+        </button>
+
+        <nav class="site-nav" aria-label="Site">
+          <a href="/docs/">Docs</a>
+          <a href="/ui/" aria-current="page">Components</a>
+          <a class="nav-later" href="/play/">Play <o-badge>Soon</o-badge></a>
+          <a href="https://github.com/oinam/oinam.dev" aria-label="GitHub">
+            <svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"
+              />
+            </svg>
+          </a>
+          <o-theme>
+            <button type="button" aria-label="Switch theme">
+              <svg
+                class="icon icon-moon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+              </svg>
+              <svg
+                class="icon icon-sun"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"
+                />
+              </svg>
+            </button>
+          </o-theme>
+        </nav>
+      </o-wrap>
+    </header>
+
+    <main id="main">
+      <o-wrap>
+        <div class="gallery">
+          <nav class="toc" aria-label="Components">
+            <ul>
+              <li class="eyebrow">Start</li>
+              <li><a href="#install">Install</a></li>
+              <li><a href="#tokens">Tokens</a></li>
+              <li class="eyebrow">Layout</li>
+              <li><a href="#stack">Stack</a></li>
+              <li><a href="#row">Row</a></li>
+              <li><a href="#grid">Grid</a></li>
+              <li><a href="#wrap">Wrap</a></li>
+              <li class="eyebrow">Content</li>
+              <li><a href="#text">Text</a></li>
+              <li><a href="#prose">Prose</a></li>
+              <li><a href="#card">Card</a></li>
+              <li><a href="#badge">Badge</a></li>
+              <li><a href="#alert">Alert</a></li>
+              <li><a href="#table">Table</a></li>
+              <li class="eyebrow">Controls</li>
+              <li><a href="#button">Button</a></li>
+              <li><a href="#field">Field</a></li>
+              <li><a href="#choice">Choice and switch</a></li>
+              <li class="eyebrow">Disclosure</li>
+              <li><a href="#accordion">Accordion</a></li>
+              <li><a href="#tabs">Tabs</a></li>
+              <li><a href="#dialog">Dialog</a></li>
+              <li class="eyebrow">Utilities</li>
+              <li><a href="#copy">Copy</a></li>
+              <li><a href="#theme">Theme</a></li>
+              <li><a href="#example">Example</a></li>
+            </ul>
+          </nav>
+
+          <div class="page">
+            <o-stack gap="4">
+              <p class="eyebrow">Components</p>
+              <h1>Oinam UI</h1>
+              <p class="lede">
+                Plain HTML, CSS, and JavaScript. Custom elements give a page its structure, native
+                elements do the work, and there is no framework and no build step in between.
+              </p>
+              <p>
+                Agents: this page is for people to look at. Everything on it is also in
+                <a href="/ui/guide.md">guide.md</a>, as one page of plain text, and in
+                <a href="/ui/registry.json">registry.json</a>, as data.
+              </p>
+            </o-stack>
+
+            <section class="specimen" id="install">
+              <o-stack>
+                <h2>Install</h2>
+                <o-tabs label="Ways to install">
+                  <section>
+                    <h3>Link it</h3>
+                    <o-stack>
+                      <p>
+                        Three lines in the <code>&lt;head&gt;</code>. The stylesheet is the system;
+                        the two scripts are only for the theme toggle and the few elements that need
+                        behavior.
+                      </p>
+                      <o-copy>
+                        <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://oinam.dev/ui/ui.css&quot; /&gt;
+&lt;script src=&quot;https://oinam.dev/ui/theme-init.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;module&quot; src=&quot;https://oinam.dev/ui/ui.js&quot;&gt;&lt;/script&gt;</code></pre>
+                      </o-copy>
+                    </o-stack>
+                  </section>
+                  <section>
+                    <h3>Copy it</h3>
+                    <o-stack>
+                      <p>
+                        Every file under <code>/ui/</code> stands alone and has no dependencies.
+                        Take <code>tokens.css</code> and <code>base.css</code>, add the components a
+                        page uses, and make them yours.
+                        <a href="/ui/registry.json">registry.json</a> lists which files each
+                        component needs.
+                      </p>
+                    </o-stack>
+                  </section>
+                  <section>
+                    <h3>Hand it to an agent</h3>
+                    <o-stack>
+                      <p>One line is enough for an agent to start designing.</p>
+                      <o-copy>
+                        <pre><code>Read https://oinam.dev/ui/guide.md and build the page with it.</code></pre>
+                      </o-copy>
+                    </o-stack>
+                  </section>
+                </o-tabs>
+              </o-stack>
+            </section>
+
+            <section class="specimen" id="tokens">
+              <o-stack>
+                <h2>Tokens</h2>
+                <p>
+                  Two colors do all the work: ink, which is nearly black, and cloud, which is nearly
+                  white. Every other shade is ink mixed into cloud, so the dark theme is the same
+                  page with the two swapped. Every value in the system is named in
+                  <a href="/ui/tokens.css">tokens.css</a>, the one file to change to make it yours.
+                </p>
+                <o-grid min="small" gap="4">
+                  <o-stack gap="1"
+                    ><div class="swatch" data-color="ink"></div>
+                    <code>--color-ink</code></o-stack
+                  ><o-stack gap="1"
+                    ><div class="swatch" data-color="ink-soft"></div>
+                    <code>--color-ink-soft</code></o-stack
+                  ><o-stack gap="1"
+                    ><div class="swatch" data-color="ink-faint"></div>
+                    <code>--color-ink-faint</code></o-stack
+                  ><o-stack gap="1"
+                    ><div class="swatch" data-color="line-strong"></div>
+                    <code>--color-line-strong</code></o-stack
+                  ><o-stack gap="1"
+                    ><div class="swatch" data-color="line"></div>
+                    <code>--color-line</code></o-stack
+                  ><o-stack gap="1"
+                    ><div class="swatch" data-color="cloud"></div>
+                    <code>--color-cloud</code></o-stack
+                  ><o-stack gap="1"
+                    ><div class="swatch" data-color="milk"></div>
+                    <code>--color-milk</code></o-stack
+                  >
+                </o-grid>
+              </o-stack>
+            </section>
+
+            <section class="specimen" id="stack">
+              <o-stack>
+                <h2>Stack</h2>
+                <p>
+                  <code>&lt;o-stack&gt;</code> is a column. Children sit one under the other, a gap
+                  apart. The <code>gap</code> attribute takes a space step: 1, 2, 3, 4, 6, 8, 12, or
+                  16.
+                </p>
+                <o-example>
+                  <o-stack gap="2">
+                    <o-card>One</o-card>
+                    <o-card>Two</o-card>
+                    <o-card>Three</o-card>
+                  </o-stack>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="row">
+              <o-stack>
+                <h2>Row</h2>
+                <p>
+                  <code>&lt;o-row&gt;</code> is a row that wraps. <code>justify</code> takes
+                  between, center, or end, and <code>align</code> takes start or baseline.
+                </p>
+                <o-example>
+                  <o-row justify="between">
+                    <strong>Invoice 204</strong>
+                    <o-row gap="2">
+                      <button class="button" data-variant="ghost" type="button">Decline</button>
+                      <button class="button" type="button">Pay</button>
+                    </o-row>
+                  </o-row>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="grid">
+              <o-stack>
+                <h2>Grid</h2>
+                <p>
+                  <code>&lt;o-grid&gt;</code> lays out equal columns, as many as fit, with no
+                  breakpoints to write. <code>min</code> takes small or large to change how narrow a
+                  column may get.
+                </p>
+                <o-example>
+                  <o-grid min="small" gap="4">
+                    <o-card>One</o-card>
+                    <o-card>Two</o-card>
+                    <o-card>Three</o-card>
+                    <o-card>Four</o-card>
+                  </o-grid>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="wrap">
+              <o-stack>
+                <h2>Wrap</h2>
+                <p>
+                  <code>&lt;o-wrap&gt;</code> centers the page content and keeps it off the edges.
+                  It is 1600px wide at most; add <code>narrow</code> for a page of reading.
+                </p>
+                <o-example>
+                  <o-wrap narrow>
+                    <p>The content of the page goes here.</p>
+                  </o-wrap>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="text">
+              <o-stack>
+                <h2>Text</h2>
+                <p>
+                  Headings, paragraphs, links, and code are styled as they are. Two classes mark the
+                  special cases: <code>.eyebrow</code> above a heading, and <code>.lede</code> for
+                  the opening paragraph.
+                </p>
+                <o-example>
+                  <o-stack gap="3">
+                    <p class="eyebrow">Field notes</p>
+                    <h2>A heading in the serif</h2>
+                    <p class="lede">The opening paragraph, a size up.</p>
+                    <p>
+                      A paragraph with <a href="/docs/">a link</a>, some <code>code</code>, and
+                      <kbd>Esc</kbd>.
+                    </p>
+                  </o-stack>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="prose">
+              <o-stack>
+                <h2>Prose</h2>
+                <p>
+                  <code>&lt;o-prose&gt;</code> is for a run of writing. It gives plain headings,
+                  paragraphs, and lists their rhythm, so the HTML inside needs no classes.
+                </p>
+                <o-example>
+                  <o-prose>
+                    <h2>Standards</h2>
+                    <p>A change is not done until every point below holds.</p>
+                    <ul>
+                      <li><strong>Linted</strong>, with zero warnings.</li>
+                      <li><strong>Tested</strong>, with a suite that passes.</li>
+                    </ul>
+                  </o-prose>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="card">
+              <o-stack>
+                <h2>Card</h2>
+                <p>
+                  <code>&lt;o-card&gt;</code> groups related things on a raised surface. A
+                  <code>&lt;footer&gt;</code> inside is held to the bottom, so cards in a row line
+                  up.
+                </p>
+                <o-example>
+                  <o-grid>
+                    <o-card>
+                      <h3>Standards</h3>
+                      <p>The rules every project inherits.</p>
+                      <footer>
+                        <a class="button" data-variant="outline" href="/docs/">Read</a>
+                      </footer>
+                    </o-card>
+                    <o-card>
+                      <h3>Components</h3>
+                      <p>
+                        Plain HTML, CSS, and JavaScript, with nothing to install and nothing to
+                        build.
+                      </p>
+                      <footer>
+                        <a class="button" data-variant="outline" href="/ui/">Browse</a>
+                      </footer>
+                    </o-card>
+                  </o-grid>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="badge">
+              <o-stack>
+                <h2>Badge</h2>
+                <p><code>&lt;o-badge&gt;</code> is a small label: a status, a count, a "new".</p>
+                <o-example>
+                  <o-row>
+                    <o-badge>Soon</o-badge>
+                    <o-badge variant="solid">New</o-badge>
+                  </o-row>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="alert">
+              <o-stack>
+                <h2>Alert</h2>
+                <p>
+                  <code>&lt;o-alert&gt;</code> sets a message apart. There is no red and no yellow
+                  here, so weight carries the meaning: a note is a thin frame, a warning adds a
+                  heavy rule, and danger turns the colors over.
+                </p>
+                <o-example>
+                  <o-stack>
+                    <o-alert role="note">
+                      <strong>Note</strong>
+                      <p>Every push to main deploys the site.</p>
+                    </o-alert>
+                    <o-alert variant="warning" role="note">
+                      <strong>Warning</strong>
+                      <p>This rewrites history.</p>
+                    </o-alert>
+                    <o-alert variant="danger" role="note">
+                      <strong>Danger</strong>
+                      <p>This cannot be undone.</p>
+                    </o-alert>
+                  </o-stack>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="table">
+              <o-stack>
+                <h2>Table</h2>
+                <p>
+                  <code>&lt;o-table&gt;</code> goes around a plain table. It draws the frame, and
+                  lets a wide table scroll sideways without pushing the page wider.
+                </p>
+                <o-example>
+                  <o-table>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th scope="col">Token</th>
+                          <th scope="col">Value</th>
+                          <th scope="col">Use</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">--space-2</th>
+                          <td>0.5rem</td>
+                          <td>Between a label and its field</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">--space-4</th>
+                          <td>1rem</td>
+                          <td>Between paragraphs</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">--space-12</th>
+                          <td>3rem</td>
+                          <td>Between sections</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </o-table>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="button">
+              <o-stack>
+                <h2>Button</h2>
+                <p>
+                  A class, because <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> already do
+                  the job. <code>data-variant</code> takes outline or ghost, and
+                  <code>data-size</code> takes small, large, or icon.
+                </p>
+                <o-example>
+                  <o-row>
+                    <button class="button" type="button">Save</button>
+                    <button class="button" data-variant="outline" type="button">Preview</button>
+                    <button class="button" data-variant="ghost" type="button">Cancel</button>
+                    <button class="button" type="button" disabled>Saving</button>
+                  </o-row>
+                </o-example>
+                <o-example>
+                  <o-row>
+                    <button class="button" data-size="small" type="button">Small</button>
+                    <button class="button" type="button">Default</button>
+                    <a class="button" data-size="large" href="/docs/">A large link</a>
+                  </o-row>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="field">
+              <o-stack>
+                <h2>Field</h2>
+                <p>
+                  <code>&lt;o-field&gt;</code> keeps a label, its control, and a line of help
+                  together. The control takes <code>.input</code>, whether it is an input, a select,
+                  or a textarea.
+                </p>
+                <o-example>
+                  <o-stack>
+                    <o-field>
+                      <label for="field-email">Email</label>
+                      <input
+                        class="input"
+                        id="field-email"
+                        type="email"
+                        placeholder="you@example.com"
+                        aria-describedby="field-email-help"
+                      />
+                      <small id="field-email-help">Used for sign-in only.</small>
+                    </o-field>
+                    <o-field>
+                      <label for="field-role">Role</label>
+                      <select class="input" id="field-role">
+                        <option>Reader</option>
+                        <option>Editor</option>
+                        <option>Owner</option>
+                      </select>
+                    </o-field>
+                    <o-field>
+                      <label for="field-note">Note</label>
+                      <textarea class="input" id="field-note"></textarea>
+                    </o-field>
+                  </o-stack>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="choice">
+              <o-stack>
+                <h2>Choice and switch</h2>
+                <p>
+                  A checkbox or a radio button sits inside a
+                  <code>&lt;label class="choice"&gt;</code>. A switch is a checkbox that says so,
+                  with <code>role="switch"</code>.
+                </p>
+                <o-example>
+                  <o-stack gap="3" align="start">
+                    <label class="choice"
+                      ><input type="checkbox" checked /> Send me the changelog</label
+                    >
+                    <label class="choice"
+                      ><input type="radio" name="choice-plan" checked /> Monthly</label
+                    >
+                    <label class="choice"><input type="radio" name="choice-plan" /> Yearly</label>
+                    <label class="choice"
+                      ><input type="checkbox" role="switch" checked /> Deploy on push</label
+                    >
+                  </o-stack>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="accordion">
+              <o-stack>
+                <h2>Accordion</h2>
+                <p>
+                  <code>&lt;o-accordion&gt;</code> goes around a set of
+                  <code>&lt;details&gt;</code>. The browser already opens and closes them; give them
+                  the same <code>name</code> and it keeps one open at a time.
+                </p>
+                <o-example>
+                  <o-accordion>
+                    <details name="accordion-faq" open>
+                      <summary>Is it free?</summary>
+                      <p>Yes. Everything is open, under the MIT license.</p>
+                    </details>
+                    <details name="accordion-faq">
+                      <summary>Do I need a framework?</summary>
+                      <p>No. It is HTML, CSS, and JavaScript, and it works with or without one.</p>
+                    </details>
+                    <details name="accordion-faq">
+                      <summary>Is there a build step?</summary>
+                      <p>No. Link the files, or copy them.</p>
+                    </details>
+                  </o-accordion>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="tabs">
+              <o-stack>
+                <h2>Tabs</h2>
+                <p>
+                  <code>&lt;o-tabs&gt;</code> turns a run of sections into tabs, each named after
+                  its heading. The arrow keys move between them. Without the script, the sections
+                  simply follow one another.
+                </p>
+                <o-example>
+                  <o-tabs label="Ways to use it">
+                    <section>
+                      <h3>Link it</h3>
+                      <p>Point a stylesheet and a script at oinam.dev.</p>
+                    </section>
+                    <section>
+                      <h3>Copy it</h3>
+                      <p>Take the files you need and make them yours.</p>
+                    </section>
+                    <section>
+                      <h3>Change it</h3>
+                      <p>Every value lives in tokens.css.</p>
+                    </section>
+                  </o-tabs>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="dialog">
+              <o-stack>
+                <h2>Dialog</h2>
+                <p>
+                  A class on <code>&lt;dialog&gt;</code>, which already traps focus, closes on
+                  Escape, and dims the page. The buttons open and close it by naming it, so there is
+                  no script to write.
+                </p>
+                <o-example>
+                  <button
+                    class="button"
+                    data-variant="outline"
+                    type="button"
+                    commandfor="dialog-confirm"
+                    command="show-modal"
+                  >
+                    Delete the file
+                  </button>
+
+                  <dialog
+                    class="dialog"
+                    id="dialog-confirm"
+                    aria-labelledby="dialog-confirm-title"
+                    closedby="any"
+                  >
+                    <h2 id="dialog-confirm-title">Delete the file?</h2>
+                    <p>This cannot be undone.</p>
+                    <footer>
+                      <button
+                        class="button"
+                        data-variant="ghost"
+                        type="button"
+                        commandfor="dialog-confirm"
+                        command="close"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        class="button"
+                        type="button"
+                        commandfor="dialog-confirm"
+                        command="close"
+                      >
+                        Delete
+                      </button>
+                    </footer>
+                  </dialog>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="copy">
+              <o-stack>
+                <h2>Copy</h2>
+                <p>
+                  <code>&lt;o-copy&gt;</code> goes around a <code>&lt;pre&gt;</code> and adds a
+                  button that copies its text.
+                </p>
+                <o-example>
+                  <o-copy>
+                    <pre><code>mise run check</code></pre>
+                  </o-copy>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="theme">
+              <o-stack>
+                <h2>Theme</h2>
+                <p>
+                  <code>&lt;o-theme&gt;</code> goes around a button and makes it a light and dark
+                  toggle. It remembers the choice, and follows the system until one is made.
+                </p>
+                <o-example>
+                  <o-theme>
+                    <button class="button" data-variant="outline" type="button">
+                      Switch theme
+                    </button>
+                  </o-theme>
+                </o-example>
+              </o-stack>
+            </section>
+            <section class="specimen" id="example">
+              <o-stack>
+                <h2>Example</h2>
+                <p>
+                  <code>&lt;o-example&gt;</code> shows markup at work and prints its source beside
+                  it. Every specimen on this page is one, so the code you read is the code that is
+                  running.
+                </p>
+                <o-example>
+                  <o-badge>Written once</o-badge>
+                </o-example>
+              </o-stack>
+            </section>
+          </div>
+        </div>
+      </o-wrap>
+    </main>
+
+    <footer class="site-footer">
+      <o-wrap>
+        <o-row justify="between">
+          <p>Oinam.DEV. Open and free, under the MIT license.</p>
+          <ul>
+            <li><a href="/docs/">Docs</a></li>
+            <li><a href="/ui/">Components</a></li>
+            <li><a href="/llms.txt">llms.txt</a></li>
+            <li><a href="https://github.com/oinam/oinam.dev">GitHub</a></li>
+          </ul>
+        </o-row>
+      </o-wrap>
+    </footer>
+  </body>
+</html>

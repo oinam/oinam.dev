@@ -1,7 +1,11 @@
 /*
  * Sets the theme before first paint, so a stored choice never flashes the
- * wrong one. This is the only script that blocks rendering, which is why it is
- * this small and kept apart from site.js.
+ * wrong one. Load it in the <head> as a plain script, not a module:
+ *
+ *   <script src="/ui/theme-init.js"></script>
+ *
+ * It is the only script that blocks rendering, which is why it is this small
+ * and kept apart from theme.js.
  */
 (function () {
   let stored = null;

@@ -20,6 +20,121 @@
     "text": "Plain text, no emoji, and American English with the Oxford comma."
   },
   {
+    "title": "Components",
+    "url": "/ui/",
+    "text": "Oinam UI: components in plain HTML, CSS, and JavaScript, with no framework."
+  },
+  {
+    "title": "Install",
+    "url": "/ui/#install",
+    "text": "Link the stylesheet and scripts, copy the files, or hand the guide to an agent."
+  },
+  {
+    "title": "Tokens",
+    "url": "/ui/#tokens",
+    "text": "Colors, type, space, and shape. Two colors do all the work: ink and cloud."
+  },
+  {
+    "title": "Wrap",
+    "url": "/ui/#wrap",
+    "text": "Centers the page content and keeps it off the edges."
+  },
+  {
+    "title": "Stack",
+    "url": "/ui/#stack",
+    "text": "A column. Children sit one under the other, a gap apart."
+  },
+  {
+    "title": "Row",
+    "url": "/ui/#row",
+    "text": "A row that wraps. Children sit side by side, a gap apart."
+  },
+  {
+    "title": "Grid",
+    "url": "/ui/#grid",
+    "text": "Equal columns, as many as fit, with no breakpoints."
+  },
+  {
+    "title": "Text",
+    "url": "/ui/#text",
+    "text": "A small label above a heading, and an opening paragraph a size up."
+  },
+  {
+    "title": "Prose",
+    "url": "/ui/#prose",
+    "text": "A run of writing. Plain headings, paragraphs, and lists get their rhythm."
+  },
+  {
+    "title": "Card",
+    "url": "/ui/#card",
+    "text": "Groups related things on a raised surface."
+  },
+  {
+    "title": "Badge",
+    "url": "/ui/#badge",
+    "text": "A small label: a status, a count, a \"new\"."
+  },
+  {
+    "title": "Alert",
+    "url": "/ui/#alert",
+    "text": "Sets a message apart: a note, a warning, or danger."
+  },
+  {
+    "title": "Table",
+    "url": "/ui/#table",
+    "text": "Frames a plain table and lets a wide one scroll sideways."
+  },
+  {
+    "title": "Button",
+    "url": "/ui/#button",
+    "text": "A button, on a <button> or an <a>."
+  },
+  {
+    "title": "Field",
+    "url": "/ui/#field",
+    "text": "A label, its control, and a line of help, kept together."
+  },
+  {
+    "title": "Choice and switch",
+    "url": "/ui/#choice",
+    "text": "A checkbox, a radio button, or a switch, with its label."
+  },
+  {
+    "title": "Accordion",
+    "url": "/ui/#accordion",
+    "text": "A set of <details> that open and close."
+  },
+  {
+    "title": "Tabs",
+    "url": "/ui/#tabs",
+    "text": "Turns a run of sections into tabs."
+  },
+  {
+    "title": "Dialog",
+    "url": "/ui/#dialog",
+    "text": "A modal, on a <dialog>, opened and closed without script."
+  },
+  {
+    "title": "Copy",
+    "url": "/ui/#copy",
+    "text": "Adds a copy button to a block of code."
+  },
+  {
+    "title": "Theme",
+    "url": "/ui/#theme",
+    "text": "A light and dark toggle that remembers the choice."
+  },
+  {
+    "title": "Example",
+    "url": "/ui/#example",
+    "text": "Shows markup at work and prints its source beside it."
+  },
+  {
+    "title": "Components guide",
+    "url": "/ui/guide.md",
+    "text": "The whole system as one page of plain text, for AI agents."
+  },
+  {
     "title": "Play",
     "url": "/play/",
     "text": "Coming soon. A place to tinker with the design and the tools."

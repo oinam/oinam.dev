@@ -1,54 +1,11 @@
 /*
  * oinam.dev
  *
- * The little behavior the site has: a theme toggle and a search palette. Both
- * are enhancements. The pages read the same without this file.
+ * The one behavior that is the site's own: the search palette. It is an
+ * enhancement. The pages read the same without this file.
  */
 
 import { rank } from "./search.js";
-
-const root = document.documentElement;
-
-/* Theme */
-
-const systemDark = matchMedia("(prefers-color-scheme: dark)");
-const themeToggle = document.querySelector("[data-theme-toggle]");
-
-/** @returns {string | null} The theme the visitor chose, if they ever did. */
-function storedTheme() {
-  try {
-    return localStorage.getItem("theme");
-  } catch {
-    return null;
-  }
-}
-
-/** @param {"light" | "dark"} theme */
-function showTheme(theme) {
-  root.dataset.theme = theme;
-  themeToggle?.setAttribute(
-    "aria-label",
-    theme === "dark" ? "Switch to light theme" : "Switch to dark theme",
-  );
-}
-
-themeToggle?.addEventListener("click", () => {
-  const theme = root.dataset.theme === "dark" ? "light" : "dark";
-  showTheme(theme);
-  try {
-    localStorage.setItem("theme", theme);
-  } catch {
-    // Storage is blocked: the choice lasts for this page only.
-  }
-});
-
-// Until the visitor chooses, keep following the system as it changes.
-systemDark.addEventListener("change", () => {
-  if (!storedTheme()) showTheme(systemDark.matches ? "dark" : "light");
-});
-
-// theme.js has already set the theme; this only brings the label in line.
-showTheme(root.dataset.theme === "dark" ? "dark" : "light");
 
 /* Search palette */
 

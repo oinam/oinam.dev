@@ -71,8 +71,8 @@ Some things are kept by hand, because there is no build step to keep them:
 - A new page is added to `public/search.json` (the search index), `public/sitemap.xml`, and
   `public/llms.txt`.
 
-The design uses two colors: ink, which is nearly black, and cloud, which is nearly white. Both are
-defined once, at the top of `public/assets/site.css`, and every other shade is mixed from them.
+The site's own styles and its search are in `public/assets/`. Everything else it wears comes from
+the components, which it uses the same way anyone else would.
 
 ## Development
 

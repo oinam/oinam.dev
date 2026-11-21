@@ -6,3 +6,8 @@
   Content-Security-Policy: default-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
   Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
+
+# The components are there to be used from other sites. Modules and fetches
+# across origins need this; the files are public anyway.
+/ui/*
+  Access-Control-Allow-Origin: *

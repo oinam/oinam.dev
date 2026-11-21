@@ -1,0 +1,78 @@
+/*
+ * Tokens
+ *
+ * Every value the system uses is named here, and nowhere else. Two colors do
+ * all the work: ink, which is nearly black, and cloud, which is nearly white.
+ * Every other shade is ink mixed into cloud, so the dark theme is the same
+ * page with the two swapped.
+ *
+ * To make the system yours, change the values in this file and leave the rest.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* Color */
+  --color-ink: light-dark(#101114, #eceef1);
+  --color-cloud: light-dark(#f5f6f8, #0e0f12);
+  --color-milk: light-dark(#fcfcfd, #17191d);
+  --color-ink-soft: color-mix(in oklab, var(--color-ink) 68%, var(--color-cloud));
+  --color-ink-faint: color-mix(in oklab, var(--color-ink) 58%, var(--color-cloud));
+  --color-line: color-mix(in oklab, var(--color-ink) 12%, var(--color-cloud));
+  --color-line-strong: color-mix(in oklab, var(--color-ink) 24%, var(--color-cloud));
+  --color-wash: color-mix(in oklab, var(--color-ink) 6%, transparent);
+
+  /* Type */
+  --font-serif: "Iowan Old Style", "Palatino Linotype", palatino, "Book Antiqua", georgia, serif;
+  --font-sans:
+    system-ui, -apple-system, "Segoe UI", roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", menlo, consolas, "Liberation Mono", monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: clamp(2.25rem, 5vw, 3.5rem);
+  --leading-tight: 1.1;
+  --leading-normal: 1.6;
+
+  /* Space, in steps of a quarter rem */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 5%);
+  --shadow-md: 0 2px 10px rgb(0 0 0 / 7%);
+  --shadow-lg: 0 24px 80px rgb(0 0 0 / 22%);
+
+  /* Controls: the height of a button, a field, and anything that sits beside them */
+  --control-sm: 2rem;
+  --control: 2.5rem;
+  --control-lg: 3rem;
+
+  /* Motion */
+  --duration: 0.2s;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Without data-theme the page follows the system. <o-theme> sets it. */
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}

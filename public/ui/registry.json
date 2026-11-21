@@ -1,0 +1,176 @@
+{
+  "name": "Oinam UI",
+  "description": "A design system in plain HTML, CSS, and JavaScript: custom elements for structure, native elements for the work, and no framework or build step.",
+  "homepage": "https://oinam.dev/ui/",
+  "guide": "https://oinam.dev/ui/guide.md",
+  "base": "https://oinam.dev/ui/",
+  "license": "MIT",
+  "all": {
+    "css": "ui.css",
+    "js": "ui.js",
+    "head": "theme-init.js"
+  },
+  "foundation": ["tokens.css", "base.css"],
+  "components": [
+    {
+      "name": "wrap",
+      "title": "Wrap",
+      "use": "<o-wrap>",
+      "files": ["layout.css"],
+      "script": false,
+      "description": "Centers the page content and keeps it off the edges."
+    },
+    {
+      "name": "stack",
+      "title": "Stack",
+      "use": "<o-stack>",
+      "files": ["layout.css"],
+      "script": false,
+      "description": "A column. Children sit one under the other, a gap apart."
+    },
+    {
+      "name": "row",
+      "title": "Row",
+      "use": "<o-row>",
+      "files": ["layout.css"],
+      "script": false,
+      "description": "A row that wraps. Children sit side by side, a gap apart."
+    },
+    {
+      "name": "grid",
+      "title": "Grid",
+      "use": "<o-grid>",
+      "files": ["layout.css"],
+      "script": false,
+      "description": "Equal columns, as many as fit, with no breakpoints."
+    },
+    {
+      "name": "text",
+      "title": "Text",
+      "use": ".eyebrow, .lede",
+      "files": ["text.css"],
+      "script": false,
+      "description": "A small label above a heading, and an opening paragraph a size up."
+    },
+    {
+      "name": "prose",
+      "title": "Prose",
+      "use": "<o-prose>",
+      "files": ["text.css"],
+      "script": false,
+      "description": "A run of writing. Plain headings, paragraphs, and lists get their rhythm."
+    },
+    {
+      "name": "card",
+      "title": "Card",
+      "use": "<o-card>",
+      "files": ["card.css"],
+      "script": false,
+      "description": "Groups related things on a raised surface."
+    },
+    {
+      "name": "badge",
+      "title": "Badge",
+      "use": "<o-badge>",
+      "files": ["badge.css"],
+      "script": false,
+      "description": "A small label: a status, a count, a \"new\"."
+    },
+    {
+      "name": "alert",
+      "title": "Alert",
+      "use": "<o-alert>",
+      "files": ["alert.css"],
+      "script": false,
+      "description": "Sets a message apart: a note, a warning, or danger."
+    },
+    {
+      "name": "table",
+      "title": "Table",
+      "use": "<o-table>",
+      "files": ["table.css"],
+      "script": false,
+      "description": "Frames a plain table and lets a wide one scroll sideways."
+    },
+    {
+      "name": "button",
+      "title": "Button",
+      "use": ".button",
+      "files": ["button.css"],
+      "script": false,
+      "description": "A button, on a <button> or an <a>."
+    },
+    {
+      "name": "field",
+      "title": "Field",
+      "use": "<o-field>, .input",
+      "files": ["form.css"],
+      "script": false,
+      "description": "A label, its control, and a line of help, kept together."
+    },
+    {
+      "name": "choice",
+      "title": "Choice and switch",
+      "use": ".choice, input[role=\"switch\"]",
+      "files": ["form.css"],
+      "script": false,
+      "description": "A checkbox, a radio button, or a switch, with its label."
+    },
+    {
+      "name": "accordion",
+      "title": "Accordion",
+      "use": "<o-accordion>",
+      "files": ["accordion.css"],
+      "script": false,
+      "description": "A set of <details> that open and close."
+    },
+    {
+      "name": "tabs",
+      "title": "Tabs",
+      "use": "<o-tabs>",
+      "files": ["tabs.css", "tabs.js"],
+      "script": true,
+      "description": "Turns a run of sections into tabs."
+    },
+    {
+      "name": "dialog",
+      "title": "Dialog",
+      "use": ".dialog",
+      "files": ["dialog.css", "button.css"],
+      "script": false,
+      "description": "A modal, on a <dialog>, opened and closed without script."
+    },
+    {
+      "name": "copy",
+      "title": "Copy",
+      "use": "<o-copy>",
+      "files": ["copy.css", "copy.js", "button.css"],
+      "script": true,
+      "description": "Adds a copy button to a block of code."
+    },
+    {
+      "name": "theme",
+      "title": "Theme",
+      "use": "<o-theme>",
+      "files": ["theme.js", "theme-init.js"],
+      "script": true,
+      "description": "A light and dark toggle that remembers the choice."
+    },
+    {
+      "name": "example",
+      "title": "Example",
+      "use": "<o-example>",
+      "files": [
+        "example.css",
+        "example.js",
+        "tabs.css",
+        "tabs.js",
+        "copy.css",
+        "copy.js",
+        "button.css"
+      ],
+      "script": true,
+      "description": "Shows markup at work and prints its source beside it."
+    }
+  ]
+}

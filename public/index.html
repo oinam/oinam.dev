@@ -13,25 +13,26 @@
     <link rel="canonical" href="https://oinam.dev/" />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/ui/ui.css" />
     <link rel="stylesheet" href="/assets/site.css" />
-    <script src="/assets/theme.js"></script>
+    <script src="/ui/theme-init.js"></script>
+    <script type="module" src="/ui/ui.js"></script>
     <script type="module" src="/assets/site.js"></script>
-    <link rel="modulepreload" href="/assets/search.js" />
   </head>
 
   <body>
-    <a class="skip" href="#main">Skip to content</a>
+    <a class="skip button" href="#main">Skip to content</a>
 
     <header class="site-header">
-      <div class="wrap">
+      <o-wrap>
         <a class="brand" href="/" aria-label="Oinam.DEV, home">
           <svg class="brand-mark" viewBox="0 0 600 600" aria-hidden="true">
             <use href="/assets/logo.svg#mark" />
           </svg>
-          <span>Oinam<span class="brand-tld">.DEV</span></span>
+          <span class="brand-name">Oinam<span class="brand-tld">.DEV</span></span>
         </a>
 
-        <button class="search" type="button" data-search-open data-needs-script>
+        <button class="search" type="button" aria-label="Search" data-search-open>
           <svg
             class="icon"
             viewBox="0 0 24 24"
@@ -52,7 +53,8 @@
 
         <nav class="site-nav" aria-label="Site">
           <a href="/docs/">Docs</a>
-          <a href="/play/">Play <span class="tag">Soon</span></a>
+          <a href="/ui/">Components</a>
+          <a class="nav-later" href="/play/">Play <o-badge>Soon</o-badge></a>
           <a href="https://github.com/oinam/oinam.dev" aria-label="GitHub">
             <svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
               <path
@@ -60,90 +62,107 @@
               />
             </svg>
           </a>
-          <button
-            type="button"
-            aria-label="Switch to dark theme"
-            data-theme-toggle
-            data-needs-script
-          >
-            <svg
-              class="icon icon-moon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
-            </svg>
-            <svg
-              class="icon icon-sun"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="12" r="4" />
-              <path
-                d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"
-              />
-            </svg>
-          </button>
+          <o-theme>
+            <button type="button" aria-label="Switch theme">
+              <svg
+                class="icon icon-moon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+              </svg>
+              <svg
+                class="icon icon-sun"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"
+                />
+              </svg>
+            </button>
+          </o-theme>
         </nav>
-      </div>
+      </o-wrap>
     </header>
 
     <main id="main">
-      <section class="hero">
-        <div class="wrap hero-copy">
-          <p class="label">For AI, and their agents</p>
+      <o-wrap>
+        <o-stack class="hero" gap="6" align="start">
+          <p class="eyebrow">For AI, and their agents</p>
           <h1>Written for agents. Kept by hand.</h1>
-          <p class="hero-lede">
+          <p class="lede">
             Design and development assets, ideas, and standards for AI, and their agents, tools, and
             harnesses. Open, free, and plain text.
           </p>
-          <div class="hero-actions">
-            <a class="button" href="/docs/">Read the docs</a>
-            <a href="https://github.com/oinam/oinam.dev">Source on GitHub</a>
-          </div>
-        </div>
-      </section>
+          <o-row gap="3">
+            <a class="button" data-size="large" href="/ui/">Browse the components</a>
+            <a class="button" data-variant="ghost" data-size="large" href="/docs/">Read the docs</a>
+          </o-row>
+        </o-stack>
 
-      <section class="wrap pillars" aria-label="What lives here">
-        <div class="pillar">
-          <p class="label">01</p>
-          <h2>Standards</h2>
-          <p>
-            The rules every project here inherits: linted, formatted, evaluated, tested, and
-            documented.
-          </p>
-        </div>
-        <div class="pillar">
-          <p class="label">02</p>
-          <h2>Agents</h2>
-          <p>Prompts, skills, and harnesses, with the evals that show they do their job.</p>
-        </div>
-        <div class="pillar">
-          <p class="label">03</p>
-          <h2>Design</h2>
-          <p>Assets and ideas for designing and building with AI.</p>
-        </div>
-      </section>
+        <section class="handoff" aria-labelledby="handoff-title">
+          <o-stack gap="3">
+            <p class="eyebrow">Point an agent here</p>
+            <h2 id="handoff-title">One line, and it can start designing</h2>
+            <p>
+              The components are plain HTML, CSS, and JavaScript, described in one page of plain
+              text. Hand that page to any AI agent.
+            </p>
+            <o-copy>
+              <pre><code>Read https://oinam.dev/ui/guide.md and build the page with it.</code></pre>
+            </o-copy>
+          </o-stack>
+        </section>
+
+        <o-grid class="pillars" gap="8" aria-label="What lives here">
+          <o-stack gap="2">
+            <p class="eyebrow">01</p>
+            <h2>Components</h2>
+            <p>
+              Buttons, fields, cards, tabs, and the rest: custom elements for structure, native
+              elements for the work, and no framework anywhere.
+            </p>
+          </o-stack>
+          <o-stack gap="2">
+            <p class="eyebrow">02</p>
+            <h2>Standards</h2>
+            <p>
+              The rules every project here inherits: linted, formatted, evaluated, tested, and
+              documented.
+            </p>
+          </o-stack>
+          <o-stack gap="2">
+            <p class="eyebrow">03</p>
+            <h2>Agents</h2>
+            <p>Prompts, skills, and harnesses, with the evals that show they do their job.</p>
+          </o-stack>
+        </o-grid>
+      </o-wrap>
     </main>
 
     <footer class="site-footer">
-      <div class="wrap">
-        <p>Oinam.DEV. Open and free, under the MIT license.</p>
-        <ul>
-          <li><a href="/docs/">Docs</a></li>
-          <li><a href="/llms.txt">llms.txt</a></li>
-          <li><a href="https://github.com/oinam/oinam.dev">GitHub</a></li>
-        </ul>
-      </div>
+      <o-wrap>
+        <o-row justify="between">
+          <p>Oinam.DEV. Open and free, under the MIT license.</p>
+          <ul>
+            <li><a href="/docs/">Docs</a></li>
+            <li><a href="/ui/">Components</a></li>
+            <li><a href="/llms.txt">llms.txt</a></li>
+            <li><a href="https://github.com/oinam/oinam.dev">GitHub</a></li>
+          </ul>
+        </o-row>
+      </o-wrap>
     </footer>
   </body>
 </html>

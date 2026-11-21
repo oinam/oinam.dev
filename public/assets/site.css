@@ -1,160 +1,38 @@
 /*
  * oinam.dev
  *
- * One stylesheet for the whole site. Two colors do all the work: ink, which is
- * nearly black, and cloud, which is nearly white. Every other shade is ink
- * mixed into cloud, so the dark theme is the same page with the two swapped.
+ * The site's own styles: its header, its search, and the layout of its pages.
+ * Everything else, from the colors to the buttons, comes from /ui/, which the
+ * site uses the same way anyone else would.
  */
 
-/* Tokens */
-
 :root {
-  color-scheme: light dark;
-
-  /* Color */
-  --ink: light-dark(#101114, #eceef1);
-  --cloud: light-dark(#f5f6f8, #0e0f12);
-  --milk: light-dark(#fcfcfd, #17191d);
-  --ink-soft: color-mix(in oklab, var(--ink) 68%, var(--cloud));
-  --ink-faint: color-mix(in oklab, var(--ink) 58%, var(--cloud));
-  --line: color-mix(in oklab, var(--ink) 12%, var(--cloud));
-  --line-strong: color-mix(in oklab, var(--ink) 24%, var(--cloud));
-
-  /* Type */
-  --font-serif: "Iowan Old Style", "Palatino Linotype", palatino, "Book Antiqua", georgia, serif;
-  --font-sans:
-    system-ui, -apple-system, "Segoe UI", roboto, "Helvetica Neue", "Noto Sans", sans-serif;
-  --font-mono: ui-monospace, "SF Mono", menlo, consolas, "Liberation Mono", monospace;
-
-  /* Measure */
-  --page: 1600px;
-  --gutter: clamp(1.25rem, 4vw, 3rem);
-  --radius: 14px;
   --header: 4.5rem;
-}
-
-/* The theme toggle sets data-theme; without it the page follows the system. */
-
-:root[data-theme="light"] {
-  color-scheme: light;
-}
-
-:root[data-theme="dark"] {
-  color-scheme: dark;
-}
-
-/* Base */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  background: var(--cloud);
-  color: var(--ink);
-  font-family: var(--font-sans);
-  font-size: 100%;
-  line-height: 1.6;
-  text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
 }
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-  margin: 0;
 }
 
 main {
   flex: 1;
 }
 
-h1,
-h2,
-h3,
-p {
-  margin: 0;
-}
-
-h1,
-h2 {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-}
-
-a {
-  color: inherit;
-  text-decoration-color: var(--line-strong);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-}
-
-a:hover {
-  text-decoration-color: currentcolor;
-}
-
-:focus-visible {
-  border-radius: 4px;
-  outline: 2px solid var(--ink);
-  outline-offset: 3px;
-}
-
-code,
-kbd {
-  font-family: var(--font-mono);
-  font-size: 0.875em;
-}
-
-.wrap {
-  width: 100%;
-  max-width: var(--page);
-  margin-inline: auto;
-  padding-inline: var(--gutter);
-}
-
-.label {
-  color: var(--ink-faint);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.7rem 1.25rem;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--cloud);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.button:hover {
-  opacity: 0.85;
+.icon {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 /* Header */
 
 .skip {
   position: absolute;
-  top: 0.75rem;
-  left: 0.75rem;
+  top: var(--space-3);
+  left: var(--space-3);
   z-index: 20;
-  padding: 0.5rem 0.875rem;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--cloud);
-  font-size: 0.875rem;
-  text-decoration: none;
   transform: translateY(-200%);
 }
 
@@ -166,12 +44,12 @@ kbd {
   position: sticky;
   top: 0;
   z-index: 10;
-  border-bottom: 1px solid var(--line);
-  background: color-mix(in oklab, var(--cloud) 82%, transparent);
+  border-bottom: 1px solid var(--color-line);
+  background: color-mix(in oklab, var(--color-cloud) 82%, transparent);
   backdrop-filter: blur(14px) saturate(1.4);
 }
 
-.site-header .wrap {
+.site-header > o-wrap {
   display: grid;
   grid-template-columns: 1fr minmax(0, 36rem) 1fr;
   gap: clamp(0.75rem, 2vw, 2rem);
@@ -184,7 +62,7 @@ kbd {
   gap: 0.625rem;
   align-items: center;
   justify-self: start;
-  font-size: 1.125rem;
+  font-size: var(--text-lg);
   font-weight: 650;
   letter-spacing: -0.02em;
   text-decoration: none;
@@ -198,7 +76,7 @@ kbd {
 }
 
 .brand-tld {
-  color: var(--ink-faint);
+  color: var(--color-ink-faint);
 }
 
 /* The search field is a button: it opens the palette, it does not take text. */
@@ -210,22 +88,22 @@ kbd {
   width: 100%;
   height: 2.75rem;
   padding: 0 0.625rem 0 0.875rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--milk);
-  box-shadow: 0 1px 2px color-mix(in oklab, var(--ink) 5%, transparent);
-  color: var(--ink-faint);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-milk);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-ink-faint);
   font: inherit;
   font-size: 0.9375rem;
   cursor: pointer;
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    border-color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease);
 }
 
 .search:hover {
-  border-color: var(--line-strong);
-  box-shadow: 0 2px 10px color-mix(in oklab, var(--ink) 7%, transparent);
+  border-color: var(--color-line-strong);
+  box-shadow: var(--shadow-md);
 }
 
 .search-text {
@@ -235,30 +113,12 @@ kbd {
 
 .search-keys {
   display: flex;
-  gap: 0.25rem;
-}
-
-kbd {
-  min-width: 1.5rem;
-  padding: 0.125rem 0.375rem;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--cloud);
-  color: var(--ink-faint);
-  font-size: 0.75rem;
-  line-height: 1.4;
-  text-align: center;
-}
-
-.icon {
-  flex: none;
-  width: 1.25rem;
-  height: 1.25rem;
+  gap: var(--space-1);
 }
 
 .site-nav {
   display: flex;
-  gap: clamp(0.25rem, 1vw, 0.75rem);
+  gap: clamp(0.125rem, 0.6vw, 0.5rem);
   align-items: center;
   justify-self: end;
 }
@@ -266,46 +126,35 @@ kbd {
 .site-nav a,
 .site-nav button {
   display: inline-flex;
-  gap: 0.5rem;
+  gap: var(--space-2);
   align-items: center;
   justify-content: center;
   min-width: 2.5rem;
   height: 2.5rem;
   padding: 0 0.625rem;
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   background: none;
-  color: var(--ink-soft);
+  color: var(--color-ink-soft);
   font: inherit;
   font-size: 0.9375rem;
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
   transition:
-    color 0.2s ease,
-    background-color 0.2s ease;
+    color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease);
 }
 
 .site-nav a:hover,
 .site-nav button:hover,
 .site-nav [aria-current="page"] {
-  color: var(--ink);
+  color: var(--color-ink);
 }
 
 .site-nav a:hover,
 .site-nav button:hover {
-  background: color-mix(in oklab, var(--ink) 6%, transparent);
-}
-
-.tag {
-  padding: 0.0625rem 0.4375rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  color: var(--ink-faint);
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  background: var(--color-wash);
 }
 
 /* The toggle shows where a press will take you: the moon by day, the sun by night. */
@@ -319,20 +168,25 @@ kbd {
   display: block;
 }
 
-/* Search and the theme toggle need the script. Without it they step aside. */
+/* Search and the theme toggle need their scripts. Until those arrive, they step aside. */
+
+o-theme:not(:defined) {
+  visibility: hidden;
+}
 
 @media (scripting: none) {
-  [data-needs-script] {
+  .search {
     visibility: hidden;
   }
 }
 
-@media (width < 44rem) {
-  .site-header .wrap {
+@media (width < 52rem) {
+  .site-header > o-wrap {
     grid-template-columns: auto 1fr auto;
   }
 
   .search {
+    justify-content: center;
     justify-self: end;
     width: 2.5rem;
     height: 2.5rem;
@@ -340,13 +194,26 @@ kbd {
     border: 0;
     background: none;
     box-shadow: none;
-    color: var(--ink-soft);
-    justify-content: center;
+    color: var(--color-ink-soft);
   }
 
   .search-text,
   .search-keys,
-  .tag {
+  .site-nav o-badge {
+    display: none;
+  }
+}
+
+/* As the header narrows, the least needed things leave first. */
+
+@media (width < 40rem) {
+  .site-nav .nav-later {
+    display: none;
+  }
+}
+
+@media (width < 30rem) {
+  .brand-name {
     display: none;
   }
 }
@@ -359,11 +226,11 @@ kbd {
   margin-top: clamp(1rem, 12vh, 7rem);
   padding: 0;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: calc(var(--radius) + 4px);
-  background: var(--milk);
-  box-shadow: 0 24px 80px color-mix(in oklab, #000 22%, transparent);
-  color: var(--ink);
+  border: 1px solid var(--color-line);
+  border-radius: calc(var(--radius-lg) + 4px);
+  background: var(--color-milk);
+  box-shadow: var(--shadow-lg);
+  color: var(--color-ink);
 }
 
 .palette[open] {
@@ -373,17 +240,17 @@ kbd {
 }
 
 .palette::backdrop {
-  background: color-mix(in oklab, var(--cloud) 60%, transparent);
+  background: color-mix(in oklab, var(--color-cloud) 60%, transparent);
   backdrop-filter: blur(6px);
 }
 
 .palette-field {
   display: flex;
-  gap: 0.75rem;
+  gap: var(--space-3);
   align-items: center;
   padding: 0 1.125rem;
-  border-bottom: 1px solid var(--line);
-  color: var(--ink-faint);
+  border-bottom: 1px solid var(--color-line);
+  color: var(--color-ink-faint);
 }
 
 .palette input {
@@ -393,13 +260,13 @@ kbd {
   border: 0;
   outline: 0;
   background: none;
-  color: var(--ink);
+  color: var(--color-ink);
   font: inherit;
   font-size: 1.0625rem;
 }
 
 .palette input::placeholder {
-  color: var(--ink-faint);
+  color: var(--color-ink-faint);
 }
 
 .palette input::-webkit-search-cancel-button {
@@ -409,22 +276,22 @@ kbd {
 .palette ul {
   flex: 1;
   margin: 0;
-  padding: 0.5rem;
+  padding: var(--space-2);
   overflow-y: auto;
   list-style: none;
 }
 
 .palette li {
-  border-radius: 10px;
+  border-radius: var(--radius-md);
 }
 
 .palette li[aria-selected="true"] {
-  background: color-mix(in oklab, var(--ink) 7%, transparent);
+  background: var(--color-wash);
 }
 
 .palette-link {
   display: block;
-  padding: 0.625rem 0.75rem;
+  padding: 0.625rem var(--space-3);
   text-decoration: none;
 }
 
@@ -436,51 +303,64 @@ kbd {
 .palette-text {
   display: block;
   overflow: hidden;
-  color: var(--ink-soft);
-  font-size: 0.875rem;
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .palette-empty {
-  padding: 1.5rem 1.25rem;
-  color: var(--ink-soft);
+  padding: var(--space-6) 1.25rem;
+  color: var(--color-ink-soft);
 }
 
-/* Hero */
+/* Pages */
+
+.page {
+  padding-block: clamp(3rem, 9vh, 6rem);
+  animation: rise 0.9s ease-out both;
+}
 
 .hero {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.hero-copy {
-  position: relative;
-  z-index: 1;
   padding-block: clamp(4rem, 14vh, 9rem) clamp(3rem, 8vh, 5rem);
   animation: rise 0.9s ease-out both;
 }
 
 .hero h1 {
   max-width: 14em;
-  margin-block: 1.25rem 1.5rem;
   font-size: clamp(2.5rem, 6vw, 5rem);
   line-height: 1.04;
 }
 
-.hero-lede {
+.hero .lede {
   max-width: 34em;
-  color: var(--ink-soft);
-  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
 }
 
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 1.5rem;
-  align-items: center;
-  margin-top: 2.25rem;
+/* The one line to hand an agent. */
+
+.handoff {
+  max-width: 44rem;
+  padding-block: var(--space-8);
+  color: var(--color-ink-soft);
+}
+
+.handoff h2 {
+  color: var(--color-ink);
+}
+
+.pillars {
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.pillars > o-stack {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-line-strong);
+  color: var(--color-ink-soft);
+}
+
+.pillars h2 {
+  color: var(--color-ink);
+  font-size: var(--text-2xl);
 }
 
 @keyframes rise {
@@ -490,121 +370,125 @@ kbd {
   }
 }
 
-/* Pillars */
+/* The components page: a list down the side, and the specimens beside it. */
 
-.pillars {
+.gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: 2.5rem clamp(1.5rem, 4vw, 4rem);
-  padding-block: clamp(3rem, 8vw, 6rem);
+  grid-template-columns: 13rem minmax(0, 52rem);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
 }
 
-.pillar {
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--line-strong);
-}
-
-.pillar h2 {
-  margin-block: 0.75rem 0.5rem;
-  font-size: 1.5rem;
-}
-
-.pillar p {
-  max-width: 28em;
-  color: var(--ink-soft);
-}
-
-/* Prose: the docs, and any page that is mostly words. */
-
-.prose {
-  max-width: 44rem;
+.toc {
+  position: sticky;
+  top: var(--header);
+  max-height: calc(100svh - var(--header));
   padding-block: clamp(3rem, 9vh, 6rem);
-  animation: rise 0.9s ease-out both;
+  overflow-y: auto;
+  font-size: var(--text-sm);
 }
 
-.prose h1 {
-  margin-block: 1rem 1.5rem;
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
-  line-height: 1.08;
-}
-
-.prose h2 {
-  margin-block: 3rem 0.75rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--line);
-  font-size: 1.625rem;
-  scroll-margin-top: calc(var(--header) + 1rem);
-}
-
-.prose p,
-.prose li {
-  color: var(--ink-soft);
-  font-size: 1.0625rem;
-}
-
-.prose .label {
-  color: var(--ink-faint);
-  font-size: 0.75rem;
-}
-
-.prose p + p {
-  margin-top: 1rem;
-}
-
-.prose .lede {
-  font-size: 1.25rem;
-}
-
-.prose ul {
-  margin: 0;
-  padding-left: 1.25rem;
-}
-
-.prose li + li {
-  margin-top: 0.375rem;
-}
-
-.prose strong {
-  color: var(--ink);
-  font-weight: 600;
-}
-
-.prose .button {
-  margin-top: 2rem;
-}
-
-/* Footer */
-
-.site-footer {
-  border-top: 1px solid var(--line);
-  color: var(--ink-faint);
-  font-size: 0.875rem;
-}
-
-.site-footer .wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 2rem;
-  justify-content: space-between;
-  padding-block: 1.5rem;
-}
-
-.site-footer ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
+.toc ul {
+  display: grid;
+  gap: var(--space-1);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-/* Anyone who asks for less motion gets none. */
+.toc li.eyebrow:not(:first-child) {
+  margin-top: var(--space-4);
+}
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
-    animation: none !important;
+.gallery .toc a {
+  color: var(--color-ink-soft);
+  text-decoration: none;
+}
+
+.gallery .toc a:hover {
+  color: var(--color-ink);
+}
+
+.specimen {
+  padding-top: var(--space-12);
+  scroll-margin-top: var(--header);
+}
+
+.specimen h2 {
+  font-size: var(--text-2xl);
+}
+
+.specimen h2 + p {
+  max-width: 40rem;
+  color: var(--color-ink-soft);
+}
+
+.swatch {
+  height: 4rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+}
+
+.swatch + code {
+  align-self: flex-start;
+}
+
+.swatch[data-color="ink"] {
+  background: var(--color-ink);
+}
+
+.swatch[data-color="ink-soft"] {
+  background: var(--color-ink-soft);
+}
+
+.swatch[data-color="ink-faint"] {
+  background: var(--color-ink-faint);
+}
+
+.swatch[data-color="line-strong"] {
+  background: var(--color-line-strong);
+}
+
+.swatch[data-color="line"] {
+  background: var(--color-line);
+}
+
+.swatch[data-color="cloud"] {
+  background: var(--color-cloud);
+}
+
+.swatch[data-color="milk"] {
+  background: var(--color-milk);
+}
+
+@media (width < 52rem) {
+  .gallery {
+    grid-template-columns: minmax(0, 1fr);
   }
+
+  .toc {
+    display: none;
+  }
+}
+
+/* Footer */
+
+.site-footer {
+  margin-top: var(--space-16);
+  border-top: 1px solid var(--color-line);
+  color: var(--color-ink-faint);
+  font-size: var(--text-sm);
+}
+
+.site-footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer o-row {
+  padding-block: var(--space-6);
 }

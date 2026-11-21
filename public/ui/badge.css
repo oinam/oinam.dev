@@ -1,0 +1,30 @@
+/*
+ * Badge
+ *
+ * <o-badge> is a small label: a status, a count, a "new".
+ *
+ *   <o-badge>Soon</o-badge>
+ *   <o-badge variant="solid">New</o-badge>
+ */
+
+o-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.0625rem var(--space-2);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-full);
+  color: var(--color-ink-soft);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+o-badge[variant="solid"] {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-cloud);
+}

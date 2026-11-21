@@ -1,0 +1,51 @@
+/*
+ * Table
+ *
+ * <o-table> goes around a plain <table>. It draws the frame, and lets a wide
+ * table scroll sideways inside it without pushing the page wider.
+ *
+ *   <o-table>
+ *     <table>
+ *       <thead><tr><th>Token</th><th>Value</th></tr></thead>
+ *       <tbody><tr><td>--space-4</td><td>1rem</td></tr></tbody>
+ *     </table>
+ *   </o-table>
+ */
+
+o-table {
+  display: block;
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-milk);
+}
+
+o-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+o-table :is(th, td) {
+  padding: var(--space-3) var(--space-4);
+  text-align: start;
+  vertical-align: top;
+}
+
+o-table thead th {
+  color: var(--color-ink-faint);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+o-table tbody th {
+  font-weight: 500;
+}
+
+o-table tbody tr {
+  border-top: 1px solid var(--color-line);
+}

@@ -1,0 +1,23 @@
+/*
+ * Copy
+ *
+ * <o-copy> goes around a <pre>. See copy.js: it adds the button, and this
+ * file puts it in the corner.
+ */
+
+o-copy {
+  position: relative;
+  display: block;
+}
+
+o-copy > button {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+}
+
+/* Keep the first line of code clear of the button. */
+
+o-copy:defined > pre {
+  padding-right: 5.5rem;
+}
