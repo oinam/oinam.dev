@@ -1,85 +1,240 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
 
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oinam.DEV</title>
+    <meta
+      name="description"
+      content="Design and development assets, ideas, and standards for AI, and their agents, tools, and harnesses."
+    />
+    <link rel="canonical" href="https://oinam.dev/" />
 
-<title>Oinam.DEV</title>
-<meta name="description" content="Design, and development assets, ideas, standards, for AI, and their agents, tools, harnesses, and all the shebang.">
+    <link rel="stylesheet" href="/assets/site.css" />
+  </head>
 
-<style>
-  :root {
-    /* Tailwind inspired */
-    --color-zinc-50: #fafafa;
-    --color-zinc-100: #f4f4f5;
-    --color-zinc-200: #e4e4e7;
-    --color-zinc-700: #3f3f46;
+  <body>
+    <main>
+      <section class="hero">
+        <div class="wrap hero-copy">
+          <p class="label">For AI, and their agents</p>
+          <h1>Written for agents. Kept by hand.</h1>
+          <p class="hero-lede">
+            Design and development assets, ideas, and standards for AI, and their agents, tools, and
+            harnesses. Open, free, and plain text.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="/docs/">Read the docs</a>
+            <a href="https://github.com/oinam/oinam.dev">Source on GitHub</a>
+          </div>
+        </div>
 
-    --font-family-serif: 'Iowan Old Style', 'Apple Garamond', Baskerville, 'Times New Roman', 'Droid Serif', Times, 'Source Serif Pro', serif;
+        <!--
+          Decorative. An old valley, drawn loosely in ink wash, with a few
+          precise instruments set into it: a survey of the hills, a relay mast
+          answering the lantern in the pavilion, and something small crossing
+          overhead.
+        -->
+        <div class="scene" aria-hidden="true">
+          <svg viewBox="0 0 1600 560" preserveAspectRatio="xMidYMax slice" focusable="false">
+            <defs>
+              <!-- Bleeds the edges like wet paper, then grains the pigment. -->
+              <filter id="wash" x="-5%" y="-15%" width="110%" height="130%">
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.011 0.019"
+                  numOctaves="3"
+                  seed="11"
+                  result="warp"
+                />
+                <feDisplacementMap
+                  in="SourceGraphic"
+                  in2="warp"
+                  scale="30"
+                  xChannelSelector="R"
+                  yChannelSelector="G"
+                  result="bled"
+                />
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.7"
+                  numOctaves="2"
+                  seed="4"
+                  result="grain"
+                />
+                <feColorMatrix
+                  in="grain"
+                  type="matrix"
+                  values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.7 0 0 0 0.55"
+                  result="pigment"
+                />
+                <feComposite in="bled" in2="pigment" operator="in" result="grained" />
+                <feGaussianBlur in="grained" stdDeviation="0.8" />
+              </filter>
 
-    --border-radius: 13px;
-  }
+              <!-- Each ridge is darkest at its crest and thins into mist below. -->
+              <linearGradient id="wash-far" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="currentColor" stop-opacity="0.13" />
+                <stop offset="0.7" stop-color="currentColor" stop-opacity="0" />
+              </linearGradient>
+              <linearGradient id="wash-mid" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="currentColor" stop-opacity="0.2" />
+                <stop offset="0.8" stop-color="currentColor" stop-opacity="0" />
+              </linearGradient>
+              <linearGradient id="wash-near" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="currentColor" stop-opacity="0.34" />
+                <stop offset="1" stop-color="currentColor" stop-opacity="0.04" />
+              </linearGradient>
+            </defs>
 
-  html {
-    background: var(--color-zinc-100);
-  }
+            <g filter="url(#wash)">
+              <ellipse cx="1120" cy="130" rx="150" ry="90" fill="currentColor" opacity="0.035" />
+              <path
+                fill="url(#wash-far)"
+                d="M-50 330C80 300 160 250 260 262S420 200 520 214s180-44 280-24 160 50 260 32 180-62 280-36 180 64 310 46V620H-50Z"
+              />
+              <path
+                fill="url(#wash-mid)"
+                d="M-50 380C60 360 150 318 250 330s150-40 250-18 140 38 260 20 140-52 250-32 170 50 280 22 210-32 360-4V620H-50Z"
+              />
+              <path
+                fill="url(#wash-near)"
+                d="M-50 432C40 398 130 370 230 366s150 20 240 56 110 42 210 50h970v150H-50Z"
+              />
+              <path
+                fill="currentColor"
+                opacity="0.3"
+                d="M296 318c18-6 38 4 40 22s-12 30-30 30-34-10-34-26 8-22 24-26Z"
+              />
+            </g>
+          </svg>
 
-  body {
-    margin: auto;
-    width: 90%;
-    max-width: 600px;
-    font-family: var(--font-family-serif);
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--color-zinc-700);
+          <div class="scene-mist scene-mist-low"></div>
+          <div class="scene-mist scene-mist-high"></div>
 
-    /* vertical center */
-    display: grid;
-    min-height: 100vh;
-    place-content: center;
-  }
+          <svg
+            viewBox="0 0 1600 560"
+            preserveAspectRatio="xMidYMax slice"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+          >
+            <defs>
+              <path
+                id="contour"
+                d="M-50 330C80 300 160 250 260 262S420 200 520 214s180-44 280-24 160 50 260 32 180-62 280-36 180 64 310 46"
+              />
+              <path id="orbit" d="M90 250Q800-70 1510 214" />
+            </defs>
 
-  h1 {
-    margin: 0;
-    padding: 2rem;
-    font-size: 1.6rem;
-  }
+            <!-- The survey: contours under the far ridge, a rule along the foot. -->
+            <g stroke-width="0.75" opacity="0.2">
+              <use href="#contour" y="16" />
+              <use href="#contour" y="34" />
+              <use href="#contour" y="54" />
+            </g>
+            <g opacity="0.3">
+              <path
+                stroke-width="6"
+                stroke-dasharray="1 19"
+                stroke-linecap="butt"
+                d="M0 557h1600"
+              />
+              <path
+                stroke-width="12"
+                stroke-dasharray="1 99"
+                stroke-linecap="butt"
+                d="M0 554h1600"
+              />
+            </g>
 
-  p {
-    font-size: 1rem;
-  }
+            <!-- The disc in the sky, sun by day and moon by night, with sighting marks. -->
+            <g opacity="0.35">
+              <circle cx="1120" cy="130" r="44" />
+              <path d="M1120 70v10m0 100v10m-60-60h10m100 0h10" />
+            </g>
 
-  a {
-    color: inherit;
-  }
+            <!-- Something small and far away, crossing once every minute and a half. -->
+            <use href="#orbit" stroke-width="0.75" stroke-dasharray="1 9" opacity="0.45" />
+            <circle class="scene-moving" r="2.5" fill="currentColor" stroke="none" opacity="0">
+              <animateMotion dur="90s" repeatCount="indefinite">
+                <mpath href="#orbit" />
+              </animateMotion>
+              <animate
+                attributeName="opacity"
+                values="0;0.9;0.9;0"
+                keyTimes="0;0.1;0.9;1"
+                dur="90s"
+                repeatCount="indefinite"
+              />
+            </circle>
 
-  main {
-    padding: 1.6rem 2rem;
-    background: var(--color-zinc-50);
-    box-shadow: 0 10px 20px var(--color-zinc-200);
-    border-radius: var(--border-radius);
-  }
+            <!-- The pavilion on the near hill, its lantern lit. -->
+            <g transform="translate(232 388)" fill="currentColor" stroke="none" opacity="0.85">
+              <path d="M-30 0h60v-4h-60Z" />
+              <path d="M-19-4v-18h2v18Zm11 0v-18h2v18Zm11 0v-18h2v18Zm12 0v-18h2v18Z" />
+              <path d="M-38-21q16-3 22-12h32q6 9 22 12v2h-76Z" />
+              <path d="M-9-33v-8h18v8Z" />
+              <path d="M-22-40q10-2 14-9h16q4 7 14 9v2h-44Z" />
+              <path d="M-1-49v-10h2v10Z" />
+              <circle cy="-61" r="2" />
+            </g>
+            <circle class="scene-moving scene-pulse" cx="232" cy="376" r="3" />
+            <path stroke-width="1.5" opacity="0.5" d="M304 390v-36m0 16l-8-9m8 1l7-8" />
 
-</style>
+            <!-- The relay mast on the far shoulder, answering the lantern. -->
+            <g opacity="0.7">
+              <path stroke-width="1.25" d="M1290 326v-92" />
+              <path stroke-width="0.75" d="M1290 250l-22 76m22-76l22 76m-30-64h16m-12-14h8" />
+              <circle cx="1290" cy="232" r="2" fill="currentColor" stroke="none" />
+            </g>
+            <circle class="scene-moving scene-pulse scene-pulse-late" cx="1290" cy="232" r="3" />
 
-</head>
+            <!-- Still water, barely moving. -->
+            <g stroke-width="0.75" opacity="0.5">
+              <path class="scene-ripple" d="M742 494h132" />
+              <path class="scene-ripple" d="M930 506h210" />
+              <path class="scene-ripple" d="M820 520h96" />
+              <path class="scene-ripple" d="M1210 498h168" />
+              <path class="scene-ripple" d="M1060 530h250" />
+              <path class="scene-ripple" d="M1420 514h120" />
+            </g>
+          </svg>
+        </div>
+      </section>
 
-<body>
+      <section class="wrap pillars" aria-label="What lives here">
+        <div class="pillar">
+          <p class="label">01</p>
+          <h2>Standards</h2>
+          <p>
+            The rules every project here inherits: linted, formatted, evaluated, tested, and
+            documented.
+          </p>
+        </div>
+        <div class="pillar">
+          <p class="label">02</p>
+          <h2>Agents</h2>
+          <p>Prompts, skills, and harnesses, with the evals that show they do their job.</p>
+        </div>
+        <div class="pillar">
+          <p class="label">03</p>
+          <h2>Design</h2>
+          <p>Assets and ideas for designing and building with AI.</p>
+        </div>
+      </section>
+    </main>
 
-  <h1>Oinam.DEV</h1>
-  <main>
-    <p>Coming soon.</p>
-    <p>
-      Design, and development assets, ideas, and standards for AI, and their
-      agents, tools, and harnesses, for the Internet Assets at
-      <a href="https://oinam.com">Oinam</a>.
-    </p>
-    <p>
-      Source at
-      <a href="https://github.com/oinam/oinam.dev">github.com/oinam/oinam.dev</a>.
-    </p>
-  </main>
-
-</body>
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>Oinam.DEV. Open and free, under the MIT license.</p>
+        <ul>
+          <li><a href="https://github.com/oinam/oinam.dev">GitHub</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
 </html>
