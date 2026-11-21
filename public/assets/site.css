@@ -443,14 +443,12 @@ kbd {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: min(100svh - var(--header), 60rem);
-  overflow: hidden;
 }
 
 .hero-copy {
   position: relative;
   z-index: 1;
-  padding-block: clamp(3rem, 11vh, 7rem) max(11rem, 23vw);
+  padding-block: clamp(4rem, 14vh, 9rem) clamp(3rem, 8vh, 5rem);
   animation: rise 0.9s ease-out both;
 }
 
@@ -475,129 +473,10 @@ kbd {
   margin-top: 2.25rem;
 }
 
-/*
- * The scene: an ink-wash valley with a few precise instruments in it.
- *
- * It is built from three stacked layers so the browser never has to repaint
- * the expensive one. The wash (filtered, static) sits at the back, the mist
- * (plain gradients, moved by transform) drifts over it, and the line work
- * (thin strokes, a little motion) sits on top.
- */
-
-.scene {
-  position: absolute;
-  inset: auto 0 0;
-  height: clamp(15rem, 35vw, 36rem);
-  color: var(--ink);
-  pointer-events: none;
-  animation: surface 1.8s ease-out both;
-}
-
-.scene svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.scene-mist {
-  position: absolute;
-  background: radial-gradient(closest-side, var(--cloud) 20%, transparent);
-  opacity: 0.85;
-  animation: drift 70s ease-in-out infinite alternate;
-}
-
-.scene-mist-low {
-  bottom: 12%;
-  left: -5%;
-  width: 60%;
-  height: 26%;
-}
-
-.scene-mist-high {
-  right: -10%;
-  bottom: 38%;
-  width: 55%;
-  height: 20%;
-  animation-duration: 95s;
-  animation-direction: alternate-reverse;
-}
-
-.scene-pulse {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: pulse 6s ease-out infinite;
-}
-
-.scene-pulse-late {
-  animation-delay: 3s;
-}
-
-.scene-ripple {
-  animation: shimmer 9s ease-in-out infinite alternate;
-}
-
-.scene-ripple:nth-child(even) {
-  animation-duration: 13s;
-  animation-direction: alternate-reverse;
-}
-
 @keyframes rise {
   from {
     opacity: 0;
     transform: translateY(0.75rem);
-  }
-}
-
-@keyframes surface {
-  from {
-    opacity: 0;
-  }
-}
-
-@keyframes drift {
-  from {
-    transform: translateX(-6%);
-  }
-
-  to {
-    transform: translateX(8%);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 0.7;
-    transform: scale(1);
-  }
-
-  60%,
-  100% {
-    opacity: 0;
-    transform: scale(6);
-  }
-}
-
-@keyframes glow {
-  0%,
-  100% {
-    opacity: 0;
-  }
-
-  35% {
-    opacity: 0.6;
-  }
-}
-
-@keyframes shimmer {
-  from {
-    opacity: 0.15;
-    transform: translateX(-6px);
-  }
-
-  to {
-    opacity: 0.4;
-    transform: translateX(6px);
   }
 }
 
@@ -709,10 +588,7 @@ kbd {
   list-style: none;
 }
 
-/*
- * Anyone who asks for less motion gets a still picture: nothing drifts,
- * travels, or grows. The two lights still glow in turn, by opacity alone.
- */
+/* Anyone who asks for less motion gets none. */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -720,17 +596,5 @@ kbd {
   *::after {
     transition: none !important;
     animation: none !important;
-  }
-
-  .scene-travel {
-    display: none;
-  }
-
-  .scene-pulse {
-    animation: glow 6s ease-in-out infinite !important;
-  }
-
-  .scene-pulse-late {
-    animation-delay: 3s !important;
   }
 }
