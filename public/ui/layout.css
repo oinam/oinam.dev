@@ -25,6 +25,12 @@ o-wrap[narrow] {
   --wrap: 56rem;
 }
 
+/* A long word or a block of code inside must not push a layout wider than its place. */
+
+:is(o-stack, o-row, o-grid) > * {
+  min-width: 0;
+}
+
 o-stack {
   display: flex;
   flex-direction: column;

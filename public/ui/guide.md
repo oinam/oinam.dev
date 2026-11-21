@@ -60,6 +60,13 @@ elements are already styled.
 - **No inline styles.** Add a class and a rule to the page's own stylesheet instead. Page styles
   written outside a cascade layer always win over the system's, so no `!important` is needed.
 - **No emoji.** Plain text.
+- **Sentence case.** Headings and labels are written like sentences. No all-caps kickers, and no
+  decorative numbers on sections.
+- **One surface deep.** Do not put a card inside a card. Reach for spacing and type before a border
+  or a box, and use one solid button per group, for the main action.
+- **Honest copy.** Do not invent numbers, quotes, or logos. If a fact is not known, leave it out.
+- **Every state.** A control must look right at rest, on hover, with keyboard focus, when pressed,
+  when disabled, and when busy or invalid. The components already do; keep it so in page styles.
 
 ## A complete page
 
@@ -114,15 +121,15 @@ All of them are custom properties on `:root`, defined in `tokens.css`.
 
 | Token                  | Value                                   | Use                              |
 | ---------------------- | --------------------------------------- | -------------------------------- |
-| `--color-ink`          | `#101114` light, `#eceef1` dark         | Text, solid buttons              |
-| `--color-cloud`        | `#f5f6f8` light, `#0e0f12` dark         | The page background              |
-| `--color-milk`         | `#fcfcfd` light, `#17191d` dark         | Raised surfaces: cards, fields   |
+| `--color-ink`          | `#161618` light, `#eceef1` dark         | Text, solid buttons              |
+| `--color-cloud`        | `#f5f6f8` light, `#0c0c0c` dark         | The page background              |
+| `--color-milk`         | `#fcfcfd` light, `#161618` dark         | Raised surfaces: cards, fields   |
 | `--color-ink-soft`     | 68% ink in cloud                        | Secondary text                   |
 | `--color-ink-faint`    | 58% ink in cloud                        | Labels, placeholders             |
 | `--color-line-strong`  | 24% ink in cloud                        | Borders of controls              |
 | `--color-line`         | 12% ink in cloud                        | Hairlines, borders of surfaces   |
 | `--color-wash`         | 6% ink, see-through                     | Hover fills                      |
-| `--font-serif`         | Iowan Old Style, Palatino, Georgia      | Headings                         |
+| `--font-serif`         | Iowan Old Style, Baskerville, Times     | Headings                         |
 | `--font-sans`          | The system UI font                      | Everything else                  |
 | `--font-mono`          | The system monospace font               | Code, eyebrows, badges           |
 | `--text-xs` to `-4xl`  | 0.75, 0.875, 1, 1.125, 1.25, 1.5, 2 rem | Type sizes; `4xl` is fluid       |
@@ -204,7 +211,7 @@ or `end`. `align` takes `start` or `baseline`; the default centers children vert
 Headings (`h1` to `h4`) are set in the serif. Paragraphs, links, `<code>`, `<kbd>`, `<pre>`,
 `<hr>`, `<strong>`, and `<small>` are styled as they are.
 
-- `class="eyebrow"`: a small uppercase label above a heading.
+- `class="eyebrow"`: a small label above a heading, such as a date or a section name.
 - `class="lede"`: the opening paragraph, a size up.
 
 ```html
@@ -252,8 +259,8 @@ at the bottom, so cards in a row line up.
 
 ### Alert
 
-`<o-alert>` sets a message apart. `variant` takes `warning` or `danger`; without it, the alert is a
-note. Give it `role="note"`, or `role="alert"` when it appears in answer to something the reader
+`<o-alert>` sets a message apart. `variant` takes `warning` (a heavy frame) or `danger` (ink and
+cloud swapped); without it, the alert is a note. Give it `role="note"`, or `role="alert"` when it appears in answer to something the reader
 just did. Open with a `<strong>` title.
 
 ```html
@@ -297,6 +304,7 @@ sideways.
   per group, for the main action.
 - `data-size`: `small`, `large`, or `icon` (a square, for a lone icon; give it an `aria-label`).
 - `disabled`, or `aria-disabled="true"` on a link.
+- `aria-busy="true"` while it works: it shows a spinner and takes no more presses.
 
 ```html
 <button class="button" type="button">Save</button>
@@ -328,7 +336,9 @@ sideways.
 ```
 
 Put several fields in an `<o-stack>`. An invalid field shows a dashed border once the visitor has
-touched it; use the browser's own validation attributes (`required`, `type`, `pattern`).
+touched it; use the browser's own validation attributes (`required`, `type`, `pattern`). For an
+error found on the server, set `aria-invalid="true"` on the control and say what is wrong in the
+`<small>`.
 
 ### Choice and switch
 

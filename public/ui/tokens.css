@@ -13,9 +13,9 @@
   color-scheme: light dark;
 
   /* Color */
-  --color-ink: light-dark(#101114, #eceef1);
-  --color-cloud: light-dark(#f5f6f8, #0e0f12);
-  --color-milk: light-dark(#fcfcfd, #17191d);
+  --color-ink: light-dark(#161618, #eceef1);
+  --color-cloud: light-dark(#f5f6f8, #0c0c0c);
+  --color-milk: light-dark(#fcfcfd, #161618);
   --color-ink-soft: color-mix(in oklab, var(--color-ink) 68%, var(--color-cloud));
   --color-ink-faint: color-mix(in oklab, var(--color-ink) 58%, var(--color-cloud));
   --color-line: color-mix(in oklab, var(--color-ink) 12%, var(--color-cloud));
@@ -23,10 +23,13 @@
   --color-wash: color-mix(in oklab, var(--color-ink) 6%, transparent);
 
   /* Type */
-  --font-serif: "Iowan Old Style", "Palatino Linotype", palatino, "Book Antiqua", georgia, serif;
+  --font-serif:
+    "Iowan Old Style", "Apple Garamond", baskerville, "Times New Roman", "Droid Serif", times,
+    "Source Serif Pro", serif;
   --font-sans:
-    system-ui, -apple-system, "Segoe UI", roboto, "Helvetica Neue", "Noto Sans", sans-serif;
-  --font-mono: ui-monospace, "SF Mono", menlo, consolas, "Liberation Mono", monospace;
+    system-ui, -apple-system, "Segoe UI", roboto, ubuntu, cantarell, "Noto Sans", sans-serif;
+  --font-mono:
+    ui-monospace, menlo, consolas, monaco, "Liberation Mono", "Lucida Console", monospace;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;

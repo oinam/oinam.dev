@@ -1,7 +1,7 @@
 /*
  * Text
  *
- * .eyebrow   A small label above a heading.
+ * .eyebrow   A small label above a heading. Sentence case, like everything else.
  * .lede      The opening paragraph, a size up.
  * <o-prose>  A run of writing: it gives plain headings, paragraphs, and lists
  *            their rhythm, so the HTML inside needs no classes at all.
@@ -10,9 +10,7 @@
 .eyebrow {
   color: var(--color-ink-faint);
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: var(--text-sm);
 }
 
 .lede {

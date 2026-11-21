@@ -79,7 +79,7 @@ select.input {
 
 /* With one color to work in, a mistake is marked by line, not by hue. */
 
-.input:user-invalid {
+.input:is(:user-invalid, [aria-invalid="true"]) {
   border-color: var(--color-ink);
   border-style: dashed;
 }

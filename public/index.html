@@ -99,55 +99,81 @@
     <main id="main">
       <o-wrap>
         <o-stack class="hero" gap="6" align="start">
-          <p class="eyebrow">For AI, and their agents</p>
           <h1>Written for agents. Kept by hand.</h1>
           <p class="lede">
             Design and development assets, ideas, and standards for AI, and their agents, tools, and
             harnesses. Open, free, and plain text.
           </p>
-          <o-row gap="3">
-            <a class="button" data-size="large" href="/ui/">Browse the components</a>
-            <a class="button" data-variant="ghost" data-size="large" href="/docs/">Read the docs</a>
-          </o-row>
         </o-stack>
 
         <section class="handoff" aria-labelledby="handoff-title">
-          <o-stack gap="3">
-            <p class="eyebrow">Point an agent here</p>
-            <h2 id="handoff-title">One line, and it can start designing</h2>
+          <o-stack gap="4">
+            <h2 id="handoff-title">One line, and an agent can start designing</h2>
             <p>
               The components are plain HTML, CSS, and JavaScript, described in one page of plain
-              text. Hand that page to any AI agent.
+              text. Hand this line to any AI agent.
             </p>
             <o-copy>
               <pre><code>Read https://oinam.dev/ui/guide.md and build the page with it.</code></pre>
             </o-copy>
+            <o-row gap="3">
+              <a class="button" href="/ui/">See the components</a>
+              <a class="button" data-variant="ghost" href="/ui/guide.md">Read the guide</a>
+            </o-row>
           </o-stack>
         </section>
 
-        <o-grid class="pillars" gap="8" aria-label="What lives here">
-          <o-stack gap="2">
-            <p class="eyebrow">01</p>
-            <h2>Components</h2>
-            <p>
-              Buttons, fields, cards, tabs, and the rest: custom elements for structure, native
-              elements for the work, and no framework anywhere.
-            </p>
+        <section class="ledger" aria-labelledby="ledger-title">
+          <o-stack gap="4">
+            <h2 id="ledger-title">What is here</h2>
+            <o-table>
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Where</th>
+                    <th scope="col">What it is</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"><a href="/ui/">/ui/</a></th>
+                    <td>
+                      The components, live: layout, cards, buttons, fields, tabs, and the rest.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="/ui/guide.md">/ui/guide.md</a></th>
+                    <td>The same components as one page of plain text, for an agent to read.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="/ui/registry.json">/ui/registry.json</a></th>
+                    <td>The components as data, with the files each one needs.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="/ui/tokens.css">/ui/tokens.css</a></th>
+                    <td>Every color, size, and shape. Two colors do all the work.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="/docs/">/docs/</a></th>
+                    <td>
+                      Where the documentation begins, and the standards every project inherits.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="/llms.txt">/llms.txt</a></th>
+                    <td>A map of this site for language models.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="https://github.com/oinam/oinam.dev/blob/main/AGENTS.md">AGENTS.md</a>
+                    </th>
+                    <td>The instructions for any agent working in the repository.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </o-table>
           </o-stack>
-          <o-stack gap="2">
-            <p class="eyebrow">02</p>
-            <h2>Standards</h2>
-            <p>
-              The rules every project here inherits: linted, formatted, evaluated, tested, and
-              documented.
-            </p>
-          </o-stack>
-          <o-stack gap="2">
-            <p class="eyebrow">03</p>
-            <h2>Agents</h2>
-            <p>Prompts, skills, and harnesses, with the evals that show they do their job.</p>
-          </o-stack>
-        </o-grid>
+        </section>
       </o-wrap>
     </main>
 

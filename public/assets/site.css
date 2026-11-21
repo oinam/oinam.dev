@@ -218,6 +218,14 @@ o-theme:not(:defined) {
   }
 }
 
+/* On the narrowest phones, only the components keep their link. The rest are in the footer. */
+
+@media (width < 24rem) {
+  .site-nav a:not([href="/ui/"]) {
+    display: none;
+  }
+}
+
 /* Search palette */
 
 .palette {
@@ -346,21 +354,24 @@ o-theme:not(:defined) {
 
 .handoff h2 {
   color: var(--color-ink);
-}
-
-.pillars {
-  padding-block: clamp(3rem, 8vw, 6rem);
-}
-
-.pillars > o-stack {
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--color-line-strong);
-  color: var(--color-ink-soft);
-}
-
-.pillars h2 {
-  color: var(--color-ink);
   font-size: var(--text-2xl);
+}
+
+/* The plain list of what the site holds, and where. */
+
+.ledger {
+  max-width: 56rem;
+  padding-block: var(--space-8) clamp(3rem, 8vw, 6rem);
+}
+
+.ledger h2 {
+  font-size: var(--text-2xl);
+}
+
+.ledger tbody th {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  white-space: nowrap;
 }
 
 @keyframes rise {
@@ -394,6 +405,10 @@ o-theme:not(:defined) {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.toc li.eyebrow {
+  font-size: var(--text-xs);
 }
 
 .toc li.eyebrow:not(:first-child) {

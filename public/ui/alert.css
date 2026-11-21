@@ -3,7 +3,7 @@
  *
  * <o-alert> sets a message apart from the text around it. There is no red and
  * no yellow here, so weight carries the meaning: a note is a thin frame, a
- * warning adds a heavy rule, and danger turns the colors over.
+ * warning is a heavy one, and danger turns the colors over.
  *
  * Give it role="note", or role="alert" when it appears in answer to something
  * the reader just did.
@@ -29,7 +29,7 @@ o-alert > p {
 }
 
 o-alert[variant="warning"] {
-  border-left: 4px solid var(--color-ink);
+  border: 2px solid var(--color-ink);
 }
 
 o-alert[variant="danger"] {

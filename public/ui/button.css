@@ -8,6 +8,7 @@
  *
  * data-variant="outline|ghost"    A quieter button, then a quieter one still.
  * data-size="small|large|icon"    icon is a square, for a lone icon.
+ * aria-busy="true"                While it works: a spinner, and no more presses.
  */
 
 .button {
@@ -39,11 +40,32 @@
   opacity: 0.85;
 }
 
+.button:active {
+  translate: 0 1px;
+}
+
 /* A disabled button takes no pointer at all, so it never shows a hover state. */
 
 .button:is(:disabled, [aria-disabled="true"]) {
   opacity: 0.45;
   pointer-events: none;
+}
+
+/* A busy button keeps its place and its width, and turns away further presses. */
+
+.button[aria-busy="true"] {
+  pointer-events: none;
+}
+
+.button[aria-busy="true"]::before {
+  flex: none;
+  width: 1em;
+  height: 1em;
+  border: 1.5px solid currentcolor;
+  border-top-color: transparent;
+  border-radius: var(--radius-full);
+  animation: button-busy 0.7s linear infinite;
+  content: "";
 }
 
 .button[data-variant="outline"] {
@@ -89,4 +111,10 @@
   flex: none;
   width: 1.25em;
   height: 1.25em;
+}
+
+@keyframes button-busy {
+  to {
+    rotate: 1turn;
+  }
 }
