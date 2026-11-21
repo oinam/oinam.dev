@@ -91,6 +91,19 @@ their own files, outside that folder.
 Keep the project's own work outside `ui/`: its styles, its variation, and its own components. Then
 the folder can be upgraded without a merge.
 
+Two more ways to bring the system to an agent, for hosts that support them. Both use the project's
+own copy, so they work offline and match the version the project has.
+
+- **A skill.** `ui/skill/SKILL.md` is the steps on this page as a skill: read, write, lint, look.
+  For Claude Code, copy it to `.claude/skills/oinam-ui/SKILL.md` in the project.
+- **A Model Context Protocol server.** `ui/tools/mcp.js` lets an agent ask for one thing at a time:
+  the guide, one component's page, one pattern, or a check of what it wrote. For Claude Code, put
+  this in `.mcp.json` at the root of the project:
+
+```json
+{ "mcpServers": { "oinam-ui": { "command": "node", "args": ["ui/tools/mcp.js"] } } }
+```
+
 ## How it works
 
 Three rules cover the whole system.

@@ -17,7 +17,8 @@
   "foundation": ["tokens.css", "base.css"],
   "docs": ["guide.md", "why.md", "CHANGELOG.md"],
   "data": ["tokens.json", "contract.json"],
-  "tools": ["tools/lint.js", "tools/see.js"],
+  "tools": ["tools/lint.js", "tools/see.js", "tools/mcp.js"],
+  "skill": "skill/SKILL.md",
   "fonts": [
     {
       "name": "geist",

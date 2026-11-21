@@ -126,7 +126,9 @@ components; read this to change them.
 
 `public/ui/tools/` holds what a project runs with Node, and may use what Node itself provides but
 nothing that has to be installed. `tools/lint.js` checks a page against the rules a program can
-check, and `tools/see.js` takes pictures of one at three widths in light and dark; this site must pass it, and a rule added to the guide that can be checked is added there.
+check, `tools/see.js` takes pictures of one at three widths in light and dark, and `tools/mcp.js`
+serves the guide, the components, the patterns, and the linter to an agent over the Model Context
+Protocol; this site must pass it, and a rule added to the guide that can be checked is added there.
 
 `public/ui/patterns/` holds whole pages built from the components, for an agent to follow when
 composing one. Each is a page by itself, opens with a comment that says why it is laid out as it

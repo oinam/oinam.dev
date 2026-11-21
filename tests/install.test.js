@@ -106,6 +106,11 @@ test("it takes every stylesheet and script of the system, with its documents and
     "registry.json",
     "tools/lint.js",
     "tools/see.js",
+    "tools/mcp.js",
+    "skill/SKILL.md",
+    "components/button.md",
+    "patterns/form.html",
+    "patterns/patterns.css",
   ]) {
     assert.ok(taken.includes(name), name);
   }

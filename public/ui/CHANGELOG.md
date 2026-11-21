@@ -28,6 +28,9 @@ Tools and documents for agents. Nothing in the components changed.
 - `<o-table>` keeps anything placed absolutely inside it within its own scrolling.
 - The guide is half as long. It keeps the rules and a table of the components, and each component
   now has a page of its own in `components/`, read when it is used.
+- `tools/mcp.js`: a Model Context Protocol server, so an agent can ask for the guide, one
+  component, one pattern, or a lint of what it wrote, from the project's own copy.
+- `skill/SKILL.md`: the steps for designing with the system, as a skill.
 - `tools/see.js`: pictures of a page at three widths, in light and in dark, from a browser already
   on the machine.
 

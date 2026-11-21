@@ -11,11 +11,13 @@ produces.
       guide drives models. A set of briefs ("a pricing page", "a settings screen"), run through
       several agents, scored by the linter and by a look at the rendered page. It shows which
       rules agents ignore, and whether a change to the guide helps or hurts.
-- [ ] **Delivery where agents already work.** A skill, and perhaps a small MCP server, so an agent
-      can ask for one component without fetching a web page.
 
 ## Done
 
+- [x] **Delivery where agents already work.** `public/ui/skill/SKILL.md`, the steps as a skill,
+      and `public/ui/tools/mcp.js`, a Model Context Protocol server with eight tools. Both answer
+      from the project's own copy. The server is tested by speaking the protocol to it, not yet
+      by connecting a real host. (0.4.0)
 - [x] **A shorter guide.** `guide.md` went from about 1,000 lines to under 500: the rules, the
       judgment, and a table of components. Each component has its own page in
       `public/ui/components/`. Whether agents then read those pages is for the evals to say.
