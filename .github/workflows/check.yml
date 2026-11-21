@@ -14,12 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      # mise.toml pins the tools. Wrangler is for local development only, so skip it here.
+      - uses: jdx/mise-action@v2
         with:
-          node-version: 22
-          cache: npm
-
-      - run: npm ci
+          install_args: node
 
       # Format, lint, and test: the same command to run before a push.
-      - run: npm run check
+      - run: mise run check

@@ -10,17 +10,6 @@
   "engines": {
     "node": ">=22"
   },
-  "scripts": {
-    "dev": "wrangler pages dev public",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
-    "lint:js": "eslint .",
-    "lint:css": "stylelint \"public/**/*.css\"",
-    "lint:html": "html-validate \"public/**/*.html\"",
-    "test": "node --test",
-    "check": "npm run format:check && npm run lint && npm test"
-  },
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "eslint": "10.15.0",

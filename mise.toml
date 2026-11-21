@@ -1,0 +1,55 @@
+# oinam.dev: tools and tasks for local development.
+# First time: `mise trust` (once per clone), then `mise install`. Everything else is
+# `mise run <task>`; `mise tasks` lists them.
+
+[tools]
+# Node runs the linters, the formatter, and the tests. Wrangler serves public/ locally the way
+# Cloudflare Pages does, with the headers and the 404 page.
+node = "22"
+"npm:wrangler" = "4.159.0"
+
+[env]
+HOST = "127.0.0.1"
+PORT = "8788"
+# The linters and the formatter are npm packages; this puts them on the PATH for the tasks.
+_.path = ["node_modules/.bin"]
+
+[tasks.install]
+description = "Install the linters and the formatter (skipped when nothing changed)"
+run = "npm install"
+sources = ["package.json", "package-lock.json"]
+outputs = ["node_modules/.package-lock.json"]
+
+[tasks.dev]
+description = "Serve the site at http://127.0.0.1:8788, and open it"
+run = """
+if [ "${OPEN:-1}" != "0" ]; then (sleep 2 && open "http://{{env.HOST}}:{{env.PORT}}") & fi
+wrangler pages dev public --ip {{env.HOST}} --port {{env.PORT}}
+"""
+
+[tasks.format]
+description = "Format everything with Prettier"
+depends = ["install"]
+run = "prettier --write ."
+
+[tasks.lint]
+description = "Lint the scripts (ESLint), the styles (Stylelint), and the pages (html-validate)"
+depends = ["install"]
+run = [
+  "eslint .",
+  "stylelint 'public/**/*.css'",
+  "html-validate 'public/**/*.html'",
+]
+
+[tasks.test]
+description = "Run the test suite with Node's test runner"
+run = "node --test"
+
+[tasks.check]
+description = "Everything CI runs: the format check, the linters, and the tests"
+depends = ["install"]
+run = [
+  "prettier --check .",
+  { task = "lint" },
+  { task = "test" },
+]

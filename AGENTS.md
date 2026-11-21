@@ -76,15 +76,16 @@ defined once, at the top of `public/assets/site.css`, and every other shade is m
 
 ## Development
 
-Needs Node 22 or later.
+[mise](https://mise.jdx.dev) pins the tools and runs every task. `mise.toml` is the one place they
+are defined; `package.json` only lists the linters and the formatter.
 
-- `npm install` sets up the tools.
-- `npm run dev` serves the site the way Cloudflare does, headers and 404 page included. It needs
-  [Wrangler](https://developers.cloudflare.com/workers/wrangler/) installed.
-- `npm run format` formats everything with Prettier.
-- `npm run lint` lints the scripts (ESLint), styles (Stylelint), and pages (html-validate).
-- `npm test` runs the test suite with Node's test runner.
-- `npm run check` runs the format check, the linters, and the tests. CI runs the same command on
+- `mise trust`, once per clone, then `mise install` to fetch Node and Wrangler.
+- `mise run dev` serves the site the way Cloudflare does, headers and 404 page included, and opens
+  it.
+- `mise run format` formats everything with Prettier.
+- `mise run lint` lints the scripts (ESLint), the styles (Stylelint), and the pages (html-validate).
+- `mise run test` runs the test suite with Node's test runner.
+- `mise run check` runs the format check, the linters, and the tests. CI runs the same task on
   every push and pull request.
 
 There are no evals yet, because nothing here drives or wraps a model yet.
