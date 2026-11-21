@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Home",
+    "url": "/",
+    "text": "Design and development assets, ideas, and standards for AI, and their agents, tools, and harnesses."
+  },
+  {
+    "title": "Docs",
+    "url": "/docs/",
+    "text": "Start here. What oinam.dev is, and how an agent should read it."
+  },
+  {
+    "title": "Standards",
+    "url": "/docs/#standards",
+    "text": "Linted, formatted, evaluated, tested, followed, and documented."
+  },
+  {
+    "title": "Writing style",
+    "url": "/docs/#writing-style",
+    "text": "Plain text, no emoji, and American English with the Oxford comma."
+  },
+  {
+    "title": "Play",
+    "url": "/play/",
+    "text": "Coming soon. A place to tinker with the design and the tools."
+  },
+  {
+    "title": "AGENTS.md",
+    "url": "https://github.com/oinam/oinam.dev/blob/main/AGENTS.md",
+    "text": "The canonical instructions for any AI agent working in or pointed at the repository."
+  },
+  {
+    "title": "Source on GitHub",
+    "url": "https://github.com/oinam/oinam.dev",
+    "text": "The repository. Open and free, under the MIT license."
+  }
+]
