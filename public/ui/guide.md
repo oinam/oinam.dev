@@ -40,6 +40,34 @@ them makes no request to anyone else. Every file stands alone, so a page can als
 ones it uses: `tokens.css` and `base.css` first, then the files `registry.json` lists for each
 component.
 
+## Upgrade
+
+The version a project has is the `version` in its own `ui/registry.json`. The newest is at
+https://oinam.dev/ui/registry.json. To bring a project up to date, do these in order.
+
+1. **Run the installer again**, naming the same folder.
+   `curl -fsSL https://oinam.dev/ui/install.sh | sh -s -- ui`
+   It replaces the files the project has not changed. A file the project has changed is never
+   overwritten: it stays as it is, and the new one is put beside it as `<name>.new`. The installer
+   prints what it did. Read all of it.
+2. **Read the changelog.** In `ui/CHANGELOG.md`, read every entry above the version the project
+   had, oldest first. Under each "What to do" are the changes the project's own pages need: a class,
+   an element, an attribute, or a token that was renamed or removed. Search the project's HTML, CSS,
+   and JavaScript for each one named, and make the change everywhere it appears.
+3. **Merge the kept files.** For each file the installer kept, compare it with its `.new`. Carry the
+   project's change into the new file, put that in place of the old one, and delete the `.new`. If
+   the project's change and the system's change cannot both stand, stop and ask the owner which
+   they want.
+4. **Delete what was dropped.** If the installer names files that are no longer part of the system,
+   check that no page links to them, then delete them.
+5. **Look at the pages.** Open the pages the changes touched, in light and in dark, and check that
+   they look and work as before.
+6. **Tell the owner** the version it was and the version it is, what you changed in their pages and
+   why, and anything left for them to decide.
+
+Upgrades stay easy when the `ui/` folder is left as it was installed. Put a project's own styles,
+its variation, and its own components in files outside that folder.
+
 ## How it works
 
 Three rules cover the whole system.

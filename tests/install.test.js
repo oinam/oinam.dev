@@ -5,7 +5,16 @@
 
 import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
-import { cpSync, existsSync, mkdtempSync, readdirSync, readFileSync, rmSync } from "node:fs";
+import {
+  appendFileSync,
+  cpSync,
+  existsSync,
+  mkdtempSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import { createServer } from "node:http";
 import { tmpdir } from "node:os";
 import { join, relative } from "node:path";
@@ -34,9 +43,24 @@ const install = (...args) =>
     );
   });
 
+/** Publish a fresh copy of the system on the stand-in site, undoing earlier releases. */
+function publish() {
+  cpSync(UI, remote, { recursive: true });
+}
+
+/** Release a new version on the stand-in site, with a change to some of its files. */
+function release(version, ...changed) {
+  const registry = join(remote, "registry.json");
+  writeFileSync(
+    registry,
+    readFileSync(registry, "utf8").replace(/"version": "[^"]+"/, `"version": "${version}"`),
+  );
+  for (const name of changed) appendFileSync(join(remote, name), `\n/* New in ${version}. */\n`);
+}
+
 before(async () => {
   remote = mkdtempSync(join(tmpdir(), "oinam-ui-remote-"));
-  cpSync(UI, remote, { recursive: true });
+  publish();
 
   server = createServer((request, response) => {
     try {
@@ -55,6 +79,7 @@ after(() => {
 });
 
 test.beforeEach(() => {
+  publish();
   project = mkdtempSync(join(tmpdir(), "oinam-ui-project-"));
 });
 
@@ -112,4 +137,103 @@ test("it says so and stops when a file cannot be had", async () => {
   url += "/nowhere";
   await assert.rejects(install(), /Could not download/);
   url = url.replace("/nowhere", "");
+});
+
+/* Upgrading */
+
+const mine = (name) => join(project, "ui", name);
+const theirs = (name) => readFileSync(join(remote, name), "utf8");
+
+test("run again with nothing new, it changes nothing and says so", async () => {
+  await install();
+  const said = await install();
+
+  assert.match(said, /already up to date/);
+});
+
+test("an upgrade replaces the files the project has not touched", async () => {
+  await install();
+  release("9.0.0", "button.css");
+
+  const said = await install();
+
+  assert.equal(readFileSync(mine("button.css"), "utf8"), theirs("button.css"));
+  assert.match(said, /went from \d+\.\d+\.\d+ to 9\.0\.0/);
+  assert.match(said, /CHANGELOG\.md/);
+});
+
+test("an upgrade never overwrites a file the project has changed", async () => {
+  await install();
+  appendFileSync(mine("card.css"), "\n/* Ours. */\n");
+  const ours = readFileSync(mine("card.css"), "utf8");
+  release("9.0.0", "card.css");
+
+  const said = await install();
+
+  assert.equal(readFileSync(mine("card.css"), "utf8"), ours);
+  assert.equal(readFileSync(mine("card.css.new"), "utf8"), theirs("card.css"));
+  assert.match(said, /Kept as they are/);
+  assert.match(said, /ui\/card\.css\.new/);
+});
+
+test("a changed file is still kept on the upgrade after that", async () => {
+  await install();
+  appendFileSync(mine("card.css"), "\n/* Ours. */\n");
+  const ours = readFileSync(mine("card.css"), "utf8");
+  release("9.0.0", "card.css");
+  await install();
+  release("9.1.0", "card.css");
+
+  await install();
+
+  assert.equal(readFileSync(mine("card.css"), "utf8"), ours);
+  assert.equal(readFileSync(mine("card.css.new"), "utf8"), theirs("card.css"));
+});
+
+test("a change the project made that the system has not is left in peace", async () => {
+  await install();
+  appendFileSync(mine("card.css"), "\n/* Ours. */\n");
+  release("9.0.0", "button.css");
+
+  const said = await install();
+
+  // card.css is the same in both versions, so there is nothing to merge.
+  assert.doesNotMatch(said, /card\.css/);
+  assert.ok(!existsSync(mine("card.css.new")));
+  assert.equal(readFileSync(mine("button.css"), "utf8"), theirs("button.css"));
+});
+
+test("a merge still owed is still asked for on the next run", async () => {
+  await install();
+  appendFileSync(mine("card.css"), "\n/* Ours. */\n");
+  release("9.0.0", "card.css");
+  await install();
+
+  const said = await install();
+
+  assert.ok(existsSync(mine("card.css.new")));
+  assert.match(said, /ui\/card\.css\.new/);
+});
+
+test("it names the files the system has dropped, and does not delete them", async () => {
+  await install();
+  const registry = join(remote, "registry.json");
+  writeFileSync(registry, readFileSync(registry, "utf8").replaceAll('"badge.css"', '"alert.css"'));
+
+  const said = await install();
+
+  assert.match(said, /No longer part of the system/);
+  assert.match(said, /ui\/badge\.css/);
+  assert.ok(existsSync(mine("badge.css")));
+});
+
+test("a download that fails part way leaves the project as it was", async () => {
+  await install();
+  release("9.0.0", "button.css");
+  rmSync(join(remote, "tabs.js"));
+  const had = readFileSync(mine("button.css"), "utf8");
+
+  await assert.rejects(install(), /Nothing in ui\/ was changed/);
+
+  assert.equal(readFileSync(mine("button.css"), "utf8"), had);
 });

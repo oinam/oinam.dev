@@ -114,6 +114,11 @@ A new version is named in each of these places, and the tests fail until they ag
 - the title of `public/ui/guide.md` and of the components page, and the header of `ui.css`
 - a new entry at the top of `public/ui/CHANGELOG.md`
 
+Projects take a copy of the components and upgrade it later, with an agent reading the changelog to
+learn what to change. So every changelog entry ends with "What to do", written as instructions to
+that agent: each renamed or removed class, element, attribute, or token, by its exact old and new
+name. If a page that worked could stop working, the entry must say how to mend it.
+
 Elements with behavior are tested in `tests/`, against the DOM that `tests/dom.js` sets up.
 
 ## Development

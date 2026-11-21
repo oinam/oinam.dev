@@ -115,3 +115,13 @@ test("the newest entry in the changelog is the current version", () => {
   const [, newest] = read("CHANGELOG.md").match(/^## (\S+)$/m);
   assert.equal(newest, registry.version);
 });
+
+test("every entry in the changelog says what to do", () => {
+  const entries = read("CHANGELOG.md").split(/^## /m).slice(1);
+
+  assert.ok(entries.length > 0);
+  for (const entry of entries) {
+    const [version] = entry.split("\n");
+    assert.match(entry, /^### What to do\n\n\S/m, `${version} has no "What to do"`);
+  }
+});
