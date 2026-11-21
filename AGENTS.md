@@ -55,6 +55,9 @@ push to `main` deploys it.
 - **For AI first.** Agents and AI tools are the readers; people mostly look. Content lives in the
   HTML itself, in semantic markup, and reads the same with scripts off. `public/llms.txt` maps the
   site for language models.
+- **One address.** The owner hands an agent the bare address, https://oinam.dev/, and nothing
+  more. So the home page must send an agent on to `/ui/guide.md` in plain words, with the full
+  address written out. Keep that sentence on the page whatever else changes; a test checks for it.
 - **Static.** No build step, no framework, no server code, and no third-party requests. A page is a
   file. Reach for Cloudflare's dynamic features only when a static file cannot do the job.
 - **Fast.** System fonts, one stylesheet, and as little script as a page can get by on. Scripts

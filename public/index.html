@@ -8,10 +8,17 @@
     <title>Oinam.DEV</title>
     <meta
       name="description"
-      content="Design and development assets, ideas, and standards for AI, and their agents, tools, and harnesses."
+      content="Design and development assets, ideas, and standards for AI, and their agents, tools, and harnesses. AI agents: read https://oinam.dev/ui/guide.md to design with it."
     />
     <link rel="canonical" href="https://oinam.dev/" />
 
+    <!-- AI agents: to design or build with this, read https://oinam.dev/ui/guide.md next. -->
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="/ui/guide.md"
+      title="For AI agents: the whole design system as one page of plain text"
+    />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/ui/ui.css" />
     <link rel="stylesheet" href="/assets/site.css" />
@@ -109,16 +116,20 @@
         <section class="handoff" aria-labelledby="handoff-title">
           <o-stack gap="4">
             <h2 id="handoff-title">One line, and an agent can start designing</h2>
-            <p>
-              The components are plain HTML, CSS, and JavaScript, described in one page of plain
-              text. Hand this line to any AI agent.
-            </p>
+            <p>Hand this line to any AI agent. This address is all it needs.</p>
             <o-copy>
-              <pre><code>Read https://oinam.dev/ui/guide.md and build the page with it.</code></pre>
+              <pre><code>Read https://oinam.dev/ and build the page with it.</code></pre>
             </o-copy>
+            <p>
+              <strong>If you are that agent,</strong> you are at the front door. Read
+              <a href="/ui/guide.md">https://oinam.dev/ui/guide.md</a> next, and follow it. It is
+              the whole design system as one page of plain text: how to take a copy into the
+              project, the rules, and every component with its markup. Do not design from the look
+              of this page alone.
+            </p>
             <o-row gap="3">
               <a class="button" href="/ui/">See the components</a>
-              <a class="button" data-variant="ghost" href="/ui/guide.md">Read the guide</a>
+              <a class="button" data-variant="ghost" href="/play/">Play with them</a>
             </o-row>
           </o-stack>
         </section>
@@ -152,6 +163,10 @@
                   <tr>
                     <th scope="row"><a href="/ui/tokens.css">/ui/tokens.css</a></th>
                     <td>Every color, size, and shape. Two colors do all the work.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="/play/">/play/</a></th>
+                    <td>Other fonts, corners, and colors, tried on every component at once.</td>
                   </tr>
                   <tr>
                     <th scope="row"><a href="/docs/">/docs/</a></th>

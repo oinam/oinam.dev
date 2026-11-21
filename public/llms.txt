@@ -4,6 +4,8 @@
 
 This site is written for AI agents first; people mostly look at it. Every page is static HTML, and reads the same with scripts off.
 
+If you were told to read https://oinam.dev/ and build something with it, the next thing to read is the components guide below.
+
 ## Design with it
 
 - [Components guide](https://oinam.dev/ui/guide.md): Oinam UI, the whole design system as one page of plain text. Read this to design or build a page: how to install it, the rules, the tokens, and every component with its markup.

@@ -55,3 +55,22 @@ test("no page carries an inline style or an inline script", () => {
     assert.doesNotMatch(html, /<script(?![^>]*\bsrc=)[^>]*>/, `${path} has an inline script`);
   }
 });
+
+test("the front door sends an agent on to the guide, in so many words", () => {
+  const home = read("public/index.html");
+  const main = home.slice(home.indexOf("<main"));
+
+  // The address is written out in full, because an agent may see the text without the link.
+  assert.match(main, /<a href="\/ui\/guide\.md"\s*>https:\/\/oinam\.dev\/ui\/guide\.md<\/a\s*>/);
+  assert.match(main, /If you are that agent/);
+  assert.match(
+    home,
+    /<link[^>]*rel="alternate"[^>]*type="text\/markdown"[^>]*href="\/ui\/guide\.md"/,
+  );
+});
+
+test("the line to hand an agent names the bare address and nothing more", () => {
+  for (const path of ["public/index.html", "public/ui/index.html"]) {
+    assert.ok(read(path).includes("Read https://oinam.dev/ and build the page with it."), path);
+  }
+});

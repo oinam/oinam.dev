@@ -5,6 +5,9 @@ dependencies. This page is the whole of it, written for an AI agent to read once
 with. It exists so that the first draft of a page does not look like every other page an AI has
 made.
 
+If you were sent to https://oinam.dev/ and told to build with it, this is the page you were sent
+for.
+
 - Live examples, for people: https://oinam.dev/ui/
 - The same as data: https://oinam.dev/ui/registry.json
 - What changed in each version: https://oinam.dev/ui/CHANGELOG.md
