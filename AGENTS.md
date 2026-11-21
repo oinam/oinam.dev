@@ -91,6 +91,9 @@ components; read this to change them.
   runs and where it never does.
 - **Tokens only.** Every color, size, and shape is a custom property from `tokens.css`. Two colors
   do all the work, and no component adds a hue.
+- **Base, and variations of it.** The values in `tokens.css` are Base, the default design. A
+  variation is a new look made by changing tokens and nothing else, kept in a stylesheet of its
+  own. A change that tokens cannot express is a change to Base, and is made here.
 - **Each file stands alone.** One component, one stylesheet, and one script if it needs one, each
   opening with a comment that shows the markup. `ui.css` and `ui.js` gather them.
 - **Made to be taken.** A project does not link to oinam.dev; it takes a copy with

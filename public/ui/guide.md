@@ -151,15 +151,39 @@ All of them are custom properties on `:root`, defined in `tokens.css`.
 | `--control-sm/-/lg`    | 2rem, 2.5rem (`--control`), 3rem        | The height of a button or field  |
 | `--duration`, `--ease` | 0.2s, an ease-out curve                 | Transitions                      |
 
-To re-skin the system, override tokens in the page's own stylesheet:
+## Base and variations
+
+The design described here is called **Base**. It is the default, and every other design comes out
+of it.
+
+A variation is a new look made by changing tokens and nothing else: another ink and cloud, other
+fonts, sharper or rounder corners, tighter or looser space. The components are never edited to make
+one. A variation is one small stylesheet that holds only the values that differ from Base, linked
+after `ui.css`.
 
 ```css
+/* variations/harbor.css */
 :root {
   --color-ink: light-dark(#1b1a17, #f2efe8);
   --color-cloud: light-dark(#f7f4ee, #12110f);
   --radius-md: 4px;
 }
 ```
+
+```html
+<link rel="stylesheet" href="/ui/ui.css" /> <link rel="stylesheet" href="/variations/harbor.css" />
+```
+
+Rules for a variation:
+
+- Tokens only. If a look cannot be reached by changing tokens, that is a new component or a change
+  to Base, not a variation.
+- Give every color both values with `light-dark()`, so light and dark still come for free.
+- Keep text readable: ink on cloud, and the soft and faint inks on cloud and on milk, must stay at a
+  contrast of 4.5 to 1 or better.
+- Base has two colors. A variation chooses its own two; it does not add a third.
+- Keep the file outside the `ui/` folder, with the project's own styles, so that upgrading the
+  system never touches it.
 
 ## Theme
 

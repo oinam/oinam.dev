@@ -92,3 +92,9 @@ test("the guide names every custom element the stylesheets define", () => {
     assert.ok(guide.includes(`<${element}`), `guide.md never shows <${element}>`);
   }
 });
+
+test("the design is Base, and the tokens say so", () => {
+  assert.equal(registry.design, "Base");
+  assert.match(read("tokens.css"), /^\/\*\n \* Tokens: Base\n/);
+  assert.ok(guide.includes("## Base and variations\n"));
+});

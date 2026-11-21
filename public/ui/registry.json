@@ -1,6 +1,8 @@
 {
   "name": "Oinam UI",
   "description": "A design system in plain HTML, CSS, and JavaScript: custom elements for structure, native elements for the work, and no framework or build step.",
+  "design": "Base",
+  "variations": [],
   "homepage": "https://oinam.dev/ui/",
   "guide": "https://oinam.dev/ui/guide.md",
   "source": "https://oinam.dev/ui/",
