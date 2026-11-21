@@ -1,4 +1,4 @@
-# Oinam UI v0.3.0
+# Oinam UI v0.4.0
 
 A design system in plain HTML, CSS, and JavaScript. No framework, no build step, and no
 dependencies. This page is the whole of it, written for an AI agent to read once and then design
@@ -9,7 +9,8 @@ If you were sent to https://oinam.dev/ and told to build with it, this is the pa
 for.
 
 - Live examples, for people: https://oinam.dev/ui/
-- The same as data: https://oinam.dev/ui/registry.json
+- The same as data: https://oinam.dev/ui/registry.json, and what each element accepts:
+  https://oinam.dev/ui/contract.json
 - Why each rule is the way it is: https://oinam.dev/ui/why.md
 - What changed in each version: https://oinam.dev/ui/CHANGELOG.md
 - Source: https://github.com/oinam/oinam.dev/tree/main/public/ui

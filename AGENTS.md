@@ -130,7 +130,8 @@ too. What is still missing for agents is listed in `docs/ai-native.md`.
 A new component is added in each of these places, and the tests fail until it is:
 
 - its files in `public/ui/`, gathered into `ui.css` and, for a script, `ui.js`
-- `public/ui/registry.json`, the components as data
+- `public/ui/registry.json`, the components as data, and `public/ui/contract.json`, what each
+  element and class accepts
 - `public/ui/guide.md`, under a heading of its own
 - `public/ui/index.html`, as a specimen in an `<o-example>`, with a link in the contents
 - `public/search.json`

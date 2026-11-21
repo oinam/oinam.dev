@@ -14,6 +14,19 @@ The numbers mean what they say:
 - The first number changes when a page that worked may stop working: a class, an element, an
   attribute, or a token was renamed or removed. Before 1.0.0, the middle number does this job too.
 
+## 0.4.0
+
+2026-11-21
+
+Tools and documents for agents. Nothing in the components changed.
+
+- `contract.json`: what each element and class accepts, as data: its attributes, their values, what
+  it must contain, and where it may not go.
+
+### What to do
+
+Nothing. Everything in this version is an addition, and no page needs to change.
+
 ## 0.3.0
 
 2026-11-21

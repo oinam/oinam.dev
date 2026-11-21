@@ -1,0 +1,236 @@
+{
+  "$description": "Oinam UI: what each element and class accepts. For every custom element: its attributes and their values (true means the attribute stands alone, with no value; \"text\" means any text), what it must contain, and where it may not go. For every class: the elements it goes on, and its attributes. Anything not listed here is not part of the system. The linter, tools/lint.js, reads this file.",
+  "global": [
+    "id",
+    "class",
+    "role",
+    "tabindex",
+    "hidden",
+    "title",
+    "lang",
+    "dir",
+    "slot",
+    "popover",
+    "inert"
+  ],
+  "elements": {
+    "o-wrap": {
+      "component": "wrap",
+      "attributes": {
+        "narrow": true
+      }
+    },
+    "o-stack": {
+      "component": "stack",
+      "attributes": {
+        "gap": ["1", "2", "3", "4", "6", "8", "12", "16"],
+        "align": ["start", "center"]
+      }
+    },
+    "o-row": {
+      "component": "row",
+      "attributes": {
+        "gap": ["1", "2", "3", "4", "6", "8", "12", "16"],
+        "align": ["start", "baseline"],
+        "justify": ["between", "center", "end"]
+      }
+    },
+    "o-grid": {
+      "component": "grid",
+      "attributes": {
+        "gap": ["1", "2", "3", "4", "6", "8", "12", "16"],
+        "min": ["small", "large"]
+      }
+    },
+    "o-prose": {
+      "component": "prose",
+      "attributes": {}
+    },
+    "o-card": {
+      "component": "card",
+      "attributes": {},
+      "not_inside": ["o-card"]
+    },
+    "o-badge": {
+      "component": "badge",
+      "attributes": {
+        "variant": ["solid"]
+      }
+    },
+    "o-alert": {
+      "component": "alert",
+      "attributes": {
+        "variant": ["warning", "danger"]
+      }
+    },
+    "o-table": {
+      "component": "table",
+      "attributes": {},
+      "contains": ["table"]
+    },
+    "o-avatar": {
+      "component": "avatar",
+      "attributes": {
+        "size": ["small", "large"]
+      }
+    },
+    "o-item": {
+      "component": "item",
+      "attributes": {}
+    },
+    "o-empty": {
+      "component": "empty",
+      "attributes": {}
+    },
+    "o-skeleton": {
+      "component": "skeleton",
+      "attributes": {
+        "shape": ["circle", "block"]
+      }
+    },
+    "o-spinner": {
+      "component": "spinner",
+      "attributes": {}
+    },
+    "o-ratio": {
+      "component": "ratio",
+      "attributes": {
+        "ratio": ["4/3", "1/1", "21/9"]
+      }
+    },
+    "o-scroll": {
+      "component": "scroll",
+      "attributes": {}
+    },
+    "o-button-group": {
+      "component": "button-group",
+      "attributes": {},
+      "contains": [".button"]
+    },
+    "o-field": {
+      "component": "field",
+      "attributes": {},
+      "contains": ["label"]
+    },
+    "o-input-group": {
+      "component": "input-group",
+      "attributes": {},
+      "contains": [".input"]
+    },
+    "o-toggle-group": {
+      "component": "toggle",
+      "attributes": {},
+      "contains": [".toggle"]
+    },
+    "o-accordion": {
+      "component": "accordion",
+      "attributes": {},
+      "contains": ["details"]
+    },
+    "o-tabs": {
+      "component": "tabs",
+      "attributes": {
+        "label": "text"
+      },
+      "contains": ["section"]
+    },
+    "o-menu": {
+      "component": "menu",
+      "attributes": {
+        "context": true
+      },
+      "contains": ["[popover]"]
+    },
+    "o-tooltip": {
+      "component": "tooltip",
+      "attributes": {},
+      "contains": ["[role=tooltip]"]
+    },
+    "o-copy": {
+      "component": "copy",
+      "attributes": {},
+      "contains": ["pre"]
+    },
+    "o-theme": {
+      "component": "theme",
+      "attributes": {},
+      "contains": ["button"]
+    },
+    "o-toast": {
+      "component": "toast",
+      "attributes": {}
+    },
+    "o-example": {
+      "component": "example",
+      "attributes": {}
+    }
+  },
+  "classes": {
+    "button": {
+      "component": "button",
+      "on": ["button", "a"],
+      "attributes": {
+        "data-variant": ["outline", "ghost"],
+        "data-size": ["small", "large", "icon"],
+        "aria-busy": ["true", "false"]
+      }
+    },
+    "input": {
+      "component": "field",
+      "on": ["input", "select", "textarea"],
+      "attributes": {}
+    },
+    "choice": {
+      "component": "choice",
+      "on": ["label"],
+      "attributes": {}
+    },
+    "slider": {
+      "component": "slider",
+      "on": ["input"],
+      "attributes": {}
+    },
+    "toggle": {
+      "component": "toggle",
+      "on": ["label"],
+      "attributes": {}
+    },
+    "progress": {
+      "component": "progress",
+      "on": ["progress"],
+      "attributes": {}
+    },
+    "dialog": {
+      "component": "dialog",
+      "on": ["dialog"],
+      "attributes": {
+        "data-side": ["right", "left", "bottom"]
+      }
+    },
+    "popover": {
+      "component": "popover",
+      "on": ["*"],
+      "attributes": {}
+    },
+    "breadcrumb": {
+      "component": "breadcrumb",
+      "on": ["nav"],
+      "attributes": {}
+    },
+    "pagination": {
+      "component": "pagination",
+      "on": ["nav"],
+      "attributes": {}
+    },
+    "eyebrow": {
+      "component": "text",
+      "on": ["*"],
+      "attributes": {}
+    },
+    "lede": {
+      "component": "text",
+      "on": ["p"],
+      "attributes": {}
+    }
+  }
+}

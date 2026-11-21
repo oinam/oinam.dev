@@ -26,14 +26,13 @@ produces.
 - [ ] **A shorter guide.** It is one file, read in full every time, and it grows with each
       component. Split it into a short core (the rules, layout, and the judgment) and a file per
       component, fetched as needed.
-- [ ] **A contract a machine can read.** The registry lists files, but not what each element
-      accepts: its attributes, their values, what may go inside it. That is what the linter reads,
-      and what an agent can check against before it writes.
 - [ ] **Delivery where agents already work.** A skill, and perhaps a small MCP server, so an agent
       can ask for one component without fetching a web page.
 
 ## Done
 
+- [x] **A contract a machine can read.** `public/ui/contract.json`: what each element and class
+      accepts, with tests that hold it to the stylesheets. The linter reads it. (0.4.0)
 - [x] **Design tokens in the standard JSON format.** `public/ui/tokens.json`, in the Design Tokens
       format (2025.10), with the same values as `tokens.css` and a test that holds the two
       together. Tools that cannot read CSS can read this. (0.3.0)

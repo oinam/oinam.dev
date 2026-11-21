@@ -1,6 +1,6 @@
 {
   "name": "Oinam UI",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A design system in plain HTML, CSS, and JavaScript: custom elements for structure, native elements for the work, and no framework or build step.",
   "design": "Base",
   "variations": "https://oinam.dev/garden/variations.json",
@@ -16,7 +16,7 @@
   },
   "foundation": ["tokens.css", "base.css"],
   "docs": ["guide.md", "why.md", "CHANGELOG.md"],
-  "data": ["tokens.json"],
+  "data": ["tokens.json", "contract.json"],
   "fonts": [
     {
       "name": "geist",
