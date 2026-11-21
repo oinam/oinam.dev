@@ -112,7 +112,7 @@ test("every place that names the version names the same one", () => {
     const html = readFileSync(new URL(`../${path}`, UI), "utf8");
     assert.match(
       html,
-      new RegExp(`class="brand-version"[^>]*>v${version}<`),
+      new RegExp(`class="brand-version"[^>]*>\\s*<code>v${version}</code>`),
       `the header of ${path}`,
     );
   }
