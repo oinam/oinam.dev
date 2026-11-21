@@ -26,7 +26,9 @@ The first version, and the Base design.
 - Controls: `.button`, `<o-field>`, `.input`, `.choice`, and the switch.
 - Disclosure: `<o-accordion>`, `<o-tabs>`, `.dialog`.
 - Utilities: `<o-copy>`, `<o-theme>`, `<o-example>`.
-- `install.sh`, to take a copy into a project.
+- Open fonts to opt into, served from the project's own copy: Geist, Inter, Source Serif 4, and
+  Geist Mono.
+- `install.sh`, to take a copy into a project and to upgrade it later.
 
 ### What to do
 

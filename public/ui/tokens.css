@@ -34,6 +34,10 @@
     system-ui, -apple-system, "Segoe UI", roboto, ubuntu, cantarell, "Noto Sans", sans-serif;
   --font-mono:
     ui-monospace, menlo, consolas, monaco, "Liberation Mono", "Lucida Console", monospace;
+
+  /* What each family is for. A variation can point headings at the sans, or text at the serif. */
+  --font-heading: var(--font-serif);
+  --font-body: var(--font-sans);
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;

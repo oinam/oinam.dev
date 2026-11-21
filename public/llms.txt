@@ -19,4 +19,4 @@ This site is written for AI agents first; people mostly look at it. Every page i
 ## Optional
 
 - [Components, live](https://oinam.dev/ui/): The components page for people, with every example running.
-- [Play](https://oinam.dev/play/): Coming soon. A place to tinker with the design and the tools.
+- [Play](https://oinam.dev/play/): A page for people to try other fonts, corners, and colors on the components. It needs scripts; the guide covers the same ground in text, under "Base and variations" and "Fonts".

@@ -16,6 +16,41 @@
   },
   "foundation": ["tokens.css", "base.css"],
   "docs": ["guide.md", "CHANGELOG.md"],
+  "fonts": [
+    {
+      "name": "geist",
+      "family": "Geist",
+      "sets": "--font-sans",
+      "license": "OFL-1.1",
+      "files": ["fonts/geist.css", "fonts/geist.woff2", "fonts/geist-license.txt"]
+    },
+    {
+      "name": "inter",
+      "family": "Inter",
+      "sets": "--font-sans",
+      "license": "OFL-1.1",
+      "files": ["fonts/inter.css", "fonts/inter.woff2", "fonts/inter-license.txt"]
+    },
+    {
+      "name": "source-serif",
+      "family": "Source Serif 4",
+      "sets": "--font-serif",
+      "license": "OFL-1.1",
+      "files": [
+        "fonts/source-serif.css",
+        "fonts/source-serif.woff2",
+        "fonts/source-serif-italic.woff2",
+        "fonts/source-serif-license.txt"
+      ]
+    },
+    {
+      "name": "geist-mono",
+      "family": "Geist Mono",
+      "sets": "--font-mono",
+      "license": "OFL-1.1",
+      "files": ["fonts/geist-mono.css", "fonts/geist-mono.woff2", "fonts/geist-mono-license.txt"]
+    }
+  ],
   "components": [
     {
       "name": "wrap",

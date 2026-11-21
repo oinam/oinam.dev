@@ -71,6 +71,10 @@ Some things are kept by hand, because there is no build step to keep them:
 - A new page is added to `public/search.json` (the search index), `public/sitemap.xml`, and
   `public/llms.txt`.
 
+The Play page at `/play/` lets a person try other fonts, corners, and colors on the components and
+take the result away as a variation. What it offers is the `OPTIONS` list in
+`public/assets/variation.js`; add a choice there and the page shows it.
+
 The site's own styles and its search are in `public/assets/`. Everything else it wears comes from
 the components, which it uses the same way anyone else would.
 
@@ -94,6 +98,10 @@ components; read this to change them.
 - **Base, and variations of it.** The values in `tokens.css` are Base, the default design. A
   variation is a new look made by changing tokens and nothing else, kept in a stylesheet of its
   own. A change that tokens cannot express is a change to Base, and is made here.
+- **Fonts are open, ours to serve, and opt-in.** Base uses the reader's own fonts and downloads
+  none. The fonts in `public/ui/fonts/` are under the SIL Open Font License, each with its license
+  beside it, a stylesheet that declares it and sets its token, and an entry under `fonts` in
+  `registry.json`. No font is ever linked from another site.
 - **Each file stands alone.** One component, one stylesheet, and one script if it needs one, each
   opening with a comment that shows the markup. `ui.css` and `ui.js` gather them.
 - **Made to be taken.** A project does not link to oinam.dev; it takes a copy with

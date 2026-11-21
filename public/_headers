@@ -11,3 +11,7 @@
 # across origins need this; the files are public anyway.
 /ui/*
   Access-Control-Allow-Origin: *
+
+# Font files change rarely, and are large next to everything else here.
+/ui/fonts/*
+  Cache-Control: public, max-age=604800

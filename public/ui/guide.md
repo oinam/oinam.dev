@@ -176,25 +176,26 @@ elements are already styled.
 
 All of them are custom properties on `:root`, defined in `tokens.css`.
 
-| Token                  | Value                                   | Use                              |
-| ---------------------- | --------------------------------------- | -------------------------------- |
-| `--color-ink`          | `#161618` light, `#eceef1` dark         | Text, solid buttons              |
-| `--color-cloud`        | `#f5f6f8` light, `#0c0c0c` dark         | The page background              |
-| `--color-milk`         | `#fcfcfd` light, `#161618` dark         | Raised surfaces: cards, fields   |
-| `--color-ink-soft`     | 68% ink in cloud                        | Secondary text                   |
-| `--color-ink-faint`    | 58% ink in cloud                        | Labels, placeholders             |
-| `--color-line-strong`  | 24% ink in cloud                        | Borders of controls              |
-| `--color-line`         | 12% ink in cloud                        | Hairlines, borders of surfaces   |
-| `--color-wash`         | 6% ink, see-through                     | Hover fills                      |
-| `--font-serif`         | Iowan Old Style, Baskerville, Times     | Headings                         |
-| `--font-sans`          | The system UI font                      | Everything else                  |
-| `--font-mono`          | The system monospace font               | Code, eyebrows, badges           |
-| `--text-xs` to `-4xl`  | 0.75, 0.875, 1, 1.125, 1.25, 1.5, 2 rem | Type sizes; `4xl` is fluid       |
-| `--space-1` to `-16`   | 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4 rem    | Steps 1, 2, 3, 4, 6, 8, 12, 16   |
-| `--radius-sm/md/lg`    | 6px, 10px, 14px, and `--radius-full`    | Small things, controls, surfaces |
-| `--shadow-sm/md/lg`    | Three soft shadows                      | Fields, hover, dialogs           |
-| `--control-sm/-/lg`    | 2rem, 2.5rem (`--control`), 3rem        | The height of a button or field  |
-| `--duration`, `--ease` | 0.2s, an ease-out curve                 | Transitions                      |
+| Token                           | Value                                   | Use                                            |
+| ------------------------------- | --------------------------------------- | ---------------------------------------------- |
+| `--color-ink`                   | `#161618` light, `#eceef1` dark         | Text, solid buttons                            |
+| `--color-cloud`                 | `#f5f6f8` light, `#0c0c0c` dark         | The page background                            |
+| `--color-milk`                  | `#fcfcfd` light, `#161618` dark         | Raised surfaces: cards, fields                 |
+| `--color-ink-soft`              | 68% ink in cloud                        | Secondary text                                 |
+| `--color-ink-faint`             | 58% ink in cloud                        | Labels, placeholders                           |
+| `--color-line-strong`           | 24% ink in cloud                        | Borders of controls                            |
+| `--color-line`                  | 12% ink in cloud                        | Hairlines, borders of surfaces                 |
+| `--color-wash`                  | 6% ink, see-through                     | Hover fills                                    |
+| `--font-serif`                  | Iowan Old Style, Baskerville, Times     | Headings                                       |
+| `--font-sans`                   | The system UI font                      | Everything else                                |
+| `--font-mono`                   | The system monospace font               | Code, eyebrows, badges                         |
+| `--font-heading`, `--font-body` | The serif, and the sans                 | What headings, and everything else, are set in |
+| `--text-xs` to `-4xl`           | 0.75, 0.875, 1, 1.125, 1.25, 1.5, 2 rem | Type sizes; `4xl` is fluid                     |
+| `--space-1` to `-16`            | 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4 rem    | Steps 1, 2, 3, 4, 6, 8, 12, 16                 |
+| `--radius-sm/md/lg`             | 6px, 10px, 14px, and `--radius-full`    | Small things, controls, surfaces               |
+| `--shadow-sm/md/lg`             | Three soft shadows                      | Fields, hover, dialogs                         |
+| `--control-sm/-/lg`             | 2rem, 2.5rem (`--control`), 3rem        | The height of a button or field                |
+| `--duration`, `--ease`          | 0.2s, an ease-out curve                 | Transitions                                    |
 
 ## Base and variations
 
@@ -229,6 +230,40 @@ Rules for a variation:
 - Base has two colors. A variation chooses its own two; it does not add a third.
 - Keep the file outside the `ui/` folder, with the project's own styles, so that upgrading the
   system never touches it.
+
+## Fonts
+
+Base uses the fonts already on the reader's device, so it downloads none. That is the fastest
+choice, and it means the page looks a little different on each platform.
+
+For the same look everywhere, the system carries four open fonts. They are served from the
+project's own copy, never from another site. To use one, link its stylesheet after `ui.css`; it
+declares the font and points the right token at it.
+
+| Stylesheet               | Font           | Becomes                      |
+| ------------------------ | -------------- | ---------------------------- |
+| `fonts/geist.css`        | Geist          | The text, `--font-sans`      |
+| `fonts/inter.css`        | Inter          | The text, `--font-sans`      |
+| `fonts/source-serif.css` | Source Serif 4 | The headings, `--font-serif` |
+| `fonts/geist-mono.css`   | Geist Mono     | The code, `--font-mono`      |
+
+```html
+<link rel="stylesheet" href="/ui/ui.css" />
+<link rel="stylesheet" href="/ui/fonts/geist.css" />
+<link rel="stylesheet" href="/ui/fonts/source-serif.css" />
+```
+
+- Link one text font, not both. Each font is one variable file of 25 to 50 KB that holds every
+  weight, and the browser fetches it only if the page uses it.
+- Headings are set in `--font-heading`, which is the serif, and everything else in `--font-body`,
+  which is the sans. To set headings in the text font, put `--font-heading: var(--font-sans);` in
+  the variation.
+- All four are under the SIL Open Font License. Each license is beside its font, and goes wherever
+  the font goes.
+- To add another font, follow the same pattern in the project's own files: a `.woff2` the project
+  serves itself, an `@font-face` rule, and the token. Do not link a font from another site.
+
+To try these on every component at once, see https://oinam.dev/play/.
 
 ## Theme
 

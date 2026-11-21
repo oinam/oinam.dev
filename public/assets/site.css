@@ -496,6 +496,47 @@ o-theme:not(:defined) {
   }
 }
 
+/* Play: the choices down the side, and a page made of components beside them. */
+
+.play {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.play-controls {
+  position: sticky;
+  top: calc(var(--header) + var(--space-8));
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+
+.play-preview {
+  max-width: 60rem;
+}
+
+.play-take {
+  max-width: 44rem;
+  padding-top: var(--space-16);
+  color: var(--color-ink-soft);
+}
+
+.play-take h2 {
+  color: var(--color-ink);
+  font-size: var(--text-2xl);
+}
+
+@media (width < 52rem) {
+  .play {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .play-controls {
+    position: static;
+  }
+}
+
 /* Footer */
 
 .site-footer {

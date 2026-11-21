@@ -125,3 +125,25 @@ test("every entry in the changelog says what to do", () => {
     assert.match(entry, /^### What to do\n\n\S/m, `${version} has no "What to do"`);
   }
 });
+
+test("every font file is in the registry, and every font the registry names exists", () => {
+  const folder = readdirSync(new URL("fonts/", UI)).map((name) => `fonts/${name}`);
+  const named = registry.fonts.flatMap((font) => font.files);
+
+  assert.deepEqual(folder.toSorted(), named.toSorted());
+});
+
+test("every font comes with its stylesheet, its license, and a place in the guide", () => {
+  for (const { name, family, files, sets } of registry.fonts) {
+    const sheet = `fonts/${name}.css`;
+
+    assert.ok(files.includes(sheet), sheet);
+    assert.ok(files.includes(`fonts/${name}-license.txt`), `${name} has no license beside it`);
+    assert.match(
+      read(sheet),
+      new RegExp(`${sets}:\\s+"${family}"`),
+      `${sheet} does not set ${sets}`,
+    );
+    assert.ok(guide.includes(`\`${sheet}\``), `guide.md does not mention ${sheet}`);
+  }
+});
