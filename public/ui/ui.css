@@ -3,7 +3,7 @@
  *
  * The whole system in one link:
  *
- *   <link rel="stylesheet" href="https://oinam.dev/ui/ui.css" />
+ *   <link rel="stylesheet" href="/ui/ui.css" />
  *
  * Every file below also stands alone, so take only what a page needs. They
  * all read their values from tokens.css, which is the one file to change.

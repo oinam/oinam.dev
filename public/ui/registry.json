@@ -3,7 +3,8 @@
   "description": "A design system in plain HTML, CSS, and JavaScript: custom elements for structure, native elements for the work, and no framework or build step.",
   "homepage": "https://oinam.dev/ui/",
   "guide": "https://oinam.dev/ui/guide.md",
-  "base": "https://oinam.dev/ui/",
+  "source": "https://oinam.dev/ui/",
+  "install": "https://oinam.dev/ui/install.sh",
   "license": "MIT",
   "all": {
     "css": "ui.css",
@@ -11,6 +12,7 @@
     "head": "theme-init.js"
   },
   "foundation": ["tokens.css", "base.css"],
+  "docs": ["guide.md"],
   "components": [
     {
       "name": "wrap",

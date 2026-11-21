@@ -153,41 +153,50 @@
             <section class="specimen" id="install">
               <o-stack>
                 <h2>Install</h2>
-                <o-tabs label="Ways to install">
+                <p>
+                  Take a copy. The system is meant to live inside your project, not to be linked
+                  from this site. One line puts every file in <code>./ui/</code>, and from then on
+                  they are yours.
+                </p>
+                <o-copy>
+                  <pre><code>curl -fsSL https://oinam.dev/ui/install.sh | sh</code></pre>
+                </o-copy>
+                <o-tabs label="After installing">
                   <section>
-                    <h3>Link it</h3>
+                    <h3>Link your copy</h3>
                     <o-stack>
                       <p>
-                        Three lines in the <code>&lt;head&gt;</code>. The stylesheet is the system;
-                        the two scripts are only for the theme toggle and the few elements that need
-                        behavior.
+                        Three lines in the <code>&lt;head&gt;</code>, with the path as your site
+                        serves it. The stylesheet is the system; the two scripts are only for the
+                        theme toggle and the few elements that need behavior.
                       </p>
                       <o-copy>
-                        <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://oinam.dev/ui/ui.css&quot; /&gt;
-&lt;script src=&quot;https://oinam.dev/ui/theme-init.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;module&quot; src=&quot;https://oinam.dev/ui/ui.js&quot;&gt;&lt;/script&gt;</code></pre>
+                        <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/ui/ui.css&quot; /&gt;
+&lt;script src=&quot;/ui/theme-init.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;module&quot; src=&quot;/ui/ui.js&quot;&gt;&lt;/script&gt;</code></pre>
                       </o-copy>
                     </o-stack>
                   </section>
                   <section>
-                    <h3>Copy it</h3>
+                    <h3>Or hand it to an agent</h3>
                     <o-stack>
                       <p>
-                        Every file under <code>/ui/</code> stands alone and has no dependencies.
-                        Take <code>tokens.css</code> and <code>base.css</code>, add the components a
-                        page uses, and make them yours.
-                        <a href="/ui/registry.json">registry.json</a> lists which files each
-                        component needs.
+                        One line is enough. The guide tells the agent to take a copy first, and then
+                        how to design with it.
                       </p>
-                    </o-stack>
-                  </section>
-                  <section>
-                    <h3>Hand it to an agent</h3>
-                    <o-stack>
-                      <p>One line is enough for an agent to start designing.</p>
                       <o-copy>
                         <pre><code>Read https://oinam.dev/ui/guide.md and build the page with it.</code></pre>
                       </o-copy>
+                    </o-stack>
+                  </section>
+                  <section>
+                    <h3>Without a shell</h3>
+                    <o-stack>
+                      <p>
+                        Every file under <code>/ui/</code> stands alone and has no dependencies.
+                        <a href="/ui/registry.json">registry.json</a> names them all, and which ones
+                        each component needs. Download those into one folder, keeping their names.
+                      </p>
                     </o-stack>
                   </section>
                 </o-tabs>

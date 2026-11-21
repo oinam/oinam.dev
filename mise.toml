@@ -7,6 +7,9 @@
 # Cloudflare Pages does, with the headers and the 404 page.
 node = "22"
 "npm:wrangler" = "4.159.0"
+# For install.sh, the one shell script: its linter and its formatter.
+shellcheck = "0.11.0"
+shfmt = "3.14.1"
 
 [env]
 HOST = "127.0.0.1"
@@ -28,17 +31,18 @@ wrangler pages dev public --ip {{env.HOST}} --port {{env.PORT}}
 """
 
 [tasks.format]
-description = "Format everything with Prettier"
+description = "Format everything with Prettier, and the installer with shfmt"
 depends = ["install"]
-run = "prettier --write ."
+run = ["prettier --write .", "shfmt --write --indent 2 public/ui/install.sh"]
 
 [tasks.lint]
-description = "Lint the scripts (ESLint), the styles (Stylelint), and the pages (html-validate)"
+description = "Lint the scripts (ESLint), the styles (Stylelint), the pages (html-validate), and the installer (ShellCheck)"
 depends = ["install"]
 run = [
   "eslint .",
   "stylelint 'public/**/*.css'",
   "html-validate 'public/**/*.html'",
+  "shellcheck public/ui/install.sh",
 ]
 
 [tasks.test]
@@ -50,6 +54,7 @@ description = "Everything CI runs: the format check, the linters, and the tests"
 depends = ["install"]
 run = [
   "prettier --check .",
+  "shfmt --diff --indent 2 public/ui/install.sh",
   { task = "lint" },
   { task = "test" },
 ]

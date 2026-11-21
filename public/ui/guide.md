@@ -10,12 +10,23 @@ with.
 
 ## Install
 
-Put these three lines in the `<head>`.
+Take a copy. The system is meant to live inside your project, not to be linked from oinam.dev.
+
+```sh
+curl -fsSL https://oinam.dev/ui/install.sh | sh
+```
+
+This puts every file in `./ui/`. To put them elsewhere, name the folder:
+`curl -fsSL https://oinam.dev/ui/install.sh | sh -s -- public/ui`. It needs only a shell and curl.
+Where there is no shell, download the files that `registry.json` names into one folder, keeping
+their names.
+
+Then link your own copy from the `<head>`, with the path as your site serves it.
 
 ```html
-<link rel="stylesheet" href="https://oinam.dev/ui/ui.css" />
-<script src="https://oinam.dev/ui/theme-init.js"></script>
-<script type="module" src="https://oinam.dev/ui/ui.js"></script>
+<link rel="stylesheet" href="/ui/ui.css" />
+<script src="/ui/theme-init.js"></script>
+<script type="module" src="/ui/ui.js"></script>
 ```
 
 - `ui.css` is the system. Most pages need nothing else.
@@ -23,9 +34,10 @@ Put these three lines in the `<head>`.
   toggle; the page then follows the system setting.
 - `ui.js` is only for the elements marked "needs script" below.
 
-For anything that has to last, copy the files instead of linking them. Every file under `/ui/`
-stands alone. Start with `tokens.css` and `base.css`, then add the files of the components the page
-uses; `registry.json` lists them.
+From then on the files are yours. Nothing in them points back at oinam.dev, and a page that uses
+them makes no request to anyone else. Every file stands alone, so a page can also link only the
+ones it uses: `tokens.css` and `base.css` first, then the files `registry.json` lists for each
+component.
 
 ## How it works
 
@@ -78,9 +90,9 @@ elements are already styled.
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title>Field notes</title>
-    <link rel="stylesheet" href="https://oinam.dev/ui/ui.css" />
-    <script src="https://oinam.dev/ui/theme-init.js"></script>
-    <script type="module" src="https://oinam.dev/ui/ui.js"></script>
+    <link rel="stylesheet" href="/ui/ui.css" />
+    <script src="/ui/theme-init.js"></script>
+    <script type="module" src="/ui/ui.js"></script>
   </head>
   <body>
     <main>

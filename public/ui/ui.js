@@ -3,7 +3,7 @@
  *
  * Every element that needs a script, in one module:
  *
- *   <script type="module" src="https://oinam.dev/ui/ui.js"></script>
+ *   <script type="module" src="/ui/ui.js"></script>
  *
  * Most of the system is HTML and CSS and never loads this. Each file below
  * also stands alone, so take only the elements a page uses.

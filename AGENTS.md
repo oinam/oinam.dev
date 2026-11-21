@@ -93,6 +93,9 @@ components; read this to change them.
   do all the work, and no component adds a hue.
 - **Each file stands alone.** One component, one stylesheet, and one script if it needs one, each
   opening with a comment that shows the markup. `ui.css` and `ui.js` gather them.
+- **Made to be taken.** A project does not link to oinam.dev; it takes a copy with
+  `public/ui/install.sh` and owns it. So nothing in a stylesheet or a script may name another
+  site, and the installer takes exactly the files `registry.json` names.
 
 A new component is added in each of these places, and the tests fail until it is:
 
@@ -109,11 +112,12 @@ Elements with behavior are tested in `tests/`, against the DOM that `tests/dom.j
 [mise](https://mise.jdx.dev) pins the tools and runs every task. `mise.toml` is the one place they
 are defined; `package.json` only lists the linters and the formatter.
 
-- `mise trust`, once per clone, then `mise install` to fetch Node and Wrangler.
+- `mise trust`, once per clone, then `mise install` to fetch Node, Wrangler, ShellCheck, and shfmt.
 - `mise run dev` serves the site the way Cloudflare does, headers and 404 page included, and opens
   it.
-- `mise run format` formats everything with Prettier.
-- `mise run lint` lints the scripts (ESLint), the styles (Stylelint), and the pages (html-validate).
+- `mise run format` formats everything with Prettier, and the installer with shfmt.
+- `mise run lint` lints the scripts (ESLint), the styles (Stylelint), the pages (html-validate),
+  and the installer (ShellCheck).
 - `mise run test` runs the test suite with Node's test runner.
 - `mise run check` runs the format check, the linters, and the tests. CI runs the same task on
   every push and pull request.

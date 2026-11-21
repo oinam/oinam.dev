@@ -17,7 +17,7 @@ jobs:
       # mise.toml pins the tools. Wrangler is for local development only, so skip it here.
       - uses: jdx/mise-action@v2
         with:
-          install_args: node
+          install_args: node shellcheck shfmt
 
       # Format, lint, and test: the same command to run before a push.
       - run: mise run check
