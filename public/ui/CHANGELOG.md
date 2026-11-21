@@ -23,6 +23,9 @@ Tools and documents for agents. Nothing in the components changed.
 - `contract.json`: what each element and class accepts, as data: its attributes, their values, what
   it must contain, and where it may not go.
 - `tools/lint.js`: a linter for pages built with the system. An agent runs it on what it wrote.
+- `patterns/`: six whole pages built from the components, each with a note on why it is laid out
+  as it is: a form, a table view, settings, a list empty and full, an article, and a dashboard.
+- `<o-table>` keeps anything placed absolutely inside it within its own scrolling.
 - `tools/see.js`: pictures of a page at three widths, in light and in dark, from a browser already
   on the machine.
 

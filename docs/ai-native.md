@@ -11,10 +11,6 @@ produces.
       guide drives models. A set of briefs ("a pricing page", "a settings screen"), run through
       several agents, scored by the linter and by a look at the rendered page. It shows which
       rules agents ignore, and whether a change to the guide helps or hurts.
-- [ ] **Patterns, not only parts.** There are 37 components and one example page. A dozen worked
-      pages: a form, a table view, a settings screen, a list that goes from empty to full, an
-      article, a dashboard. Agents fall back on the generic layout when they have parts but no
-      compositions.
 - [ ] **A shorter guide.** It is one file, read in full every time, and it grows with each
       component. Split it into a short core (the rules, layout, and the judgment) and a file per
       component, fetched as needed.
@@ -23,6 +19,9 @@ produces.
 
 ## Done
 
+- [x] **Patterns, not only parts.** `public/ui/patterns/`: six whole pages, each with a note on
+      why it is laid out as it is. Six, not the dozen first suggested; add one when a project
+      needs a page none of these is near. (0.4.0)
 - [x] **A way for an agent to see its page.** `public/ui/tools/see.js`: pictures at three widths,
       in light and in dark, plus a report of anything that runs off the side or throws. On its
       first run it found the homepage 9px too wide on a small phone. (0.4.0)

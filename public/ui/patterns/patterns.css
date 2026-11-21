@@ -1,0 +1,142 @@
+/*
+ * The patterns' own stylesheet: what a project's own stylesheet looks like.
+ *
+ * It is short, because the system does most of the work, and it holds to the
+ * same rules: every value is a token, and there is no color written out.
+ * Being outside a cascade layer, these rules win over the system's without
+ * any effort.
+ */
+
+.page {
+  padding-block: clamp(2.5rem, 8vh, 5rem);
+}
+
+/* The bar across the top of each page. */
+
+.bar {
+  border-bottom: 1px solid var(--color-line);
+  font-size: var(--text-sm);
+}
+
+.bar o-wrap > o-row {
+  min-height: var(--control-lg);
+}
+
+.bar a {
+  color: var(--color-ink-soft);
+  text-decoration: none;
+}
+
+.bar a:hover,
+.bar .bar-name {
+  color: var(--color-ink);
+}
+
+.bar .bar-name {
+  font-weight: 600;
+}
+
+/* Page headings are a step down from the system's largest, which is for a front page. */
+
+h1 {
+  font-size: var(--text-3xl);
+}
+
+h2 {
+  font-size: var(--text-xl);
+}
+
+/* A fieldset is a group with a name, and nothing else: no box. */
+
+.form fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.form legend {
+  margin-bottom: var(--space-4);
+  padding: 0;
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+}
+
+/* One setting: what it is on one side, its control on the other. */
+
+.setting {
+  display: flex;
+  gap: var(--space-6);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.setting label {
+  font-weight: 500;
+}
+
+.setting p {
+  max-width: 34rem;
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+
+/* Facts: a name and its value on a line, ruled apart. */
+
+.facts {
+  margin: 0;
+}
+
+.facts > div {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--color-line);
+}
+
+.facts dt {
+  color: var(--color-ink-soft);
+}
+
+.facts dd {
+  text-align: end;
+}
+
+/* Two columns that become one when there is not room for both. */
+
+.split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+  gap: var(--space-12) var(--space-16);
+  align-items: start;
+}
+
+.find {
+  width: min(20rem, 100%);
+}
+
+.grow {
+  flex: 1;
+}
+
+.quiet-text {
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+
+/* For a column heading that a screen reader needs and the eye does not. */
+
+.quiet {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (width < 36rem) {
+  .setting {
+    align-items: flex-start;
+  }
+}

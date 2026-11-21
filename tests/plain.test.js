@@ -55,7 +55,8 @@ test("pages load scripts and styles from the site itself", () => {
     for (const [tag, url] of read(path).matchAll(loads)) {
       // A link may point elsewhere when it only names a page; loading is what matters.
       if (/rel="(?:canonical|alternate)"/.test(tag)) continue;
-      assert.match(url, /^\/(?!\/)/, `${path} loads "${url}"`);
+      // From the site's root, or from beside the page: never from another site.
+      assert.match(url, /^(\/(?!\/)|\.\.?\/|[a-z0-9-]+\.(css|js)$)/, `${path} loads "${url}"`);
     }
   }
 });

@@ -180,6 +180,26 @@ Open the page. Do not only read its source.
 
 Then tell the owner what you were unsure of. Do not hide it.
 
+## Patterns: whole pages to follow
+
+The components are parts. A page is a composition, and that is where a first draft goes generic.
+So the system carries whole pages, built from the components and nothing else, each one opening
+with a comment that says why it is laid out the way it is. Before composing a page, read the
+pattern nearest to it.
+
+| File                      | Pattern                | What it shows                                                                                                |
+| ------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `patterns/form.html`      | A form                 | One narrow column, fields grouped under names, help under each field, and one button that says what it does. |
+| `patterns/table.html`     | A table view           | Many like things as a table, with one main action, a filter, a status, and each row's actions in a menu.     |
+| `patterns/settings.html`  | Settings               | Rows with a name on one side and a control on the other, and a dangerous action that asks first.             |
+| `patterns/list.html`      | A list, empty and full | The same list with boats expected, with none, and while it loads.                                            |
+| `patterns/article.html`   | An article             | Writing in one column: a date, a title, a lede, plain prose, a table, and one thing not to miss.             |
+| `patterns/dashboard.html` | A dashboard            | A sentence that says what matters now, what needs a decision, and the figures beside it. No charts.          |
+
+They are in `ui/patterns/` in the project's copy, and live at https://oinam.dev/ui/patterns/. Their
+own stylesheet, `patterns/patterns.css`, is what a project's own stylesheet looks like: short, and
+tokens only. Take the structure of a pattern, not its words; the harbor office in them is made up.
+
 ## Check your work
 
 Before you hand a page back, run the linter on it. It needs Node and nothing else.

@@ -1,0 +1,142 @@
+<!doctype html>
+<!--
+  Pattern: A list, empty and full
+
+  A list has two faces, and the empty one is designed first: it is what a new
+  person sees. Empty, it says what will be here and offers the one way to
+  start. Full, each row is an item: who, a line about them, and what can be
+  done. Both faces are on this page so that they can be compared; a real page
+  shows one or the other. While it loads, skeletons hold the rows' places.
+
+  This is one page of a made-up harbor office. The places, people, and tides
+  are invented. Take the structure, not the words.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>A list, empty and full - Harbor office</title>
+    <meta name="robots" content="noindex" />
+
+    <link rel="stylesheet" href="../ui.css" />
+    <link rel="stylesheet" href="patterns.css" />
+    <script src="../theme-init.js"></script>
+    <script type="module" src="../ui.js"></script>
+  </head>
+
+  <body>
+    <header class="bar">
+      <o-wrap>
+        <o-row justify="between">
+          <a class="bar-name" href="./">Harbor office</a>
+          <nav aria-label="Main">
+            <o-row gap="4">
+              <a href="table.html">Berths</a>
+              <a href="list.html">Arrivals</a>
+              <a href="settings.html">Settings</a>
+            </o-row>
+          </nav>
+        </o-row>
+      </o-wrap>
+    </header>
+
+    <main>
+      <o-wrap narrow>
+        <o-stack class="page" gap="12">
+          <o-row justify="between" align="start">
+            <o-stack gap="2">
+              <h1>Arrivals</h1>
+              <p class="lede">Boats expected today, in the order of the tide.</p>
+            </o-stack>
+            <a class="button" href="form.html">Book a berth</a>
+          </o-row>
+
+          <section aria-labelledby="full-title">
+            <o-stack gap="3">
+              <h2 id="full-title">With boats expected</h2>
+              <div>
+                <o-item>
+                  <o-avatar role="img" aria-label="Kestrel">K</o-avatar>
+                  <div>
+                    <strong>Kestrel</strong>
+                    <p>9.2 m sloop, berth E 11. On the morning tide.</p>
+                  </div>
+                  <o-badge variant="solid">Arrived</o-badge>
+                </o-item>
+                <o-item>
+                  <o-avatar role="img" aria-label="Marguerite">M</o-avatar>
+                  <div>
+                    <strong>Marguerite</strong>
+                    <p>12 m ketch, berth E 13. On the evening tide.</p>
+                  </div>
+                  <button
+                    class="button"
+                    data-variant="outline"
+                    data-size="small"
+                    type="button"
+                    data-toast="Marguerite is marked as arrived"
+                  >
+                    Mark as arrived
+                  </button>
+                </o-item>
+                <o-item>
+                  <o-avatar role="img" aria-label="Two Brothers">T</o-avatar>
+                  <div>
+                    <strong>Two Brothers</strong>
+                    <p>7.5 m motor launch, berth to be given. On the evening tide.</p>
+                  </div>
+                  <button
+                    class="button"
+                    data-variant="outline"
+                    data-size="small"
+                    type="button"
+                    data-toast="Two Brothers is marked as arrived"
+                  >
+                    Mark as arrived
+                  </button>
+                </o-item>
+              </div>
+            </o-stack>
+          </section>
+
+          <section aria-labelledby="empty-title">
+            <o-stack gap="3">
+              <h2 id="empty-title">With none</h2>
+              <o-empty>
+                <h3>No boats expected today</h3>
+                <p>
+                  When a berth is booked for today, the boat shows up here with the tide it is
+                  coming on.
+                </p>
+                <a class="button" data-variant="outline" href="form.html">Book a berth</a>
+              </o-empty>
+            </o-stack>
+          </section>
+
+          <section aria-labelledby="loading-title">
+            <o-stack gap="3">
+              <h2 id="loading-title">While it loads</h2>
+              <o-stack gap="4" aria-busy="true" aria-label="Loading arrivals">
+                <o-row>
+                  <o-skeleton shape="circle"></o-skeleton>
+                  <o-stack class="grow" gap="2">
+                    <o-skeleton></o-skeleton>
+                    <o-skeleton></o-skeleton>
+                  </o-stack>
+                </o-row>
+                <o-row>
+                  <o-skeleton shape="circle"></o-skeleton>
+                  <o-stack class="grow" gap="2">
+                    <o-skeleton></o-skeleton>
+                    <o-skeleton></o-skeleton>
+                  </o-stack>
+                </o-row>
+              </o-stack>
+            </o-stack>
+          </section>
+        </o-stack>
+      </o-wrap>
+    </main>
+  </body>
+</html>

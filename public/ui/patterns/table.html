@@ -1,0 +1,177 @@
+<!doctype html>
+<!--
+  Pattern: A table view
+
+  A list of many like things is a table, not a grid of cards: the eye runs
+  down a column to compare. The heading says what the list is and how much of
+  it there is. There is one main action, and it sits with the heading. The
+  filter is a toggle group, because the choices are few and exclusive. Status
+  is the one place a badge is used. Each row's own actions are in a menu, so
+  the rows stay quiet.
+
+  This is one page of a made-up harbor office. The places, people, and tides
+  are invented. Take the structure, not the words.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>A table view - Harbor office</title>
+    <meta name="robots" content="noindex" />
+
+    <link rel="stylesheet" href="../ui.css" />
+    <link rel="stylesheet" href="patterns.css" />
+    <script src="../theme-init.js"></script>
+    <script type="module" src="../ui.js"></script>
+  </head>
+
+  <body>
+    <header class="bar">
+      <o-wrap>
+        <o-row justify="between">
+          <a class="bar-name" href="./">Harbor office</a>
+          <nav aria-label="Main">
+            <o-row gap="4">
+              <a href="table.html">Berths</a>
+              <a href="list.html">Arrivals</a>
+              <a href="settings.html">Settings</a>
+            </o-row>
+          </nav>
+        </o-row>
+      </o-wrap>
+    </header>
+
+    <main>
+      <o-wrap>
+        <o-stack class="page" gap="6">
+          <o-row justify="between" align="start">
+            <o-stack gap="2">
+              <h1>Berths</h1>
+              <p class="lede">Forty on the east quay. Twenty-six are taken tonight.</p>
+            </o-stack>
+            <a class="button" href="form.html">Book a berth</a>
+          </o-row>
+
+          <o-row justify="between">
+            <o-toggle-group role="group" aria-label="Show">
+              <label class="toggle"><input type="radio" name="show" checked /> All</label>
+              <label class="toggle"><input type="radio" name="show" /> Free</label>
+              <label class="toggle"><input type="radio" name="show" /> Taken</label>
+            </o-toggle-group>
+            <o-input-group class="find">
+              <input
+                class="input"
+                type="search"
+                aria-label="Find a berth or a boat"
+                placeholder="Find a berth or a boat"
+              />
+            </o-input-group>
+          </o-row>
+
+          <o-table>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Berth</th>
+                  <th scope="col">Boat</th>
+                  <th scope="col">Until</th>
+                  <th scope="col">Depth at low water</th>
+                  <th scope="col">Status</th>
+                  <th scope="col"><span class="quiet">Actions</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">E 11</th>
+                  <td>Kestrel</td>
+                  <td>Thursday</td>
+                  <td>2.4 m</td>
+                  <td><o-badge variant="solid">Taken</o-badge></td>
+                  <td>
+                    <o-menu>
+                      <button
+                        class="button"
+                        data-variant="ghost"
+                        data-size="small"
+                        type="button"
+                        popovertarget="row-e11"
+                      >
+                        Actions
+                      </button>
+                      <div class="popover" id="row-e11" popover>
+                        <button type="button">Extend the stay</button>
+                        <button type="button">Move to another berth</button>
+                        <hr />
+                        <button type="button">Release</button>
+                      </div>
+                    </o-menu>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">E 12</th>
+                  <td>None</td>
+                  <td>Free</td>
+                  <td>2.4 m</td>
+                  <td><o-badge>Free</o-badge></td>
+                  <td>
+                    <a class="button" data-variant="ghost" data-size="small" href="form.html"
+                      >Book</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">E 13</th>
+                  <td>Marguerite</td>
+                  <td>Tomorrow</td>
+                  <td>1.9 m</td>
+                  <td><o-badge variant="solid">Taken</o-badge></td>
+                  <td>
+                    <o-menu>
+                      <button
+                        class="button"
+                        data-variant="ghost"
+                        data-size="small"
+                        type="button"
+                        popovertarget="row-e13"
+                      >
+                        Actions
+                      </button>
+                      <div class="popover" id="row-e13" popover>
+                        <button type="button">Extend the stay</button>
+                        <button type="button">Move to another berth</button>
+                        <hr />
+                        <button type="button">Release</button>
+                      </div>
+                    </o-menu>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">E 14</th>
+                  <td>None</td>
+                  <td>Closed until spring</td>
+                  <td>0.8 m</td>
+                  <td><o-badge>Closed</o-badge></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </o-table>
+
+          <o-row justify="between">
+            <p class="quiet-text">Berths 11 to 14 of 40</p>
+            <nav class="pagination" aria-label="Pages">
+              <ul>
+                <li><a href="table.html">Previous</a></li>
+                <li><a href="table.html">1</a></li>
+                <li><a href="table.html" aria-current="page">2</a></li>
+                <li><a href="table.html">3</a></li>
+                <li><a href="table.html">Next</a></li>
+              </ul>
+            </nav>
+          </o-row>
+        </o-stack>
+      </o-wrap>
+    </main>
+  </body>
+</html>

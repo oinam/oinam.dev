@@ -1,0 +1,136 @@
+<!doctype html>
+<!--
+  Pattern: A dashboard
+
+  A dashboard answers "what do I need to know, and do, right now?", so it
+  opens with a sentence that says so, not with a row of number boxes. What
+  needs a decision comes next, as a list with its actions. The figures a
+  person only glances at are a plain list of names and values beside it; a
+  figure with a limit is a progress bar, which shows how near the limit is.
+  There is no chart, because nothing here is a trend.
+
+  This is one page of a made-up harbor office. The places, people, and tides
+  are invented. Take the structure, not the words.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>A dashboard - Harbor office</title>
+    <meta name="robots" content="noindex" />
+
+    <link rel="stylesheet" href="../ui.css" />
+    <link rel="stylesheet" href="patterns.css" />
+    <script src="../theme-init.js"></script>
+    <script type="module" src="../ui.js"></script>
+  </head>
+
+  <body>
+    <header class="bar">
+      <o-wrap>
+        <o-row justify="between">
+          <a class="bar-name" href="./">Harbor office</a>
+          <nav aria-label="Main">
+            <o-row gap="4">
+              <a href="table.html">Berths</a>
+              <a href="list.html">Arrivals</a>
+              <a href="settings.html">Settings</a>
+            </o-row>
+          </nav>
+        </o-row>
+      </o-wrap>
+    </header>
+
+    <main>
+      <o-wrap>
+        <o-stack class="page" gap="12">
+          <o-stack gap="3">
+            <p class="eyebrow">Saturday, 21 November</p>
+            <h1>High water at 06:12, and three boats on the evening tide</h1>
+            <p class="lede">A quiet day. One berth needs a decision before the evening.</p>
+          </o-stack>
+
+          <div class="split">
+            <section aria-labelledby="todo-title">
+              <o-stack gap="3">
+                <h2 id="todo-title">Needs a decision</h2>
+                <div>
+                  <o-item>
+                    <div>
+                      <strong>Two Brothers has no berth</strong>
+                      <p>
+                        7.5 m, draws 0.9 m. Arrives on the evening tide. E 12 and E 20 are free and
+                        deep enough.
+                      </p>
+                    </div>
+                    <a class="button" data-size="small" href="table.html">Give it a berth</a>
+                  </o-item>
+                  <o-item>
+                    <div>
+                      <strong>Kestrel asks for two more nights</strong>
+                      <p>Berth E 11 is free until Tuesday.</p>
+                    </div>
+                    <o-row gap="2">
+                      <button
+                        class="button"
+                        data-variant="outline"
+                        data-size="small"
+                        type="button"
+                        data-toast="Kestrel stays until Saturday"
+                      >
+                        Agree
+                      </button>
+                      <button
+                        class="button"
+                        data-variant="ghost"
+                        data-size="small"
+                        type="button"
+                        data-toast="Kestrel has been told no"
+                      >
+                        Decline
+                      </button>
+                    </o-row>
+                  </o-item>
+                </div>
+              </o-stack>
+            </section>
+
+            <section aria-labelledby="today-title">
+              <o-stack gap="4">
+                <h2 id="today-title">Today</h2>
+                <o-stack gap="2">
+                  <o-row justify="between">
+                    <label for="berths-taken">Berths taken</label>
+                    <span>26 of 40</span>
+                  </o-row>
+                  <progress class="progress" id="berths-taken" value="26" max="40">
+                    26 of 40
+                  </progress>
+                </o-stack>
+                <dl class="facts">
+                  <div>
+                    <dt>High water</dt>
+                    <dd><code>06:12</code>, 4.1 m, and <code>18:40</code>, 3.9 m</dd>
+                  </div>
+                  <div>
+                    <dt>Low water</dt>
+                    <dd><code>12:25</code>, 0.7 m</dd>
+                  </div>
+                  <div>
+                    <dt>Wind</dt>
+                    <dd>South-west, force 4, easing by evening</dd>
+                  </div>
+                  <div>
+                    <dt>On watch tonight</dt>
+                    <dd>Tomas Lind</dd>
+                  </div>
+                </dl>
+              </o-stack>
+            </section>
+          </div>
+        </o-stack>
+      </o-wrap>
+    </main>
+  </body>
+</html>

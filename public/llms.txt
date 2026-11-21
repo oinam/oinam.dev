@@ -9,6 +9,7 @@ If you were told to read https://oinam.dev/ and build something with it, the nex
 ## Design with it
 
 - [Components guide](https://oinam.dev/ui/guide.md): Oinam UI, the whole design system as one page of plain text. Read this to design or build a page: how to install it, the rules, the tokens, and every component with its markup.
+- [Patterns](https://oinam.dev/ui/patterns/): Whole pages built from the components. Read the one nearest the page you are asked for; each says in a comment why it is laid out as it is.
 - [Registry](https://oinam.dev/ui/registry.json): The same components as data, with the files each one needs.
 - [Designs](https://oinam.dev/garden/variations.json): Variations of Base that others have made, each one stylesheet of token values. Use one when the owner names it.
 - [Why](https://oinam.dev/ui/why.md): What each rule of the system protects, what it costs, and when it may be bent.

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>Patterns - Oinam.DEV</title>
+    <meta
+      name="description"
+      content="Whole pages built from the Oinam UI components: a form, a table view, settings, a list, an article, and a dashboard."
+    />
+    <link rel="canonical" href="https://oinam.dev/ui/patterns/" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/ui/ui.css" />
+    <link rel="stylesheet" href="/assets/site.css" />
+    <script src="/ui/theme-init.js"></script>
+    <script type="module" src="/ui/ui.js"></script>
+    <script type="module" src="/assets/site.js"></script>
+  </head>
+
+  <body>
+    <a class="skip button" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <o-wrap>
+        <div class="brand-group">
+          <a class="brand" href="/" aria-label="Oinam.DEV, home">
+            <svg class="brand-mark" viewBox="0 0 600 600" aria-hidden="true">
+              <use href="/assets/logo.svg#mark" />
+            </svg>
+            <span class="brand-name">Oinam<span class="brand-tld">.DEV</span></span>
+          </a>
+          <a class="brand-version" href="/ui/CHANGELOG.md" title="What changed in each version"
+            ><code>v0.4.0</code></a
+          >
+        </div>
+
+        <button class="search" type="button" aria-label="Search" data-search-open>
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" />
+          </svg>
+          <span class="search-text">Search</span>
+          <span class="search-keys" aria-hidden="true"
+            ><kbd data-command-key>&#8984;K</kbd><kbd>/</kbd></span
+          >
+        </button>
+
+        <nav class="site-nav" aria-label="Site">
+          <a href="/docs/">Docs</a>
+          <a href="/ui/" aria-current="page">Components</a>
+          <a class="nav-later" href="/play/">Play</a>
+          <a class="nav-later" href="/garden/">Garden</a>
+          <a href="https://github.com/oinam/oinam.dev" aria-label="GitHub">
+            <svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"
+              />
+            </svg>
+          </a>
+          <o-theme>
+            <button type="button" aria-label="Switch theme">
+              <svg
+                class="icon icon-moon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+              </svg>
+              <svg
+                class="icon icon-sun"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"
+                />
+              </svg>
+            </button>
+          </o-theme>
+        </nav>
+      </o-wrap>
+    </header>
+
+    <main id="main">
+      <o-wrap>
+        <o-stack class="page" gap="4" align="start">
+          <h1>Patterns</h1>
+          <p class="lede">
+            Whole pages, built from the components and nothing else. The components are parts; a
+            page is a composition, and these are compositions to follow.
+          </p>
+          <p>
+            Each is a page by itself, and opens with a comment in its source that says why it is
+            laid out the way it is. The harbor office in them is made up.
+          </p>
+        </o-stack>
+
+        <section class="ledger" aria-labelledby="patterns-title">
+          <o-stack gap="4">
+            <h2 id="patterns-title">The pages</h2>
+            <o-table>
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Pattern</th>
+                    <th scope="col">What it shows</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"><a href="/ui/patterns/form.html">A form</a></th>
+                    <td>
+                      One narrow column, fields grouped under names, help under each field, and one
+                      button that says what it does.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="/ui/patterns/table.html">A table view</a></th>
+                    <td>
+                      Many like things as a table, with one main action, a filter, a status, and
+                      each row's actions in a menu.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="/ui/patterns/settings.html">Settings</a></th>
+                    <td>
+                      Rows with a name on one side and a control on the other, and a dangerous
+                      action that asks first.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="/ui/patterns/list.html">A list, empty and full</a></th>
+                    <td>The same list with boats expected, with none, and while it loads.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="/ui/patterns/article.html">An article</a></th>
+                    <td>
+                      Writing in one column: a date, a title, a lede, plain prose, a table, and one
+                      thing not to miss.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="/ui/patterns/dashboard.html">A dashboard</a></th>
+                    <td>
+                      A sentence that says what matters now, what needs a decision, and the figures
+                      beside it. No charts.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </o-table>
+            <p>
+              Their own stylesheet, <a href="/ui/patterns/patterns.css">patterns.css</a>, is what a
+              project's own stylesheet looks like: short, and tokens only.
+            </p>
+          </o-stack>
+        </section>
+      </o-wrap>
+    </main>
+
+    <footer class="site-footer">
+      <o-wrap>
+        <o-row justify="between">
+          <p>Oinam.DEV. Open and free, under the MIT license.</p>
+          <ul>
+            <li><a href="/docs/">Docs</a></li>
+            <li><a href="/ui/">Components</a></li>
+            <li><a href="/play/">Play</a></li>
+            <li><a href="/garden/">Garden</a></li>
+            <li><a href="/llms.txt">llms.txt</a></li>
+            <li><a href="https://github.com/oinam/oinam.dev">GitHub</a></li>
+          </ul>
+        </o-row>
+      </o-wrap>
+    </footer>
+  </body>
+</html>

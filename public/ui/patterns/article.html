@@ -1,0 +1,123 @@
+<!doctype html>
+<!--
+  Pattern: An article
+
+  Writing is set in one narrow column, from the left, at a size made for
+  reading. The date above the title is information, so it earns its place.
+  The lede says what the piece is in two sentences. Inside the prose there is
+  plain HTML and no classes. A fact that will be looked up is a table, and
+  the one thing a reader must not miss is an alert. The piece ends with where
+  to go next, not with a call to action.
+
+  This is one page of a made-up harbor office. The places, people, and tides
+  are invented. Take the structure, not the words.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>An article - Harbor office</title>
+    <meta name="robots" content="noindex" />
+
+    <link rel="stylesheet" href="../ui.css" />
+    <link rel="stylesheet" href="patterns.css" />
+    <script src="../theme-init.js"></script>
+    <script type="module" src="../ui.js"></script>
+  </head>
+
+  <body>
+    <header class="bar">
+      <o-wrap>
+        <o-row justify="between">
+          <a class="bar-name" href="./">Harbor office</a>
+          <nav aria-label="Main">
+            <o-row gap="4">
+              <a href="table.html">Berths</a>
+              <a href="list.html">Arrivals</a>
+              <a href="settings.html">Settings</a>
+            </o-row>
+          </nav>
+        </o-row>
+      </o-wrap>
+    </header>
+
+    <main>
+      <o-wrap narrow>
+        <article class="page">
+          <o-prose>
+            <p class="eyebrow">Notice, 21 November</p>
+            <h1>The harbor office moves to the old customs house</h1>
+            <p class="lede">
+              The move begins on Monday and takes three days. Berth bookings stay open throughout,
+              and the phone number does not change.
+            </p>
+
+            <h2>What changes</h2>
+            <p>
+              From Thursday the office is on the ground floor of the old customs house, at the head
+              of the east quay. It is two minutes on foot from where it is now, and it has the one
+              thing the present office lacks: a door that opens onto the quay.
+            </p>
+            <p>
+              Keys, fuel cards, and the tide tables are collected there. The showers stay where they
+              are, behind the chandlery.
+            </p>
+
+            <h2>Opening hours during the move</h2>
+            <o-table>
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">Where</th>
+                    <th scope="col">Hours</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Monday</th>
+                    <td>Present office</td>
+                    <td>Eight to noon</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tuesday, Wednesday</th>
+                    <td>By phone only</td>
+                    <td>Eight to five</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Thursday on</th>
+                    <td>Old customs house</td>
+                    <td>Eight to five</td>
+                  </tr>
+                </tbody>
+              </table>
+            </o-table>
+
+            <o-alert variant="warning" role="note">
+              <strong>Fuel on Tuesday and Wednesday</strong>
+              <p>
+                The fuel berth is unattended on both days. Fill up on Monday, or ask the night
+                watch.
+              </p>
+            </o-alert>
+
+            <h2>Why now</h2>
+            <p>
+              The lease on the present office ends with the year, and the customs house has stood
+              empty since the ferry stopped calling. Moving in winter means the fewest boats are put
+              out by it.
+            </p>
+
+            <hr />
+
+            <p>
+              Next: <a href="table.html">see which berths are free</a>, or
+              <a href="form.html">book one</a>.
+            </p>
+          </o-prose>
+        </article>
+      </o-wrap>
+    </main>
+  </body>
+</html>

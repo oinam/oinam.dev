@@ -53,6 +53,48 @@
       "files": ["fonts/geist-mono.css", "fonts/geist-mono.woff2", "fonts/geist-mono-license.txt"]
     }
   ],
+  "patterns": {
+    "about": "Whole pages built from the components, to follow when composing one. Each opens with a comment that says why it is laid out the way it is.",
+    "stylesheet": "patterns/patterns.css",
+    "pages": [
+      {
+        "name": "form",
+        "title": "A form",
+        "file": "patterns/form.html",
+        "shows": "One narrow column, fields grouped under names, help under each field, and one button that says what it does."
+      },
+      {
+        "name": "table",
+        "title": "A table view",
+        "file": "patterns/table.html",
+        "shows": "Many like things as a table, with one main action, a filter, a status, and each row's actions in a menu."
+      },
+      {
+        "name": "settings",
+        "title": "Settings",
+        "file": "patterns/settings.html",
+        "shows": "Rows with a name on one side and a control on the other, and a dangerous action that asks first."
+      },
+      {
+        "name": "list",
+        "title": "A list, empty and full",
+        "file": "patterns/list.html",
+        "shows": "The same list with boats expected, with none, and while it loads."
+      },
+      {
+        "name": "article",
+        "title": "An article",
+        "file": "patterns/article.html",
+        "shows": "Writing in one column: a date, a title, a lede, plain prose, a table, and one thing not to miss."
+      },
+      {
+        "name": "dashboard",
+        "title": "A dashboard",
+        "file": "patterns/dashboard.html",
+        "shows": "A sentence that says what matters now, what needs a decision, and the figures beside it. No charts."
+      }
+    ]
+  },
   "components": [
     {
       "name": "wrap",

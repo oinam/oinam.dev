@@ -40,7 +40,7 @@ fetch() {
 # that ends in a file extension, which is enough to pick them out without a
 # JSON parser.
 files() {
-  grep -oE '"[A-Za-z0-9/_-]+\.(css|js|json|md|woff2|txt)"' "$1" | tr -d '"' | sort -u
+  grep -oE '"[A-Za-z0-9/_-]+\.(css|html|js|json|md|woff2|txt)"' "$1" | tr -d '"' | sort -u
 }
 
 # version <registry>

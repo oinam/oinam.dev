@@ -110,6 +110,8 @@ test("every place that names the version names the same one", () => {
   assert.ok(read("ui.css").startsWith(`/*\n * Oinam UI v${version}\n`), "the header of ui.css");
   for (const path of globSync("**/*.html", { cwd: new URL("../", UI) })) {
     const html = readFileSync(new URL(`../${path}`, UI), "utf8");
+    // The patterns are pages of a made-up site, without this site's header.
+    if (!html.includes('class="site-header"')) continue;
     assert.match(
       html,
       new RegExp(`class="brand-version"[^>]*>\\s*<code>v${version}</code>`),

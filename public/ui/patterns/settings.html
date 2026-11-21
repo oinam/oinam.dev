@@ -1,0 +1,150 @@
+<!doctype html>
+<!--
+  Pattern: Settings
+
+  Settings are rows, not cards: the name of a thing and a line about it on
+  one side, its control on the other. A switch takes effect at once, so those
+  rows need no save button; the fields that do are saved together, by one
+  button, under them. Rules between sections do the grouping. The one
+  dangerous action is last, is not a solid button, and asks before it acts.
+
+  This is one page of a made-up harbor office. The places, people, and tides
+  are invented. Take the structure, not the words.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Settings - Harbor office</title>
+    <meta name="robots" content="noindex" />
+
+    <link rel="stylesheet" href="../ui.css" />
+    <link rel="stylesheet" href="patterns.css" />
+    <script src="../theme-init.js"></script>
+    <script type="module" src="../ui.js"></script>
+  </head>
+
+  <body>
+    <header class="bar">
+      <o-wrap>
+        <o-row justify="between">
+          <a class="bar-name" href="./">Harbor office</a>
+          <nav aria-label="Main">
+            <o-row gap="4">
+              <a href="table.html">Berths</a>
+              <a href="list.html">Arrivals</a>
+              <a href="settings.html">Settings</a>
+            </o-row>
+          </nav>
+        </o-row>
+      </o-wrap>
+    </header>
+
+    <main>
+      <o-wrap narrow>
+        <o-stack class="page" gap="8">
+          <h1>Settings</h1>
+
+          <section aria-labelledby="notices-title">
+            <o-stack gap="4">
+              <h2 id="notices-title">Notices</h2>
+              <div class="setting">
+                <div>
+                  <label for="notice-arrivals">Arrivals</label>
+                  <p>A message when a boat ties up at a berth you booked.</p>
+                </div>
+                <input type="checkbox" role="switch" id="notice-arrivals" checked />
+              </div>
+              <div class="setting">
+                <div>
+                  <label for="notice-tides">Tide warnings</label>
+                  <p>A message the evening before a tide above 4.5 meters.</p>
+                </div>
+                <input type="checkbox" role="switch" id="notice-tides" />
+              </div>
+            </o-stack>
+          </section>
+
+          <hr />
+
+          <section aria-labelledby="office-title">
+            <form action="settings.html">
+              <o-stack gap="4">
+                <h2 id="office-title">The office</h2>
+                <o-field>
+                  <label for="office-name">Name on notices</label>
+                  <input
+                    class="input"
+                    id="office-name"
+                    name="name"
+                    type="text"
+                    value="Harbor office"
+                  />
+                </o-field>
+                <o-field>
+                  <label for="office-units">Lengths and depths in</label>
+                  <select class="input" id="office-units" name="units">
+                    <option>Meters</option>
+                    <option>Feet</option>
+                  </select>
+                </o-field>
+                <o-row>
+                  <button class="button" type="submit" data-toast="Saved">Save</button>
+                </o-row>
+              </o-stack>
+            </form>
+          </section>
+
+          <hr />
+
+          <section aria-labelledby="close-title">
+            <o-stack gap="4">
+              <h2 id="close-title">Close the account</h2>
+              <div class="setting">
+                <p>
+                  Bookings still to come are released, and their boats are told. This cannot be
+                  undone.
+                </p>
+                <button
+                  class="button"
+                  data-variant="outline"
+                  type="button"
+                  commandfor="close-account"
+                  command="show-modal"
+                >
+                  Close the account
+                </button>
+              </div>
+            </o-stack>
+          </section>
+        </o-stack>
+      </o-wrap>
+
+      <dialog
+        class="dialog"
+        id="close-account"
+        role="alertdialog"
+        aria-labelledby="close-account-title"
+        aria-describedby="close-account-text"
+      >
+        <h2 id="close-account-title">Close the account?</h2>
+        <p id="close-account-text">Three bookings will be released. This cannot be undone.</p>
+        <footer>
+          <button
+            class="button"
+            data-variant="ghost"
+            type="button"
+            commandfor="close-account"
+            command="close"
+          >
+            Keep it
+          </button>
+          <button class="button" type="button" commandfor="close-account" command="close">
+            Close the account
+          </button>
+        </footer>
+      </dialog>
+    </main>
+  </body>
+</html>
