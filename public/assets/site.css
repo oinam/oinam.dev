@@ -242,6 +242,11 @@ o-theme:not(:defined) {
   .brand-name {
     display: none;
   }
+
+  /* With the name gone there is no line of type to sit on, so center on the mark. */
+  .brand-group {
+    align-items: center;
+  }
 }
 
 /* On the narrowest phones, only the components keep their link. The rest are in the footer. */
