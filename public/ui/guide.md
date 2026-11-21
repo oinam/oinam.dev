@@ -68,6 +68,22 @@ https://oinam.dev/ui/registry.json. To bring a project up to date, do these in o
 Upgrades stay easy when the `ui/` folder is left as it was installed. Put a project's own styles,
 its variation, and its own components in files outside that folder.
 
+## In a project
+
+After installing, add this to the project's `AGENTS.md`, or whichever file its agents read first, so
+that every agent working there finds the system.
+
+```markdown
+## Design
+
+This project is designed with Oinam UI, which is in `ui/`. Before designing or changing any page,
+read `ui/guide.md` and follow it. Do not edit the files in `ui/`. This project's own styles go in
+their own files, outside that folder.
+```
+
+Keep the project's own work outside `ui/`: its styles, its variation, and its own components. Then
+the folder can be upgraded without a merge.
+
 ## How it works
 
 Three rules cover the whole system.
@@ -513,9 +529,17 @@ is for documentation pages.
 </o-example>
 ```
 
-## Not here yet
+## When something is missing
 
-There is no menu, tooltip, toast, or date picker. If a page needs one, build it from native HTML
-(`popover`, `<details>`, `<dialog>`) and the tokens above, in the same style: a native element with
-a class where one does the job, an `o-` element where none does, and script only as an
-enhancement.
+There is no menu, tooltip, toast, or date picker yet, and a real project will find other gaps. When
+a page needs something the system does not have:
+
+1. **Build it in the project, by the same rules.** A native element with a class where one does the
+   job (`popover`, `<details>`, and `<dialog>` cover a great deal), a custom element where none
+   does, tokens for every value, and script only as an enhancement. Name the project's own elements
+   and classes with a prefix of the project's own, not `o-`, so that a later version of the system
+   cannot collide with them. Keep the files outside `ui/`.
+2. **Send it back.** The system grows from what projects needed. Write up what the page needed,
+   where, and the markup and CSS that answered it, as a "design need" at
+   https://github.com/oinam/oinam.dev/issues/new?template=design-need.md. If you are an agent,
+   write this up and give it to the project's owner to send; do not post it yourself.

@@ -119,6 +119,10 @@ learn what to change. So every changelog entry ends with "What to do", written a
 that agent: each renamed or removed class, element, attribute, or token, by its exact old and new
 name. If a page that worked could stop working, the entry must say how to mend it.
 
+The components are used across the owner's projects, and grow from what those projects need. A
+need arrives as a "design need" issue, or as a pull request; `CONTRIBUTING.md` says how. When work
+in another project shows a gap, write the need up for the owner to send here.
+
 Elements with behavior are tested in `tests/`, against the DOM that `tests/dom.js` sets up.
 
 ## Development

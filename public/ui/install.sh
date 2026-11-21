@@ -132,7 +132,9 @@ if [ -z "$before" ]; then
   say '  <script src="/ui/theme-init.js"></script>'
   say '  <script type="module" src="/ui/ui.js"></script>'
   say ""
-  say "Then read $TO/guide.md, or hand it to your agent."
+  say "Then read $TO/guide.md, or hand it to your agent. To have every agent in"
+  say "this project find it, add the \"Design\" note from that guide, under \"In a"
+  say "project\", to your AGENTS.md."
 elif [ "$added" -eq 0 ] && [ "$updated" -eq 0 ] && [ -z "$kept" ]; then
   say "Oinam UI $after in $TO/ is already up to date."
 elif [ "$before" = "$after" ]; then
