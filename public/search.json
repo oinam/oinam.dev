@@ -85,6 +85,11 @@
     "text": "Frames a plain table and lets a wide one scroll sideways."
   },
   {
+    "title": "Facts",
+    "url": "/ui/#facts",
+    "text": "A list of names and their values, each pair on a line, ruled apart."
+  },
+  {
     "title": "Avatar",
     "url": "/ui/#avatar",
     "text": "A small round picture of someone, or their initials."

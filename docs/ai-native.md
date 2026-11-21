@@ -7,7 +7,16 @@ produces.
 
 ## To do
 
-Nothing is left of the first list. What the evals turn up goes here next.
+The first list is done. These came out of the first eval run.
+
+- [ ] **Run the evals with other agents.** One run by one agent of the same family as the guide's
+      author is weak evidence.
+- [ ] **Briefs that are not for reading.** An app screen, a wide layout, and a page that needs a
+      component with script. All five pages of the first run were one narrow column.
+- [ ] **Read the CSS the agents wrote.** Four of five pages wrote 69 to 103 lines of their own.
+      What they keep rebuilding is what the system lacks.
+- [ ] **Tell a clean page from a mended one.** Record whether the agent ran the linter, and what it
+      found the first time, so a run shows what the guide taught and what the linter caught.
 
 ## Done
 

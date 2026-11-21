@@ -231,6 +231,11 @@
       "component": "text",
       "on": ["p"],
       "attributes": {}
+    },
+    "facts": {
+      "component": "facts",
+      "on": ["dl"],
+      "attributes": {}
     }
   }
 }

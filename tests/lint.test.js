@@ -139,6 +139,15 @@ test("a style attribute is caught", () => {
   assert.deepEqual(html('<p style="color: red">Hi</p>'), ["inline-style"]);
 });
 
+test("script written into the page is caught; a linked script and data are not", () => {
+  assert.deepEqual(html("<script>window.print()</script>"), ["inline-script"]);
+  assert.deepEqual(html('<button class="button" type="button" onclick="print()">Print</button>'), [
+    "inline-script",
+  ]);
+  assert.deepEqual(html('<script type="module" src="page.js"></script>'), []);
+  assert.deepEqual(html('<script type="application/ld+json">{"@type": "Place"}</script>'), []);
+});
+
 test("an emoji is caught, but an arrow or a command sign is type", () => {
   assert.deepEqual(html("<p>Launch \u{1F680}</p>"), ["emoji"]);
   assert.deepEqual(html("<p>Press ⌘K, then →</p>"), []);

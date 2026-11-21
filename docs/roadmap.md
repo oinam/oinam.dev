@@ -4,7 +4,7 @@ The measure is the component list of [shadcn/ui](https://ui.shadcn.com/docs/comp
 their own index on 2026-11-21: 59 entries. Tailwind CSS is not on this page because it is a styling
 toolkit, not a set of components; the tokens and layout elements here cover that ground.
 
-As of version 0.2.0, 45 of the 59 have an answer here, one has half an answer, and 13 do not.
+As of version 0.4.0, 45 of the 59 have an answer here, one has half an answer, and 13 do not.
 
 "Has an answer" does not mean "is as proven". shadcn/ui stands on libraries with years of
 accessibility work behind them. The answers here lean on native elements, which carry much of that

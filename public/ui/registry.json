@@ -188,6 +188,15 @@
       "doc": "components/table.md"
     },
     {
+      "name": "facts",
+      "title": "Facts",
+      "use": ".facts",
+      "files": ["facts.css"],
+      "script": false,
+      "description": "A list of names and their values, each pair on a line, ruled apart.",
+      "doc": "components/facts.md"
+    },
+    {
       "name": "avatar",
       "title": "Avatar",
       "use": "<o-avatar>",

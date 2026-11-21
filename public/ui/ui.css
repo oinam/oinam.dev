@@ -25,6 +25,7 @@
 @import url("badge.css") layer(components);
 @import url("alert.css") layer(components);
 @import url("table.css") layer(components);
+@import url("facts.css") layer(components);
 @import url("accordion.css") layer(components);
 @import url("dialog.css") layer(components);
 @import url("tabs.css") layer(components);

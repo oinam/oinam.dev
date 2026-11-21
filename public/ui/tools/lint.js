@@ -42,6 +42,8 @@ export const RULES = {
   "missing-part": "An element without something it must contain.",
   "nested-card": "A card inside a card. One surface deep.",
   "inline-style": "A style attribute. Use a class and the page's own stylesheet.",
+  "inline-script":
+    "Script written into the page, or a handler in an attribute. Put it in a file and link it.",
   "raw-color": "A color written out. Use a token, such as var(--color-ink).",
   "raw-font": "A font written out. Use var(--font-body), var(--font-heading), or var(--font-mono).",
   gradient: "A gradient. The system has two flat colors.",
@@ -217,6 +219,26 @@ export function lintHtml(html, contract) {
     const show = `<${tag}>`;
 
     if ("style" in attrs) report("inline-style", node, `${show} has a style attribute.`);
+    // Data in a script element, such as JSON, is not code, and neither is an import map.
+    if (
+      tag === "script" &&
+      !("src" in attrs) &&
+      !/json|importmap/.test(attrs.type ?? "") &&
+      node.text.trim()
+    ) {
+      report(
+        "inline-script",
+        node,
+        "<script> has code written into the page. Put it in a file and link it with src.",
+      );
+    }
+    const handler = Object.keys(attrs).find((key) => /^on[a-z]+$/.test(key));
+    if (handler)
+      report(
+        "inline-script",
+        node,
+        `${show} has a handler in its ${handler} attribute. Listen for the event from a script file.`,
+      );
 
     /* Custom elements: is it one of ours, and does it take what it was given? */
     if (tag.startsWith("o-")) {

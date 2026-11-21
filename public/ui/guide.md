@@ -110,7 +110,7 @@ Three rules cover the whole system.
 
 1. **A native element that does the job gets a class.** A button is a `<button class="button">`.
    A text field is an `<input class="input">`. The classes are `.button`, `.input`, `.choice`, `.toggle`, `.slider`, `.progress`,
-   `.dialog`, `.popover`, `.breadcrumb`, `.pagination`, `.eyebrow`, and `.lede`.button`, `.input`, `.choice`,
+   `.dialog`, `.popover`, `.breadcrumb`, `.pagination`, `.facts`, `.eyebrow`, and `.lede`.button`, `.input`, `.choice`,
 `.dialog`, `.eyebrow`, and `.lede`. Variants of these are `data-`attributes:`data-variant="outline"`, `data-size="small"`.
 2. **Anything HTML has no element for is a custom element.** Structure is spelled out in the tag
    names: `<o-stack>`, `<o-card>`, `<o-field>`. Every one starts with `o-`. Variants of these are
@@ -140,6 +140,9 @@ or when the owner asks you to.
   `prefers-color-scheme` rules of your own.
 - **No inline styles.** Add a class and a rule to the page's own stylesheet instead. Page styles
   written outside a cascade layer always win over the system's, so no `!important` is needed.
+- **No inline scripts.** No `<script>` with code written into the page, and no `onclick` or other
+  handler in an attribute. Put script in a file and link it. A page can then forbid everything it
+  did not link, which is the strongest protection it has.
 - **No emoji.** Plain text.
 
 ## Make the first draft look made
@@ -231,7 +234,7 @@ It reads the page as text and checks what a program can check:
 - every control, button, and picture has a name;
 - ids are not repeated, and nothing points at an id that is not there;
 - headings do not skip a level, and there is one `h1`;
-- no `style` attribute, no color or font written out raw, no gradient, no forced capitals, no
+- no `style` attribute, no script written into the page, no color or font written out raw, no gradient, no forced capitals, no
   `!important`, no emoji;
 - no two solid buttons side by side;
 - the system is not loaded from oinam.dev.
@@ -447,6 +450,7 @@ The four layout elements are in every page, so here they are in brief:
 | Badge             | `<o-badge>`                     | A small label: a status, a count, a "new".                                     | `components/badge.md`        |
 | Alert             | `<o-alert>`                     | Sets a message apart: a note, a warning, or danger.                            | `components/alert.md`        |
 | Table             | `<o-table>`                     | Frames a plain table and lets a wide one scroll sideways.                      | `components/table.md`        |
+| Facts             | `.facts`                        | A list of names and their values, each pair on a line, ruled apart.            | `components/facts.md`        |
 | Avatar            | `<o-avatar>`                    | A small round picture of someone, or their initials.                           | `components/avatar.md`       |
 | Item              | `<o-item>`                      | One row in a list: something to know it by, a title and a line, and an action. | `components/item.md`         |
 | Empty             | `<o-empty>`                     | Stands where content will be once there is some.                               | `components/empty.md`        |

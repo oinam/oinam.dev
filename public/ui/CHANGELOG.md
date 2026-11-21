@@ -25,6 +25,8 @@ Tools and documents for agents. Nothing in the components changed.
 - `tools/lint.js`: a linter for pages built with the system. An agent runs it on what it wrote.
 - `patterns/`: six whole pages built from the components, each with a note on why it is laid out
   as it is: a form, a table view, settings, a list empty and full, an article, and a dashboard.
+- `.facts`: a list of names and their values, on a `<dl>`. The first eval run found three of five
+  agents building it by hand.
 - `<o-table>` keeps anything placed absolutely inside it within its own scrolling.
 - The guide is half as long. It keeps the rules and a table of the components, and each component
   now has a page of its own in `components/`, read when it is used.

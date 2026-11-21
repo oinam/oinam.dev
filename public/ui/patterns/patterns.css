@@ -80,28 +80,6 @@ h2 {
   font-size: var(--text-sm);
 }
 
-/* Facts: a name and its value on a line, ruled apart. */
-
-.facts {
-  margin: 0;
-}
-
-.facts > div {
-  display: flex;
-  gap: var(--space-4);
-  justify-content: space-between;
-  padding-block: var(--space-3);
-  border-top: 1px solid var(--color-line);
-}
-
-.facts dt {
-  color: var(--color-ink-soft);
-}
-
-.facts dd {
-  text-align: end;
-}
-
 /* Two columns that become one when there is not room for both. */
 
 .split {
