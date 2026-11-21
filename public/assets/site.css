@@ -226,7 +226,7 @@ o-theme:not(:defined) {
 
 /* As the header narrows, the least needed things leave first. */
 
-@media (width < 40rem) {
+@media (width < 46rem) {
   .site-nav .nav-later {
     display: none;
   }
@@ -555,6 +555,35 @@ o-theme:not(:defined) {
   .play-controls {
     position: static;
   }
+}
+
+/* Garden: the list of designs, then the one page they all dress. */
+
+.garden-list {
+  max-width: 56rem;
+  color: var(--color-ink-soft);
+}
+
+.garden-list h2 {
+  color: var(--color-ink);
+  font-size: var(--text-2xl);
+}
+
+.garden-list [aria-current] {
+  font-weight: 600;
+  text-decoration-color: currentcolor;
+}
+
+.garden-showing {
+  margin-block: var(--space-12) var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-line);
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+
+.garden-page {
+  max-width: 60rem;
 }
 
 /* Footer */

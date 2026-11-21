@@ -1,0 +1,13 @@
+/*
+ * Paper
+ * By Oinam
+ *
+ * Warm paper and soft black ink, with headings in Source Serif 4.
+ * Fonts: source-serif.css
+ */
+
+:root {
+  --color-ink: light-dark(#1b1a17, #f2efe8);
+  --color-cloud: light-dark(#f7f4ee, #12110f);
+  --color-milk: light-dark(#fdfcf9, #1c1a17);
+}

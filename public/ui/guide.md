@@ -280,6 +280,11 @@ Rules for a variation:
 - Keep the file outside the `ui/` folder, with the project's own styles, so that upgrading the
   system never touches it.
 
+Designs that others have made are in the garden, at https://oinam.dev/garden/, and as data at
+https://oinam.dev/garden/variations.json. To use one, download its stylesheet from
+`https://oinam.dev/garden/<file>` into the project, link it after `ui.css`, and link the fonts it
+lists before it. To send one of your own, see "When something is missing".
+
 ## Fonts
 
 Base uses the fonts already on the reader's device, so it downloads none. That is the fastest
@@ -627,3 +632,5 @@ a page needs something the system does not have:
    where, and the markup and CSS that answered it, as a "design need" at
    https://github.com/oinam/oinam.dev/issues/new?template=design-need.md. If you are an agent,
    write this up and give it to the project's owner to send; do not post it yourself.
+3. **Send a design.** A variation that others could use belongs in the garden. The steps are in
+   https://github.com/oinam/oinam.dev/blob/main/CONTRIBUTING.md, under "Send a design".

@@ -140,6 +140,11 @@
     "text": "Change the fonts, corners, and colors, watch every component follow, and take the variation away."
   },
   {
+    "title": "Garden",
+    "url": "/garden/",
+    "text": "One page and many designs of it. Each is a few lines of tokens. Add yours."
+  },
+  {
     "title": "llms.txt",
     "url": "/llms.txt",
     "text": "A plain-text map of this site for language models."

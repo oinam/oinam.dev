@@ -1,7 +1,7 @@
 # Contributing
 
 Oinam UI is meant to be used in real projects, and to grow from what those projects turn out to
-need. There are two ways to send something back.
+need. There are three ways to send something back.
 
 ## Send a need
 
@@ -37,10 +37,31 @@ Then:
    working, say under "What to do" exactly what a project must change, by old name and new.
 6. Open a pull request that says what need the change answers.
 
+## Send a design
+
+The [garden](https://oinam.dev/garden/) shows one page in many designs. A design is a variation of
+Base: one stylesheet that sets tokens and nothing else. Anyone may send one, and an agent can make
+one end to end.
+
+1. Start in [Play](https://oinam.dev/play/), or from the list of tokens in
+   `public/ui/tokens.css`.
+2. Write `public/garden/<name>.css`. Open it with a comment giving the design's title, `By` and
+   your name, a sentence about it, and the fonts it needs. Then one `:root` rule that sets only
+   tokens. `public/garden/paper.css` is the pattern.
+3. Add it to `public/garden/variations.json`, and add a row to the table in
+   `public/garden/index.html`.
+4. `mise run dev`, and look at `/garden/?design=<name>`, in light and in dark.
+5. `mise run check`. It fails a design that sets anything but a token, names a token that does not
+   exist, gives a color no dark value, or lets text fall below a contrast of 4.5 to 1.
+6. Open a pull request. What you send is under the MIT license, like everything here.
+
+A design keeps to two colors, its own ink and cloud. It may use the fonts in `public/ui/fonts/`.
+Where this is heading is in [docs/garden-plan.md](docs/garden-plan.md).
+
 ## What belongs here, and what does not
 
 - **A change to Base** belongs here: a new component, a new option, a new token, a fix.
-- **A variation** is a project's own look, made by changing tokens. It lives in that project. If
-  several projects end up wanting the same one, send it as a need.
+- **A variation** is a look made by changing tokens. One that is a project's own lives in that
+  project. One that others could use belongs in the garden.
 - **One project's special case** stays in that project, built by the same rules, under a prefix of
   its own.

@@ -1,0 +1,17 @@
+/*
+ * Ledger
+ * By Oinam
+ *
+ * Square corners and one typeface throughout, like a page of accounts.
+ * Fonts: geist.css, geist-mono.css
+ */
+
+:root {
+  --color-ink: light-dark(#111, #ededed);
+  --color-cloud: light-dark(#fafafa, #0a0a0a);
+  --color-milk: light-dark(#fff, #151515);
+  --font-heading: var(--font-sans);
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+}

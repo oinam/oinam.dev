@@ -74,3 +74,9 @@ test("the line to hand an agent names the bare address and nothing more", () => 
     assert.ok(read(path).includes("Read https://oinam.dev/ and build the page with it."), path);
   }
 });
+
+test("no page shows a stray escape where a line break was meant", () => {
+  for (const path of find("public/**/*.html")) {
+    assert.doesNotMatch(read(path), /\\n/, path);
+  }
+});

@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>Garden - Oinam.DEV</title>
+    <meta
+      name="description"
+      content="One page and many designs of it: variations of Oinam UI, each a few lines of tokens."
+    />
+    <link rel="canonical" href="https://oinam.dev/garden/" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/ui/ui.css" />
+    <link rel="stylesheet" href="/assets/site.css" />
+    <script src="/ui/theme-init.js"></script>
+    <script type="module" src="/ui/ui.js"></script>
+    <script type="module" src="/assets/site.js"></script>
+    <script type="module" src="/assets/garden.js"></script>
+  </head>
+
+  <body>
+    <a class="skip button" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <o-wrap>
+        <div class="brand-group">
+          <a class="brand" href="/" aria-label="Oinam.DEV, home">
+            <svg class="brand-mark" viewBox="0 0 600 600" aria-hidden="true">
+              <use href="/assets/logo.svg#mark" />
+            </svg>
+            <span class="brand-name">Oinam<span class="brand-tld">.DEV</span></span>
+          </a>
+          <a class="brand-version" href="/ui/CHANGELOG.md" title="What changed in each version"
+            >v0.1.0</a
+          >
+        </div>
+
+        <button class="search" type="button" aria-label="Search" data-search-open>
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" />
+          </svg>
+          <span class="search-text">Search</span>
+          <span class="search-keys" aria-hidden="true"
+            ><kbd data-command-key>&#8984;K</kbd><kbd>/</kbd></span
+          >
+        </button>
+
+        <nav class="site-nav" aria-label="Site">
+          <a href="/docs/">Docs</a>
+          <a href="/ui/">Components</a>
+          <a class="nav-later" href="/play/">Play</a>
+          <a class="nav-later" href="/garden/" aria-current="page">Garden</a>
+          <a href="https://github.com/oinam/oinam.dev" aria-label="GitHub">
+            <svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"
+              />
+            </svg>
+          </a>
+          <o-theme>
+            <button type="button" aria-label="Switch theme">
+              <svg
+                class="icon icon-moon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+              </svg>
+              <svg
+                class="icon icon-sun"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"
+                />
+              </svg>
+            </button>
+          </o-theme>
+        </nav>
+      </o-wrap>
+    </header>
+
+    <main id="main">
+      <o-wrap>
+        <o-stack class="page" gap="4" align="start">
+          <h1>Garden</h1>
+          <p class="lede">
+            One page, and many designs of it. The markup below never changes. Each design is a few
+            lines of tokens, and each is someone's own.
+          </p>
+          <p>
+            The idea is borrowed, with thanks, from the
+            <a href="https://csszengarden.com">CSS Zen Garden</a>.
+          </p>
+        </o-stack>
+
+        <section class="garden-list" aria-labelledby="designs-title">
+          <o-stack gap="4">
+            <h2 id="designs-title">Designs</h2>
+            <o-table>
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Design</th>
+                    <th scope="col">By</th>
+                    <th scope="col">What it is</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <a href="/garden/?design=base" data-design="base" data-file="" data-fonts=""
+                        >Base</a
+                      >
+                    </th>
+                    <td>Oinam</td>
+                    <td>
+                      The default: cool near-black ink on cloud, and the fonts already on your
+                      device.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a
+                        href="/garden/?design=paper"
+                        data-design="paper"
+                        data-file="paper.css"
+                        data-fonts="source-serif.css"
+                        >Paper</a
+                      >
+                    </th>
+                    <td>Oinam</td>
+                    <td>Warm paper and soft black ink, with headings in Source Serif 4.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a
+                        href="/garden/?design=ledger"
+                        data-design="ledger"
+                        data-file="ledger.css"
+                        data-fonts="geist.css geist-mono.css"
+                        >Ledger</a
+                      >
+                    </th>
+                    <td>Oinam</td>
+                    <td>Square corners and one typeface throughout, like a page of accounts.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </o-table>
+            <p>
+              To add yours, start in <a href="/play/">Play</a>, write the tokens that differ from
+              Base into one stylesheet, and send it. The steps are in
+              <a href="https://github.com/oinam/oinam.dev/blob/main/CONTRIBUTING.md"
+                >CONTRIBUTING.md</a
+              >, and the same list is in <a href="/garden/variations.json">variations.json</a> as
+              data.
+            </p>
+          </o-stack>
+        </section>
+
+        <p class="garden-showing">Showing: <strong data-garden-showing>Base</strong></p>
+
+        <o-stack class="garden-page" gap="12">
+          <o-stack gap="4" align="start">
+            <p class="eyebrow">Field notes, 21 November</p>
+            <h2>The harbor office moves to the old customs house</h2>
+            <p class="lede">
+              The move begins on Monday. Berth bookings stay open throughout, and the phone number
+              does not change.
+            </p>
+            <o-row>
+              <button class="button" type="button">Book a berth</button>
+              <button class="button" data-variant="outline" type="button">
+                See the tide table
+              </button>
+              <button class="button" data-variant="ghost" type="button">Contact the office</button>
+            </o-row>
+          </o-stack>
+
+          <o-grid>
+            <o-card>
+              <h3>Berths</h3>
+              <p>
+                Forty along the east quay, twelve of them deep enough for a keelboat at low water.
+              </p>
+              <footer><o-badge>Open</o-badge></footer>
+            </o-card>
+            <o-card>
+              <h3>Slipway</h3>
+              <p>Closed for resurfacing until the spring tides have passed.</p>
+              <footer><o-badge variant="solid">Closed</o-badge></footer>
+            </o-card>
+          </o-grid>
+
+          <o-grid min="large">
+            <o-stack>
+              <o-field>
+                <label for="garden-name">Name of the boat</label>
+                <input class="input" id="garden-name" type="text" placeholder="Kestrel" />
+              </o-field>
+              <o-field>
+                <label for="garden-length">Length</label>
+                <select class="input" id="garden-length">
+                  <option>Under 8 meters</option>
+                  <option>8 to 12 meters</option>
+                  <option>Over 12 meters</option>
+                </select>
+                <small>Measured overall, bowsprit included.</small>
+              </o-field>
+              <label class="choice"
+                ><input type="checkbox" role="switch" checked /> Shore power</label
+              >
+            </o-stack>
+
+            <o-stack>
+              <o-alert role="note">
+                <strong>Note</strong>
+                <p>The fuel berth closes an hour before dusk.</p>
+              </o-alert>
+              <o-alert variant="warning" role="note">
+                <strong>Warning</strong>
+                <p>Strong ebb across the entrance two hours either side of low water.</p>
+              </o-alert>
+              <o-alert variant="danger" role="note">
+                <strong>Danger</strong>
+                <p>The north slip is unlit. Do not land there after dark.</p>
+              </o-alert>
+            </o-stack>
+          </o-grid>
+
+          <o-table>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Day</th>
+                  <th scope="col">High water</th>
+                  <th scope="col">Height</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Monday</th>
+                  <td><code>06:12</code></td>
+                  <td>4.1 m</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tuesday</th>
+                  <td><code>06:58</code></td>
+                  <td>4.3 m</td>
+                </tr>
+                <tr>
+                  <th scope="row">Wednesday</th>
+                  <td><code>07:41</code></td>
+                  <td>4.4 m</td>
+                </tr>
+              </tbody>
+            </table>
+          </o-table>
+
+          <o-accordion>
+            <details name="garden-faq" open>
+              <summary>Can I stay overnight?</summary>
+              <p>Yes, for up to three nights. Tell the office before noon on the day you arrive.</p>
+            </details>
+            <details name="garden-faq">
+              <summary>Is there water on the quay?</summary>
+              <p>At every second berth, from April to October.</p>
+            </details>
+          </o-accordion>
+        </o-stack>
+      </o-wrap>
+    </main>
+
+    <footer class="site-footer">
+      <o-wrap>
+        <o-row justify="between">
+          <p>Oinam.DEV. Open and free, under the MIT license.</p>
+          <ul>
+            <li><a href="/docs/">Docs</a></li>
+            <li><a href="/ui/">Components</a></li>
+            <li><a href="/play/">Play</a></li>
+            <li><a href="/garden/">Garden</a></li>
+            <li><a href="/llms.txt">llms.txt</a></li>
+            <li><a href="https://github.com/oinam/oinam.dev">GitHub</a></li>
+          </ul>
+        </o-row>
+      </o-wrap>
+    </footer>
+  </body>
+</html>

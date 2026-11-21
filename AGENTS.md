@@ -74,6 +74,12 @@ Some things are kept by hand, because there is no build step to keep them:
 - A new page is added to `public/search.json` (the search index), `public/sitemap.xml`, and
   `public/llms.txt`.
 
+The garden at `/garden/` is one fixed page shown in many designs, after the CSS Zen Garden. A
+design is one stylesheet of token values in `public/garden/`, listed in `variations.json` and in
+the table on the page. The sample page's markup is the same as the one on Play; change both
+together. `CONTRIBUTING.md` says how a design is sent, the tests are the gate, and
+`docs/garden-plan.md` is where this is heading.
+
 The Play page at `/play/` lets a person try other fonts, corners, and colors on the components and
 take the result away as a variation. What it offers is the `OPTIONS` list in
 `public/assets/variation.js`; add a choice there and the page shows it.

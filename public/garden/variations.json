@@ -1,0 +1,31 @@
+{
+  "about": "Variations of Oinam UI Base. Each is one stylesheet of token values, shown on the same page at https://oinam.dev/garden/.",
+  "page": "https://oinam.dev/garden/",
+  "source": "https://oinam.dev/garden/",
+  "variations": [
+    {
+      "name": "base",
+      "title": "Base",
+      "by": "Oinam",
+      "description": "The default: cool near-black ink on cloud, and the fonts already on your device.",
+      "file": null,
+      "fonts": []
+    },
+    {
+      "name": "paper",
+      "title": "Paper",
+      "by": "Oinam",
+      "description": "Warm paper and soft black ink, with headings in Source Serif 4.",
+      "file": "paper.css",
+      "fonts": ["source-serif.css"]
+    },
+    {
+      "name": "ledger",
+      "title": "Ledger",
+      "by": "Oinam",
+      "description": "Square corners and one typeface throughout, like a page of accounts.",
+      "file": "ledger.css",
+      "fonts": ["geist.css", "geist-mono.css"]
+    }
+  ]
+}
