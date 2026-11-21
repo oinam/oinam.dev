@@ -180,7 +180,10 @@ are defined; `package.json` only lists the linters and the formatter.
 - `mise run check` runs the format check, the linters, and the tests. CI runs the same task on
   every push and pull request.
 
-There are no evals yet, because nothing here drives or wraps a model yet.
+`mise run eval` runs the evals in `evals/`: an agent builds a page from each brief with only the
+guide to go on, and the pages are scored and photographed. It spends tokens, so it is run by
+hand, before and after any change to `guide.md`, a component's page, or the skill. See
+`evals/README.md`.
 
 ## Writing style
 

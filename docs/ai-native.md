@@ -7,13 +7,13 @@ produces.
 
 ## To do
 
-- [ ] **Evals.** The standards here say anything that drives a model ships with evals, and the
-      guide drives models. A set of briefs ("a pricing page", "a settings screen"), run through
-      several agents, scored by the linter and by a look at the rendered page. It shows which
-      rules agents ignore, and whether a change to the guide helps or hurts.
+Nothing is left of the first list. What the evals turn up goes here next.
 
 ## Done
 
+- [x] **Evals.** `evals/`: five briefs, a runner that has an agent build each with only the guide
+      to go on, and a scorer that uses the linter and the pictures. The first run is written up
+      in `evals/results/`. So far it has been run with one agent; other agents are a flag away.
 - [x] **Delivery where agents already work.** `public/ui/skill/SKILL.md`, the steps as a skill,
       and `public/ui/tools/mcp.js`, a Model Context Protocol server with eight tools. Both answer
       from the project's own copy. The server is tested by speaking the protocol to it, not yet

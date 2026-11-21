@@ -49,6 +49,10 @@ run = [
 description = "Run the test suite with Node's test runner"
 run = "node --test"
 
+[tasks.eval]
+description = "Have an agent build each brief in evals/ and score the pages. Spends the agent's tokens"
+run = "node evals/run.js"
+
 [tasks.check]
 description = "Everything CI runs: the format check, the linters, and the tests"
 depends = ["install"]

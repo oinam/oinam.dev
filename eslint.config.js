@@ -3,7 +3,7 @@ import globals from "globals";
 
 export default [
   // Wrangler's scratch space, written by "npm run dev".
-  { ignores: [".wrangler/"] },
+  { ignores: [".wrangler/", "evals/runs/"] },
   js.configs.recommended,
   {
     files: ["public/**/*.js"],
@@ -16,7 +16,7 @@ export default [
   },
   {
     // Tools that a project runs with Node, not that a browser loads.
-    files: ["public/ui/tools/**/*.js"],
+    files: ["public/ui/tools/**/*.js", "evals/**/*.js"],
     languageOptions: { globals: globals.node },
   },
   {
