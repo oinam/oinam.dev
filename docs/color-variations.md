@@ -63,10 +63,20 @@ What makes it feel like a new site, not Base in a tint:
 - Tokens only. A pair that needs a component restyled is not a variation.
 - Contrast is a gate, not a warning. See "Accessible" in `AGENTS.md`.
 
-## Open questions
+## Decided
 
-- Should a third value, milk, ever be chosen by hand, or always worked out?
-- Is 4.5 to 1 enough for the faint ink, which is used for small text, or should the faint ink be
-  held to more?
-- Should the 68% and 58% shares that make the soft and faint inks change with the pair? A low
-  contrast pair could keep its soft ink readable by mixing more ink in.
+The owner left these to best practice, on 2026-11-22.
+
+- **Milk is worked out, and may be set by hand.** The picker works it out from cloud, so a person
+  chooses two colors and no more. A stylesheet may still set it, as the garden's designs do, and
+  the garden test checks it either way.
+- **4.5 to 1 is the gate for every ink, the faint one too.** That is WCAG AA for ordinary text,
+  and the faint ink is ordinary text, only quieter. It is not raised: a higher gate would turn away
+  most pairs with any color in them. Base aims higher where it can, with its soft ink, the text of
+  running prose, at 7 to 1 (AAA), but that is an aim, not a gate.
+- **The 68% and 58% shares stay fixed.** They are part of Base, and a variation is token values,
+  not new mixes. When a pair fails, the picker darkens the ink or lightens the cloud until it
+  passes, the same hue kept. The Oinam design in the garden is the example: the brand's own Blue,
+  `#1d387c`, passes as ink on its own at 10 to 1, but its faint ink falls to 3.4, so the design
+  uses a deeper navy, `#0b1736`. A saturated ink loses contrast faster when it is mixed into a pale
+  cloud than a near-black one does, so the darker the ink, the more color the cloud can carry.
