@@ -1,0 +1,88 @@
+<!doctype html>
+<!--
+  The picture a link to oinam.dev shows when it is shared: public/assets/social.png.
+
+  Social sites will not show an SVG, and will not run a page, so the card is a
+  picture, drawn from this page at 1200 by 630. Change this page, then run
+  `mise run social-card` to draw it again, and commit both.
+
+  It leaves the version out on purpose: the picture would be wrong after the
+  next release, and nobody would notice.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Oinam.DEV social card</title>
+    <link rel="stylesheet" href="../public/ui/tokens.css" />
+    <style>
+      html {
+        color-scheme: light;
+      }
+
+      body {
+        display: grid;
+        box-sizing: border-box;
+        width: 1200px;
+        height: 630px;
+        margin: 0;
+        padding: 72px 88px;
+        grid-template-rows: auto 1fr auto;
+        background: var(--color-cloud);
+        color: var(--color-ink);
+        font-family: var(--font-sans);
+      }
+
+      .brand {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        font-size: 34px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .brand svg {
+        width: 44px;
+        height: 44px;
+      }
+
+      .brand b {
+        font-weight: inherit;
+      }
+
+      .brand span {
+        color: var(--color-ink-faint);
+        font-weight: 500;
+      }
+
+      h1 {
+        align-self: center;
+        margin: 0;
+        font-family: var(--font-serif);
+        font-size: 104px;
+        font-weight: 400;
+        line-height: 1.02;
+        letter-spacing: -0.02em;
+      }
+
+      p {
+        margin: 0;
+        padding-top: 28px;
+        border-top: 2px solid var(--color-line);
+        color: var(--color-ink-soft);
+        font-family: var(--font-mono);
+        font-size: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="brand">
+      <svg viewBox="0 0 600 600" aria-hidden="true">
+        <use href="../public/assets/logo.svg#mark" />
+      </svg>
+      <b>Oinam<span>.DEV</span></b>
+    </div>
+    <h1>Written for agents.<br />Kept by hand.</h1>
+    <p>Read https://oinam.dev/ and build the page with it.</p>
+  </body>
+</html>

@@ -1,8 +1,9 @@
 /*
  * oinam.dev
  *
- * The one behavior that is the site's own: the search palette. It is an
- * enhancement. The pages read the same without this file.
+ * The behavior that is the site's own: the search palette, and the share
+ * sheet on the home page. Both are enhancements. The pages read the same
+ * without this file.
  */
 
 import { rank } from "./search.js";
@@ -173,4 +174,19 @@ document.addEventListener("keydown", (event) => {
 const platform = navigator.userAgentData?.platform ?? navigator.platform;
 if (!/mac|iphone|ipad/i.test(platform)) {
   document.querySelectorAll("[data-command-key]").forEach((key) => (key.textContent = "Ctrl K"));
+}
+
+/* Share sheet */
+
+// The links beside it cover the usual places. Where the device has a share
+// sheet of its own (most phones), offer it too, for everywhere else: Mastodon,
+// a messenger, a note.
+const shareItem = document.querySelector("[data-share]");
+if (shareItem && navigator.share) {
+  shareItem.hidden = false;
+  shareItem.querySelector("button")?.addEventListener("click", () => {
+    const text = shareItem.closest(".share")?.querySelector("pre")?.textContent ?? "";
+    // Closing the sheet without choosing rejects the promise; that is not an error.
+    navigator.share({ title: document.title, text }).catch(() => {});
+  });
 }

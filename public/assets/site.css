@@ -361,8 +361,24 @@ o-theme:not(:defined) {
   animation: rise 0.9s ease-out both;
 }
 
-.hero {
+/* The hero, and beside it the words to share it with: below it on a phone, beside it from a
+   tablet up, sitting on the same last line. */
+
+.intro {
+  display: grid;
+  gap: var(--space-12);
   padding-block: clamp(4rem, 14vh, 9rem) clamp(3rem, 8vh, 5rem);
+}
+
+@media (width >= 48rem) {
+  .intro {
+    grid-template-columns: minmax(0, 1fr) minmax(15rem, 20rem);
+    gap: var(--space-8);
+    align-items: end;
+  }
+}
+
+.hero {
   animation: rise 0.9s ease-out both;
 }
 
@@ -374,6 +390,48 @@ o-theme:not(:defined) {
 
 .hero .lede {
   max-width: 34em;
+}
+
+.share {
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+
+.share h2 {
+  color: var(--color-ink);
+  font-size: var(--text-xl);
+}
+
+/* The words wrap like a post, in the body face, with the copy button under them rather than
+   beside them, so the narrow column keeps its full width for the text. */
+
+.share pre {
+  padding-bottom: calc(var(--control-sm) + var(--space-4));
+  color: var(--color-ink);
+  white-space: pre-wrap;
+}
+
+.share code {
+  font-family: var(--font-body);
+}
+
+.share o-copy:defined > pre {
+  padding-right: var(--space-4);
+}
+
+.share o-copy:defined > button {
+  top: auto;
+  bottom: var(--space-2);
+}
+
+.share-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 /* The one line to hand an agent. */

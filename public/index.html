@@ -11,6 +11,20 @@
       content="Design and development assets, ideas, and standards for AI, and their agents, tools, and harnesses. AI agents: read https://oinam.dev/ui/guide.md to design with it."
     />
     <link rel="canonical" href="https://oinam.dev/" />
+    <!-- What a link to this page shows when it is shared. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Oinam.DEV" />
+    <meta property="og:title" content="Oinam.DEV" />
+    <meta
+      property="og:description"
+      content="Design and development assets, ideas, and standards for AI, and their agents, tools, and harnesses. Hand an agent one line: Read https://oinam.dev/ and build the page with it."
+    />
+    <meta property="og:url" content="https://oinam.dev/" />
+    <meta property="og:image" content="https://oinam.dev/assets/social.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Oinam.DEV: Written for agents. Kept by hand." />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- AI agents: to design or build with this, read https://oinam.dev/ui/guide.md next. -->
     <link
@@ -111,13 +125,80 @@
 
     <main id="main">
       <o-wrap>
-        <o-stack class="hero" gap="6" align="start">
-          <h1>Written for agents. Kept by hand.</h1>
-          <p class="lede">
-            Design and development assets, ideas, and standards for AI, and their agents, tools, and
-            harnesses. Open, free, and plain text.
-          </p>
-        </o-stack>
+        <div class="intro">
+          <o-stack class="hero" gap="6" align="start">
+            <h1>Written for agents. Kept by hand.</h1>
+            <p class="lede">
+              Design and development assets, ideas, and standards for AI, and their agents, tools,
+              and harnesses. Open, free, and plain text.
+            </p>
+          </o-stack>
+
+          <aside class="share" aria-labelledby="share-title">
+            <o-stack gap="3">
+              <h2 id="share-title">Pass it on</h2>
+              <o-copy>
+                <pre><code>Oinam UI: a design system written for AI agents, in plain HTML and CSS. Hand an agent one line: Read https://oinam.dev/ and build the page with it.</code></pre>
+              </o-copy>
+              <ul class="share-links" aria-label="Share on">
+                <li>
+                  <a
+                    href="https://x.com/intent/post?text=Oinam%20UI%3A%20a%20design%20system%20written%20for%20AI%20agents%2C%20in%20plain%20HTML%20and%20CSS.%20Hand%20an%20agent%20one%20line%3A%20Read%20https%3A%2F%2Foinam.dev%2F%20and%20build%20the%20page%20with%20it."
+                    >X</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Foinam.dev%2F"
+                    >LinkedIn</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://bsky.app/intent/compose?text=Oinam%20UI%3A%20a%20design%20system%20written%20for%20AI%20agents%2C%20in%20plain%20HTML%20and%20CSS.%20Hand%20an%20agent%20one%20line%3A%20Read%20https%3A%2F%2Foinam.dev%2F%20and%20build%20the%20page%20with%20it."
+                    >Bluesky</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.threads.net/intent/post?text=Oinam%20UI%3A%20a%20design%20system%20written%20for%20AI%20agents%2C%20in%20plain%20HTML%20and%20CSS.%20Hand%20an%20agent%20one%20line%3A%20Read%20https%3A%2F%2Foinam.dev%2F%20and%20build%20the%20page%20with%20it."
+                    >Threads</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.reddit.com/submit?url=https%3A%2F%2Foinam.dev%2F&amp;title=Oinam.DEV%3A%20written%20for%20agents%2C%20kept%20by%20hand"
+                    >Reddit</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Foinam.dev%2F&amp;t=Oinam.DEV%3A%20written%20for%20agents%2C%20kept%20by%20hand"
+                    >Hacker News</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://wa.me/?text=Oinam%20UI%3A%20a%20design%20system%20written%20for%20AI%20agents%2C%20in%20plain%20HTML%20and%20CSS.%20Hand%20an%20agent%20one%20line%3A%20Read%20https%3A%2F%2Foinam.dev%2F%20and%20build%20the%20page%20with%20it."
+                    >WhatsApp</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="mailto:?subject=Oinam.DEV%3A%20written%20for%20agents%2C%20kept%20by%20hand&amp;body=Oinam%20UI%3A%20a%20design%20system%20written%20for%20AI%20agents%2C%20in%20plain%20HTML%20and%20CSS.%20Hand%20an%20agent%20one%20line%3A%20Read%20https%3A%2F%2Foinam.dev%2F%20and%20build%20the%20page%20with%20it."
+                    >Email</a
+                  >
+                </li>
+                <!-- Shown by site.js where the device has a share sheet of its own. -->
+                <li data-share hidden>
+                  <button class="button" data-variant="outline" data-size="small" type="button">
+                    Other apps
+                  </button>
+                </li>
+              </ul>
+            </o-stack>
+          </aside>
+        </div>
 
         <section class="handoff" aria-labelledby="handoff-title">
           <o-stack gap="4">
