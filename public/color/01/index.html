@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
 
-    <title>Brand colors - Oinam.DEV</title>
+    <title>Navy, color 01 - Oinam.DEV</title>
     <meta
       name="description"
-      content="The Oinam colors: a deep navy and a cloud of the same blue, with orange for the mark alone."
+      content="A bright navy for text by day, and a deep one for the ground by night, on a cloud of the same blue."
     />
-    <link rel="canonical" href="https://oinam.dev/brand/" />
+    <link rel="canonical" href="https://oinam.dev/color/01/" />
     <!-- What a link to this page shows when it is shared. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Oinam.DEV" />
-    <meta property="og:title" content="Brand colors - Oinam.DEV" />
+    <meta property="og:title" content="Navy, color 01 - Oinam.DEV" />
     <meta
       property="og:description"
-      content="The Oinam colors: a deep navy and a cloud of the same blue, with orange for the mark alone."
+      content="A bright navy for text by day, and a deep one for the ground by night, on a cloud of the same blue."
     />
-    <meta property="og:url" content="https://oinam.dev/brand/" />
+    <meta property="og:url" content="https://oinam.dev/color/01/" />
     <meta property="og:image" content="https://oinam.dev/assets/www.oinam.dev.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -29,12 +29,11 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/ui/ui.css" />
     <link rel="stylesheet" href="/assets/site.css" />
-    <link rel="stylesheet" href="/garden/oinam.css" />
+    <link rel="stylesheet" href="/color/01.css" />
     <script src="/ui/theme-init.js"></script>
     <script type="module" src="/ui/ui.js"></script>
     <script type="module" src="/assets/site.js"></script>
   </head>
-
   <body>
     <a class="skip button" href="#main">Skip to content</a>
 
@@ -120,26 +119,21 @@
     <main id="main">
       <o-wrap>
         <o-stack class="page" gap="4" align="start">
-          <h1>Brand colors</h1>
+          <p class="eyebrow"><a href="/color/">Colors</a>, number 01</p>
+          <h1>Navy</h1>
           <p class="lede">
-            Every Oinam site wears two colors: a deep navy, and a cloud of the same blue. One more,
-            orange, marks the brand and does nothing else.
+            A bright navy for text by day, and a deep one for the ground by night, on a cloud of the
+            same blue.
           </p>
-          <p>
-            This page wears them, as any site can, by linking one stylesheet after the components.
-            Switch the theme to see the night side.
-          </p>
+          <p>This page wears it. Switch the theme to see the other side.</p>
         </o-stack>
-
-        <o-stack class="brand-page" gap="12">
-          <section aria-labelledby="two">
+        <o-stack class="color-page" gap="12">
+          <section aria-labelledby="three">
             <o-stack gap="4">
-              <h2 id="two">The two colors</h2>
+              <h2 id="three">The three colors</h2>
               <p>
-                Navy is the text by day and the ground by night: a bright navy for text, and a deep
-                one for the ground, which would be too loud at the brighter shade. Cloud is the
-                reverse. Milk is a step off cloud, for a surface that sits above the page, such as a
-                card.
+                Ink is the text, and cloud is the page. Milk is a step off cloud, for a surface
+                above it.
               </p>
               <o-table>
                 <table>
@@ -155,7 +149,7 @@
                   <tbody>
                     <tr>
                       <th scope="row">
-                        <span class="brand-swatch" data-swatch="ink" aria-hidden="true"></span> Navy
+                        <span class="color-chip" data-chip="ink" aria-hidden="true"></span> Ink
                       </th>
                       <td><code>--color-ink</code></td>
                       <td><code>#06194e</code></td>
@@ -164,8 +158,7 @@
                     </tr>
                     <tr>
                       <th scope="row">
-                        <span class="brand-swatch" data-swatch="cloud" aria-hidden="true"></span>
-                        Cloud
+                        <span class="color-chip" data-chip="cloud" aria-hidden="true"></span> Cloud
                       </th>
                       <td><code>--color-cloud</code></td>
                       <td><code>#f4f7fc</code></td>
@@ -174,8 +167,7 @@
                     </tr>
                     <tr>
                       <th scope="row">
-                        <span class="brand-swatch" data-swatch="milk" aria-hidden="true"></span>
-                        Milk
+                        <span class="color-chip" data-chip="milk" aria-hidden="true"></span> Milk
                       </th>
                       <td><code>--color-milk</code></td>
                       <td><code>#fcfdff</code></td>
@@ -187,14 +179,13 @@
               </o-table>
             </o-stack>
           </section>
-
           <section aria-labelledby="shades">
             <o-stack gap="4">
               <h2 id="shades">The shades between them</h2>
               <p>
-                Every other shade is navy mixed into cloud, so there is no grey of its own: each one
-                leans blue, and each follows the theme. They are worked out by the components, not
-                chosen. The values below are what a screen shows.
+                Every other shade is ink mixed into cloud, so each one leans the way the pair leans,
+                and each follows the theme. The components work them out; the values below are what
+                a screen shows.
               </p>
               <o-table>
                 <table>
@@ -202,7 +193,7 @@
                     <tr>
                       <th scope="col">Shade</th>
                       <th scope="col">Token</th>
-                      <th scope="col">Navy in it</th>
+                      <th scope="col">Ink in it</th>
                       <th scope="col">Light</th>
                       <th scope="col">Dark</th>
                       <th scope="col">What it is for</th>
@@ -211,8 +202,7 @@
                   <tbody>
                     <tr>
                       <th scope="row">
-                        <span class="brand-swatch" data-swatch="soft" aria-hidden="true"></span>
-                        Soft
+                        <span class="color-chip" data-chip="soft" aria-hidden="true"></span> Soft
                       </th>
                       <td><code>--color-ink-soft</code></td>
                       <td>68%</td>
@@ -222,8 +212,7 @@
                     </tr>
                     <tr>
                       <th scope="row">
-                        <span class="brand-swatch" data-swatch="faint" aria-hidden="true"></span>
-                        Faint
+                        <span class="color-chip" data-chip="faint" aria-hidden="true"></span> Faint
                       </th>
                       <td><code>--color-ink-faint</code></td>
                       <td>58%</td>
@@ -233,11 +222,7 @@
                     </tr>
                     <tr>
                       <th scope="row">
-                        <span
-                          class="brand-swatch"
-                          data-swatch="line-strong"
-                          aria-hidden="true"
-                        ></span>
+                        <span class="color-chip" data-chip="line-strong" aria-hidden="true"></span>
                         Strong line
                       </th>
                       <td><code>--color-line-strong</code></td>
@@ -248,8 +233,7 @@
                     </tr>
                     <tr>
                       <th scope="row">
-                        <span class="brand-swatch" data-swatch="line" aria-hidden="true"></span>
-                        Line
+                        <span class="color-chip" data-chip="line" aria-hidden="true"></span> Line
                       </th>
                       <td><code>--color-line</code></td>
                       <td>12%</td>
@@ -259,8 +243,7 @@
                     </tr>
                     <tr>
                       <th scope="row">
-                        <span class="brand-swatch" data-swatch="wash" aria-hidden="true"></span>
-                        Wash
+                        <span class="color-chip" data-chip="wash" aria-hidden="true"></span> Wash
                       </th>
                       <td><code>--color-wash</code></td>
                       <td>6%</td>
@@ -273,78 +256,12 @@
               </o-table>
             </o-stack>
           </section>
-
-          <section aria-labelledby="mark">
-            <o-stack gap="4">
-              <h2 id="mark">The mark</h2>
-              <p>
-                Two colors belong to the logo, and stay out of everything else. A page that needs to
-                tell one thing from another does it with weight, size, or a border, as the
-                components do.
-              </p>
-              <o-table>
-                <table>
-                  <thead>
-                    <tr>
-                      <th scope="col">Color</th>
-                      <th scope="col">Value</th>
-                      <th scope="col">What it is for</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">
-                        <span class="brand-swatch" data-swatch="blue" aria-hidden="true"></span>
-                        Oinam Blue
-                      </th>
-                      <td><code>#1d387c</code></td>
-                      <td>
-                        The logo on a light ground, and large display type in print. On a dark
-                        ground it all but vanishes, at 1.6 to 1, so there the logo is drawn in the
-                        text color.
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        <span class="brand-swatch" data-swatch="orange" aria-hidden="true"></span>
-                        Oinam Orange
-                      </th>
-                      <td><code>#ff6600</code></td>
-                      <td>
-                        A mark only: a dot, a rule, a fill behind the logo. Never text on a light
-                        ground, where it reaches only 2.7 to 1. Navy on orange reads well, at 6 to
-                        1.
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </o-table>
-              <o-row class="brand-marks" aria-label="The mark in its colors">
-                <span class="brand-tile" data-tile="light">
-                  <svg viewBox="0 0 600 600" role="img" aria-label="The mark in Oinam Blue">
-                    <use href="/assets/logo.svg#mark" />
-                  </svg>
-                </span>
-                <span class="brand-tile" data-tile="orange">
-                  <svg viewBox="0 0 600 600" role="img" aria-label="The mark in navy, on orange">
-                    <use href="/assets/logo.svg#mark" />
-                  </svg>
-                </span>
-                <span class="brand-tile" data-tile="night">
-                  <svg viewBox="0 0 600 600" role="img" aria-label="The mark in cloud, on navy">
-                    <use href="/assets/logo.svg#mark" />
-                  </svg>
-                </span>
-              </o-row>
-            </o-stack>
-          </section>
-
           <section aria-labelledby="contrast">
             <o-stack gap="4">
               <h2 id="contrast">Contrast</h2>
               <p>
-                Every text color meets WCAG AA, 4.5 to 1, against both the page and a raised
-                surface, in both themes. The garden's tests hold it there.
+                Every text shade reaches WCAG AA, 4.5 to 1, against the page and against a raised
+                surface, in both themes. A test holds it there.
               </p>
               <o-table>
                 <table>
@@ -359,7 +276,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <th scope="row">Navy</th>
+                      <th scope="row">Ink</th>
                       <td>15.6</td>
                       <td>16.4</td>
                       <td>14.9</td>
@@ -384,87 +301,15 @@
               </o-table>
             </o-stack>
           </section>
-
-          <section aria-labelledby="retired">
-            <o-stack gap="4">
-              <h2 id="retired">What the old palette becomes</h2>
-              <p>
-                The palette on oinam.com had 27 colors and no roles. Each one maps to a role above,
-                or is let go.
-              </p>
-              <o-table>
-                <table>
-                  <thead>
-                    <tr>
-                      <th scope="col">Old</th>
-                      <th scope="col">Now</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">Primary, Blue <code>#1d387c</code></th>
-                      <td>
-                        Oinam Blue, for the mark. Too light to be the text: its faint shade falls to
-                        3.4 to 1.
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        Secondary, Midnight <code>#0e2532</code>; Oxford Blue <code>#111f46</code>;
-                        Magpie <code>#003658</code>; Marine <code>#244f81</code>
-                      </th>
-                      <td>Navy, <code>#06194e</code> by day and <code>#0b1736</code> by night.</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Dark <code>#0a0a0a</code>; Light <code>#fafafa</code></th>
-                      <td>Navy and cloud.</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Gray-100 to Gray-900</th>
-                      <td>The shades, which lean blue instead of grey.</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Primary Accent <code>#ff6600</code></th>
-                      <td>Oinam Orange, for the mark.</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        Secondary Accent <code>#ff9200</code>; Tertiary Accent <code>#ffbe00</code>
-                      </th>
-                      <td>Let go. One orange is a mark; three are a decoration.</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Icicle, Sky, Cornflower, Pool, and Chagall</th>
-                      <td>Let go. Cloud carries the pale blue now.</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Tertiary <code>#7c3aed</code></th>
-                      <td>
-                        Let go. It is the violet every generated page reaches for, and it is not
-                        Oinam.
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </o-table>
-            </o-stack>
-          </section>
-
           <section aria-labelledby="use">
             <o-stack gap="4">
               <h2 id="use">Use it</h2>
               <p>
-                The colors are one stylesheet of three tokens, the same file as the Oinam design in
-                the <a href="/garden/?design=oinam">garden</a>. Take a copy of
-                <a href="/garden/oinam.css">oinam.css</a>, keep it with the site's own styles,
-                outside the components' folder, and link it after them:
+                Take a copy of <a href="/color/01.css">01.css</a>, keep it with the site's own
+                styles, outside the components' folder, and link it after them:
               </p>
               <pre><code>&lt;link rel="stylesheet" href="/ui/ui.css" /&gt;
-&lt;link rel="stylesheet" href="/styles/oinam.css" /&gt;</code></pre>
-              <p>
-                For an agent, the rule is short: navy and cloud for everything, orange and Oinam
-                Blue for the logo alone, and no third color in the interface.
-              </p>
+&lt;link rel="stylesheet" href="/styles/navy.css" /&gt;</code></pre>
             </o-stack>
           </section>
         </o-stack>
@@ -483,7 +328,7 @@
             <li><a href="/ui/">Components</a></li>
             <li><a href="/play/">Play</a></li>
             <li><a href="/garden/">Garden</a></li>
-            <li><a href="/brand/">Brand</a></li>
+            <li><a href="/color/">Colors</a></li>
             <li><a href="/llms.txt">llms.txt</a></li>
             <li><a href="https://github.com/oinam/oinam.dev">GitHub</a></li>
           </ul>

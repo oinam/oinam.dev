@@ -709,31 +709,22 @@ o-theme:not(:defined) {
 }
 
 /*
- * Brand: the colors, each with a swatch beside its name. The swatches for the
- * tokens use the tokens, so they follow the theme; the mark's two colors are
- * fixed, as a logo's are.
+ * Colors: a list of pairs, each shown in light and dark as a strip of chips, and
+ * a page for each. A strip sets its own tokens (in /color/colors.css), so the
+ * chips and the strip's own text are that color, whatever the page wears.
  */
-.brand-page {
-  --brand-blue: #1d387c;
-  --brand-orange: #f60;
-  --brand-navy: #0b1736;
-  --brand-cloud: #f4f7fb;
-  --brand-cloud-night: #e4edf6;
-
+.color-list,
+.color-page {
   padding-block-end: var(--space-12);
 }
 
 /* A section may be narrower than its longest line of code; the code scrolls. */
-.brand-page section {
+.color-list section,
+.color-page section {
   min-inline-size: 0;
 }
 
-/* A token or a value reads as one word, so it does not break; the table scrolls instead. */
-.brand-page td code {
-  white-space: nowrap;
-}
-
-.brand-swatch {
+.color-chip {
   display: inline-block;
   inline-size: 1.25em;
   block-size: 1.25em;
@@ -743,73 +734,90 @@ o-theme:not(:defined) {
   border-radius: var(--radius-sm);
 }
 
-.brand-swatch[data-swatch="ink"] {
+.color-chip[data-chip="ink"] {
   background: var(--color-ink);
 }
 
-.brand-swatch[data-swatch="cloud"] {
+.color-chip[data-chip="cloud"] {
   background: var(--color-cloud);
 }
 
-.brand-swatch[data-swatch="milk"] {
+.color-chip[data-chip="milk"] {
   background: var(--color-milk);
 }
 
-.brand-swatch[data-swatch="soft"] {
+.color-chip[data-chip="soft"] {
   background: var(--color-ink-soft);
 }
 
-.brand-swatch[data-swatch="faint"] {
+.color-chip[data-chip="faint"] {
   background: var(--color-ink-faint);
 }
 
-.brand-swatch[data-swatch="line-strong"] {
+.color-chip[data-chip="line-strong"] {
   background: var(--color-line-strong);
 }
 
-.brand-swatch[data-swatch="line"] {
+.color-chip[data-chip="line"] {
   background: var(--color-line);
 }
 
-.brand-swatch[data-swatch="wash"] {
+.color-chip[data-chip="wash"] {
   background: var(--color-wash);
 }
 
-.brand-swatch[data-swatch="blue"] {
-  background: var(--brand-blue);
-}
-
-.brand-swatch[data-swatch="orange"] {
-  background: var(--brand-orange);
-}
-
-/* The mark on its three grounds, which do not change with the theme. */
-.brand-tile {
-  display: grid;
-  place-items: center;
-  inline-size: 7rem;
-  aspect-ratio: 1;
+.color-strip {
+  padding: var(--space-4);
   border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-cloud);
+  color: var(--color-ink);
+}
+
+.color-strip-scheme {
+  margin-block-end: var(--space-3);
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+
+.color-strip-chips {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
+  gap: var(--space-4) var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+}
+
+.color-strip-chips li {
+  display: grid;
+  gap: var(--space-1);
+}
+
+/* In a strip, a chip is a tile, and its name and value sit under it. */
+.color-strip-chips .color-chip {
+  display: block;
+  inline-size: 100%;
+  block-size: 3.5rem;
+  margin: 0 0 var(--space-1);
+  border-color: var(--color-line);
   border-radius: var(--radius-md);
 }
 
-.brand-tile svg {
-  inline-size: 50%;
+.color-strip-chips code {
+  justify-self: start;
+  font-size: var(--text-xs);
 }
 
-.brand-tile[data-tile="light"] {
-  color: var(--brand-blue);
-  background: var(--brand-cloud);
+.color-list h2 code {
+  font-size: var(--text-sm);
+  vertical-align: middle;
 }
 
-.brand-tile[data-tile="orange"] {
-  color: var(--brand-navy);
-  background: var(--brand-orange);
-}
-
-.brand-tile[data-tile="night"] {
-  color: var(--brand-cloud-night);
-  background: var(--brand-navy);
+/* A token or a value reads as one word, so it does not break; the table scrolls instead. */
+.color-page td code {
+  white-space: nowrap;
 }
 
 /* Footer */

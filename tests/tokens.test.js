@@ -8,7 +8,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
 
-import { hex, mix, rgb } from "./color.js";
+import { hex, mix, rgb } from "../scripts/color.js";
 
 const UI = new URL("../public/ui/", import.meta.url);
 const EXTENSION = "dev.oinam.ui";

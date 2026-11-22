@@ -1,0 +1,14 @@
+/*
+ * Clay, color 05 of Oinam UI
+ * https://oinam.dev/color/05/clay/
+ *
+ * A dark earth red on a warm, faintly pink cloud.
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(#331105, #fae6df);
+  --color-cloud: light-dark(#fff2ed, #1f0f09);
+  --color-milk: light-dark(#fffbf9, #291812);
+}

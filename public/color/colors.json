@@ -1,0 +1,60 @@
+{
+  "about": "Pairs of colors for Oinam UI. Each sets three tokens, ink, cloud, and milk, in light and dark; every other shade is mixed from them. The page for each is https://oinam.dev/color/<id>/<name>/, and the name is optional. Kept by hand; scripts/colors.js writes the pages from it.",
+  "page": "https://oinam.dev/color/",
+  "colors": [
+    {
+      "id": "00",
+      "name": "base",
+      "title": "Base",
+      "description": "The default: a cool near-black on a grey cloud, with almost no color at all.",
+      "ink": ["#161618", "#eceef1"],
+      "cloud": ["#f5f6f8", "#0c0c0c"],
+      "milk": ["#fcfcfd", "#161618"]
+    },
+    {
+      "id": "01",
+      "name": "navy",
+      "title": "Navy",
+      "description": "A bright navy for text by day, and a deep one for the ground by night, on a cloud of the same blue.",
+      "ink": ["#06194e", "#e4edf6"],
+      "cloud": ["#f4f7fc", "#0b1736"],
+      "milk": ["#fcfdff", "#111e42"]
+    },
+    {
+      "id": "02",
+      "name": "paper",
+      "title": "Paper",
+      "description": "Soft black on warm paper, like a printed page.",
+      "ink": ["#1b1a17", "#f2efe8"],
+      "cloud": ["#f7f4ee", "#12110f"],
+      "milk": ["#fdfcf9", "#1c1a17"]
+    },
+    {
+      "id": "03",
+      "name": "carbon",
+      "title": "Carbon",
+      "description": "Black on white, as plain as a screen allows, with no tint in either.",
+      "ink": ["#111111", "#ededed"],
+      "cloud": ["#fafafa", "#0a0a0a"],
+      "milk": ["#ffffff", "#151515"]
+    },
+    {
+      "id": "04",
+      "name": "forest",
+      "title": "Forest",
+      "description": "A deep green on a pale green cloud, and the woods at night.",
+      "ink": ["#00220d", "#e1f0e5"],
+      "cloud": ["#eef8f1", "#08180e"],
+      "milk": ["#f9fdfa", "#112117"]
+    },
+    {
+      "id": "05",
+      "name": "clay",
+      "title": "Clay",
+      "description": "A dark earth red on a warm, faintly pink cloud.",
+      "ink": ["#331105", "#fae6df"],
+      "cloud": ["#fff2ed", "#1f0f09"],
+      "milk": ["#fffbf9", "#291812"]
+    }
+  ]
+}

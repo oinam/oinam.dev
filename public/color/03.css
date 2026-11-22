@@ -1,0 +1,14 @@
+/*
+ * Carbon, color 03 of Oinam UI
+ * https://oinam.dev/color/03/carbon/
+ *
+ * Black on white, as plain as a screen allows, with no tint in either.
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(#111, #ededed);
+  --color-cloud: light-dark(#fafafa, #0a0a0a);
+  --color-milk: light-dark(#fff, #151515);
+}

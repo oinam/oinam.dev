@@ -67,6 +67,10 @@ run = [
 description = "Freeze this version's stylesheets, scripts, and fonts in public/ui/releases/<version>/"
 run = "node scripts/release.js"
 
+[tasks.colors]
+description = "Write the color pages in public/color/ from public/color/colors.json"
+run = "node scripts/colors.js"
+
 [tasks.social-card]
 description = "Draw the picture shown when a link to the site is shared, from docs/social-card.html"
 run = """

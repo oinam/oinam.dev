@@ -1,0 +1,14 @@
+/*
+ * Navy, color 01 of Oinam UI
+ * https://oinam.dev/color/01/navy/
+ *
+ * A bright navy for text by day, and a deep one for the ground by night, on a cloud of the same blue.
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(#06194e, #e4edf6);
+  --color-cloud: light-dark(#f4f7fc, #0b1736);
+  --color-milk: light-dark(#fcfdff, #111e42);
+}

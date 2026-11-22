@@ -9,7 +9,7 @@ import assert from "node:assert/strict";
 import { readdirSync, readFileSync } from "node:fs";
 import { test } from "node:test";
 
-import { contrast, mix, rgb } from "./color.js";
+import { contrast, mix, rgb } from "../scripts/color.js";
 
 const GARDEN = new URL("../public/garden/", import.meta.url);
 const read = (name) => readFileSync(new URL(name, GARDEN), "utf8");

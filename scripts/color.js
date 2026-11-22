@@ -1,6 +1,7 @@
 /*
- * Color, enough of it for the tests to measure what a reader will see: the
- * mixing the browser does in Oklab, and contrast as WCAG counts it.
+ * Color, enough of it to measure what a reader will see: the mixing the
+ * browser does in Oklab, and contrast as WCAG counts it. The tests use it, and
+ * so does scripts/colors.js, to print the shades on the color pages.
  *
  * A color here is three numbers, linear red, green, and blue, from 0 to 1.
  */

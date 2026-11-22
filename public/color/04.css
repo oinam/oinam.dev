@@ -1,0 +1,14 @@
+/*
+ * Forest, color 04 of Oinam UI
+ * https://oinam.dev/color/04/forest/
+ *
+ * A deep green on a pale green cloud, and the woods at night.
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(#00220d, #e1f0e5);
+  --color-cloud: light-dark(#eef8f1, #08180e);
+  --color-milk: light-dark(#f9fdfa, #112117);
+}

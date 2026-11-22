@@ -1,0 +1,56 @@
+/*
+ * Every color, each scoped to its strip on /color/, so they can be shown side
+ * by side. Written by scripts/colors.js from colors.json; do not edit it.
+ */
+
+.color-strip {
+  --color-ink-soft: color-mix(in oklab, var(--color-ink) 68%, var(--color-cloud));
+  --color-ink-faint: color-mix(in oklab, var(--color-ink) 58%, var(--color-cloud));
+  --color-line: color-mix(in oklab, var(--color-ink) 12%, var(--color-cloud));
+  --color-line-strong: color-mix(in oklab, var(--color-ink) 24%, var(--color-cloud));
+  --color-wash: color-mix(in oklab, var(--color-ink) 6%, transparent);
+}
+
+.color-strip[data-scheme="light"] {
+  color-scheme: light;
+}
+
+.color-strip[data-scheme="dark"] {
+  color-scheme: dark;
+}
+
+.color-strip[data-colors="00"] {
+  --color-ink: light-dark(#161618, #eceef1);
+  --color-cloud: light-dark(#f5f6f8, #0c0c0c);
+  --color-milk: light-dark(#fcfcfd, #161618);
+}
+
+.color-strip[data-colors="01"] {
+  --color-ink: light-dark(#06194e, #e4edf6);
+  --color-cloud: light-dark(#f4f7fc, #0b1736);
+  --color-milk: light-dark(#fcfdff, #111e42);
+}
+
+.color-strip[data-colors="02"] {
+  --color-ink: light-dark(#1b1a17, #f2efe8);
+  --color-cloud: light-dark(#f7f4ee, #12110f);
+  --color-milk: light-dark(#fdfcf9, #1c1a17);
+}
+
+.color-strip[data-colors="03"] {
+  --color-ink: light-dark(#111, #ededed);
+  --color-cloud: light-dark(#fafafa, #0a0a0a);
+  --color-milk: light-dark(#fff, #151515);
+}
+
+.color-strip[data-colors="04"] {
+  --color-ink: light-dark(#00220d, #e1f0e5);
+  --color-cloud: light-dark(#eef8f1, #08180e);
+  --color-milk: light-dark(#f9fdfa, #112117);
+}
+
+.color-strip[data-colors="05"] {
+  --color-ink: light-dark(#331105, #fae6df);
+  --color-cloud: light-dark(#fff2ed, #1f0f09);
+  --color-milk: light-dark(#fffbf9, #291812);
+}

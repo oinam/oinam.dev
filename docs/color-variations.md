@@ -1,7 +1,47 @@
 # Color variations
 
 How to let someone pick a color, or a pair of colors, and get a site that looks entirely different
-while everything else stays Base. Written on 2026-11-22 as a plan, not a record of what is built.
+while everything else stays Base. Written on 2026-11-22 as a plan; "Built" below says what exists.
+
+## Built
+
+The colors live at https://oinam.dev/color/, a list of pairs shown side by side in light and dark,
+with a page for each.
+
+- **The list is data.** `public/color/colors.json` holds each color's number, name, title,
+  description, and its three tokens in light and dark. It is the only file kept by hand.
+- **The pages are written from it.** `mise run colors` (`scripts/colors.js`) works out every shade
+  and every ratio and writes the list page, a page per color, a stylesheet per color to take away
+  (`/color/<id>.css`), and the scoped stylesheet the list page uses. `tests/colors.test.js` fails
+  when a page and the list disagree, and holds every color to 4.5 to 1 in both themes. Writing the
+  shades by hand was tried first, and they went stale within the hour.
+- **The number is the address; the name is for reading.** `/color/01/` and `/color/01/navy/` are
+  the same page, by a rewrite in `public/_redirects`, and any name after the number works. So a
+  color can be renamed without breaking a link. The canonical address is the one with only the
+  number. A take-away stylesheet is named by number too, and sits beside the folders, not in them,
+  because the rewrite would catch a file inside one.
+- **Colors are not named after a product.** Different products may wear different colors, so a
+  color says what it looks like, such as Navy, and a product says which one it wears.
+- **The list page cannot just set tokens on each strip.** A shade such as `--color-ink-soft` is
+  worked out on `:root` from the page's own ink, and a descendant that sets another ink still
+  inherits the page's shades. So `public/color/colors.css` declares the mixes again on each strip.
+
+## Oinam's own colors
+
+Recommended on 2026-11-22, for the owner to take or leave. Oinam's sites wear Navy, color 01. The
+mark keeps two colors of its own, and they stay out of every interface:
+
+- **Oinam Blue, `#1d387c`.** The logo on a light ground. On a dark ground it falls to 1.6 to 1, so
+  there the logo is drawn in the text color. It is too light to be ink: the faint ink mixed from it
+  falls to 3.4 to 1.
+- **Oinam Orange, `#ff6600`.** A mark only: a dot, a rule, a fill behind the logo. It reaches only
+  2.7 to 1 as text on a light ground; navy on orange reads at 6 to 1.
+
+The rest of the 27-color palette on oinam.com maps to Navy's roles or is let go: Midnight, Oxford
+Blue, Magpie, and Marine become the navy; Dark and Light become ink and cloud; the nine greys become
+the mixed shades; the two other accents and the pale blues (Icicle, Sky, Cornflower, Pool, Chagall)
+are let go; and the Tertiary violet, `#7c3aed`, is let go as the color every generated page reaches
+for.
 
 ## What is already there
 
@@ -76,7 +116,8 @@ The owner left these to best practice, on 2026-11-22.
   running prose, at 7 to 1 (AAA), but that is an aim, not a gate.
 - **The 68% and 58% shares stay fixed.** They are part of Base, and a variation is token values,
   not new mixes. When a pair fails, the picker darkens the ink or lightens the cloud until it
-  passes, the same hue kept. The Oinam design in the garden is the example: the brand's own Blue,
-  `#1d387c`, passes as ink on its own at 10 to 1, but its faint ink falls to 3.4, so the design
-  uses a deeper navy, `#0b1736`. A saturated ink loses contrast faster when it is mixed into a pale
-  cloud than a near-black one does, so the darker the ink, the more color the cloud can carry.
+  passes, the same hue kept. Navy, color 01, is the example: the brand's own Blue, `#1d387c`,
+  passes as ink on its own at 10 to 1, but its faint ink falls to 3.4, so Navy's ink is `#06194e`.
+  That is as light as an ink can be on that cloud and still pass, and it reads as blue by carrying
+  more chroma, not more lightness. A saturated ink loses contrast faster when it is mixed into a
+  pale cloud than a near-black one does, so the darker the ink, the more color it can carry.
