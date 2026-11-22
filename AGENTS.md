@@ -44,6 +44,13 @@ until every point below holds.
   failing test before the fix.
 - **Followed.** Lint, format, eval, and test run in CI on every push and pull request; a red check
   blocks the merge. Do not skip, silence, or weaken a check to get a change through.
+- **Accessible.** Accessibility is considered from the first decision, in everything built: colors,
+  text, layout, motion, and behavior. Meet WCAG 2.2 AA at the least: text at 4.5 to 1 against its
+  ground (3 to 1 for large text and for the edges of controls), in light and in dark; type that
+  can be enlarged and lines that can be read; everything reachable and visible by keyboard; a name
+  for every control and image that carries meaning; nothing told by color, or by hover, alone;
+  motion that respects `prefers-reduced-motion`; and content that reads with scripts off. Where a
+  program can check one of these, a test or the linter does.
 - **Documented.** Each project states how to install, lint, format, test, and run evals in one
   place, and keeps it current.
 
