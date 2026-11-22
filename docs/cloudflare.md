@@ -19,6 +19,22 @@ claims to come from it.
 
 Email Routing stays off, and no other MX record is added.
 
+Cloudflare's zone-file import refuses the null MX, and drops the whole file with it, so the MX is
+added by hand under Add record, and the three TXT records are imported or added on their own.
+
+## One address: www goes to the root
+
+The site lives at `oinam.dev`. `www.oinam.dev` exists only to send people there:
+
+- DNS: `www` is an A record to `192.0.2.1`, proxied. The address is reserved for documentation and
+  never reached; the record is there so that requests for `www` arrive at Cloudflare at all.
+- Rules, Redirect Rules: `https://www.oinam.dev/*` goes to `https://oinam.dev/${1}` with a 301,
+  keeping the query string. A request to `http://www` is first sent to HTTPS by Always Use HTTPS,
+  then here, so it takes two steps.
+
+The Pages project is attached to `oinam.dev` only. Attaching `www` to it as well would serve the
+site at two addresses.
+
 ## Only HTTPS, and only what the site serves
 
 - **SSL/TLS:** Full (strict). Always Use HTTPS on. Minimum TLS 1.2; TLS 1.3 on.
