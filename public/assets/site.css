@@ -230,7 +230,12 @@ o-theme:not(:defined) {
   }
 }
 
-/* As the header narrows, the least needed things leave first. */
+/*
+ * As the header narrows, the least needed things leave first. Each breakpoint
+ * is where what is left stops fitting, measured with room to spare, since the
+ * system fonts are wider on some machines than others. The name and the full
+ * set of links need about 35rem; without the name, about 28rem.
+ */
 
 @media (width < 46rem) {
   .site-nav .nav-later {
@@ -238,7 +243,7 @@ o-theme:not(:defined) {
   }
 }
 
-@media (width < 30rem) {
+@media (width < 37rem) {
   .brand-name {
     display: none;
   }
@@ -249,9 +254,9 @@ o-theme:not(:defined) {
   }
 }
 
-/* On the narrowest phones, only the components keep their link. The rest are in the footer. */
+/* On a phone, only the components keep their link. The rest are in the footer. */
 
-@media (width < 24rem) {
+@media (width < 30rem) {
   .site-nav a:not([href="/ui/"]),
   .brand-version {
     display: none;
