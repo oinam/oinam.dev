@@ -57,11 +57,21 @@ test("the shared picture is a PNG, 1200 by 630", () => {
 
 test("the share links on the home page all carry its address", () => {
   const html = read("public/index.html");
-  const share = html.match(/<ul class="share-links"[\s\S]*?<\/ul>/)?.[0] ?? "";
+  const share = html.match(/<p class="share-links"[\s\S]*?<\/p>/)?.[0] ?? "";
   const links = [...share.matchAll(/href="([^"]+)"/g)].map(([, href]) => href);
 
   assert.ok(links.length >= 6, "there are share links");
   for (const href of links) {
     assert.match(href, /https%3A%2F%2Foinam\.dev%2F/, href);
   }
+});
+
+test("a share link a blocker hides leaves no gap behind", () => {
+  // Content blockers hide share links by their address. Each link is a child of
+  // the row itself, not wrapped in a list item that would stay behind, empty,
+  // and keep its share of the gap.
+  const html = read("public/index.html");
+  const share = html.match(/<p class="share-links"[\s\S]*?<\/p>/)?.[0] ?? "";
+  assert.ok(share, "the share links are a row of their own");
+  assert.doesNotMatch(share, /<li\b/);
 });

@@ -451,14 +451,15 @@ o-theme:not(:defined) {
   bottom: var(--space-2);
 }
 
+/* The links sit in the row directly, with no list item around each: a content blocker that hides
+   share links by their address then leaves nothing behind, and the rest close up. */
+
 .share-links {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   gap: var(--space-2) var(--space-4);
+  align-items: center;
   margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 /* The one line to hand an agent. */

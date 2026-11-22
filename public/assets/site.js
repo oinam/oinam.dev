@@ -181,11 +181,11 @@ if (!/mac|iphone|ipad/i.test(platform)) {
 // The links beside it cover the usual places. Where the device has a share
 // sheet of its own (most phones), offer it too, for everywhere else: Mastodon,
 // a messenger, a note.
-const shareItem = document.querySelector("[data-share]");
-if (shareItem && navigator.share) {
-  shareItem.hidden = false;
-  shareItem.querySelector("button")?.addEventListener("click", () => {
-    const text = shareItem.closest(".share")?.querySelector("pre")?.textContent ?? "";
+const shareButton = document.querySelector("[data-share]");
+if (shareButton && navigator.share) {
+  shareButton.hidden = false;
+  shareButton.addEventListener("click", () => {
+    const text = shareButton.closest(".share")?.querySelector("pre")?.textContent ?? "";
     // Closing the sheet without choosing rejects the promise; that is not an error.
     navigator.share({ title: document.title, text }).catch(() => {});
   });
