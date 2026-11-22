@@ -834,12 +834,55 @@ o-theme:not(:defined) {
 }
 
 button.color-chip {
+  position: relative;
   cursor: copy;
-  transition: transform var(--duration) var(--ease);
 }
 
-button.color-chip:hover {
-  transform: scale(1.06);
+/*
+ * As the pointer rests on a chip, or the keyboard reaches it, its value shows
+ * above it; once pressed, the same place says "Copied". It is a hint only: the
+ * chip's name says the value, and the color's page has every one.
+ */
+button.color-chip::after {
+  position: absolute;
+  bottom: calc(100% + var(--space-2));
+  left: 50%;
+  z-index: 1;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-ink);
+  color: var(--color-cloud);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+
+  /* Left out of the page until shown, so a hidden hint cannot widen it. */
+  display: none;
+  content: attr(data-oklch);
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+button.color-chip:hover::after,
+button.color-chip:focus-visible::after,
+button.color-chip[data-copied]::after {
+  display: block;
+}
+
+/* A hint keeps to the side of the strip its chip is nearer, so it never runs past the page. */
+.color-strip-chips li:nth-child(-n + 3) button.color-chip::after {
+  left: 0;
+  transform: none;
+}
+
+.color-strip-chips li:nth-child(n + 5) button.color-chip::after {
+  right: 0;
+  left: auto;
+  transform: none;
+}
+
+button.color-chip[data-copied]::after {
+  content: "Copied";
 }
 
 /* A value in a table, which the script makes a button that copies it. */
@@ -854,7 +897,32 @@ button.color-chip:hover {
 }
 
 button.color-value {
+  position: relative;
   cursor: copy;
+}
+
+/* Once pressed, a value says "Copied" where it was, and keeps its place. */
+button.color-value[data-copied] > * {
+  visibility: hidden;
+}
+
+button.color-value[data-copied]::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  content: "Copied";
+}
+
+/* Read by a screen reader, unseen. */
+.color-said {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* The hex sits under the OKLCH it repeats, quieter, since it is the alternate. */

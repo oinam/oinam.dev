@@ -6,7 +6,7 @@
 import { mount } from "./dom.js";
 
 import assert from "node:assert/strict";
-import { beforeEach, test } from "node:test";
+import { beforeEach, mock, test } from "node:test";
 
 const { copy, copyable } = await import("../public/assets/colors.js");
 
@@ -66,4 +66,23 @@ test("a click on the page copies through the button under it", async () => {
     .dispatchEvent(new MouseEvent("click", { bubbles: true, shiftKey: true }));
   await new Promise((resolve) => setTimeout(resolve, 0));
   assert.equal(clipboard, "#f4f7fc");
+});
+
+test("a pressed button says it is copied, in place, then goes back; a status line says what", async () => {
+  mock.timers.enable({ apis: ["setTimeout"] });
+  const root = mount(markup);
+  copyable(root);
+  const value = root.querySelector("button.color-value");
+
+  await copy(value, false);
+  assert.ok("copied" in value.dataset);
+  assert.equal(
+    document.querySelector(".color-said").textContent,
+    "Copied oklch(97.5% 0.007 260.7deg)",
+  );
+  assert.equal(document.querySelector(".color-said").getAttribute("role"), "status");
+
+  mock.timers.tick(1500);
+  assert.ok(!("copied" in value.dataset));
+  mock.timers.reset();
 });

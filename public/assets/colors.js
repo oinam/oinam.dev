@@ -6,7 +6,14 @@
  * Tailwind's colors page. The page marks each one with data-oklch and
  * data-hex, and this script makes each a button, so a page without it has no
  * button that does nothing.
+ *
+ * A chip shows its value as the pointer rests on it, and says "Copied" in the
+ * same place once pressed; a value in a table says it in place of itself. A
+ * line the eye does not see tells a screen reader what was copied.
  */
+
+/* How long "Copied" stays, in milliseconds. */
+const SAID_FOR = 1500;
 
 /** Turn every marked chip and value under `root` into a button that copies it. */
 export function copyable(root = document) {
@@ -33,18 +40,29 @@ export function copyable(root = document) {
 export async function copy(button, shift) {
   const text = shift ? button.dataset.hex : button.dataset.oklch;
   await navigator.clipboard.writeText(text);
+  button.dataset.copied = "";
+  clearTimeout(timers.get(button));
+  timers.set(
+    button,
+    setTimeout(() => delete button.dataset.copied, SAID_FOR),
+  );
   say(`Copied ${text}`);
   return text;
 }
 
-/* Say it with <o-toast>, which ui.js defines; the page is fine without it. */
+/** @type {WeakMap<HTMLElement, ReturnType<typeof setTimeout>>} */
+const timers = new WeakMap();
+
+/* Tell a screen reader, in a line made the first time it is needed. */
 function say(text) {
-  let region = document.querySelector("o-toast");
-  if (!region) {
-    region = document.createElement("o-toast");
-    document.body.append(region);
+  let line = document.querySelector(".color-said");
+  if (!line) {
+    line = document.createElement("p");
+    line.className = "color-said";
+    line.setAttribute("role", "status");
+    document.body.append(line);
   }
-  region.show?.(text);
+  line.textContent = text;
 }
 
 document.addEventListener("click", (event) => {
