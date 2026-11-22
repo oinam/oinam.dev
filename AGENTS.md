@@ -182,7 +182,7 @@ are defined; `package.json` only lists the linters and the formatter.
 - `mise run test` runs the test suite with Node's test runner.
 - `mise run check` runs the format check, the linters, and the tests. CI runs the same task on
   every push and pull request.
-- `mise run social-card` draws `public/assets/social.png`, the picture a shared link shows, from
+- `mise run social-card` draws `public/assets/www.oinam.dev.png`, the picture a shared link shows, from
   `docs/social-card.html`, with Chrome. Run it after changing that page, and commit both.
 
 `mise run eval` runs the evals in `evals/`: an agent builds a page from each brief with only the

@@ -18,7 +18,7 @@ const PAGES = [
   ...read("public/sitemap.xml").matchAll(/<loc>https:\/\/oinam\.dev\/([^<]*)<\/loc>/g),
 ].map(([, path]) => `public/${path}index.html`);
 
-const IMAGE = "https://oinam.dev/assets/social.png";
+const IMAGE = "https://oinam.dev/assets/www.oinam.dev.png";
 
 /** The content of a meta tag, by its property or name. */
 function meta(html, key) {
@@ -48,7 +48,7 @@ for (const path of PAGES) {
 }
 
 test("the shared picture is a PNG, 1200 by 630", () => {
-  const png = readFileSync(new URL("public/assets/social.png", ROOT));
+  const png = readFileSync(new URL("public/assets/www.oinam.dev.png", ROOT));
   assert.equal(png.subarray(1, 4).toString(), "PNG");
   // The first chunk is IHDR: width, then height, each four bytes, big-endian.
   assert.equal(png.readUInt32BE(16), 1200);
