@@ -21,9 +21,10 @@ const skip = findBrowser() ? false : "no browser on this machine";
 
 const PUBLIC = fileURLToPath(new URL("../public/", import.meta.url));
 
-// The smallest phone, then each side of the header's two narrow breakpoints,
-// with the common phones between. Each width is a picture, so there are few.
-const WIDTHS = [320, 390, 414, 479, 480, 591, 592];
+// The smallest phone, then each side of the header's narrow breakpoints, with
+// the common phones between, and each side of where the later links leave.
+// Each width is a picture, so there are few.
+const WIDTHS = [320, 390, 414, 479, 480, 591, 592, 783, 784];
 
 /** Every page under public/, but not the frozen releases, which hold none. */
 function pages(folder = PUBLIC) {

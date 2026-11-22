@@ -233,11 +233,12 @@ o-theme:not(:defined) {
 /*
  * As the header narrows, the least needed things leave first. Each breakpoint
  * is where what is left stops fitting, measured with room to spare, since the
- * system fonts are wider on some machines than others. The name and the full
- * set of links need about 35rem; without the name, about 28rem.
+ * system fonts are wider on some machines than others. Every link, with the
+ * search folded to its icon, needs about 47rem; the name and the main links
+ * about 35rem; without the name, about 28rem.
  */
 
-@media (width < 46rem) {
+@media (width < 49rem) {
   .site-nav .nav-later {
     display: none;
   }

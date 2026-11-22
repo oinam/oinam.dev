@@ -144,7 +144,13 @@ function chrome() {
   const garden = read("public/garden/index.html");
   const top = garden.slice(garden.indexOf("  <body>"), garden.indexOf('    <main id="main">'));
   const bottom = garden.slice(garden.indexOf("    </main>") + "    </main>\n".length);
-  return { top: top.replace(' aria-current="page"', ""), bottom };
+  // Every color page is under Colors, so that link is the current one.
+  return {
+    top: top
+      .replace(' aria-current="page"', "")
+      .replace('href="/colors/">Colors', 'href="/colors/" aria-current="page">Colors'),
+    bottom,
+  };
 }
 
 function head({ title, description, url, styles }) {
