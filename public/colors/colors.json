@@ -1,6 +1,6 @@
 {
-  "about": "Pairs of colors for Oinam UI. Each sets three tokens, ink, cloud, and milk, in light and dark; every other shade is mixed from them. The page for each is https://oinam.dev/color/<id>/<name>/, and the name is optional. Kept by hand; scripts/colors.js writes the pages from it.",
-  "page": "https://oinam.dev/color/",
+  "about": "Pairs of colors for Oinam UI. Each sets three tokens, ink, cloud, and milk, in light and dark; every other shade is mixed from them. The page for each is https://oinam.dev/colors/<id>/<name>/, and the name is optional. Kept by hand; scripts/colors.js writes the pages from it.",
+  "page": "https://oinam.dev/colors/",
   "colors": [
     {
       "id": "00",

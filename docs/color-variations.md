@@ -5,17 +5,17 @@ while everything else stays Base. Written on 2026-11-22 as a plan; "Built" below
 
 ## Built
 
-The colors live at https://oinam.dev/color/, a list of pairs shown side by side in light and dark,
+The colors live at https://oinam.dev/colors/, a list of pairs shown side by side in light and dark,
 with a page for each.
 
-- **The list is data.** `public/color/colors.json` holds each color's number, name, title,
+- **The list is data.** `public/colors/colors.json` holds each color's number, name, title,
   description, and its three tokens in light and dark. It is the only file kept by hand.
 - **The pages are written from it.** `mise run colors` (`scripts/colors.js`) works out every shade
   and every ratio and writes the list page, a page per color, a stylesheet per color to take away
-  (`/color/<id>.css`), and the scoped stylesheet the list page uses. `tests/colors.test.js` fails
+  (`/colors/<id>.css`), and the scoped stylesheet the list page uses. `tests/colors.test.js` fails
   when a page and the list disagree, and holds every color to 4.5 to 1 in both themes. Writing the
   shades by hand was tried first, and they went stale within the hour.
-- **The number is the address; the name is for reading.** `/color/01/` and `/color/01/navy/` are
+- **The number is the address; the name is for reading.** `/colors/01/` and `/colors/01/navy/` are
   the same page, by a rewrite in `public/_redirects`, and any name after the number works. So a
   color can be renamed without breaking a link. The canonical address is the one with only the
   number. A take-away stylesheet is named by number too, and sits beside the folders, not in them,
@@ -24,7 +24,7 @@ with a page for each.
   color says what it looks like, such as Navy, and a product says which one it wears.
 - **The list page cannot just set tokens on each strip.** A shade such as `--color-ink-soft` is
   worked out on `:root` from the page's own ink, and a descendant that sets another ink still
-  inherits the page's shades. So `public/color/colors.css` declares the mixes again on each strip.
+  inherits the page's shades. So `public/colors/colors.css` declares the mixes again on each strip.
 
 ## Oinam's own colors
 
@@ -84,7 +84,7 @@ What makes it feel like a new site, not Base in a tint:
 2. **Contrast before beauty.** The picker shows the six ratios the garden test checks, beside the
    choice. Below 4.5 to 1, it says which pair fails and offers the nearest color that passes: same
    hue, lightness moved until it does. A variation that cannot pass cannot be taken away. The
-   contrast code in `tests/color.js` already does this sum; move it where the page can use it too.
+   contrast code in `scripts/color.js` already does this sum; move it where the page can use it too.
 3. **The dark theme from the light one.** Most people choose for one theme. Work out the other by
    keeping hue and chroma and flipping lightness in Oklch, then check it the same way. Let the person
    adjust it, but never ask them to start from nothing.

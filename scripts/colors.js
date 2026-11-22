@@ -3,7 +3,7 @@
  *
  *   mise run colors
  *
- * The list, public/color/colors.json, is kept by hand. Each color is three
+ * The list, public/colors/colors.json, is kept by hand. Each color is three
  * tokens, ink, cloud, and milk, in light and in dark, and every other shade is
  * mixed from them the way tokens.css mixes them. Writing the pages by hand
  * would mean working out every shade and every ratio by hand too, and getting
@@ -12,10 +12,10 @@
  *
  * It writes:
  *
- *   public/color/index.html      every color, side by side, in light and dark
- *   public/color/<id>/index.html one color: its values, its shades, its contrast
- *   public/color/<id>.css        the color to take away, three tokens
- *   public/color/colors.css      every color, scoped, for the list to show
+ *   public/colors/index.html      every color, side by side, in light and dark
+ *   public/colors/<id>/index.html one color: its values, its shades, its contrast
+ *   public/colors/<id>.css        the color to take away, three tokens
+ *   public/colors/colors.css      every color, scoped, for the list to show
  *
  * The header and footer are taken from the garden page, so they stay the same
  * as on every other page. After changing them, run this again.
@@ -85,7 +85,7 @@ const THREE = [
 const THEMES = ["light", "dark"];
 
 /** Every color in the list, with its shades and its contrast worked out, in light then dark. */
-export function colors(list = JSON.parse(read("public/color/colors.json")).colors) {
+export function colors(list = JSON.parse(read("public/colors/colors.json")).colors) {
   return list.map((color) => {
     const themes = THEMES.map((theme, at) => {
       const [ink, cloud, milk] = [color.ink[at], color.cloud[at], color.milk[at]].map(rgb);
@@ -106,7 +106,7 @@ export function colors(list = JSON.parse(read("public/color/colors.json")).color
         ratios,
       };
     });
-    return { ...color, themes, path: `/color/${color.id}/${color.name}/` };
+    return { ...color, themes, path: `/colors/${color.id}/${color.name}/` };
   });
 }
 
@@ -204,7 +204,7 @@ ${strips}
     })
     .join("\n");
 
-  return `${head({ title: "Colors", description, url: "https://oinam.dev/color/", styles: ["/color/colors.css"] })}${top}    <main id="main">
+  return `${head({ title: "Colors", description, url: "https://oinam.dev/colors/", styles: ["/colors/colors.css"] })}${top}    <main id="main">
       <o-wrap>
         <o-stack class="page" gap="4" align="start">
           <h1>Colors</h1>
@@ -214,9 +214,9 @@ ${strips}
           </p>
           <p>
             A color has a number, which is its address, and a name, which is only for reading:
-            <a href="/color/01/navy/">/color/01/navy/</a> and <a href="/color/01/">/color/01/</a> are
+            <a href="/colors/01/navy/">/colors/01/navy/</a> and <a href="/colors/01/">/colors/01/</a> are
             the same page. So a color can be renamed, and every link to it still works. The same list
-            is in <a href="/color/colors.json">colors.json</a>, as data. Every text shade in every color
+            is in <a href="/colors/colors.json">colors.json</a>, as data. Every text shade in every color
             reaches 4.5 to 1, in both themes; a test holds them there.
           </p>
         </o-stack>
@@ -233,7 +233,7 @@ function colorPage(color) {
   const { top, bottom } = chrome();
   const base = color.id === "00";
   const [light, dark] = color.themes;
-  const url = `https://oinam.dev/color/${color.id}/`;
+  const url = `https://oinam.dev/colors/${color.id}/`;
 
   const three = THREE.map(
     ({ key, token, name, use }) => `<tr>
@@ -278,7 +278,7 @@ function colorPage(color) {
   copy of the components already has.
 </p>`
     : `<p>
-  Take a copy of <a href="/color/${color.id}.css">${color.id}.css</a>, keep it with the site's own
+  Take a copy of <a href="/colors/${color.id}.css">${color.id}.css</a>, keep it with the site's own
   styles, outside the components' folder, and link it after them:
 </p>
 <pre><code>&lt;link rel="stylesheet" href="/ui/ui.css" /&gt;
@@ -288,11 +288,11 @@ function colorPage(color) {
     title: `${color.title}, color ${color.id}`,
     description: color.description,
     url,
-    styles: base ? [] : [`/color/${color.id}.css`],
+    styles: base ? [] : [`/colors/${color.id}.css`],
   })}${top}    <main id="main">
       <o-wrap>
         <o-stack class="page" gap="4" align="start">
-          <p class="eyebrow"><a href="/color/">Colors</a>, number ${color.id}</p>
+          <p class="eyebrow"><a href="/colors/">Colors</a>, number ${color.id}</p>
           <h1>${escape(color.title)}</h1>
           <p class="lede">${escape(color.description)}</p>
           <p>${wears}</p>
@@ -394,7 +394,7 @@ const tokens = (color, indent) =>
 function takeAway(color) {
   return `/*
  * ${color.title}, color ${color.id} of Oinam UI
- * https://oinam.dev/color/${color.id}/${color.name}/
+ * https://oinam.dev/colors/${color.id}/${color.name}/
  *
  * ${color.description}
  *
@@ -419,7 +419,7 @@ function scoped(all) {
     .map((color) => `.color-strip[data-colors="${color.id}"] {\n${tokens(color, "  ")}\n}`)
     .join("\n\n");
   return `/*
- * Every color, each scoped to its strip on /color/, so they can be shown side
+ * Every color, each scoped to its strip on /colors/, so they can be shown side
  * by side. Written by scripts/colors.js from colors.json; do not edit it.
  */
 
@@ -443,12 +443,12 @@ ${blocks}
 export async function render() {
   const all = colors();
   const files = {
-    "public/color/index.html": listPage(all),
-    "public/color/colors.css": scoped(all),
+    "public/colors/index.html": listPage(all),
+    "public/colors/colors.css": scoped(all),
   };
   for (const color of all) {
-    files[`public/color/${color.id}/index.html`] = colorPage(color);
-    if (color.id !== "00") files[`public/color/${color.id}.css`] = takeAway(color);
+    files[`public/colors/${color.id}/index.html`] = colorPage(color);
+    if (color.id !== "00") files[`public/colors/${color.id}.css`] = takeAway(color);
   }
   for (const [path, source] of Object.entries(files)) {
     const filepath = fileURLToPath(new URL(path, ROOT));

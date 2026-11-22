@@ -12,7 +12,7 @@ If you were told to read https://oinam.dev/ and build something with it, the nex
 - [Patterns](https://oinam.dev/ui/patterns/): Whole pages built from the components. Read the one nearest the page you are asked for; each says in a comment why it is laid out as it is.
 - [Registry](https://oinam.dev/ui/registry.json): The same components as data, with the files each one needs.
 - [Designs](https://oinam.dev/garden/variations.json): Variations of Base that others have made, each one stylesheet of token values. Use one when the owner names it.
-- [Colors](https://oinam.dev/color/colors.json): Pairs of colors as data, each three tokens (ink, cloud, and milk) in light and dark. A color's page is https://oinam.dev/color/<id>/, and its stylesheet, to copy into a project and link after the components, is https://oinam.dev/color/<id>.css.
+- [Colors](https://oinam.dev/colors/colors.json): Pairs of colors as data, each three tokens (ink, cloud, and milk) in light and dark. A color's page is https://oinam.dev/colors/<id>/, and its stylesheet, to copy into a project and link after the components, is https://oinam.dev/colors/<id>.css.
 - [Adopting into an existing site](https://oinam.dev/ui/adopt.md): Read this only when the system is coming into a site that already has its own styles, build, or a generator that publishes Markdown: where the copy goes, folding it into a build with its layers, joining the tokens, old content, and the linter.
 - [Why](https://oinam.dev/ui/why.md): What each rule of the system protects, what it costs, and when it may be bent.
 - [Tokens as data](https://oinam.dev/ui/tokens.json): The same tokens in the Design Tokens format (2025.10).

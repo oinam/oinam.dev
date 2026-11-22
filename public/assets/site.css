@@ -715,7 +715,7 @@ o-theme:not(:defined) {
 
 /*
  * Colors: a list of pairs, each shown in light and dark as a strip of chips, and
- * a page for each. A strip sets its own tokens (in /color/colors.css), so the
+ * a page for each. A strip sets its own tokens (in /colors/colors.css), so the
  * chips and the strip's own text are that color, whatever the page wears.
  */
 .color-list,

@@ -90,8 +90,8 @@ the table on the page. The sample page's markup is the same as the one on Play; 
 together. `CONTRIBUTING.md` says how a design is sent, the tests are the gate, and
 `docs/garden-plan.md` is where this is heading.
 
-The colors at `/color/` are pairs of colors, each three tokens in light and dark, listed in
-`public/color/colors.json`, which is kept by hand. Every page and stylesheet in `public/color/` is
+The colors at `/colors/` are pairs of colors, each three tokens in light and dark, listed in
+`public/colors/colors.json`, which is kept by hand. Every page and stylesheet in `public/colors/` is
 written from that list by `mise run colors`; edit the list, run it, and commit both. A color's
 number is its address and never changes; its name follows the number only for reading, and may.
 Why, and Oinam's own colors, are in `docs/color-variations.md`.
@@ -207,7 +207,7 @@ are defined; `package.json` only lists the linters and the formatter.
   every push and pull request.
 - `mise run release` freezes the current version's stylesheets, scripts, and fonts in
   `public/ui/releases/<version>/`. It refuses a version already released.
-- `mise run colors` writes the color pages in `public/color/` from `public/color/colors.json`.
+- `mise run colors` writes the color pages in `public/colors/` from `public/colors/colors.json`.
 - `mise run social-card` draws `public/assets/www.oinam.dev.png`, the picture a shared link shows, from
   `docs/social-card.html`, with Chrome. Run it after changing that page, and commit both.
 

@@ -1,5 +1,5 @@
 /*
- * The color pages. The list in public/color/colors.json is kept by hand and the
+ * The color pages. The list in public/colors/colors.json is kept by hand and the
  * pages are written from it by scripts/colors.js, so these tests hold the two
  * together, and hold every color to the same contrast the garden is held to.
  */
@@ -22,11 +22,11 @@ test("the pages are as the script writes them from the list", async () => {
   }
 });
 
-test("nothing is left in public/color/ that the script does not write", async () => {
+test("nothing is left in public/colors/ that the script does not write", async () => {
   const written = new Set(Object.keys(await render()));
-  const kept = ["public/color/colors.json"];
-  const there = readdirSync(new URL("public/color/", ROOT), { recursive: true })
-    .map((name) => `public/color/${name}`)
+  const kept = ["public/colors/colors.json"];
+  const there = readdirSync(new URL("public/colors/", ROOT), { recursive: true })
+    .map((name) => `public/colors/${name}`)
     .filter((path) => /\.(html|css|json)$/.test(path));
   for (const path of there) {
     assert.ok(written.has(path) || kept.includes(path), `${path} is not written by the script`);
@@ -69,14 +69,14 @@ for (const color of all) {
 
 test("a color's page answers with its name after the number, or without it", () => {
   const rules = read("public/_redirects");
-  assert.match(rules, /^\/color\/:id\/:name\/ \/color\/:id\/ 200$/m);
-  assert.match(rules, /^\/color\/:id\/:name \/color\/:id\/ 200$/m);
+  assert.match(rules, /^\/colors\/:id\/:name\/ \/colors\/:id\/ 200$/m);
+  assert.match(rules, /^\/colors\/:id\/:name \/colors\/:id\/ 200$/m);
 });
 
 test("every color's page is in the sitemap", () => {
   const sitemap = read("public/sitemap.xml");
-  assert.ok(sitemap.includes("<loc>https://oinam.dev/color/</loc>"));
+  assert.ok(sitemap.includes("<loc>https://oinam.dev/colors/</loc>"));
   for (const color of all) {
-    assert.ok(sitemap.includes(`<loc>https://oinam.dev/color/${color.id}/</loc>`), color.id);
+    assert.ok(sitemap.includes(`<loc>https://oinam.dev/colors/${color.id}/</loc>`), color.id);
   }
 });

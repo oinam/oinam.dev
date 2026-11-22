@@ -68,7 +68,7 @@ description = "Freeze this version's stylesheets, scripts, and fonts in public/u
 run = "node scripts/release.js"
 
 [tasks.colors]
-description = "Write the color pages in public/color/ from public/color/colors.json"
+description = "Write the color pages in public/colors/ from public/colors/colors.json"
 run = "node scripts/colors.js"
 
 [tasks.social-card]

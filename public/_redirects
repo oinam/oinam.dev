@@ -1,8 +1,8 @@
 # Cloudflare Pages redirects and rewrites.
 # https://developers.cloudflare.com/pages/configuration/redirects/
 
-# A color's page is /color/<id>/, and its name may follow: /color/01/navy/. The number is the
+# A color's page is /colors/<id>/, and its name may follow: /colors/01/navy/. The number is the
 # address and the name is only for reading, so it is not checked: a color can be renamed, and
 # every old link still reaches it. A 200 serves the page without changing the address.
-/color/:id/:name/ /color/:id/ 200
-/color/:id/:name /color/:id/ 200
+/colors/:id/:name/ /colors/:id/ 200
+/colors/:id/:name /colors/:id/ 200
