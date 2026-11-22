@@ -33,17 +33,17 @@ test("nothing is left in public/colors/ that the script does not write", async (
   }
 });
 
-test("numbers count up from 00, and no two colors share a name", () => {
+test("numbers count up from 0, with no zeros in front, and no two colors share a name", () => {
   assert.deepEqual(
     all.map((color) => color.id),
-    all.map((_, at) => String(at).padStart(2, "0")),
+    all.map((_, at) => String(at)),
   );
   const names = all.map((color) => color.name);
   assert.equal(new Set(names).size, names.length);
   for (const name of names) assert.match(name, /^[a-z][a-z-]*$/, name);
 });
 
-test("color 00 is Base, as tokens.css has it", () => {
+test("color 0 is Base, as tokens.css has it", () => {
   const tokens = read("public/ui/tokens.css");
   const [base] = all;
   assert.equal(base.name, "base");

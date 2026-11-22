@@ -15,7 +15,7 @@ with a page for each.
   (`/colors/<id>.css`), and the scoped stylesheet the list page uses. `tests/colors.test.js` fails
   when a page and the list disagree, and holds every color to 4.5 to 1 in both themes. Writing the
   shades by hand was tried first, and they went stale within the hour.
-- **The number is the address; the name is for reading.** `/colors/01/` and `/colors/01/navy/` are
+- **The number is the address; the name is for reading.** `/colors/1/` and `/colors/1/navy/` are
   the same page, by a rewrite in `public/_redirects`, and any name after the number works. So a
   color can be renamed without breaking a link. The canonical address is the one with only the
   number. A take-away stylesheet is named by number too, and sits beside the folders, not in them,
@@ -25,9 +25,9 @@ with a page for each.
   list, the take-away stylesheets, and the pages use `oklch()`, with the hex of the same color
   beside it for tools that want one. The pages print the shades rounded for reading, since the
   browser works them out and they are written nowhere. Base itself stays in hex in `tokens.css`,
-  because changing that file means a new version of the components; color 00 is checked to show
+  because changing that file means a new version of the components; color 0 is checked to show
   the same on a screen. `scripts/color.js` has `toOklch()` to turn a hex into the list's form.
-- **Most colors are adapted from others' proven scales.** Colors 06 to 36 are Radix Colors'
+- **Most colors are adapted from others' proven scales.** Colors 6 to 36 are Radix Colors'
   scales (step 12 as ink, steps 2 and 1 as cloud and milk, and the same steps of the dark scale by
   night), and 37 to 42 are Tailwind CSS's (950 and 50, with white milk by day and a step above 950
   by night). Both are MIT, and `public/colors/LICENSES.txt` carries their notices. As published,
@@ -36,6 +36,8 @@ with a page for each.
   deepened, hue and chroma kept, until every text shade passed; each color's `from.deepened` says
   on which side, and its page says so. The greys passed as they are. The data was read from
   `@radix-ui/colors@3.0.0` and `tailwindcss@4.1.11`.
+- **Numbers have no zeros in front.** `/colors/1/`, not `/colors/01/`: padding promises a
+  fixed count, here 99, and reads like a code. Base is 0, and the variations count from 1.
 - **Colors are not named after a product.** Different products may wear different colors, so a
   color says what it looks like, such as Navy, and a product says which one it wears.
 - **The list page cannot just set tokens on each strip.** A shade such as `--color-ink-soft` is
@@ -44,7 +46,7 @@ with a page for each.
 
 ## Oinam's own colors
 
-Recommended on 2026-11-22, for the owner to take or leave. Oinam's sites wear Navy, color 01. The
+Recommended on 2026-11-22, for the owner to take or leave. Oinam's sites wear Navy, color 1. The
 mark keeps two colors of its own, and they stay out of every interface:
 
 - **Oinam Blue, `#1d387c`.** The logo on a light ground. On a dark ground it falls to 1.6 to 1, so
@@ -132,7 +134,7 @@ The owner left these to best practice, on 2026-11-22.
   running prose, at 7 to 1 (AAA), but that is an aim, not a gate.
 - **The 68% and 58% shares stay fixed.** They are part of Base, and a variation is token values,
   not new mixes. When a pair fails, the picker darkens the ink or lightens the cloud until it
-  passes, the same hue kept. Navy, color 01, is the example: the brand's own Blue, `#1d387c`,
+  passes, the same hue kept. Navy, color 1, is the example: the brand's own Blue, `#1d387c`,
   passes as ink on its own at 10 to 1, but its faint ink falls to 3.4, so Navy's ink is `#06194e`.
   That is as light as an ink can be on that cloud and still pass, and it reads as blue by carrying
   more chroma, not more lightness. A saturated ink loses contrast faster when it is mixed into a

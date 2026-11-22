@@ -3,7 +3,7 @@
   "page": "https://oinam.dev/colors/",
   "colors": [
     {
-      "id": "00",
+      "id": "0",
       "name": "base",
       "title": "Base",
       "description": "The default: a cool near-black on a grey cloud, with almost no color at all.",
@@ -12,7 +12,7 @@
       "milk": ["oklch(99.1% 0.001 286.4deg)", "oklch(20.1% 0.004 286deg)"]
     },
     {
-      "id": "01",
+      "id": "1",
       "name": "navy",
       "title": "Navy",
       "description": "A bright navy for text by day, and a deep one for the ground by night, on a cloud of the same blue.",
@@ -21,7 +21,7 @@
       "milk": ["oklch(99.4% 0.003 264.5deg)", "oklch(24.6% 0.07 266.4deg)"]
     },
     {
-      "id": "02",
+      "id": "2",
       "name": "paper",
       "title": "Paper",
       "description": "Soft black on warm paper, like a printed page.",
@@ -30,7 +30,7 @@
       "milk": ["oklch(99.1% 0.004 91.4deg)", "oklch(21.9% 0.007 78.2deg)"]
     },
     {
-      "id": "03",
+      "id": "3",
       "name": "carbon",
       "title": "Carbon",
       "description": "Black on white, as plain as a screen allows, with no tint in either.",
@@ -39,7 +39,7 @@
       "milk": ["oklch(100% 0 0deg)", "oklch(19.6% 0 0deg)"]
     },
     {
-      "id": "04",
+      "id": "4",
       "name": "forest",
       "title": "Forest",
       "description": "A deep green on a pale green cloud, and the woods at night.",
@@ -48,7 +48,7 @@
       "milk": ["oklch(99% 0.006 153.8deg)", "oklch(23% 0.029 155.9deg)"]
     },
     {
-      "id": "05",
+      "id": "5",
       "name": "clay",
       "title": "Clay",
       "description": "A dark earth red on a warm, faintly pink cloud.",
@@ -57,7 +57,7 @@
       "milk": ["oklch(99.1% 0.005 48.7deg)", "oklch(23% 0.03 40.2deg)"]
     },
     {
-      "id": "06",
+      "id": "6",
       "name": "gray",
       "title": "Gray",
       "description": "A pure grey, with no tint at all.",
@@ -73,7 +73,7 @@
       "milk": ["oklch(99.1% 0 0deg)", "oklch(21.3% 0 0deg)"]
     },
     {
-      "id": "07",
+      "id": "7",
       "name": "mauve",
       "title": "Mauve",
       "description": "A grey with a little violet in it.",
@@ -89,7 +89,7 @@
       "milk": ["oklch(99.2% 0.002 325.6deg)", "oklch(21.5% 0.004 308.2deg)"]
     },
     {
-      "id": "08",
+      "id": "8",
       "name": "slate",
       "title": "Slate",
       "description": "A cool grey, leaning blue.",
@@ -105,7 +105,7 @@
       "milk": ["oklch(99.1% 0.001 286.4deg)", "oklch(21.3% 0.004 264.5deg)"]
     },
     {
-      "id": "09",
+      "id": "9",
       "name": "sage",
       "title": "Sage",
       "description": "A grey with a little green in it.",
