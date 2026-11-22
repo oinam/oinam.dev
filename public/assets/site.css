@@ -869,6 +869,15 @@ button.color-chip[data-copied]::after {
   display: block;
 }
 
+/* With Shift held, a press copies the hex, so the hint shows it. */
+[data-shift] button.color-chip::after {
+  content: attr(data-hex);
+}
+
+button.color-chip[data-copied]::after {
+  content: "Copied";
+}
+
 /* A hint keeps to the side of the strip its chip is nearer, so it never runs past the page. */
 .color-strip-chips li:nth-child(-n + 3) button.color-chip::after {
   left: 0;
@@ -879,10 +888,6 @@ button.color-chip[data-copied]::after {
   right: 0;
   left: auto;
   transform: none;
-}
-
-button.color-chip[data-copied]::after {
-  content: "Copied";
 }
 
 /* A value in a table, which the script makes a button that copies it. */

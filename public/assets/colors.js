@@ -7,7 +7,8 @@
  * data-hex, and this script makes each a button, so a page without it has no
  * button that does nothing.
  *
- * A chip shows its value as the pointer rests on it, and says "Copied" in the
+ * A chip shows its value as the pointer rests on it, its hex while Shift is
+ * held, and says "Copied" in the
  * same place once pressed; a value in a table says it in place of itself. A
  * line the eye does not see tells a screen reader what was copied.
  */
@@ -64,6 +65,23 @@ function say(text) {
   }
   line.textContent = text;
 }
+
+/*
+ * While Shift is held, a press copies the hex, so the hints show the hex too.
+ * The page marks that on <html>; leaving the window lets it go, since the key
+ * may come up somewhere this page never hears.
+ */
+export function shift(held) {
+  if (held) document.documentElement.dataset.shift = "";
+  else delete document.documentElement.dataset.shift;
+}
+
+for (const type of ["keydown", "keyup"]) {
+  document.addEventListener(type, (event) => {
+    if (event.key === "Shift") shift(type === "keydown");
+  });
+}
+window.addEventListener("blur", () => shift(false));
 
 document.addEventListener("click", (event) => {
   const button = event.target.closest?.("button[data-oklch]");

@@ -8,7 +8,7 @@ import { mount } from "./dom.js";
 import assert from "node:assert/strict";
 import { beforeEach, mock, test } from "node:test";
 
-const { copy, copyable } = await import("../public/assets/colors.js");
+const { copy, copyable, shift } = await import("../public/assets/colors.js");
 
 /** What the page last put on the clipboard. */
 let clipboard;
@@ -85,4 +85,16 @@ test("a pressed button says it is copied, in place, then goes back; a status lin
   mock.timers.tick(1500);
   assert.ok(!("copied" in value.dataset));
   mock.timers.reset();
+});
+
+test("holding Shift marks the page, so the hints show the hex; letting go or leaving clears it", () => {
+  const html = document.documentElement;
+  document.dispatchEvent(new KeyboardEvent("keydown", { key: "Shift" }));
+  assert.ok("shift" in html.dataset);
+  document.dispatchEvent(new KeyboardEvent("keyup", { key: "Shift" }));
+  assert.ok(!("shift" in html.dataset));
+
+  shift(true);
+  window.dispatchEvent(new Event("blur"));
+  assert.ok(!("shift" in html.dataset));
 });
