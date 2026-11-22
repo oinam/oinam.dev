@@ -1,4 +1,4 @@
-# Oinam UI v0.4.0
+# Oinam UI v0.4.1
 
 A design system in plain HTML, CSS, and JavaScript. No framework, no build step, and no
 dependencies. This page is the core of it, written for an AI agent to read once and then design

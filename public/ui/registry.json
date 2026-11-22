@@ -1,6 +1,6 @@
 {
   "name": "Oinam UI",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A design system in plain HTML, CSS, and JavaScript: custom elements for structure, native elements for the work, and no framework or build step.",
   "design": "Base",
   "variations": "https://oinam.dev/garden/variations.json",

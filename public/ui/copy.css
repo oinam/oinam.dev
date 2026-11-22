@@ -10,9 +10,16 @@ o-copy {
   display: block;
 }
 
+/*
+ * The button sits on the middle of the first line of code: the pre's border,
+ * its padding, and half a line (base.css sets it in --text-sm at 1.55), less
+ * half the button. A one-line block has it in the middle, and a longer one has
+ * it beside the line it starts with.
+ */
+
 o-copy > button {
   position: absolute;
-  top: var(--space-2);
+  top: calc(1px + var(--space-4) + var(--text-sm) * 1.55 / 2 - var(--control-sm) / 2);
   right: var(--space-2);
 }
 

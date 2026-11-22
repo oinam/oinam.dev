@@ -14,6 +14,20 @@ The numbers mean what they say:
 - The first number changes when a page that worked may stop working: a class, an element, an
   attribute, or a token was renamed or removed. Before 1.0.0, the middle number does this job too.
 
+## 0.4.1
+
+2026-11-22
+
+A fix.
+
+- `<o-copy>`: the Copy button sat a few pixels high beside a single line of code. It now sits on
+  the middle of the first line, so a one-line block has it centered, and a longer block has it
+  beside the line it starts with.
+
+### What to do
+
+Replace `copy.css` with the new one. Nothing in a page changes.
+
 ## 0.4.0
 
 2026-11-21
