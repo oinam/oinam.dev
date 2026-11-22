@@ -23,13 +23,23 @@
  *   <!-- lint-allow two-solid-buttons: both are equal choices here -->
  *   (in CSS)  lint-allow gradient: this draws the arrow of a select
  *
- * The comment covers the line it is on and the line after it.
+ * The comment covers the line it is on and the line after it. To set rules
+ * aside for a whole region, such as old posts a site must not edit inside a
+ * template it can, open and close it. "all" sets every rule aside:
+ *
+ *   <!-- lint-allow-start heading-order missing-alt: posts from 2006, kept as written -->
+ *   ...
+ *   <!-- lint-allow-end -->
+ *
+ * The code of theme-init.js may be written into the page, between <script>
+ * and </script>, to save a request before the first paint. Written as it is,
+ * comments and spacing aside, it is not counted as inline script.
  *
  * It needs Node 20 or later and nothing else. What the system accepts is read
  * from contract.json, beside this folder.
  */
 
-import { readdirSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -59,7 +69,17 @@ export const RULES = {
   "broken-reference": "An attribute that points at an id the page does not have.",
   emoji: "An emoji. Plain text.",
   "linked-not-copied": "The system loaded from oinam.dev. Take a copy with install.sh.",
+  "unclosed-allow": "A lint-allow-start with no lint-allow-end, or an end with no start.",
 };
+
+/** Code with its comments and its white space taken out, to compare two scripts by what they do. */
+const bare = (code) => code.replace(/\/\*[\s\S]*?\*\/|\/\/[^\n]*/g, "").replace(/\s+/g, "");
+
+/* theme-init.js, beside this folder, which a page may write in rather than link. */
+const THEME_INIT = (() => {
+  const file = new URL("../theme-init.js", import.meta.url);
+  return existsSync(file) ? bare(readFileSync(file, "utf8")) : null;
+})();
 
 /** @typedef {{ rule: string, line: number, message: string }} Finding */
 
@@ -212,19 +232,31 @@ export function lintHtml(html, contract) {
   }
 
   const global = new Set(contract.global);
+  const { regions } = allowances(comments);
   let headings = [];
 
   for (const node of nodes) {
     const { tag, attrs } = node;
     const show = `<${tag}>`;
 
-    if ("style" in attrs) report("inline-style", node, `${show} has a style attribute.`);
+    if ("style" in attrs) {
+      // A strict content policy blocks a style attribute in an SVG too; its own attributes pass.
+      const svg = tag === "svg" || within(node, (up) => up.tag === "svg");
+      report(
+        "inline-style",
+        node,
+        svg
+          ? `${show} has a style attribute. In an SVG, use its own attributes, such as fill, stroke, and opacity, or a class.`
+          : `${show} has a style attribute.`,
+      );
+    }
     // Data in a script element, such as JSON, is not code, and neither is an import map.
     if (
       tag === "script" &&
       !("src" in attrs) &&
       !/json|importmap/.test(attrs.type ?? "") &&
-      node.text.trim()
+      node.text.trim() &&
+      bare(node.text) !== THEME_INIT
     ) {
       report(
         "inline-script",
@@ -401,7 +433,11 @@ export function lintHtml(html, contract) {
 
     if (
       /^h[1-6]$/.test(tag) &&
-      !within(node, (up) => up.tag === "dialog" || "popover" in up.attrs || up.tag === "template")
+      !within(
+        node,
+        (up) => up.tag === "dialog" || "popover" in up.attrs || up.tag === "template",
+      ) &&
+      !covers(regions, "heading-order", node.line)
     ) {
       headings.push(node);
     }
@@ -492,17 +528,61 @@ export function lintCss(css) {
   return allowed(findings, comments).sort((a, b) => a.line - b.line);
 }
 
-/** Drop the findings a lint-allow comment sets aside: on its own line, or the line after. */
-function allowed(findings, comments) {
-  const allows = comments.flatMap(({ line, text }) => {
-    const [, rule, reason] = text.match(/^lint-allow\s+([a-z-]+)\s*:\s*(\S.*)$/s) ?? [];
-    // The comment may run over several lines; it covers up to the line after its last.
-    return rule && reason ? [{ rule, from: line, to: line + text.split("\n").length }] : [];
-  });
-  return findings.filter(
-    ({ rule, line }) =>
-      !allows.some((allow) => allow.rule === rule && line >= allow.from && line <= allow.to),
+/**
+ * What the lint-allow comments set aside: rules for a line and the next, and
+ * rules for a region between a start and an end. Each needs a reason. A start
+ * left open covers the rest of the file, and is a finding itself, as is an end
+ * with nothing to close.
+ */
+function allowances(comments) {
+  const regions = [];
+  const problems = [];
+  const open = [];
+
+  for (const { line, text } of comments) {
+    const start = text.match(/^lint-allow-start\s+([a-z-]+(?:\s+[a-z-]+)*)\s*:\s*(\S.*)$/s);
+    if (start) {
+      open.push({ rules: start[1].split(/\s+/), from: line });
+    } else if (/^lint-allow-end\b/.test(text)) {
+      const region = open.pop();
+      if (region) regions.push({ ...region, to: line });
+      else
+        problems.push({
+          rule: "unclosed-allow",
+          line,
+          message: "lint-allow-end with no lint-allow-start before it.",
+        });
+    } else {
+      const [, rule, reason] = text.match(/^lint-allow\s+([a-z-]+)\s*:\s*(\S.*)$/s) ?? [];
+      // The comment may run over several lines; it covers up to the line after its last.
+      if (rule && reason)
+        regions.push({ rules: [rule], from: line, to: line + text.split("\n").length });
+    }
+  }
+  for (const region of open) {
+    regions.push({ ...region, to: Infinity });
+    problems.push({
+      rule: "unclosed-allow",
+      line: region.from,
+      message: "lint-allow-start with no lint-allow-end after it. Close the region.",
+    });
+  }
+  return { regions, problems };
+}
+
+/** Does one of the regions set this rule aside on this line? */
+const covers = (regions, rule, line) =>
+  regions.some(
+    (region) =>
+      (region.rules.includes(rule) || region.rules.includes("all")) &&
+      line >= region.from &&
+      line <= region.to,
   );
+
+/** Drop the findings a lint-allow comment sets aside, and add any comment that is itself wrong. */
+function allowed(findings, comments) {
+  const { regions, problems } = allowances(comments);
+  return [...findings.filter(({ rule, line }) => !covers(regions, rule, line)), ...problems];
 }
 
 /* The command line. */

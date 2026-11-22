@@ -265,6 +265,11 @@
     "text": "The whole system as one page of plain text, for AI agents."
   },
   {
+    "title": "Adopting into an existing site",
+    "url": "/ui/adopt.md",
+    "text": "Bringing the system into a site that already has its own styles, build, and pages, one part at a time."
+  },
+  {
     "title": "Why",
     "url": "/ui/why.md",
     "text": "What each rule of the system protects, what it costs, and when it may be bent."

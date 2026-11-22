@@ -81,9 +81,11 @@ function prepare(folder, brief) {
   mkdirSync(folder, { recursive: true });
   cpSync(UI, join(folder, "ui"), {
     recursive: true,
-    // The site's own page and the installer are not part of what a project gets.
+    // The site's own page, the installer, and the releases kept for linking are not part of what
+    // a project gets.
     filter: (source) =>
-      !["index.html", "install.sh"].includes(basename(source)) || source.includes("/patterns/"),
+      !source.startsWith(join(UI, "releases")) &&
+      (!["index.html", "install.sh"].includes(basename(source)) || source.includes("/patterns/")),
   });
   cpSync(brief, join(folder, "brief.md"));
 }

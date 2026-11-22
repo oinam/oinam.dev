@@ -14,6 +14,41 @@ The numbers mean what they say:
 - The first number changes when a page that worked may stop working: a class, an element, an
   attribute, or a token was renamed or removed. Before 1.0.0, the middle number does this job too.
 
+## 0.6.0
+
+2026-11-22
+
+For sites that already exist: bringing the system into one that has its own styles, build, and
+years of pages. Nothing is renamed or removed.
+
+- `adopt.md`: a new document on adopting the system into an existing site: where the copy goes,
+  folding it into a Sass or bundler build with its layers, joining the site's tokens, old content,
+  and the linter. `guide.md` points to it.
+- `install.sh --runtime`: takes only what a page loads, the stylesheets, the scripts, and the
+  fonts, for a site whose generator would publish the documents as pages. Run again, the copy stays
+  that way; `--full` brings in the rest.
+- `<o-theme auto>`: a third state, back to following the system. Without `auto`, it works as
+  before.
+- `theme.js` and `theme-init.js`: a stored theme other than `light` or `dark`, such as `auto`, now
+  follows the system. Before, `theme-init.js` read it as light. Both also set `data-theme-choice`
+  on `<html>`: `light`, `dark`, or `auto`.
+- `tools/lint.js`:
+  - `lint-allow-start <rules>: <reason>` and `lint-allow-end` set rules aside for a region, and
+    `all` sets every rule aside there. A region left open, or an end with no start, is a new
+    finding, `unclosed-allow`.
+  - The code of `theme-init.js`, written into a page as it is, is no longer reported as inline
+    script.
+  - A style attribute in an SVG now says to use the SVG's own attributes.
+
+### What to do
+
+Nothing in a page has to change. Replace `theme.js`, `theme-init.js`, `tools/lint.js`, `guide.md`,
+`why.md`, `contract.json`, `components/theme.md`, `ui.css` (its header names the version), and
+`registry.json`, and add `adopt.md`; running the installer again does all of it. If the project
+stored its own value under the `theme` key in `localStorage` and relied on anything but `light` or
+`dark` meaning light, it now follows the system. A page that links a release may change
+`/ui/releases/0.5.0/` to `/ui/releases/0.6.0/`.
+
 ## 0.5.0
 
 2026-11-22

@@ -92,7 +92,7 @@ test("every attribute and value the stylesheets select on is in the contract", (
 test("every value in the contract is one the stylesheets act on", () => {
   const acted = selected();
   // Values that are the default, or that only a script reads, and so have no rule of their own.
-  const silent = new Set(['.button aria-busy="false"']);
+  const silent = new Set(['.button aria-busy="false"', 'o-theme auto=""']);
 
   for (const [subject, entry] of [
     ...Object.entries(contract.elements),

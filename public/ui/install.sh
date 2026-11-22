@@ -4,10 +4,17 @@
 #
 #   curl -fsSL https://oinam.dev/ui/install.sh | sh
 #   curl -fsSL https://oinam.dev/ui/install.sh | sh -s -- public/ui
+#   curl -fsSL https://oinam.dev/ui/install.sh | sh -s -- --runtime _ui
 #
 # It copies every file of the system into a folder of yours: ./ui, unless you
 # name another. From then on the files are yours. Nothing in them points back
 # at oinam.dev, and a page that uses them makes no request to anyone else.
+#
+# With --runtime it takes only what a page loads: the stylesheets, the
+# scripts, and the fonts, the same files a release on oinam.dev holds. That is
+# for a site whose generator would publish the guide and the other documents
+# as pages of its own; they stay at https://oinam.dev/ui/. A copy made this way
+# stays one when the installer is run again, until it is given --full.
 #
 # Run it again in the same place to upgrade. It never overwrites a file you
 # have changed: it leaves yours alone, puts the new one beside it as
@@ -20,8 +27,21 @@
 set -eu
 
 FROM="${OINAM_UI_URL:-https://oinam.dev/ui}"
+MODE=""
+case "${1:-}" in
+--runtime | --full)
+  MODE="${1#--}"
+  shift
+  ;;
+esac
 TO="${1:-ui}"
 LOCK="$TO/.installed"
+
+# A copy remembers how it was made: one installed without the guide is a runtime copy.
+if [ -z "$MODE" ]; then
+  MODE=full
+  if [ -f "$LOCK" ] && ! grep -q ' guide\.md$' "$LOCK"; then MODE=runtime; fi
+fi
 
 say() {
   printf '%s\n' "$*"
@@ -41,6 +61,16 @@ fetch() {
 # JSON parser.
 files() {
   grep -oE '"[A-Za-z0-9/_-]+\.(css|html|js|json|md|woff2|txt)"' "$1" | tr -d '"' | sort -u
+}
+
+# taken <registry>: the files this install takes. For a runtime copy, what a
+# page loads: no documents, data, tools, skill, or patterns.
+taken() {
+  if [ "$MODE" = runtime ]; then
+    files "$1" | grep -E '\.(css|js|woff2|txt)$' | grep -vE '^(tools|skill|patterns)/'
+  else
+    files "$1"
+  fi
 }
 
 # version <registry>
@@ -65,7 +95,7 @@ NEW="$(mktemp -d)"
 trap 'rm -rf "$NEW"' EXIT
 
 fetch registry.json "$NEW/registry.json"
-for file in $(files "$NEW/registry.json"); do
+for file in $(taken "$NEW/registry.json"); do
   mkdir -p "$(dirname "$NEW/$file")"
   fetch "$file" "$NEW/$file"
 done
@@ -81,7 +111,7 @@ kept=""
 mkdir -p "$TO"
 : >"$NEW/.installed"
 
-for file in registry.json $(files "$NEW/registry.json"); do
+for file in registry.json $(taken "$NEW/registry.json"); do
   new="$NEW/$file"
   mine="$TO/$file"
   mkdir -p "$(dirname "$mine")"
@@ -109,15 +139,22 @@ for file in registry.json $(files "$NEW/registry.json"); do
   say "$(sum "$new") $file" >>"$NEW/.installed"
 done
 
-# Files the last install put here that the system no longer has.
+# Files the last install put here that the system no longer has. A document
+# left behind by a switch to a runtime copy is still part of the system.
 gone=""
 if [ -f "$LOCK" ]; then
+  files "$NEW/registry.json" >"$NEW/.all"
+  echo registry.json >>"$NEW/.all"
   while read -r _ _ file; do
-    if [ -f "$TO/$file" ] && ! grep -q " $file\$" "$NEW/.installed"; then
+    if [ -f "$TO/$file" ] && ! grep -qx "$file" "$NEW/.all"; then
       gone="$gone $file"
     fi
   done <"$LOCK"
 fi
+
+# Where the guide and the changelog are: in the copy, or for a runtime copy, on the site.
+DOCS="$TO"
+[ "$MODE" = runtime ] && DOCS="https://oinam.dev/ui"
 
 cp "$NEW/.installed" "$LOCK"
 
@@ -132,7 +169,7 @@ if [ -z "$before" ]; then
   say '  <script src="/ui/theme-init.js"></script>'
   say '  <script type="module" src="/ui/ui.js"></script>'
   say ""
-  say "Then read $TO/guide.md, or hand it to your agent. To have every agent in"
+  say "Then read $DOCS/guide.md, or hand it to your agent. To have every agent in"
   say "this project find it, add the \"Design\" note from that guide, under \"In a"
   say "project\", to your AGENTS.md."
 elif [ "$added" -eq 0 ] && [ "$updated" -eq 0 ] && [ -z "$kept" ]; then
@@ -163,7 +200,7 @@ fi
 
 if [ -n "$before" ] && [ "$before" != "$after" ]; then
   say ""
-  say "Next: read $TO/CHANGELOG.md, every entry above $before, oldest first, and do"
-  say "what each one says under \"What to do\". $TO/guide.md has the steps, under"
+  say "Next: read $DOCS/CHANGELOG.md, every entry above $before, oldest first, and do"
+  say "what each one says under \"What to do\". $DOCS/guide.md has the steps, under"
   say "\"Upgrade\"."
 fi

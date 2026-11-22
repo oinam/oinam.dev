@@ -1,0 +1,43 @@
+/*
+ * Facts
+ *
+ * A class on <dl>: a list of names and their values, each pair on a line and
+ * ruled apart. It is for the details of one thing, such as a booking or a
+ * place, where a table would be too much. Each pair goes in a <div>.
+ *
+ *   <dl class="facts">
+ *     <div>
+ *       <dt>Berth</dt>
+ *       <dd>E 11</dd>
+ *     </div>
+ *     <div>
+ *       <dt>Arrived</dt>
+ *       <dd>10 August</dd>
+ *     </div>
+ *   </dl>
+ */
+
+.facts {
+  margin: 0;
+}
+
+.facts > div {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--color-line);
+}
+
+.facts > div:last-child {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.facts dt {
+  color: var(--color-ink-soft);
+}
+
+.facts dd {
+  margin: 0;
+  text-align: end;
+}

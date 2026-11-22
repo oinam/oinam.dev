@@ -1,0 +1,42 @@
+/*
+ * Avatar
+ *
+ * <o-avatar> is a small round picture of someone, or their initials when
+ * there is no picture. size="small|large" changes it.
+ *
+ *   <o-avatar><img src="/people/asha.jpg" alt="Asha Rao" /></o-avatar>
+ *   <o-avatar aria-label="Asha Rao">AR</o-avatar>
+ */
+
+o-avatar {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--control);
+  height: var(--control);
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-full);
+  background: var(--color-wash);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+o-avatar > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+o-avatar[size="small"] {
+  width: var(--control-sm);
+  height: var(--control-sm);
+  font-size: var(--text-xs);
+}
+
+o-avatar[size="large"] {
+  width: var(--control-lg);
+  height: var(--control-lg);
+  font-size: var(--text-base);
+}

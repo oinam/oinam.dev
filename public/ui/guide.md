@@ -1,4 +1,4 @@
-# Oinam UI v0.5.0
+# Oinam UI v0.6.0
 
 A design system in plain HTML, CSS, and JavaScript. No framework, no build step, and no
 dependencies. This page is the core of it, written for an AI agent to read once and then design
@@ -14,6 +14,8 @@ for.
   https://oinam.dev/ui/contract.json
 - Why each rule is the way it is: https://oinam.dev/ui/why.md
 - What changed in each version: https://oinam.dev/ui/CHANGELOG.md
+- Bringing it into a site that already has its own styles and build:
+  https://oinam.dev/ui/adopt.md
 - Source: https://github.com/oinam/oinam.dev/tree/main/public/ui
 
 ## Install
@@ -28,7 +30,8 @@ curl -fsSL https://oinam.dev/ui/install.sh | sh
 This puts every file in `./ui/`. To put them elsewhere, name the folder:
 `curl -fsSL https://oinam.dev/ui/install.sh | sh -s -- public/ui`. It needs only a shell and curl.
 Where there is no shell, download the files that `registry.json` names into one folder, keeping
-their names.
+their names. If the site already has styles, a build, or a generator that publishes Markdown, read
+`adopt.md` before installing.
 
 Then link your own copy from the `<head>`, with the path as your site serves it.
 
@@ -57,9 +60,9 @@ Every version is also served, frozen, at an address of its own, and any site may
 there never change, so a page that links them keeps its look whatever a later version renames.
 
 ```html
-<link rel="stylesheet" href="https://oinam.dev/ui/releases/0.5.0/ui.css" />
-<script src="https://oinam.dev/ui/releases/0.5.0/theme-init.js"></script>
-<script type="module" src="https://oinam.dev/ui/releases/0.5.0/ui.js"></script>
+<link rel="stylesheet" href="https://oinam.dev/ui/releases/0.6.0/ui.css" />
+<script src="https://oinam.dev/ui/releases/0.6.0/theme-init.js"></script>
+<script type="module" src="https://oinam.dev/ui/releases/0.6.0/ui.js"></script>
 ```
 
 - Only the files a page loads are there: the stylesheets, the scripts, and the fonts. The guide,
@@ -270,6 +273,10 @@ If a rule is wrong for one line, set it aside there and say why. The reason is r
 <!-- lint-allow two-solid-buttons: yes and no are equal choices here -->
 ```
 
+For a region, such as old content a site has chosen not to edit, open and close it:
+`<!-- lint-allow-start heading-order: posts kept as written -->`, then `<!-- lint-allow-end -->`.
+Do not use one to hide a page you are writing now.
+
 A clean result means the page is well formed, not that it looks right. The linter never runs the
 page. Look at it too.
 
@@ -441,7 +448,7 @@ To try these on every component at once, see https://oinam.dev/play/.
 ## Theme
 
 The page follows the system setting. `data-theme="light"` or `data-theme="dark"` on `<html>` forces
-one; `<o-theme>` sets it for you.
+one; `<o-theme>` sets it for you. `<o-theme auto>` adds a way back to following the system.
 
 ## Components
 
@@ -496,7 +503,7 @@ The four layout elements are in every page, so here they are in brief:
 | Menu              | `<o-menu>`                      | A button and the short list of actions it opens.                               | `components/menu.md`         |
 | Tooltip           | `<o-tooltip>`                   | A few words about a control, on hover or focus.                                | `components/tooltip.md`      |
 | Copy              | `<o-copy>`                      | Adds a copy button to a block of code.                                         | `components/copy.md`         |
-| Theme             | `<o-theme>`                     | A light and dark toggle that remembers the choice.                             | `components/theme.md`        |
+| Theme             | `<o-theme>`                     | A light and dark toggle that remembers the choice, with `auto` for the system. | `components/theme.md`        |
 | Example           | `<o-example>`                   | Shows markup at work and prints its source beside it.                          | `components/example.md`      |
 | Toast             | `<o-toast>`                     | Brief messages that appear in a corner and go away again.                      | `components/toast.md`        |
 

@@ -297,6 +297,86 @@ test("setting one rule aside does not set aside another", () => {
   assert.deepEqual(css("/* lint-allow gradient: an arrow */\n.a { color: #333; }"), ["raw-color"]);
 });
 
+/* Setting rules aside for a region: old content a site must not edit, inside a template that it can */
+
+const OLD_POST =
+  "<h1>Archive</h1>\n" +
+  "<!-- lint-allow-start heading-order missing-alt: posts from before the system, kept as written -->\n" +
+  "<o-prose>\n<h4>2006</h4>\n<img src=a.png>\n</o-prose>\n" +
+  "<!-- lint-allow-end -->\n" +
+  "<h2>Since</h2>\n<h4>Skipped</h4>\n<img src=b.png>";
+
+test("rules can be set aside for a region, and only inside it", () => {
+  const findings = lintHtml(OLD_POST, contract);
+  assert.deepEqual(
+    findings.map(({ rule, line }) => [rule, line]),
+    [
+      ["heading-order", 9],
+      ["missing-alt", 10],
+    ],
+  );
+});
+
+test("headings in a region set aside are left out of the outline", () => {
+  // Without them, the h2 after the region follows the h1, which is in order.
+  const findings = lintHtml(OLD_POST.replace("<h4>Skipped</h4>", "<h3>Next</h3>"), contract);
+  assert.deepEqual(
+    findings.map(({ rule }) => rule),
+    ["missing-alt"],
+  );
+});
+
+test("a region can set every rule aside, with a reason", () => {
+  assert.deepEqual(
+    html(
+      '<!-- lint-allow-start all: an old post -->\n<p style="color: red" onclick="go()">Hi</p>\n<!-- lint-allow-end -->',
+    ),
+    [],
+  );
+});
+
+test("a region without a reason, or left open, is itself a finding", () => {
+  // Without a reason the start is not one, so the end has nothing to close.
+  assert.deepEqual(
+    html("<!-- lint-allow-start missing-alt -->\n<img src=a.png>\n<!-- lint-allow-end -->"),
+    ["missing-alt", "unclosed-allow"],
+  );
+  assert.deepEqual(html("<!-- lint-allow-start missing-alt: old -->\n<img src=a.png>"), [
+    "unclosed-allow",
+  ]);
+  assert.deepEqual(html("<p>Hi</p>\n<!-- lint-allow-end -->"), ["unclosed-allow"]);
+  assert.deepEqual(
+    css(
+      "/* lint-allow-start gradient: arrows */\n.a { background: linear-gradient(red, blue); }\n/* lint-allow-end */",
+    ),
+    [],
+  );
+});
+
+/* The theme script, written into the page so the theme is set before the first paint */
+
+test("theme-init.js written into the page as it is, is not inline script", () => {
+  // The code, without the comment above it, which shows a closing </script> tag.
+  const file = readFileSync(new URL("public/ui/theme-init.js", ROOT), "utf8");
+  const init = file.slice(file.indexOf("(function"));
+  assert.deepEqual(html(`<head><script>${init}</script></head>`), []);
+  // Formatting and comments may differ; the code may not.
+  const reformatted = init.replace(/\/\*[\s\S]*?\*\//g, "").replace(/\n\s*/g, "\n");
+  assert.deepEqual(html(`<head><script>\n${reformatted}\n</script></head>`), []);
+  assert.deepEqual(html(`<head><script>${init.replace('"theme"', '"mode"')}</script></head>`), [
+    "inline-script",
+  ]);
+});
+
+test("a style attribute inside an SVG says what to use there instead", () => {
+  const [finding] = lintHtml(
+    '<svg viewBox="0 0 1 1"><path style="fill: none" d="M0 0"/></svg>',
+    contract,
+  );
+  assert.equal(finding.rule, "inline-style");
+  assert.match(finding.message, /fill/);
+});
+
 /* The whole thing */
 
 test("every rule that can be reported is explained", () => {

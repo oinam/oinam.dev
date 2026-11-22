@@ -213,3 +213,24 @@ them.
 
 **Revisit** never, but keep adding to them. A rule that is only written down is on the list to be
 turned into a check.
+
+## Old content is set aside in the open, not left unlinted
+
+**Decision.** A site may set the linter's rules aside for a region of a page, between a
+`lint-allow-start` with a reason and a `lint-allow-end`. The code of `theme-init.js`, written into
+a page as it is, is not counted as inline script. A style attribute on an SVG is still a finding.
+
+**Why.** A site that adopts the system late has years of content it must not rewrite, and a
+template around it that it can. If old posts make every page fail, the site stops linting, and the
+template goes unchecked with them. A region with a reason keeps the rest of the page held to the
+rules, and the reason says why in the place it applies. The theme script is the one inline script
+with a real case: it must run before the first paint, and as a file it costs a request that blocks
+it. Matching its code exactly lets that case through and no other. A style attribute in an SVG is
+blocked by the same content policy as any other, and the SVG's own attributes do the same work.
+
+**What it costs.** A region can hide a real problem in content that is not old at all, and a site
+that writes the theme script in must allow it by its hash in its content policy, and keep it from
+its minifier.
+
+**Revisit** if regions turn up around new pages, or if the theme script needs to vary from site to
+site.

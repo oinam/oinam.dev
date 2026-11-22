@@ -153,7 +153,9 @@
     },
     "o-theme": {
       "component": "theme",
-      "attributes": {},
+      "attributes": {
+        "auto": true
+      },
       "contains": ["button"]
     },
     "o-toast": {

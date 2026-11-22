@@ -20,6 +20,7 @@ import { tmpdir } from "node:os";
 import { join, relative } from "node:path";
 import { after, before, test } from "node:test";
 import { fileURLToPath } from "node:url";
+import { linked } from "../scripts/release.js";
 
 const UI = fileURLToPath(new URL("../public/ui/", import.meta.url));
 const SCRIPT = join(UI, "install.sh");
@@ -102,6 +103,7 @@ test("it takes every stylesheet and script of the system, with its documents and
   );
   for (const name of [
     "guide.md",
+    "adopt.md",
     "why.md",
     "CHANGELOG.md",
     "tokens.json",
@@ -258,4 +260,39 @@ test("a download that fails part way leaves the project as it was", async () => 
   await assert.rejects(install(), /Nothing in ui\/ was changed/);
 
   assert.equal(readFileSync(mine("button.css"), "utf8"), had);
+});
+
+/* Only what a page loads: for a site that would publish the documents as pages of its own */
+
+const registryOf = () => JSON.parse(readFileSync(join(UI, "registry.json"), "utf8"));
+
+test("with --runtime, it takes what a page loads, as a release holds, and the registry", async () => {
+  const said = await install("--runtime");
+
+  assert.deepEqual(tree(join(project, "ui")), [
+    ".installed",
+    ...[...linked(registryOf()), "registry.json"].sort(),
+  ]);
+  // There is no guide in the copy to point at.
+  assert.doesNotMatch(said, /(^|\s)ui\/guide\.md/m);
+  assert.match(said, /https:\/\/oinam\.dev\/ui\/guide\.md/);
+});
+
+test("run again, a runtime copy stays one, until it is asked for the rest", async () => {
+  await install("--runtime", "ui");
+  await install("ui");
+  assert.ok(!existsSync(mine("guide.md")));
+
+  await install("--full", "ui");
+  assert.ok(existsSync(mine("guide.md")));
+  assert.ok(existsSync(mine("tools/lint.js")));
+});
+
+test("a runtime upgrade points at the changelog on the site, and names no documents as dropped", async () => {
+  await install();
+  release("9.9.9", "ui.css");
+  const said = await install("--runtime");
+
+  assert.doesNotMatch(said, /No longer part of the system/);
+  assert.match(said, /https:\/\/oinam\.dev\/ui\/CHANGELOG\.md/);
 });

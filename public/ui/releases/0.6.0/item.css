@@ -1,0 +1,37 @@
+/*
+ * Item
+ *
+ * <o-item> is one row in a list of things: something to recognize it by, a
+ * title with a line under it, and an action at the end. Rows that follow one
+ * another are ruled apart.
+ *
+ *   <o-item>
+ *     <o-avatar aria-label="Asha Rao">AR</o-avatar>
+ *     <div>
+ *       <strong>Asha Rao</strong>
+ *       <p>Harbor master</p>
+ *     </div>
+ *     <button class="button" data-variant="outline" type="button">Call</button>
+ *   </o-item>
+ */
+
+o-item {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  padding-block: var(--space-3);
+}
+
+o-item + o-item {
+  border-top: 1px solid var(--color-line);
+}
+
+o-item > div {
+  flex: 1;
+  min-width: 0;
+}
+
+o-item > div > p {
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}

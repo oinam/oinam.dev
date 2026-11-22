@@ -15,6 +15,9 @@
     // Storage is blocked: fall through to the system setting.
   }
 
-  const dark = stored ? stored === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  // Anything stored but "light" or "dark", such as "auto", means the system's.
+  const chosen = stored === "light" || stored === "dark" ? stored : null;
+  const dark = chosen ? chosen === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
   document.documentElement.dataset.theme = dark ? "dark" : "light";
+  document.documentElement.dataset.themeChoice = chosen ?? "auto";
 })();

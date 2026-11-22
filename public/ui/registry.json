@@ -1,6 +1,6 @@
 {
   "name": "Oinam UI",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A design system in plain HTML, CSS, and JavaScript: custom elements for structure, native elements for the work, and no framework or build step.",
   "design": "Base",
   "variations": "https://oinam.dev/garden/variations.json",
@@ -15,7 +15,7 @@
     "head": "theme-init.js"
   },
   "foundation": ["tokens.css", "base.css"],
-  "docs": ["guide.md", "why.md", "CHANGELOG.md"],
+  "docs": ["guide.md", "adopt.md", "why.md", "CHANGELOG.md"],
   "data": ["tokens.json", "contract.json"],
   "tools": ["tools/lint.js", "tools/see.js", "tools/mcp.js"],
   "skill": "skill/SKILL.md",
