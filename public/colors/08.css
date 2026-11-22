@@ -1,0 +1,15 @@
+/*
+ * Slate, color 08 of Oinam UI
+ * https://oinam.dev/colors/08/slate/
+ *
+ * A cool grey, leaning blue.
+ * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(23.7% 0.01 248.2deg), oklch(94.9% 0.003 264.5deg));
+  --color-cloud: light-dark(oklch(98.3% 0.003 286.4deg), oklch(17.9% 0.004 286deg));
+  --color-milk: light-dark(oklch(99.1% 0.001 286.4deg), oklch(21.3% 0.004 264.5deg));
+}

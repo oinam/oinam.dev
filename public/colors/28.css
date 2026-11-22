@@ -1,0 +1,15 @@
+/*
+ * Brown, color 28 of Oinam UI
+ * https://oinam.dev/colors/28/brown/
+ *
+ * A warm brown.
+ * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(24.5% 0.018 48deg), oklch(91.7% 0.036 75.5deg));
+  --color-cloud: light-dark(oklch(98.4% 0.005 67.8deg), oklch(17.8% 0.004 84.6deg));
+  --color-milk: light-dark(oklch(99.5% 0.002 67.8deg), oklch(21.3% 0.007 48.4deg));
+}

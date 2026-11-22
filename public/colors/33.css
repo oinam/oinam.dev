@@ -1,0 +1,15 @@
+/*
+ * Lime, color 33 of Oinam UI
+ * https://oinam.dev/colors/33/lime/
+ *
+ * A sharp yellow-green.
+ * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(23.7% 0.056 120.3deg), oklch(94.6% 0.082 122.7deg));
+  --color-cloud: light-dark(oklch(98.2% 0.009 119.6deg), oklch(18.2% 0.014 120.8deg));
+  --color-milk: light-dark(oklch(99.2% 0.004 121.6deg), oklch(20.9% 0.02 129.6deg));
+}

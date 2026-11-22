@@ -1,0 +1,15 @@
+/*
+ * Green, color 26 of Oinam UI
+ * https://oinam.dev/colors/26/green/
+ *
+ * A clear green.
+ * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(23.5% 0.048 164.1deg), oklch(90.5% 0.083 158.2deg));
+  --color-cloud: light-dark(oklch(98.1% 0.01 155.1deg), oklch(18.7% 0.012 167deg));
+  --color-milk: light-dark(oklch(99.4% 0.004 157.2deg), oklch(21.2% 0.015 165.9deg));
+}

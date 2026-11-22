@@ -1,0 +1,15 @@
+/*
+ * Orange, color 36 of Oinam UI
+ * https://oinam.dev/colors/36/orange/
+ *
+ * A bright orange.
+ * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(24.8% 0.068 40.7deg), oklch(92.5% 0.052 66.2deg));
+  --color-cloud: light-dark(oklch(98% 0.016 73.7deg), oklch(18.7% 0.011 60.7deg));
+  --color-milk: light-dark(oklch(99.2% 0.003 48.7deg), oklch(20.8% 0.019 62.7deg));
+}

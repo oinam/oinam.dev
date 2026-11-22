@@ -1,0 +1,15 @@
+/*
+ * Violet, color 19 of Oinam UI
+ * https://oinam.dev/colors/19/violet/
+ *
+ * A blue-leaning purple.
+ * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(24.7% 0.098 286.7deg), oklch(91.2% 0.045 292.4deg));
+  --color-cloud: light-dark(oklch(98.3% 0.009 299.2deg), oklch(19.1% 0.026 290.8deg));
+  --color-milk: light-dark(oklch(99.2% 0.003 308.4deg), oklch(21.1% 0.032 300.9deg));
+}

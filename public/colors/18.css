@@ -1,0 +1,15 @@
+/*
+ * Purple, color 18 of Oinam UI
+ * https://oinam.dev/colors/18/purple/
+ *
+ * A true purple.
+ * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(24.8% 0.111 303.4deg), oklch(91.1% 0.049 311deg));
+  --color-cloud: light-dark(oklch(98.1% 0.01 311.2deg), oklch(19.1% 0.022 315.6deg));
+  --color-milk: light-dark(oklch(99.3% 0.003 325.6deg), oklch(21.4% 0.03 313.1deg));
+}

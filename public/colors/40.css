@@ -1,0 +1,15 @@
+/*
+ * Zinc, color 40 of Oinam UI
+ * https://oinam.dev/colors/40/zinc/
+ *
+ * A neutral grey with a faint blue chill.
+ * Adapted from Tailwind CSS (MIT): https://tailwindcss.com/docs/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(14.1% 0.004 285.8deg), oklch(98.5% 0 0deg));
+  --color-cloud: light-dark(oklch(98.5% 0 0deg), oklch(14.1% 0.004 285.8deg));
+  --color-milk: light-dark(oklch(100% 0 0deg), oklch(17.9% 0.006 285.8deg));
+}

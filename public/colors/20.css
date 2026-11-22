@@ -1,0 +1,15 @@
+/*
+ * Iris, color 20 of Oinam UI
+ * https://oinam.dev/colors/20/iris/
+ *
+ * Between violet and blue.
+ * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(24.5% 0.099 277.7deg), oklch(91.4% 0.042 287deg));
+  --color-cloud: light-dark(oklch(98.1% 0.009 286.2deg), oklch(19.2% 0.022 284.1deg));
+  --color-milk: light-dark(oklch(99.5% 0.003 286.4deg), oklch(20.9% 0.029 286.6deg));
+}

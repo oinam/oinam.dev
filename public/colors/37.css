@@ -1,0 +1,15 @@
+/*
+ * Emerald, color 37 of Oinam UI
+ * https://oinam.dev/colors/37/emerald/
+ *
+ * A rich, cool green.
+ * Adapted from Tailwind CSS (MIT): https://tailwindcss.com/docs/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(23.5% 0.046 170.6deg), oklch(97.9% 0.021 166.1deg));
+  --color-cloud: light-dark(oklch(97.9% 0.021 166.1deg), oklch(26.1% 0.05 173.1deg));
+  --color-milk: light-dark(oklch(100% 0 0deg), oklch(30.4% 0.051 172.5deg));
+}

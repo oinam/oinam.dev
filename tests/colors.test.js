@@ -85,6 +85,17 @@ for (const color of all) {
   });
 }
 
+test("a color taken from others says from where, under what license, and the license is here", () => {
+  const licenses = read("public/colors/LICENSES.txt");
+  for (const color of all.filter((color) => color.from)) {
+    const { name, url, license, scale } = color.from;
+    assert.match(url, /^https:\/\//, color.id);
+    assert.ok(scale, `${color.id} names the scale it is from`);
+    assert.equal(license, "MIT", color.id);
+    assert.ok(licenses.includes(`== ${name} (`), `${name} is in LICENSES.txt`);
+  }
+});
+
 test("a color's page answers with its name after the number, or without it", () => {
   const rules = read("public/_redirects");
   assert.match(rules, /^\/colors\/:id\/:name\/ \/colors\/:id\/ 200$/m);

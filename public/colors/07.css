@@ -1,0 +1,15 @@
+/*
+ * Mauve, color 07 of Oinam UI
+ * https://oinam.dev/colors/07/mauve/
+ *
+ * A grey with a little violet in it.
+ * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(24% 0.014 298.4deg), oklch(95% 0.003 286.3deg));
+  --color-cloud: light-dark(oklch(98.3% 0.003 308.4deg), oklch(18% 0.004 308.2deg));
+  --color-milk: light-dark(oklch(99.2% 0.002 325.6deg), oklch(21.5% 0.004 308.2deg));
+}

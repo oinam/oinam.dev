@@ -1,0 +1,15 @@
+/*
+ * Yellow, color 34 of Oinam UI
+ * https://oinam.dev/colors/34/yellow/
+ *
+ * A warm yellow, with a dark olive ink.
+ * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(24.7% 0.046 85.5deg), oklch(94.2% 0.075 101.1deg));
+  --color-cloud: light-dark(oklch(98.8% 0.025 101.9deg), oklch(18.2% 0.014 94deg));
+  --color-milk: light-dark(oklch(99.3% 0.005 106.5deg), oklch(20.9% 0.017 91.8deg));
+}

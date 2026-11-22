@@ -1,0 +1,15 @@
+/*
+ * Ruby, color 14 of Oinam UI
+ * https://oinam.dev/colors/14/ruby/
+ *
+ * A deep red leaning toward pink.
+ * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(25.4% 0.101 12.1deg), oklch(91.1% 0.052 355.2deg));
+  --color-cloud: light-dark(oklch(98.3% 0.009 8.5deg), oklch(18.9% 0.014 1.9deg));
+  --color-milk: light-dark(oklch(99.4% 0.003 354.7deg), oklch(20.8% 0.015 3.6deg));
+}

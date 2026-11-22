@@ -1,0 +1,15 @@
+/*
+ * Pink, color 16 of Oinam UI
+ * https://oinam.dev/colors/16/pink/
+ *
+ * A bright pink.
+ * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(25.4% 0.107 347.2deg), oklch(90.9% 0.059 343.2deg));
+  --color-cloud: light-dark(oklch(98.3% 0.009 341.8deg), oklch(19.1% 0.017 335.3deg));
+  --color-milk: light-dark(oklch(99.4% 0.004 337.3deg), oklch(20.8% 0.032 337deg));
+}

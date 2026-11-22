@@ -1,0 +1,15 @@
+/*
+ * Neutral, color 42 of Oinam UI
+ * https://oinam.dev/colors/42/neutral/
+ *
+ * A grey with no tint.
+ * Adapted from Tailwind CSS (MIT): https://tailwindcss.com/docs/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(14.5% 0 0deg), oklch(98.5% 0 0deg));
+  --color-cloud: light-dark(oklch(98.5% 0 0deg), oklch(14.5% 0 0deg));
+  --color-milk: light-dark(oklch(100% 0 0deg), oklch(18.7% 0 0deg));
+}

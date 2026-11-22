@@ -27,6 +27,15 @@ with a page for each.
   browser works them out and they are written nowhere. Base itself stays in hex in `tokens.css`,
   because changing that file means a new version of the components; color 00 is checked to show
   the same on a screen. `scripts/color.js` has `toOklch()` to turn a hex into the list's form.
+- **Most colors are adapted from others' proven scales.** Colors 06 to 36 are Radix Colors'
+  scales (step 12 as ink, steps 2 and 1 as cloud and milk, and the same steps of the dark scale by
+  night), and 37 to 42 are Tailwind CSS's (950 and 50, with white milk by day and a step above 950
+  by night). Both are MIT, and `public/colors/LICENSES.txt` carries their notices. As published,
+  most of their colored scales miss the gate: their darkest step is lighter than ours, and the
+  faint ink mixed from it falls to about 3.5 to 1. So, by the rule under "Decided", the ink was
+  deepened, hue and chroma kept, until every text shade passed; each color's `from.deepened` says
+  on which side, and its page says so. The greys passed as they are. The data was read from
+  `@radix-ui/colors@3.0.0` and `tailwindcss@4.1.11`.
 - **Colors are not named after a product.** Different products may wear different colors, so a
   color says what it looks like, such as Navy, and a product says which one it wears.
 - **The list page cannot just set tokens on each strip.** A shade such as `--color-ink-soft` is

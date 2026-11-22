@@ -1,0 +1,15 @@
+/*
+ * Mint, color 32 of Oinam UI
+ * https://oinam.dev/colors/32/mint/
+ *
+ * A cool, pale green.
+ * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
+ *
+ * Link it after the components. Every other shade is mixed from these three.
+ */
+
+:root {
+  --color-ink: light-dark(oklch(23.7% 0.043 179.4deg), oklch(93.1% 0.057 168.3deg));
+  --color-cloud: light-dark(oklch(98.1% 0.01 181.4deg), oklch(18.9% 0.011 196.3deg));
+  --color-milk: light-dark(oklch(99.3% 0.005 183deg), oklch(21.1% 0.017 195.9deg));
+}

@@ -181,6 +181,39 @@ ${styles.map((href) => `    <link rel="stylesheet" href="${href}" />`).join("\n"
 `;
 }
 
+/** How each source's steps become ink, cloud, and milk. */
+const MAPPING = {
+  "Radix Colors":
+    "its step 12 is the ink, and its steps 2 and 1 are the cloud and the milk; the same steps of its dark scale make the night side",
+  "Tailwind CSS":
+    "its 950 is the ink and its 50 the cloud by day, and the other way round by night; the milk is white by day, and a step lighter than the ground by night",
+};
+
+/** A few words on the list saying where a color comes from. */
+const credit = (color) =>
+  color.from ? ` From <a href="${color.from.url}">${escape(color.from.name)}</a>.` : "";
+
+/** A section on a color's page saying where it comes from, and what was changed. */
+function origin(color) {
+  if (!color.from) return "";
+  const { name, url, license, scale, deepened = [] } = color.from;
+  const sides =
+    deepened.length === 2 ? "on both sides" : `by ${deepened[0] === "light" ? "day" : "night"}`;
+  const change = deepened.length
+    ? ` The ink is deeper here than there ${sides}, with the same hue and chroma, so that the faint text reaches 4.5 to 1 when it is mixed the way these components mix it.`
+    : " The values are as they are there.";
+  return `          <section aria-labelledby="from">
+            <o-stack gap="4">
+              <h2 id="from">Where it comes from</h2>
+              <p>
+                The ${escape(scale)} scale of <a href="${url}">${escape(name)}</a>, under the ${license}
+                license: ${MAPPING[name]}.${change}
+              </p>
+            </o-stack>
+          </section>
+`;
+}
+
 const chip = (key) => `<span class="color-chip" data-chip="${key}" aria-hidden="true"></span>`;
 
 /** The list: every color, in light and in dark, each a row of chips. */
@@ -202,11 +235,12 @@ function listPage(all) {
             ["soft", "Soft", shades.soft],
             ["ink", "Ink", values.ink],
           ]
-            .map(([key, name, value]) => `<li>${chip(key)}<span>${name}</span> ${both(value)}</li>`)
+            .map(
+              ([key, name, value]) =>
+                `<li><span class="color-chip" data-chip="${key}" role="img" aria-label="${name}, ${value.hex}"></span></li>`,
+            )
             .join("\n");
-          const label = theme === "light" ? "Light" : "Dark";
           return `<div class="color-strip" data-colors="${color.id}" data-scheme="${theme}" role="group" aria-label="${escape(color.title)}, ${theme}">
-  <p class="color-strip-scheme">${label}</p>
   <ul class="color-strip-chips">
 ${chips}
   </ul>
@@ -214,11 +248,13 @@ ${chips}
         })
         .join("\n");
       return `<section class="color-entry" aria-labelledby="color-${color.id}">
-  <o-stack gap="3">
+  <div>
     <h2 id="color-${color.id}"><a href="${color.path}">${escape(color.title)}</a> <code>${color.id}</code></h2>
-    <p>${escape(color.description)}</p>
+    <p class="color-entry-about">${escape(color.description)}${credit(color)}</p>
+  </div>
+  <div class="color-entry-strips">
 ${strips}
-  </o-stack>
+  </div>
 </section>`;
     })
     .join("\n");
@@ -240,11 +276,12 @@ ${strips}
           </p>
           <p>
             Colors are written in OKLCH: lightness, chroma, and hue, in that order. Two colors with the
-            same hue are the same color at another depth, and it shows in the numbers. The hex under
-            each is the same color, for a tool that wants it.
+            same hue are the same color at another depth, and it shows in the numbers. Each color's own
+            page has its values, and the same colors in hex for a tool that wants them. Here, each row
+            is a color by day and by night, from the page to the text.
           </p>
         </o-stack>
-        <o-stack class="color-list" gap="12">
+        <o-stack class="color-list" gap="8">
 ${entries}
         </o-stack>
       </o-wrap>
@@ -399,7 +436,7 @@ ${ratios}
               </o-table>
             </o-stack>
           </section>
-          <section aria-labelledby="use">
+${origin(color)}          <section aria-labelledby="use">
             <o-stack gap="4">
               <h2 id="use">Use it</h2>
 ${use}
@@ -422,7 +459,7 @@ function takeAway(color) {
  * ${color.title}, color ${color.id} of Oinam UI
  * https://oinam.dev/colors/${color.id}/${color.name}/
  *
- * ${color.description}
+ * ${color.description}${color.from ? `\n * Adapted from ${color.from.name} (${color.from.license}): ${color.from.url}` : ""}
  *
  * Link it after the components. Every other shade is mixed from these three.
  */
