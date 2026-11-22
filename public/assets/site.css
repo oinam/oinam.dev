@@ -361,20 +361,40 @@ o-theme:not(:defined) {
   animation: rise 0.9s ease-out both;
 }
 
-/* The hero, and beside it the words to share it with: below it on a phone, beside it from a
-   tablet up, sitting on the same last line. */
+/* The hero, the words to share it with, and the line to hand an agent. On a phone they stack in
+   that order. From a tablet up the share column stands beside the other two and runs down past
+   the hero, so however tall it grows it never pushes the handoff's buttons below the first
+   screen. */
 
 .intro {
   display: grid;
+
+  /* One column that may be narrower than the code in it; the code scrolls instead. */
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-12);
-  padding-block: clamp(4rem, 14vh, 9rem) clamp(3rem, 8vh, 5rem);
+  padding-top: clamp(2.5rem, 8vh, 5rem);
 }
 
 @media (width >= 48rem) {
   .intro {
+    grid-template-areas:
+      "hero share"
+      "handoff share";
     grid-template-columns: minmax(0, 1fr) minmax(15rem, 20rem);
-    gap: var(--space-8);
-    align-items: end;
+    gap: clamp(1.5rem, 4vh, 3rem) var(--space-8);
+  }
+
+  .intro .hero {
+    grid-area: hero;
+  }
+
+  .intro .share {
+    grid-area: share;
+    align-self: start;
+  }
+
+  .intro .handoff {
+    grid-area: handoff;
   }
 }
 
@@ -384,7 +404,7 @@ o-theme:not(:defined) {
 
 .hero h1 {
   max-width: 14em;
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
   line-height: 1.04;
 }
 
@@ -405,10 +425,17 @@ o-theme:not(:defined) {
 /* The words wrap like a post, in the body face, with the copy button under them rather than
    beside them, so the narrow column keeps its full width for the text. */
 
+/* Both lines to copy on the home page are sentences, so they wrap like sentences rather than
+   scrolling under their buttons when a column is narrow. */
+
+.share pre,
+.handoff pre {
+  white-space: pre-wrap;
+}
+
 .share pre {
   padding-bottom: calc(var(--control-sm) + var(--space-4));
   color: var(--color-ink);
-  white-space: pre-wrap;
 }
 
 .share code {
@@ -438,7 +465,7 @@ o-theme:not(:defined) {
 
 .handoff {
   max-width: 44rem;
-  padding-block: var(--space-8);
+  padding-bottom: var(--space-8);
   color: var(--color-ink-soft);
 }
 
