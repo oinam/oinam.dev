@@ -27,3 +27,4 @@ If you were told to read https://oinam.dev/ and build something with it, the nex
 
 - [Components, live](https://oinam.dev/ui/): The components page for people, with every example running.
 - [Play](https://oinam.dev/play/): A page for people to try other fonts, corners, and colors on the components. It needs scripts; the guide covers the same ground in text, under "Base and variations" and "Fonts".
+- [Brand colors](https://oinam.dev/brand/): The Oinam colors, with their roles: navy and cloud for everything, orange and Oinam Blue for the logo alone. To use them, copy https://oinam.dev/garden/oinam.css into the project, beside its own styles, and link it after the components.

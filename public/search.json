@@ -290,6 +290,11 @@
     "text": "One page and many designs of it. Each is a few lines of tokens. Add yours."
   },
   {
+    "title": "Brand colors",
+    "url": "/brand/",
+    "text": "The Oinam colors: navy and cloud for everything, orange and Oinam Blue for the mark alone."
+  },
+  {
     "title": "llms.txt",
     "url": "/llms.txt",
     "text": "A plain-text map of this site for language models."

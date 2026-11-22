@@ -708,6 +708,110 @@ o-theme:not(:defined) {
   max-width: 60rem;
 }
 
+/*
+ * Brand: the colors, each with a swatch beside its name. The swatches for the
+ * tokens use the tokens, so they follow the theme; the mark's two colors are
+ * fixed, as a logo's are.
+ */
+.brand-page {
+  --brand-blue: #1d387c;
+  --brand-orange: #f60;
+  --brand-navy: #0b1736;
+  --brand-cloud: #f4f7fb;
+  --brand-cloud-night: #e4edf6;
+
+  padding-block-end: var(--space-12);
+}
+
+/* A section may be narrower than its longest line of code; the code scrolls. */
+.brand-page section {
+  min-inline-size: 0;
+}
+
+/* A token or a value reads as one word, so it does not break; the table scrolls instead. */
+.brand-page td code {
+  white-space: nowrap;
+}
+
+.brand-swatch {
+  display: inline-block;
+  inline-size: 1.25em;
+  block-size: 1.25em;
+  margin-inline-end: var(--space-2);
+  vertical-align: -0.25em;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+}
+
+.brand-swatch[data-swatch="ink"] {
+  background: var(--color-ink);
+}
+
+.brand-swatch[data-swatch="cloud"] {
+  background: var(--color-cloud);
+}
+
+.brand-swatch[data-swatch="milk"] {
+  background: var(--color-milk);
+}
+
+.brand-swatch[data-swatch="soft"] {
+  background: var(--color-ink-soft);
+}
+
+.brand-swatch[data-swatch="faint"] {
+  background: var(--color-ink-faint);
+}
+
+.brand-swatch[data-swatch="line-strong"] {
+  background: var(--color-line-strong);
+}
+
+.brand-swatch[data-swatch="line"] {
+  background: var(--color-line);
+}
+
+.brand-swatch[data-swatch="wash"] {
+  background: var(--color-wash);
+}
+
+.brand-swatch[data-swatch="blue"] {
+  background: var(--brand-blue);
+}
+
+.brand-swatch[data-swatch="orange"] {
+  background: var(--brand-orange);
+}
+
+/* The mark on its three grounds, which do not change with the theme. */
+.brand-tile {
+  display: grid;
+  place-items: center;
+  inline-size: 7rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+}
+
+.brand-tile svg {
+  inline-size: 50%;
+}
+
+.brand-tile[data-tile="light"] {
+  color: var(--brand-blue);
+  background: var(--brand-cloud);
+}
+
+.brand-tile[data-tile="orange"] {
+  color: var(--brand-navy);
+  background: var(--brand-orange);
+}
+
+.brand-tile[data-tile="night"] {
+  color: var(--brand-cloud-night);
+  background: var(--brand-navy);
+}
+
 /* Footer */
 
 .site-footer {
