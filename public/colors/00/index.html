@@ -135,7 +135,7 @@
               <h2 id="three">The three colors</h2>
               <p>
                 Ink is the text, and cloud is the page. Milk is a step off cloud, for a surface
-                above it.
+                above it. Each is written in OKLCH, with the same color in hex under it.
               </p>
               <o-table>
                 <table>
@@ -154,8 +154,14 @@
                         <span class="color-chip" data-chip="ink" aria-hidden="true"></span> Ink
                       </th>
                       <td><code>--color-ink</code></td>
-                      <td><code>#161618</code></td>
-                      <td><code>#eceef1</code></td>
+                      <td>
+                        <code>oklch(20.1% 0.004 286deg)</code>
+                        <span class="color-hex">#161618</span>
+                      </td>
+                      <td>
+                        <code>oklch(94.8% 0.005 258.3deg)</code>
+                        <span class="color-hex">#eceef1</span>
+                      </td>
                       <td>Text, icons, and the solid buttons.</td>
                     </tr>
                     <tr>
@@ -163,8 +169,13 @@
                         <span class="color-chip" data-chip="cloud" aria-hidden="true"></span> Cloud
                       </th>
                       <td><code>--color-cloud</code></td>
-                      <td><code>#f5f6f8</code></td>
-                      <td><code>#0c0c0c</code></td>
+                      <td>
+                        <code>oklch(97.3% 0.003 264.5deg)</code>
+                        <span class="color-hex">#f5f6f8</span>
+                      </td>
+                      <td>
+                        <code>oklch(15.4% 0 0deg)</code> <span class="color-hex">#0c0c0c</span>
+                      </td>
                       <td>The page.</td>
                     </tr>
                     <tr>
@@ -172,8 +183,14 @@
                         <span class="color-chip" data-chip="milk" aria-hidden="true"></span> Milk
                       </th>
                       <td><code>--color-milk</code></td>
-                      <td><code>#fcfcfd</code></td>
-                      <td><code>#161618</code></td>
+                      <td>
+                        <code>oklch(99.1% 0.001 286.4deg)</code>
+                        <span class="color-hex">#fcfcfd</span>
+                      </td>
+                      <td>
+                        <code>oklch(20.1% 0.004 286deg)</code>
+                        <span class="color-hex">#161618</span>
+                      </td>
                       <td>Cards, fields, and anything raised above the page.</td>
                     </tr>
                   </tbody>
@@ -208,8 +225,14 @@
                       </th>
                       <td><code>--color-ink-soft</code></td>
                       <td>68%</td>
-                      <td><code>#545457</code></td>
-                      <td><code>#9b9d9f</code></td>
+                      <td>
+                        <code>oklch(44.8% 0.004 280.4deg)</code>
+                        <span class="color-hex">#545457</span>
+                      </td>
+                      <td>
+                        <code>oklch(69.4% 0.003 258.3deg)</code>
+                        <span class="color-hex">#9b9d9f</span>
+                      </td>
                       <td>Running text in prose, and the lede.</td>
                     </tr>
                     <tr>
@@ -218,8 +241,14 @@
                       </th>
                       <td><code>--color-ink-faint</code></td>
                       <td>58%</td>
-                      <td><code>#6a6a6c</code></td>
-                      <td><code>#848586</code></td>
+                      <td>
+                        <code>oklch(52.5% 0.004 278.5deg)</code>
+                        <span class="color-hex">#6a6a6c</span>
+                      </td>
+                      <td>
+                        <code>oklch(61.5% 0.003 258.3deg)</code>
+                        <span class="color-hex">#838486</span>
+                      </td>
                       <td>Hints, captions, and the quietest text.</td>
                     </tr>
                     <tr>
@@ -229,8 +258,14 @@
                       </th>
                       <td><code>--color-line-strong</code></td>
                       <td>24%</td>
-                      <td><code>#b9babc</code></td>
-                      <td><code>#39393a</code></td>
+                      <td>
+                        <code>oklch(78.8% 0.003 270.8deg)</code>
+                        <span class="color-hex">#b9babc</span>
+                      </td>
+                      <td>
+                        <code>oklch(34.5% 0.001 258.3deg)</code>
+                        <span class="color-hex">#39393a</span>
+                      </td>
                       <td>The edges of fields and outlined buttons.</td>
                     </tr>
                     <tr>
@@ -239,8 +274,14 @@
                       </th>
                       <td><code>--color-line</code></td>
                       <td>12%</td>
-                      <td><code>#d7d7d9</code></td>
-                      <td><code>#212122</code></td>
+                      <td>
+                        <code>oklch(88% 0.003 267.8deg)</code>
+                        <span class="color-hex">#d7d7da</span>
+                      </td>
+                      <td>
+                        <code>oklch(24.9% 0.001 258.3deg)</code>
+                        <span class="color-hex">#212122</span>
+                      </td>
                       <td>Rules, and the edges of cards and tables.</td>
                     </tr>
                     <tr>
@@ -249,8 +290,13 @@
                       </th>
                       <td><code>--color-wash</code></td>
                       <td>6%</td>
-                      <td><code>#e6e7e9</code></td>
-                      <td><code>#161617</code></td>
+                      <td>
+                        <code>oklch(92.7% 0.003 266.2deg)</code>
+                        <span class="color-hex">#e6e7e9</span>
+                      </td>
+                      <td>
+                        <code>oklch(20.2% 0 0deg)</code> <span class="color-hex">#161616</span>
+                      </td>
                       <td>A tint behind code, and under a row as the pointer passes.</td>
                     </tr>
                   </tbody>
@@ -295,8 +341,8 @@
                       <th scope="row">Faint</th>
                       <td>5.0</td>
                       <td>5.3</td>
-                      <td>5.3</td>
-                      <td>4.9</td>
+                      <td>5.2</td>
+                      <td>4.8</td>
                     </tr>
                   </tbody>
                 </table>
@@ -308,7 +354,8 @@
               <h2 id="use">Use it</h2>
               <p>
                 Base needs nothing: these are the values in <a href="/ui/tokens.css">tokens.css</a>,
-                which every copy of the components already has.
+                which every copy of the components already has. It writes them in hex; they are the
+                same colors.
               </p>
             </o-stack>
           </section>

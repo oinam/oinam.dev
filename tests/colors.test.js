@@ -51,7 +51,25 @@ test("color 00 is Base, as tokens.css has it", () => {
     const value = tokens.match(
       new RegExp(`--color-${key}: light-dark\\((#[0-9a-f]+), (#[0-9a-f]+)\\)`),
     );
-    assert.deepEqual(base[key], [value[1], value[2]], key);
+    assert.deepEqual(
+      base.themes.map((theme) => theme.values[key].hex),
+      [value[1], value[2]],
+      key,
+    );
+  }
+});
+
+test("colors are written in OKLCH, the way the style linter asks", () => {
+  for (const color of all) {
+    for (const key of ["ink", "cloud", "milk"]) {
+      for (const value of color[key]) {
+        assert.match(
+          value,
+          /^oklch\(\d+(\.\d+)?% \d+(\.\d+)? \d+(\.\d+)?deg\)$/,
+          `${color.id} ${key}`,
+        );
+      }
+    }
   }
 });
 

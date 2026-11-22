@@ -787,7 +787,7 @@ o-theme:not(:defined) {
 
 .color-strip-chips {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
   gap: var(--space-4) var(--space-3);
   margin: 0;
   padding: 0;
@@ -813,6 +813,16 @@ o-theme:not(:defined) {
 .color-strip-chips code {
   justify-self: start;
   font-size: var(--text-xs);
+}
+
+/* The hex sits under the OKLCH it repeats, quieter, since it is the alternate. */
+.color-hex {
+  display: block;
+  margin-block-start: var(--space-1);
+  color: var(--color-ink-faint);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  white-space: nowrap;
 }
 
 .color-list h2 code {

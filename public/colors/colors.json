@@ -1,5 +1,5 @@
 {
-  "about": "Pairs of colors for Oinam UI. Each sets three tokens, ink, cloud, and milk, in light and dark; every other shade is mixed from them. The page for each is https://oinam.dev/colors/<id>/<name>/, and the name is optional. Kept by hand; scripts/colors.js writes the pages from it.",
+  "about": "Pairs of colors for Oinam UI. Each sets three tokens, ink, cloud, and milk, in light and dark, written in OKLCH; every other shade is mixed from them. The page for each is https://oinam.dev/colors/<id>/<name>/, and the name is optional. Kept by hand; scripts/colors.js writes the pages from it.",
   "page": "https://oinam.dev/colors/",
   "colors": [
     {
@@ -7,54 +7,54 @@
       "name": "base",
       "title": "Base",
       "description": "The default: a cool near-black on a grey cloud, with almost no color at all.",
-      "ink": ["#161618", "#eceef1"],
-      "cloud": ["#f5f6f8", "#0c0c0c"],
-      "milk": ["#fcfcfd", "#161618"]
+      "ink": ["oklch(20.1% 0.004 286deg)", "oklch(94.8% 0.005 258.3deg)"],
+      "cloud": ["oklch(97.3% 0.003 264.5deg)", "oklch(15.4% 0 0deg)"],
+      "milk": ["oklch(99.1% 0.001 286.4deg)", "oklch(20.1% 0.004 286deg)"]
     },
     {
       "id": "01",
       "name": "navy",
       "title": "Navy",
       "description": "A bright navy for text by day, and a deep one for the ground by night, on a cloud of the same blue.",
-      "ink": ["#06194e", "#e4edf6"],
-      "cloud": ["#f4f7fc", "#0b1736"],
-      "milk": ["#fcfdff", "#111e42"]
+      "ink": ["oklch(24% 0.101 264.4deg)", "oklch(94.2% 0.016 248deg)"],
+      "cloud": ["oklch(97.5% 0.007 260.7deg)", "oklch(21.4% 0.063 265.5deg)"],
+      "milk": ["oklch(99.4% 0.003 264.5deg)", "oklch(24.6% 0.07 266.4deg)"]
     },
     {
       "id": "02",
       "name": "paper",
       "title": "Paper",
       "description": "Soft black on warm paper, like a printed page.",
-      "ink": ["#1b1a17", "#f2efe8"],
-      "cloud": ["#f7f4ee", "#12110f"],
-      "milk": ["#fdfcf9", "#1c1a17"]
+      "ink": ["oklch(21.8% 0.006 91.6deg)", "oklch(95.3% 0.01 87.5deg)"],
+      "cloud": ["oklch(96.8% 0.009 84.6deg)", "oklch(17.8% 0.004 84.6deg)"],
+      "milk": ["oklch(99.1% 0.004 91.4deg)", "oklch(21.9% 0.007 78.2deg)"]
     },
     {
       "id": "03",
       "name": "carbon",
       "title": "Carbon",
       "description": "Black on white, as plain as a screen allows, with no tint in either.",
-      "ink": ["#111111", "#ededed"],
-      "cloud": ["#fafafa", "#0a0a0a"],
-      "milk": ["#ffffff", "#151515"]
+      "ink": ["oklch(17.8% 0 0deg)", "oklch(94.6% 0 0deg)"],
+      "cloud": ["oklch(98.5% 0 0deg)", "oklch(14.5% 0 0deg)"],
+      "milk": ["oklch(100% 0 0deg)", "oklch(19.6% 0 0deg)"]
     },
     {
       "id": "04",
       "name": "forest",
       "title": "Forest",
       "description": "A deep green on a pale green cloud, and the woods at night.",
-      "ink": ["#00220d", "#e1f0e5"],
-      "cloud": ["#eef8f1", "#08180e"],
-      "milk": ["#f9fdfa", "#112117"]
+      "ink": ["oklch(22.1% 0.057 152.8deg)", "oklch(94.1% 0.022 154.1deg)"],
+      "cloud": ["oklch(97% 0.014 155.6deg)", "oklch(19.1% 0.03 155.1deg)"],
+      "milk": ["oklch(99% 0.006 153.8deg)", "oklch(23% 0.029 155.9deg)"]
     },
     {
       "id": "05",
       "name": "clay",
       "title": "Clay",
       "description": "A dark earth red on a warm, faintly pink cloud.",
-      "ink": ["#331105", "#fae6df"],
-      "cloud": ["#fff2ed", "#1f0f09"],
-      "milk": ["#fffbf9", "#291812"]
+      "ink": ["oklch(23% 0.059 40.3deg)", "oklch(93.9% 0.024 40.3deg)"],
+      "cloud": ["oklch(97% 0.016 42.4deg)", "oklch(19% 0.03 41.3deg)"],
+      "milk": ["oklch(99.1% 0.005 48.7deg)", "oklch(23% 0.03 40.2deg)"]
     }
   ]
 }

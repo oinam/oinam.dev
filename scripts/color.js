@@ -27,7 +27,8 @@ export const hex = (color) =>
     .map((byte) => byte.toString(16).padStart(2, "0"))
     .join("")}`;
 
-function toOklab([r, g, b]) {
+/** A color in Oklab: lightness, then the two axes of hue. */
+export function toOklab([r, g, b]) {
   const l = Math.cbrt(0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b);
   const m = Math.cbrt(0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b);
   const s = Math.cbrt(0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b);
@@ -48,6 +49,36 @@ function fromOklab([L, a, b]) {
     -0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s,
   ];
 }
+
+/**
+ * A color written as `oklch(L C H)`, as linear red, green, and blue. L is a percentage, or a
+ * number from 0 to 1, and H is in degrees. A color
+ * outside what a screen can show is left outside; `bytes` clips it, as a browser does.
+ */
+export function oklch(text) {
+  const [, lightness, percent, chroma, hue] = text.match(
+    /^oklch\(([\d.]+)(%?) ([\d.]+) ([\d.]+)(?:deg)?\)$/,
+  );
+  const [L, C, H] = [Number(lightness) / (percent ? 100 : 1), Number(chroma), Number(hue)];
+  const angle = (H * Math.PI) / 180;
+  return fromOklab([L, C * Math.cos(angle), C * Math.sin(angle)]);
+}
+
+/** A color as `oklch(L% C Hdeg)`, the way the style linter asks for it, rounded as far as it can be and still show the same on a screen. */
+export function toOklch(color) {
+  const [L, a, b] = toOklab(color);
+  const C = Math.hypot(a, b);
+  const H = C < 0.0005 ? 0 : ((Math.atan2(b, a) * 180) / Math.PI + 360) % 360;
+  const trim = (value, places) => String(Number(value.toFixed(places)));
+  for (const places of [2, 3, 4, 5]) {
+    const text = `oklch(${trim(L * 100, places - 1)}% ${trim(C, places + 1)} ${trim(H, places - 1)}deg)`;
+    if (hex(oklch(text)) === hex(color)) return text;
+  }
+  throw new Error(`no short oklch() for ${hex(color)}`);
+}
+
+/** A color in either way the lists write one: "#rrggbb" or "oklch(L C H)". */
+export const parse = (text) => (text.startsWith("oklch(") ? oklch(text) : rgb(text));
 
 /** `share` of one color mixed into another, as color-mix(in oklab) does it. */
 export function mix(one, other, share) {

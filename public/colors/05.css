@@ -8,7 +8,7 @@
  */
 
 :root {
-  --color-ink: light-dark(#331105, #fae6df);
-  --color-cloud: light-dark(#fff2ed, #1f0f09);
-  --color-milk: light-dark(#fffbf9, #291812);
+  --color-ink: light-dark(oklch(23% 0.059 40.3deg), oklch(93.9% 0.024 40.3deg));
+  --color-cloud: light-dark(oklch(97% 0.016 42.4deg), oklch(19% 0.03 41.3deg));
+  --color-milk: light-dark(oklch(99.1% 0.005 48.7deg), oklch(23% 0.03 40.2deg));
 }

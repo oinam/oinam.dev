@@ -26,7 +26,7 @@ import { fileURLToPath } from "node:url";
 
 import * as prettier from "prettier";
 
-import { contrast, hex, mix, rgb } from "./color.js";
+import { contrast, hex, mix, parse, toOklab } from "./color.js";
 
 const ROOT = new URL("../", import.meta.url);
 const read = (path) => readFileSync(new URL(path, ROOT), "utf8");
@@ -84,11 +84,23 @@ const THREE = [
 
 const THEMES = ["light", "dark"];
 
+/**
+ * A shade in OKLCH, rounded evenly for reading. A shade is worked out by the browser and written
+ * nowhere, so it needs no more places than a person reads; the hex beside it is exact.
+ */
+function rounded(color) {
+  const [L, a, b] = toOklab(color);
+  const C = Math.hypot(a, b);
+  const H = C < 0.0005 ? 0 : ((Math.atan2(b, a) * 180) / Math.PI + 360) % 360;
+  const trim = (value, places) => String(Number(value.toFixed(places)));
+  return `oklch(${trim(L * 100, 1)}% ${trim(C, 3)} ${trim(H, 1)}deg)`;
+}
+
 /** Every color in the list, with its shades and its contrast worked out, in light then dark. */
 export function colors(list = JSON.parse(read("public/colors/colors.json")).colors) {
   return list.map((color) => {
     const themes = THEMES.map((theme, at) => {
-      const [ink, cloud, milk] = [color.ink[at], color.cloud[at], color.milk[at]].map(rgb);
+      const [ink, cloud, milk] = [color.ink[at], color.cloud[at], color.milk[at]].map(parse);
       const shades = Object.fromEntries(
         SHADES.map((shade) => [shade.chip, mix(ink, cloud, shade.share)]),
       );
@@ -101,8 +113,18 @@ export function colors(list = JSON.parse(read("public/colors/colors.json")).colo
       );
       return {
         theme,
-        values: { ink: color.ink[at], cloud: color.cloud[at], milk: color.milk[at] },
-        shades: Object.fromEntries(Object.entries(shades).map(([key, value]) => [key, hex(value)])),
+        values: Object.fromEntries(
+          ["ink", "cloud", "milk"].map((key) => [
+            key,
+            { oklch: color[key][at], hex: hex(parse(color[key][at])) },
+          ]),
+        ),
+        shades: Object.fromEntries(
+          Object.entries(shades).map(([key, value]) => [
+            key,
+            { oklch: rounded(value), hex: hex(value) },
+          ]),
+        ),
         ratios,
       };
     });
@@ -112,8 +134,8 @@ export function colors(list = JSON.parse(read("public/colors/colors.json")).colo
 
 const escape = (text) => text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-/** "#ffffff" as "#fff" where it can be, as the style linter asks. */
-const short = (value) => value.replace(/^#(.)\1(.)\2(.)\3$/, "#$1$2$3");
+/** A value as the pages show it: OKLCH, which the stylesheets use, and the same color in hex. */
+const both = ({ oklch, hex }) => `<code>${oklch}</code> <span class="color-hex">${hex}</span>`;
 
 const ratio = (value) => value.toFixed(1);
 
@@ -180,10 +202,7 @@ function listPage(all) {
             ["soft", "Soft", shades.soft],
             ["ink", "Ink", values.ink],
           ]
-            .map(
-              ([key, name, value]) =>
-                `<li>${chip(key)}<span>${name}</span> <code>${value}</code></li>`,
-            )
+            .map(([key, name, value]) => `<li>${chip(key)}<span>${name}</span> ${both(value)}</li>`)
             .join("\n");
           const label = theme === "light" ? "Light" : "Dark";
           return `<div class="color-strip" data-colors="${color.id}" data-scheme="${theme}" role="group" aria-label="${escape(color.title)}, ${theme}">
@@ -219,6 +238,11 @@ ${strips}
             is in <a href="/colors/colors.json">colors.json</a>, as data. Every text shade in every color
             reaches 4.5 to 1, in both themes; a test holds them there.
           </p>
+          <p>
+            Colors are written in OKLCH: lightness, chroma, and hue, in that order. Two colors with the
+            same hue are the same color at another depth, and it shows in the numbers. The hex under
+            each is the same color, for a tool that wants it.
+          </p>
         </o-stack>
         <o-stack class="color-list" gap="12">
 ${entries}
@@ -239,8 +263,8 @@ function colorPage(color) {
     ({ key, token, name, use }) => `<tr>
   <th scope="row">${chip(key)} ${name}</th>
   <td><code>${token}</code></td>
-  <td><code>${light.values[key]}</code></td>
-  <td><code>${dark.values[key]}</code></td>
+  <td>${both(light.values[key])}</td>
+  <td>${both(dark.values[key])}</td>
   <td>${use}</td>
 </tr>`,
   ).join("\n");
@@ -250,8 +274,8 @@ function colorPage(color) {
   <th scope="row">${chip(key)} ${name}</th>
   <td><code>${token}</code></td>
   <td>${Math.round(share * 100)}%</td>
-  <td><code>${light.shades[key]}</code></td>
-  <td><code>${dark.shades[key]}</code></td>
+  <td>${both(light.shades[key])}</td>
+  <td>${both(dark.shades[key])}</td>
   <td>${use}</td>
 </tr>`,
   ).join("\n");
@@ -275,7 +299,7 @@ function colorPage(color) {
   const use = base
     ? `<p>
   Base needs nothing: these are the values in <a href="/ui/tokens.css">tokens.css</a>, which every
-  copy of the components already has.
+  copy of the components already has. It writes them in hex; they are the same colors.
 </p>`
     : `<p>
   Take a copy of <a href="/colors/${color.id}.css">${color.id}.css</a>, keep it with the site's own
@@ -301,7 +325,10 @@ function colorPage(color) {
           <section aria-labelledby="three">
             <o-stack gap="4">
               <h2 id="three">The three colors</h2>
-              <p>Ink is the text, and cloud is the page. Milk is a step off cloud, for a surface above it.</p>
+              <p>
+                Ink is the text, and cloud is the page. Milk is a step off cloud, for a surface above
+                it. Each is written in OKLCH, with the same color in hex under it.
+              </p>
               <o-table>
                 <table>
                   <thead>
@@ -386,8 +413,7 @@ ${bottom}`;
 
 const tokens = (color, indent) =>
   THREE.map(
-    ({ key, token }) =>
-      `${indent}${token}: light-dark(${short(color[key][0])}, ${short(color[key][1])});`,
+    ({ key, token }) => `${indent}${token}: light-dark(${color[key][0]}, ${color[key][1]});`,
   ).join("\n");
 
 /** The stylesheet to take away: three tokens, nothing else. */

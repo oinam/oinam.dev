@@ -20,6 +20,13 @@ with a page for each.
   color can be renamed without breaking a link. The canonical address is the one with only the
   number. A take-away stylesheet is named by number too, and sits beside the folders, not in them,
   because the rewrite would catch a file inside one.
+- **Colors are written in OKLCH, and hex is the alternate.** Lightness, chroma, and hue say what
+  a color is: two colors with one hue are one color at two depths, and the numbers show it. So the
+  list, the take-away stylesheets, and the pages use `oklch()`, with the hex of the same color
+  beside it for tools that want one. The pages print the shades rounded for reading, since the
+  browser works them out and they are written nowhere. Base itself stays in hex in `tokens.css`,
+  because changing that file means a new version of the components; color 00 is checked to show
+  the same on a screen. `scripts/color.js` has `toOklch()` to turn a hex into the list's form.
 - **Colors are not named after a product.** Different products may wear different colors, so a
   color says what it looks like, such as Navy, and a product says which one it wears.
 - **The list page cannot just set tokens on each strip.** A shade such as `--color-ink-soft` is
