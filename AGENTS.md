@@ -73,6 +73,8 @@ Some things are kept by hand, because there is no build step to keep them:
   together.
 - A new page is added to `public/search.json` (the search index), `public/sitemap.xml`, and
   `public/llms.txt`.
+- A page in the sitemap carries the share tags (Open Graph and the Twitter card), copied from
+  another page with its own title, description, and address. A test checks them.
 
 The garden at `/garden/` is one fixed page shown in many designs, after the CSS Zen Garden. A
 design is one stylesheet of token values in `public/garden/`, listed in `variations.json` and in
@@ -180,6 +182,8 @@ are defined; `package.json` only lists the linters and the formatter.
 - `mise run test` runs the test suite with Node's test runner.
 - `mise run check` runs the format check, the linters, and the tests. CI runs the same task on
   every push and pull request.
+- `mise run social-card` draws `public/assets/social.png`, the picture a shared link shows, from
+  `docs/social-card.html`, with Chrome. Run it after changing that page, and commit both.
 
 `mise run eval` runs the evals in `evals/`: an agent builds a page from each brief with only the
 guide to go on, and the pages are scored and photographed. It spends tokens, so it is run by

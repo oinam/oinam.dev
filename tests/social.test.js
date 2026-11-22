@@ -12,16 +12,11 @@ import { test } from "node:test";
 const ROOT = new URL("../", import.meta.url);
 const read = (path) => readFileSync(new URL(path, ROOT), "utf8");
 
-// The site's own pages. The pattern samples and the 404 are left out: nobody
-// shares a sample page, and nobody shares a page that is not there.
+// Every page in the sitemap: the pages people are meant to find, and so to
+// share. The pattern samples and the 404 are not in it, and need no card.
 const PAGES = [
-  "public/index.html",
-  "public/docs/index.html",
-  "public/garden/index.html",
-  "public/play/index.html",
-  "public/ui/index.html",
-  "public/ui/patterns/index.html",
-];
+  ...read("public/sitemap.xml").matchAll(/<loc>https:\/\/oinam\.dev\/([^<]*)<\/loc>/g),
+].map(([, path]) => `public/${path}index.html`);
 
 const IMAGE = "https://oinam.dev/assets/social.png";
 
@@ -30,6 +25,10 @@ function meta(html, key) {
   const tag = new RegExp(`<meta\\s+(?:property|name)="${key}"\\s+content="([^"]*)"`);
   return html.match(tag)?.[1];
 }
+
+test("the sitemap names the pages to check", () => {
+  assert.ok(PAGES.length >= 6, PAGES.join(", "));
+});
 
 for (const path of PAGES) {
   test(`${path} says what to show when it is shared`, () => {
