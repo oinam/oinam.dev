@@ -27,6 +27,7 @@
     <script src="/ui/theme-init.js"></script>
     <script type="module" src="/ui/ui.js"></script>
     <script type="module" src="/assets/site.js"></script>
+    <script type="module" src="/assets/colors.js"></script>
   </head>
   <body>
     <a class="skip button" href="#main">Skip to content</a>
@@ -125,7 +126,8 @@
               <h2 id="three">The three colors</h2>
               <p>
                 Ink is the text, and cloud is the page. Milk is a step off cloud, for a surface
-                above it. Each is written in OKLCH, with the same color in hex under it.
+                above it. Each is written in OKLCH, with the same color in hex under it. Press a
+                value to copy it in OKLCH, or hold Shift as you press to copy the hex.
               </p>
               <o-table>
                 <table>
@@ -145,11 +147,22 @@
                       </th>
                       <td><code>--color-ink</code></td>
                       <td>
-                        <code>oklch(14.1% 0.004 285.8deg)</code>
-                        <span class="color-hex">#09090b</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(14.1% 0.004 285.8deg)"
+                          data-hex="#09090b"
+                          ><code>oklch(14.1% 0.004 285.8deg)</code>
+                          <span class="color-hex">#09090b</span></span
+                        >
                       </td>
                       <td>
-                        <code>oklch(98.5% 0 0deg)</code> <span class="color-hex">#fafafa</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(98.5% 0 0deg)"
+                          data-hex="#fafafa"
+                          ><code>oklch(98.5% 0 0deg)</code>
+                          <span class="color-hex">#fafafa</span></span
+                        >
                       </td>
                       <td>Text, icons, and the solid buttons.</td>
                     </tr>
@@ -159,11 +172,22 @@
                       </th>
                       <td><code>--color-cloud</code></td>
                       <td>
-                        <code>oklch(98.5% 0 0deg)</code> <span class="color-hex">#fafafa</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(98.5% 0 0deg)"
+                          data-hex="#fafafa"
+                          ><code>oklch(98.5% 0 0deg)</code>
+                          <span class="color-hex">#fafafa</span></span
+                        >
                       </td>
                       <td>
-                        <code>oklch(14.1% 0.004 285.8deg)</code>
-                        <span class="color-hex">#09090b</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(14.1% 0.004 285.8deg)"
+                          data-hex="#09090b"
+                          ><code>oklch(14.1% 0.004 285.8deg)</code>
+                          <span class="color-hex">#09090b</span></span
+                        >
                       </td>
                       <td>The page.</td>
                     </tr>
@@ -173,11 +197,19 @@
                       </th>
                       <td><code>--color-milk</code></td>
                       <td>
-                        <code>oklch(100% 0 0deg)</code> <span class="color-hex">#ffffff</span>
+                        <span class="color-value" data-oklch="oklch(100% 0 0deg)" data-hex="#ffffff"
+                          ><code>oklch(100% 0 0deg)</code>
+                          <span class="color-hex">#ffffff</span></span
+                        >
                       </td>
                       <td>
-                        <code>oklch(17.9% 0.006 285.8deg)</code>
-                        <span class="color-hex">#111114</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(17.9% 0.006 285.8deg)"
+                          data-hex="#111114"
+                          ><code>oklch(17.9% 0.006 285.8deg)</code>
+                          <span class="color-hex">#111114</span></span
+                        >
                       </td>
                       <td>Cards, fields, and anything raised above the page.</td>
                     </tr>
@@ -214,12 +246,22 @@
                       <td><code>--color-ink-soft</code></td>
                       <td>68%</td>
                       <td>
-                        <code>oklch(41.1% 0.003 285.8deg)</code>
-                        <span class="color-hex">#4a4a4c</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(41.1% 0.003 285.8deg)"
+                          data-hex="#4a4a4c"
+                          ><code>oklch(41.1% 0.003 285.8deg)</code>
+                          <span class="color-hex">#4a4a4c</span></span
+                        >
                       </td>
                       <td>
-                        <code>oklch(71.5% 0.001 285.8deg)</code>
-                        <span class="color-hex">#a3a3a4</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(71.5% 0.001 285.8deg)"
+                          data-hex="#a3a3a4"
+                          ><code>oklch(71.5% 0.001 285.8deg)</code>
+                          <span class="color-hex">#a3a3a4</span></span
+                        >
                       </td>
                       <td>Running text in prose, and the lede.</td>
                     </tr>
@@ -230,12 +272,22 @@
                       <td><code>--color-ink-faint</code></td>
                       <td>58%</td>
                       <td>
-                        <code>oklch(49.5% 0.002 285.8deg)</code>
-                        <span class="color-hex">#626263</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(49.5% 0.002 285.8deg)"
+                          data-hex="#626263"
+                          ><code>oklch(49.5% 0.002 285.8deg)</code>
+                          <span class="color-hex">#626263</span></span
+                        >
                       </td>
                       <td>
-                        <code>oklch(63.1% 0.002 285.8deg)</code>
-                        <span class="color-hex">#89898a</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(63.1% 0.002 285.8deg)"
+                          data-hex="#89898a"
+                          ><code>oklch(63.1% 0.002 285.8deg)</code>
+                          <span class="color-hex">#89898a</span></span
+                        >
                       </td>
                       <td>Hints, captions, and the quietest text.</td>
                     </tr>
@@ -247,12 +299,22 @@
                       <td><code>--color-line-strong</code></td>
                       <td>24%</td>
                       <td>
-                        <code>oklch(78.2% 0.001 285.8deg)</code>
-                        <span class="color-hex">#b8b8b9</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(78.2% 0.001 285.8deg)"
+                          data-hex="#b8b8b9"
+                          ><code>oklch(78.2% 0.001 285.8deg)</code>
+                          <span class="color-hex">#b8b8b9</span></span
+                        >
                       </td>
                       <td>
-                        <code>oklch(34.4% 0.003 285.8deg)</code>
-                        <span class="color-hex">#39393a</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(34.4% 0.003 285.8deg)"
+                          data-hex="#39393a"
+                          ><code>oklch(34.4% 0.003 285.8deg)</code>
+                          <span class="color-hex">#39393a</span></span
+                        >
                       </td>
                       <td>The edges of fields and outlined buttons.</td>
                     </tr>
@@ -263,11 +325,22 @@
                       <td><code>--color-line</code></td>
                       <td>12%</td>
                       <td>
-                        <code>oklch(88.4% 0 0deg)</code> <span class="color-hex">#d8d8d9</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(88.4% 0 0deg)"
+                          data-hex="#d8d8d9"
+                          ><code>oklch(88.4% 0 0deg)</code>
+                          <span class="color-hex">#d8d8d9</span></span
+                        >
                       </td>
                       <td>
-                        <code>oklch(24.2% 0.004 285.8deg)</code>
-                        <span class="color-hex">#202021</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(24.2% 0.004 285.8deg)"
+                          data-hex="#202021"
+                          ><code>oklch(24.2% 0.004 285.8deg)</code>
+                          <span class="color-hex">#202021</span></span
+                        >
                       </td>
                       <td>Rules, and the edges of cards and tables.</td>
                     </tr>
@@ -278,11 +351,22 @@
                       <td><code>--color-wash</code></td>
                       <td>6%</td>
                       <td>
-                        <code>oklch(93.4% 0 0deg)</code> <span class="color-hex">#e9e9e9</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(93.4% 0 0deg)"
+                          data-hex="#e9e9e9"
+                          ><code>oklch(93.4% 0 0deg)</code>
+                          <span class="color-hex">#e9e9e9</span></span
+                        >
                       </td>
                       <td>
-                        <code>oklch(19.2% 0.004 285.8deg)</code>
-                        <span class="color-hex">#141416</span>
+                        <span
+                          class="color-value"
+                          data-oklch="oklch(19.2% 0.004 285.8deg)"
+                          data-hex="#141416"
+                          ><code>oklch(19.2% 0.004 285.8deg)</code>
+                          <span class="color-hex">#141416</span></span
+                        >
                       </td>
                       <td>A tint behind code, and under a row as the pointer passes.</td>
                     </tr>

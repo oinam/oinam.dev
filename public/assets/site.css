@@ -780,6 +780,12 @@ o-theme:not(:defined) {
   align-items: start;
 }
 
+/* A rule between colors, and none after the last. */
+.color-entry:not(:last-child) {
+  padding-block-end: var(--space-8);
+  border-bottom: 1px solid var(--color-line);
+}
+
 @media (width >= 48rem) {
   .color-entry {
     grid-template-columns: 14rem minmax(0, 1fr);
@@ -817,13 +823,38 @@ o-theme:not(:defined) {
   list-style: none;
 }
 
-/* In a strip, a chip is a tile. */
+/* In a strip, a chip is a tile, and with the script a button that copies its color. */
 .color-strip-chips .color-chip {
   display: block;
   inline-size: 100%;
   block-size: 2.25rem;
   margin: 0;
+  padding: 0;
   border-color: var(--color-line);
+}
+
+button.color-chip {
+  cursor: copy;
+  transition: transform var(--duration) var(--ease);
+}
+
+button.color-chip:hover {
+  transform: scale(1.06);
+}
+
+/* A value in a table, which the script makes a button that copies it. */
+.color-value {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+}
+
+button.color-value {
+  cursor: copy;
 }
 
 /* The hex sits under the OKLCH it repeats, quieter, since it is the alternate. */
@@ -844,6 +875,10 @@ o-theme:not(:defined) {
 /* A token or a value reads as one word, so it does not break; the table scrolls instead. */
 .color-page td code {
   white-space: nowrap;
+}
+
+button.color-value:hover code {
+  background: var(--color-line);
 }
 
 /* Footer */

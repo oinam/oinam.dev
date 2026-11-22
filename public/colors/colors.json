@@ -627,21 +627,6 @@
       "ink": ["oklch(14.7% 0.004 49.2deg)", "oklch(98.5% 0.001 106.4deg)"],
       "cloud": ["oklch(98.5% 0.001 106.4deg)", "oklch(14.7% 0.004 49.2deg)"],
       "milk": ["oklch(100% 0 0deg)", "oklch(18.9% 0.004 48.5deg)"]
-    },
-    {
-      "id": "42",
-      "name": "neutral",
-      "title": "Neutral",
-      "description": "A grey with no tint.",
-      "from": {
-        "name": "Tailwind CSS",
-        "url": "https://tailwindcss.com/docs/colors",
-        "license": "MIT",
-        "scale": "neutral"
-      },
-      "ink": ["oklch(14.5% 0 0deg)", "oklch(98.5% 0 0deg)"],
-      "cloud": ["oklch(98.5% 0 0deg)", "oklch(14.5% 0 0deg)"],
-      "milk": ["oklch(100% 0 0deg)", "oklch(18.7% 0 0deg)"]
     }
   ]
 }

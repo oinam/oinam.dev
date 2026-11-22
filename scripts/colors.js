@@ -135,7 +135,8 @@ export function colors(list = JSON.parse(read("public/colors/colors.json")).colo
 const escape = (text) => text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 /** A value as the pages show it: OKLCH, which the stylesheets use, and the same color in hex. */
-const both = ({ oklch, hex }) => `<code>${oklch}</code> <span class="color-hex">${hex}</span>`;
+const both = ({ oklch, hex }) =>
+  `<span class="color-value" data-oklch="${oklch}" data-hex="${hex}"><code>${oklch}</code> <span class="color-hex">${hex}</span></span>`;
 
 const ratio = (value) => value.toFixed(1);
 
@@ -183,6 +184,7 @@ ${styles.map((href) => `    <link rel="stylesheet" href="${href}" />`).join("\n"
     <script src="/ui/theme-init.js"></script>
     <script type="module" src="/ui/ui.js"></script>
     <script type="module" src="/assets/site.js"></script>
+    <script type="module" src="/assets/colors.js"></script>
   </head>
 `;
 }
@@ -242,7 +244,7 @@ function listPage(all) {
           ]
             .map(
               ([key, name, value]) =>
-                `<li><span class="color-chip" data-chip="${key}" role="img" aria-label="${name}, ${value.hex}"></span></li>`,
+                `<li><span class="color-chip" data-chip="${key}" data-oklch="${value.oklch}" data-hex="${value.hex}" role="img" aria-label="${name}, ${value.oklch}"></span></li>`,
             )
             .join("\n");
           return `<div class="color-strip" data-colors="${color.id}" data-scheme="${theme}" role="group" aria-label="${escape(color.title)}, ${theme}">
@@ -286,6 +288,9 @@ ${strips}
             is a color by day and by night, from the page to the text: cloud, milk, the two lines, and
             the three inks. The wash is left out here, since it is not a color of its own but a
             faint tint of ink over whatever is under it; each color's page has it.
+          </p>
+          <p>
+            Press a chip to copy its color in OKLCH, or hold Shift as you press to copy its hex.
           </p>
         </o-stack>
         <o-stack class="color-list" gap="8">
@@ -371,7 +376,8 @@ function colorPage(color) {
               <h2 id="three">The three colors</h2>
               <p>
                 Ink is the text, and cloud is the page. Milk is a step off cloud, for a surface above
-                it. Each is written in OKLCH, with the same color in hex under it.
+                it. Each is written in OKLCH, with the same color in hex under it. Press a value to copy
+                it in OKLCH, or hold Shift as you press to copy the hex.
               </p>
               <o-table>
                 <table>

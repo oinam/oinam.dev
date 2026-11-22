@@ -29,13 +29,18 @@ with a page for each.
   the same on a screen. `scripts/color.js` has `toOklch()` to turn a hex into the list's form.
 - **Most colors are adapted from others' proven scales.** Colors 6 to 36 are Radix Colors'
   scales (step 12 as ink, steps 2 and 1 as cloud and milk, and the same steps of the dark scale by
-  night), and 37 to 42 are Tailwind CSS's (950 and 50, with white milk by day and a step above 950
+  night), and 37 to 41 are Tailwind CSS's (950 and 50, with white milk by day and a step above 950
   by night). Both are MIT, and `public/colors/LICENSES.txt` carries their notices. As published,
   most of their colored scales miss the gate: their darkest step is lighter than ours, and the
   faint ink mixed from it falls to about 3.5 to 1. So, by the rule under "Decided", the ink was
   deepened, hue and chroma kept, until every text shade passed; each color's `from.deepened` says
   on which side, and its page says so. The greys passed as they are. The data was read from
   `@radix-ui/colors@3.0.0` and `tailwindcss@4.1.11`.
+- **Forty-two colors, 0 to 41.** Tailwind's Neutral was the one let go: it is a grey with no tint,
+  the same as Carbon and Radix's Gray already on the list.
+- **A press copies.** On the color pages, a chip or a value copies its color in OKLCH, and with
+  Shift held its hex, as on Tailwind's colors page. `public/assets/colors.js` makes each marked
+  chip and value a button, so a page without the script has no button that does nothing.
 - **Numbers have no zeros in front.** `/colors/1/`, not `/colors/01/`: padding promises a
   fixed count, here 99, and reads like a code. Base is 0, and the variations count from 1.
 - **Colors are not named after a product.** Different products may wear different colors, so a
