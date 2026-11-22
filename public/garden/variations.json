@@ -26,6 +26,14 @@
       "description": "Square corners and one typeface throughout, like a page of accounts.",
       "file": "ledger.css",
       "fonts": ["geist.css", "geist-mono.css"]
+    },
+    {
+      "name": "oinam",
+      "title": "Oinam",
+      "by": "Oinam",
+      "description": "The navy of the Oinam brand: ink by day, and the ground by night.",
+      "file": "oinam.css",
+      "fonts": []
     }
   ]
 }

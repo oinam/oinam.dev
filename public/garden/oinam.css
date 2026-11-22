@@ -1,0 +1,17 @@
+/*
+ * Oinam
+ * By Oinam
+ *
+ * The navy of the Oinam brand: ink by day, and the ground by night.
+ * Fonts: none
+ *
+ * The brand's own Blue, #1d387c, is too light to be ink: mixed into the
+ * cloud for the soft and faint inks, it falls below 4.5 to 1. So the ink is
+ * a deeper navy, between the brand's Oxford Blue and Midnight.
+ */
+
+:root {
+  --color-ink: light-dark(#0b1736, #e4edf6);
+  --color-cloud: light-dark(#f4f7fb, #0b1736);
+  --color-milk: light-dark(#fcfdfe, #111e42);
+}
