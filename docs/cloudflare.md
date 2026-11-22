@@ -5,22 +5,19 @@ those files, and nothing should go out but the files. This page says how the zon
 it so, and why. The response headers live in `public/_headers`, and a test holds them; everything
 here is set in the Cloudflare dashboard, by hand, and is checked by looking.
 
-## The domain sends no mail, and says so
+## Mail: Cloudflare Email Routing, when it is wanted
 
-The domain has no mailboxes and sends nothing. Saying so in DNS stops anyone from sending mail that
-claims to come from it.
+The domain has no mailboxes of its own and sends nothing. For now it has no mail records at all.
 
-| Type | Name           | Content                                          | Why                                       |
-| ---- | -------------- | ------------------------------------------------ | ----------------------------------------- |
-| MX   | `oinam.dev`    | `.` at priority 0                                | A null MX: this domain accepts no mail.   |
-| TXT  | `oinam.dev`    | `v=spf1 -all`                                    | No server may send mail as this domain.   |
-| TXT  | `_dmarc`       | `v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s` | Receivers reject anything that claims to. |
-| TXT  | `*._domainkey` | `v=DKIM1; p=`                                    | No key signs mail for it, under any name. |
+When an address at oinam.dev is wanted, it is made with Cloudflare Email Routing (Email, Email
+Routing in the dashboard), which forwards mail for the address to an inbox that already exists.
+Turning it on adds the MX and SPF records Routing needs; let it, and add nothing by hand beside
+them. Nothing is ever sent from the domain itself, so no DKIM key is published for it.
 
-Email Routing stays off, and no other MX record is added.
-
-Cloudflare's zone-file import refuses the null MX, and drops the whole file with it, so the MX is
-added by hand under Add record, and the three TXT records are imported or added on their own.
+If the domain is to stay without mail, the other way is to say so in DNS, so that nobody can send
+mail that claims to come from it: a null MX (`.` at priority 0, added by hand, since Cloudflare's
+zone-file import refuses it), `v=spf1 -all`, and a DMARC record of `p=reject`. Choose one or the
+other: the no-mail records and Email Routing cannot stand together.
 
 ## One address: www goes to the root
 
@@ -40,14 +37,19 @@ site at two addresses.
 - **SSL/TLS:** Full (strict). Always Use HTTPS on. Minimum TLS 1.2; TLS 1.3 on.
 - **HSTS:** sent by the site itself, in `_headers`, for a year and without `includeSubDomains`, so
   a subdomain added later is not bound by it before it is ready.
-- **DNSSEC:** on, so the answers about the domain cannot be forged.
-- **CAA:** only the authority Cloudflare uses for the certificate may issue one for the domain.
 - **Methods:** a WAF custom rule blocks every request that is not `GET` or `HEAD`. The site has no
   forms and no endpoints, so nothing else has a use.
-- **Bots:** Bot Fight Mode on. It does not block the AI crawlers the site is written for; those are
-  left allowed under AI Crawl Control, on purpose.
 - **Pages preview deployments:** each branch gets its own address. They are left public, since the
   repository is public too; they can be put behind Cloudflare Access if that changes.
+
+## Not yet
+
+These are worth doing, and are left for later, by choice:
+
+- **DNSSEC**, so the answers about the domain cannot be forged. DNS, Settings, Enable DNSSEC.
+- **CAA**, so only the authorities Cloudflare uses may issue a certificate for the domain.
+- **Bot Fight Mode**, with the AI crawlers the site is written for left allowed under AI Crawl
+  Control.
 
 ## Not used
 
