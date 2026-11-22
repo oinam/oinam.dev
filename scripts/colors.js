@@ -228,7 +228,6 @@ function listPage(all) {
           const chips = [
             ["cloud", "Cloud", values.cloud],
             ["milk", "Milk", values.milk],
-            ["wash", "Wash", shades.wash],
             ["line", "Line", shades.line],
             ["line-strong", "Strong line", shades["line-strong"]],
             ["faint", "Faint", shades.faint],
@@ -278,7 +277,9 @@ ${strips}
             Colors are written in OKLCH: lightness, chroma, and hue, in that order. Two colors with the
             same hue are the same color at another depth, and it shows in the numbers. Each color's own
             page has its values, and the same colors in hex for a tool that wants them. Here, each row
-            is a color by day and by night, from the page to the text.
+            is a color by day and by night, from the page to the text: cloud, milk, the two lines, and
+            the three inks. The wash is left out here, since it is not a color of its own but a
+            faint tint of ink over whatever is under it; each color's page has it.
           </p>
         </o-stack>
         <o-stack class="color-list" gap="8">
