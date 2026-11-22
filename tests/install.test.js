@@ -296,3 +296,9 @@ test("a runtime upgrade points at the changelog on the site, and names no docume
   assert.doesNotMatch(said, /No longer part of the system/);
   assert.match(said, /https:\/\/oinam\.dev\/ui\/CHANGELOG\.md/);
 });
+
+test("an option after the folder is refused, not ignored", async () => {
+  await assert.rejects(install("_ui", "--runtime"), /before the folder/);
+  await assert.rejects(install("--full", "--runtime"), /before the folder/);
+  assert.ok(!existsSync(join(project, "_ui")));
+});

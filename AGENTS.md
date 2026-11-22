@@ -125,7 +125,9 @@ components; read this to change them.
   opening with a comment that shows the markup. `ui.css` and `ui.js` gather them.
 - **Made to be taken.** A project does not link to oinam.dev; it takes a copy with
   `public/ui/install.sh` and owns it. So nothing in a stylesheet or a script may name another
-  site, and the installer takes exactly the files `registry.json` names.
+  site, and the installer takes exactly the files `registry.json` names, or with `--runtime`, only
+  those a page loads. Bringing the system into a site that already exists is `public/ui/adopt.md`;
+  keep it in step with the installer and the linter.
 - **Linked, if at all, by release.** Some will link the files instead of taking them, so every file
   under `/ui/` may be loaded from any site, and each version's stylesheets, scripts, and fonts are
   kept frozen in `public/ui/releases/<version>/`. A released folder is never edited, formatted, or

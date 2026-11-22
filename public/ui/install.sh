@@ -4,7 +4,7 @@
 #
 #   curl -fsSL https://oinam.dev/ui/install.sh | sh
 #   curl -fsSL https://oinam.dev/ui/install.sh | sh -s -- public/ui
-#   curl -fsSL https://oinam.dev/ui/install.sh | sh -s -- --runtime _ui
+#   curl -fsSL https://oinam.dev/ui/install.sh | sh -s -- --runtime assets/ui
 #
 # It copies every file of the system into a folder of yours: ./ui, unless you
 # name another. From then on the files are yours. Nothing in them points back
@@ -36,6 +36,13 @@ case "${1:-}" in
 esac
 TO="${1:-ui}"
 LOCK="$TO/.installed"
+
+# The folder comes last. An option after it would be taken for a folder, or ignored.
+case "$TO" in -*) bad=1 ;; *) bad=$(($# > 1)) ;; esac
+if [ "$bad" -eq 1 ]; then
+  printf '%s\n' "Name the option before the folder: install.sh [--runtime | --full] [folder]" >&2
+  exit 2
+fi
 
 # A copy remembers how it was made: one installed without the guide is a runtime copy.
 if [ -z "$MODE" ]; then
@@ -170,8 +177,13 @@ if [ -z "$before" ]; then
   say '  <script type="module" src="/ui/ui.js"></script>'
   say ""
   say "Then read $DOCS/guide.md, or hand it to your agent. To have every agent in"
-  say "this project find it, add the \"Design\" note from that guide, under \"In a"
-  say "project\", to your AGENTS.md."
+  if [ "$MODE" = runtime ]; then
+    say "this project find it, add the note for a runtime copy, in $DOCS/adopt.md"
+    say "under \"Where the copy goes\", to your AGENTS.md."
+  else
+    say "this project find it, add the \"Design\" note from that guide, under \"In a"
+    say "project\", to your AGENTS.md."
+  fi
 elif [ "$added" -eq 0 ] && [ "$updated" -eq 0 ] && [ -z "$kept" ]; then
   say "Oinam UI $after in $TO/ is already up to date."
 elif [ "$before" = "$after" ]; then

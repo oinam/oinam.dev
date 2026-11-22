@@ -23,12 +23,22 @@ Some site generators publish every Markdown file they find as a page, and a site
 index it. The full copy holds the guide, a page for each component, the changelog, and the
 patterns. Keep them out of the published site in one of two ways:
 
-- **Install it where the generator does not publish.** For Jekyll, a folder whose name starts with
-  an underscore, such as `_ui/`. For Hugo, under `assets/`. For Eleventy, a folder named in
-  `.eleventyignore`. Check by building the site and looking for `guide.md` in the output.
-- **Install only what a page loads.** `curl -fsSL https://oinam.dev/ui/install.sh | sh -s --
---runtime _ui` takes the stylesheets, the scripts, and the fonts, and leaves the documents at
-  https://oinam.dev/ui/. Running it again keeps the copy that way; `--full` brings in the rest.
+- **Install the full copy where the generator does not publish** (best). For Jekyll, a folder whose
+  name starts with an underscore, such as `_ui/`. For Hugo, under `assets/`. For Eleventy, a folder
+  named in `.eleventyignore`. Check by building the site and looking for `guide.md` in the output.
+  The copy keeps the linter, the tools, and a guide that matches its version. Nothing in that folder
+  is served, so the build must fold or bundle what pages need (below), and copy out the rest:
+  `theme-init.js` and the fonts.
+- **Install only what a page loads, into a folder that is served.**
+  `curl -fsSL https://oinam.dev/ui/install.sh | sh -s -- --runtime assets/ui` takes the
+  stylesheets, the scripts, and the fonts. Running it again keeps the copy that way; `--full`
+  brings in the rest. There is no linter and no guide in it: read the guide at
+  https://oinam.dev/ui/guide.md, which is the newest version, not necessarily the copy's, and run the
+  linter from a full copy kept elsewhere, or not at all. The note for the project's `AGENTS.md`
+  then reads: "This project is designed with Oinam UI, a runtime copy of which is in `assets/ui/`.
+  Before designing or changing any page, read https://oinam.dev/ui/guide.md and follow it, and
+  check the version in `assets/ui/registry.json` against its changelog. Do not edit the files in
+  `assets/ui/`."
 
 ## Folding it into a build
 
@@ -36,7 +46,8 @@ patterns. Keep them out of the published site in one of two ways:
 one stylesheet should fold the files into it instead, and keep their layers. Write the layer order
 first, before anything else in the built file.
 
-With Dart Sass, which loads plain `.css` files:
+With Dart Sass, which loads plain `.css` files, with the copy in a folder Sass can find (beside the
+entry file, or on its load path; a site generator's Sass converter may have a load path of its own):
 
 ```scss
 @use "sass:meta";
@@ -92,7 +103,8 @@ without touching it. The system's base styles take margins off, so look at old p
 
 ## The linter on an existing site
 
-Lint the built pages, so that the templates are what is checked. Old content will report things the
+Lint the built pages, with the linter from a full copy, so that the templates are what is
+checked. Old content will report things the
 site has chosen not to mend, such as a skipped heading level from years ago. Set those aside for the
 region the content fills, with a reason, rather than not linting the page:
 
