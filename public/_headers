@@ -1,9 +1,16 @@
 # Cloudflare Pages response headers.
 # https://developers.cloudflare.com/pages/configuration/headers/
 
-# Everything the site loads comes from the site itself, so the policy can say so.
+# The site is static and loads nothing from anyone else, so every other door can be shut.
+# The content policy allows only the site's own files, no plugins, no framing, and no form
+# posts. HTTPS is remembered for a year; subdomains are left to choose for themselves. The
+# permissions policy switches off what the site never uses, and keeps the two it does: the
+# Copy buttons write to the clipboard, and the home page offers the device's share sheet.
 /*
-  Content-Security-Policy: default-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  Strict-Transport-Security: max-age=31536000
+  Cross-Origin-Opener-Policy: same-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(), bluetooth=(), hid=(), midi=(), display-capture=(), browsing-topics=(), clipboard-write=(self), web-share=(self)
   Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
 

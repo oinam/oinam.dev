@@ -50,7 +50,8 @@ until every point below holds.
 ## Website
 
 The site at https://oinam.dev is the `public/` folder, served as it is by Cloudflare Pages. Every
-push to `main` deploys it.
+push to `main` deploys it. How the Cloudflare zone around it is set up, and why, is in
+`docs/cloudflare.md`.
 
 - **For AI first.** Agents and AI tools are the readers; people mostly look. Content lives in the
   HTML itself, in semantic markup, and reads the same with scripts off. `public/llms.txt` maps the
