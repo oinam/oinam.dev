@@ -10,7 +10,9 @@ import { test } from "node:test";
 
 const ROOT = new URL("../", import.meta.url);
 const read = (path) => readFileSync(new URL(path, ROOT), "utf8");
-const find = (pattern) => globSync(pattern, { cwd: ROOT });
+// The released versions are frozen copies of files checked here when they were current.
+const released = (path) => path.startsWith("public/ui/releases/");
+const find = (pattern) => globSync(pattern, { cwd: ROOT, exclude: released });
 
 test("the site ships no dependencies, only tools for working on it", () => {
   const manifest = JSON.parse(read("package.json"));

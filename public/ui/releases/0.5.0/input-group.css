@@ -1,0 +1,59 @@
+/*
+ * Input group
+ *
+ * <o-input-group> puts something before or after a field, inside its frame: a
+ * unit, a prefix, or a button. The group draws the frame, so the .input
+ * inside it has none of its own.
+ *
+ *   <o-input-group>
+ *     <span>https://</span>
+ *     <input class="input" type="text" aria-label="Address" />
+ *     <button class="button" data-size="small" type="button">Go</button>
+ *   </o-input-group>
+ */
+
+o-input-group {
+  display: flex;
+  align-items: center;
+  height: var(--control);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-milk);
+  transition: border-color var(--duration) var(--ease);
+}
+
+o-input-group:hover,
+o-input-group:focus-within {
+  border-color: var(--color-ink);
+}
+
+/* The ring goes around the whole group, since the field inside has no edge to show it on. */
+
+o-input-group:has(.input:focus-visible) {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 1px;
+}
+
+o-input-group > .input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: none;
+}
+
+o-input-group > span {
+  padding-inline: var(--space-3);
+  color: var(--color-ink-faint);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+o-input-group > span + .input {
+  padding-left: 0;
+}
+
+o-input-group > .button {
+  margin-inline: var(--space-1);
+}

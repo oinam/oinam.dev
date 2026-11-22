@@ -2,8 +2,9 @@ import js from "@eslint/js";
 import globals from "globals";
 
 export default [
-  // Wrangler's scratch space, written by "npm run dev".
-  { ignores: [".wrangler/", "evals/runs/"] },
+  // Wrangler's scratch space, written by "npm run dev", the eval runs, and the released versions
+  // of the components, which stay as they were released whatever the rules become.
+  { ignores: [".wrangler/", "evals/runs/", "public/ui/releases/"] },
   js.configs.recommended,
   {
     files: ["public/**/*.js"],
@@ -16,7 +17,7 @@ export default [
   },
   {
     // Tools that a project runs with Node, not that a browser loads.
-    files: ["public/ui/tools/**/*.js", "evals/**/*.js"],
+    files: ["public/ui/tools/**/*.js", "evals/**/*.js", "scripts/**/*.js"],
     languageOptions: { globals: globals.node },
   },
   {

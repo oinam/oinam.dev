@@ -51,3 +51,12 @@ test("the browser features the site does not use are switched off", () => {
   assert.match(policy, /clipboard-write=\(self\)/);
   assert.match(policy, /web-share=\(self\)/);
 });
+
+test("the components may be loaded from other sites, and a release is kept for good", () => {
+  assert.equal(rule("/ui/*").get("access-control-allow-origin"), "*");
+
+  const releases = rule("/ui/releases/*");
+  assert.match(releases.get("cache-control") ?? "", /max-age=31536000, immutable/);
+  // Pages joins a header named in two matching rules; "*, *" is not a valid origin.
+  assert.equal(releases.has("access-control-allow-origin"), false);
+});

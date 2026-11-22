@@ -1,4 +1,4 @@
-# Oinam UI v0.4.1
+# Oinam UI v0.5.0
 
 A design system in plain HTML, CSS, and JavaScript. No framework, no build step, and no
 dependencies. This page is the core of it, written for an AI agent to read once and then design
@@ -19,6 +19,7 @@ for.
 ## Install
 
 Take a copy. The system is meant to live inside your project, not to be linked from oinam.dev.
+(To try it on a page without a copy, see "Linking instead", below.)
 
 ```sh
 curl -fsSL https://oinam.dev/ui/install.sh | sh
@@ -46,6 +47,26 @@ From then on the files are yours. Nothing in them points back at oinam.dev, and 
 them makes no request to anyone else. Every file stands alone, so a page can also link only the
 ones it uses: `tokens.css` and `base.css` first, then the files `registry.json` lists for each
 component.
+
+### Linking instead
+
+If you are an agent building a project, take a copy as above; this is not for you. Linking is for a
+person trying the system on a page, or for a demo that will never be upgraded.
+
+Every version is also served, frozen, at an address of its own, and any site may link it. The files
+there never change, so a page that links them keeps its look whatever a later version renames.
+
+```html
+<link rel="stylesheet" href="https://oinam.dev/ui/releases/0.5.0/ui.css" />
+<script src="https://oinam.dev/ui/releases/0.5.0/theme-init.js"></script>
+<script type="module" src="https://oinam.dev/ui/releases/0.5.0/ui.js"></script>
+```
+
+- Only the files a page loads are there: the stylesheets, the scripts, and the fonts. The guide,
+  the tools, and the patterns are read from https://oinam.dev/ui/.
+- The released versions are the headings of https://oinam.dev/ui/CHANGELOG.md, from 0.5.0 on.
+- https://oinam.dev/ui/ui.css also works from any site, but it is always the newest version. When
+  a version renames a class or a token, a page linked there changes without warning. Link a release.
 
 ## Upgrade
 

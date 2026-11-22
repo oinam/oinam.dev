@@ -126,6 +126,10 @@ components; read this to change them.
 - **Made to be taken.** A project does not link to oinam.dev; it takes a copy with
   `public/ui/install.sh` and owns it. So nothing in a stylesheet or a script may name another
   site, and the installer takes exactly the files `registry.json` names.
+- **Linked, if at all, by release.** Some will link the files instead of taking them, so every file
+  under `/ui/` may be loaded from any site, and each version's stylesheets, scripts, and fonts are
+  kept frozen in `public/ui/releases/<version>/`. A released folder is never edited, formatted, or
+  linted; a fix is a new version. Why, and how a release is cut, is in `docs/linking.md`.
 
 `public/ui/tools/` holds what a project runs with Node, and may use what Node itself provides but
 nothing that has to be installed. `tools/lint.js` checks a page against the rules a program can
@@ -157,6 +161,9 @@ A new version is named in each of these places, and the tests fail until they ag
 - the title of `public/ui/guide.md` and of the components page, and the header of `ui.css`
 - beside the site title, in the header of every page
 - a new entry at the top of `public/ui/CHANGELOG.md`
+- the release links in `public/ui/guide.md` and on the components page
+- `public/ui/releases/<version>/`, made with `mise run release` once everything above agrees, and
+  committed with the release. A file a release holds cannot then change without a new version.
 
 Projects take a copy of the components and upgrade it later, with an agent reading the changelog to
 learn what to change. So every changelog entry ends with "What to do", written as instructions to
@@ -183,6 +190,8 @@ are defined; `package.json` only lists the linters and the formatter.
 - `mise run test` runs the test suite with Node's test runner.
 - `mise run check` runs the format check, the linters, and the tests. CI runs the same task on
   every push and pull request.
+- `mise run release` freezes the current version's stylesheets, scripts, and fonts in
+  `public/ui/releases/<version>/`. It refuses a version already released.
 - `mise run social-card` draws `public/assets/www.oinam.dev.png`, the picture a shared link shows, from
   `docs/social-card.html`, with Chrome. Run it after changing that page, and commit both.
 

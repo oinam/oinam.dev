@@ -1,0 +1,51 @@
+/*
+ * Oinam UI v0.5.0
+ *
+ * The whole system in one link:
+ *
+ *   <link rel="stylesheet" href="/ui/ui.css" />
+ *
+ * Every file below also stands alone, so take only what a page needs. They
+ * all read their values from tokens.css, which is the one file to change.
+ *
+ * Everything loads into cascade layers. Styles written outside a layer always
+ * win over styles inside one, so a page's own CSS overrides any of this
+ * without a fight over specificity.
+ */
+
+@layer tokens, base, layout, components;
+
+@import url("tokens.css") layer(tokens);
+@import url("base.css") layer(base);
+@import url("text.css") layer(base);
+@import url("layout.css") layer(layout);
+@import url("button.css") layer(components);
+@import url("form.css") layer(components);
+@import url("card.css") layer(components);
+@import url("badge.css") layer(components);
+@import url("alert.css") layer(components);
+@import url("table.css") layer(components);
+@import url("facts.css") layer(components);
+@import url("accordion.css") layer(components);
+@import url("dialog.css") layer(components);
+@import url("tabs.css") layer(components);
+@import url("copy.css") layer(components);
+@import url("avatar.css") layer(components);
+@import url("item.css") layer(components);
+@import url("empty.css") layer(components);
+@import url("skeleton.css") layer(components);
+@import url("spinner.css") layer(components);
+@import url("progress.css") layer(components);
+@import url("ratio.css") layer(components);
+@import url("scroll.css") layer(components);
+@import url("button-group.css") layer(components);
+@import url("input-group.css") layer(components);
+@import url("slider.css") layer(components);
+@import url("toggle.css") layer(components);
+@import url("breadcrumb.css") layer(components);
+@import url("pagination.css") layer(components);
+@import url("popover.css") layer(components);
+@import url("menu.css") layer(components);
+@import url("tooltip.css") layer(components);
+@import url("toast.css") layer(components);
+@import url("example.css") layer(components);

@@ -103,6 +103,28 @@ edited its copy has a merge to do.
 
 **Revisit** if upgrades are being skipped. The answer is to make upgrading easier, not to link.
 
+## Link a release, never the newest
+
+**Decision.** Some people will link the files from oinam.dev rather than take them, to try the
+system or for a page they will not maintain. They are served for it: every file under `/ui/` may be
+loaded from any site, and each version from 0.5.0 on is also kept, frozen, at
+`/ui/releases/<version>/`. A release holds only what a page loads: the stylesheets, the scripts,
+and the fonts. A release once out is never changed; a fix is a new version.
+
+**Why.** Linking cannot be stopped, since the files are public, so it should at least be safe. A
+page linked to `/ui/ui.css` takes every new version the moment it ships, and a renamed class or
+token breaks it without a word. A page linked to a release keeps the look it was built with, the
+same promise a copy makes. Serving the files costs nothing worth counting: they are small static
+files on Cloudflare Pages, cached near each reader, and a release is cached for a year. A shared
+host for other people's files was never wanted; this is the system's own site, serving its own
+files.
+
+**What it costs.** Each version adds a folder that must never be edited, and the tests and
+linters step around it. Git stores a file that did not change between versions only once.
+
+**Revisit** if a release is ever needed that a frozen folder cannot be, or if linking becomes the
+way most sites use the system; then upgrading a linked page wants its own guide.
+
 ## Script is the exception
 
 **Decision.** A component uses the browser's own `popover`, `<dialog>`, `<details>`, and form

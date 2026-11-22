@@ -91,7 +91,10 @@ test("it takes every stylesheet and script of the system, with its documents and
   await install();
 
   const taken = tree(join(project, "ui"));
-  const system = tree(UI).filter((name) => /\.(css|js|woff2)$/.test(name));
+  // The released versions are served for linking, and are not part of a copy.
+  const system = tree(UI).filter(
+    (name) => /\.(css|js|woff2)$/.test(name) && !name.startsWith("releases/"),
+  );
 
   assert.deepEqual(
     system.filter((name) => !taken.includes(name)),

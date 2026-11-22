@@ -63,6 +63,10 @@ run = [
   { task = "test" },
 ]
 
+[tasks.release]
+description = "Freeze this version's stylesheets, scripts, and fonts in public/ui/releases/<version>/"
+run = "node scripts/release.js"
+
 [tasks.social-card]
 description = "Draw the picture shown when a link to the site is shared, from docs/social-card.html"
 run = """

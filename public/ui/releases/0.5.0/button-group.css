@@ -1,0 +1,42 @@
+/*
+ * Button group
+ *
+ * <o-button-group> joins buttons that belong together into one piece. It
+ * suits outline buttons best.
+ *
+ *   <o-button-group role="group" aria-label="Zoom">
+ *     <button class="button" data-variant="outline" type="button">Out</button>
+ *     <button class="button" data-variant="outline" type="button">Reset</button>
+ *     <button class="button" data-variant="outline" type="button">In</button>
+ *   </o-button-group>
+ */
+
+o-button-group {
+  display: inline-flex;
+}
+
+o-button-group > .button {
+  border-radius: 0;
+}
+
+/* Neighbors share one border, not two. */
+
+o-button-group > .button + .button {
+  margin-left: -1px;
+}
+
+o-button-group > .button:first-child {
+  border-top-left-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
+}
+
+o-button-group > .button:last-child {
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+/* The one in use sits on top, so its whole border and focus ring show. */
+
+o-button-group > .button:is(:hover, :focus-visible) {
+  z-index: 1;
+}

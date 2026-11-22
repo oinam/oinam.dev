@@ -5,3 +5,7 @@ LICENSE
 package-lock.json
 tests/fixtures/
 evals/runs/
+
+# Released versions of the components, served to sites that link them. They are frozen as they
+# were released, so a later formatter or rule must never rewrite one.
+public/ui/releases/

@@ -19,6 +19,12 @@
 /ui/*
   Access-Control-Allow-Origin: *
 
+# A released version never changes, so a browser may keep it for a year without asking again.
+# Only Cache-Control here: the rule above already sends Access-Control-Allow-Origin, and Pages
+# joins a header named in two matching rules, which would send it twice.
+/ui/releases/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Font files change rarely, and are large next to everything else here.
 /ui/fonts/*
   Cache-Control: public, max-age=604800

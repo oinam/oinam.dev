@@ -14,6 +14,26 @@ The numbers mean what they say:
 - The first number changes when a page that worked may stop working: a class, an element, an
   attribute, or a token was renamed or removed. Before 1.0.0, the middle number does this job too.
 
+## 0.5.0
+
+2026-11-22
+
+Releases to link. Nothing in the components changed.
+
+- Each version from this one on is also served, frozen, at
+  `https://oinam.dev/ui/releases/<version>/`: the stylesheets, the scripts, and the fonts, exactly
+  as they were released, cached for a year. A page that links a release instead of taking a copy
+  keeps its look when a later version renames a class or a token.
+- `guide.md`: a new section under Install, "Linking instead", says when to link and how. A project
+  an agent builds still takes a copy.
+
+### What to do
+
+Nothing in a page changes. Replace `guide.md`, `why.md`, `ui.css` (its header names the version),
+and `registry.json`. A page that links `https://oinam.dev/ui/ui.css` or another file under `/ui/`
+directly may change its links to `https://oinam.dev/ui/releases/0.5.0/` with the same file names,
+to stop taking new versions unasked.
+
 ## 0.4.1
 
 2026-11-22

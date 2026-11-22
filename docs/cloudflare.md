@@ -5,6 +5,8 @@ those files, and nothing should go out but the files. This page says how the zon
 it so, and why. The response headers live in `public/_headers`, and a test holds them; everything
 here is set in the Cloudflare dashboard, by hand, and is checked by looking.
 
+What other sites may load from the site, and why releases are kept frozen, is in `docs/linking.md`.
+
 ## Mail: Cloudflare Email Routing, when it is wanted
 
 The domain has no mailboxes of its own and sends nothing. For now it has no mail records at all.
