@@ -118,6 +118,18 @@ for (const design of designs) {
     assert.ok(css.includes(named), "the comment's Fonts line does not match variations.json");
   });
 
+  test(`${design.name}: a status color it changes still reads on its fill`, () => {
+    for (const status of ["success", "warning", "danger", "info"]) {
+      const [text, fill] = [`--color-${status}`, `--color-${status}-fill`];
+      if (!(text in tokens) && !(fill in tokens)) continue;
+      const [texts, fills] = [text, fill].map((name) => pair(tokens[name] ?? known[name]));
+      for (const [at, theme] of ["light", "dark"].entries()) {
+        const ratio = contrast(texts[at], fills[at]);
+        assert.ok(ratio >= 4.5, `${status}, ${theme}: ${ratio.toFixed(2)} to 1`);
+      }
+    }
+  });
+
   test(`${design.name}: keeps text readable, in light and in dark`, () => {
     const color = (name) => pair(tokens[name] ?? known[name]);
     const [inks, clouds, milks] = ["--color-ink", "--color-cloud", "--color-milk"].map(color);

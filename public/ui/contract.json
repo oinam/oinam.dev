@@ -54,7 +54,8 @@
     "o-badge": {
       "component": "badge",
       "attributes": {
-        "variant": ["solid"]
+        "variant": ["solid"],
+        "tone": ["success", "warning", "danger", "info"]
       }
     },
     "o-alert": {

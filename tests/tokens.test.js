@@ -8,7 +8,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
 
-import { hex, mix, rgb } from "../scripts/color.js";
+import { contrast, hex, mix, rgb } from "../scripts/color.js";
 
 const UI = new URL("../public/ui/", import.meta.url);
 const EXTENSION = "dev.oinam.ui";
@@ -144,5 +144,17 @@ test("shadows say what the CSS says", () => {
     const part = (length) => (length.value === 0 ? "0" : size(length));
     const written = `${part(value.offsetX)} ${part(value.offsetY)} ${part(value.blur)} rgb(0 0 0 / ${Math.round(value.color.alpha * 100)}%)`;
     assert.equal(written, css, property);
+  }
+});
+
+test("each status color reads on its own fill, in light and in dark", () => {
+  const statuses = ["success", "warning", "danger", "info"];
+  for (const status of statuses) {
+    const text = pair(declared[`--color-${status}`]);
+    const fill = pair(declared[`--color-${status}-fill`]);
+    for (const [at, theme] of ["light", "dark"].entries()) {
+      const ratio = contrast(text[at], fill[at]);
+      assert.ok(ratio >= 4.5, `${status}, ${theme}: ${ratio.toFixed(2)} to 1`);
+    }
   }
 });

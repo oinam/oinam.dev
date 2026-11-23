@@ -5,6 +5,14 @@
  *
  *   <o-badge>Soon</o-badge>
  *   <o-badge variant="solid">New</o-badge>
+ *
+ * A status that must be read at a glance, beside others like it, may take a
+ * tone: success, warning, danger, or info. The word still says it; the color
+ * only helps the eye. Each tone sets its text on its own fill, never on the
+ * page, so it reads the same whatever the page wears.
+ *
+ *   <o-badge tone="success">Verified</o-badge>
+ *   <o-badge tone="danger" variant="solid">Failed</o-badge>
  */
 
 o-badge {
@@ -25,4 +33,37 @@ o-badge[variant="solid"] {
   border-color: var(--color-ink);
   background: var(--color-ink);
   color: var(--color-cloud);
+}
+
+o-badge[tone="success"] {
+  --tone-text: var(--color-success);
+  --tone-fill: var(--color-success-fill);
+}
+
+o-badge[tone="warning"] {
+  --tone-text: var(--color-warning);
+  --tone-fill: var(--color-warning-fill);
+}
+
+o-badge[tone="danger"] {
+  --tone-text: var(--color-danger);
+  --tone-fill: var(--color-danger-fill);
+}
+
+o-badge[tone="info"] {
+  --tone-text: var(--color-info);
+  --tone-fill: var(--color-info-fill);
+}
+
+o-badge[tone] {
+  border-color: var(--tone-fill);
+  background: var(--tone-fill);
+  color: var(--tone-text);
+}
+
+/* Solid turns a tone over, as it turns ink and cloud over. */
+o-badge[tone][variant="solid"] {
+  border-color: var(--tone-text);
+  background: var(--tone-text);
+  color: var(--tone-fill);
 }

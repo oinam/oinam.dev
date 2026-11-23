@@ -1,0 +1,44 @@
+/*
+ * Alert
+ *
+ * <o-alert> sets a message apart from the text around it. There is no red and
+ * no yellow here, so weight carries the meaning: a note is a thin frame, a
+ * warning is a heavy one, and danger turns the colors over.
+ *
+ * Give it role="note", or role="alert" when it appears in answer to something
+ * the reader just did.
+ *
+ *   <o-alert variant="warning" role="note">
+ *     <strong>Warning</strong>
+ *     <p>This rewrites history.</p>
+ *   </o-alert>
+ */
+
+o-alert {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-milk);
+  font-size: var(--text-sm);
+}
+
+o-alert > p {
+  color: var(--color-ink-soft);
+}
+
+o-alert[variant="warning"] {
+  border: 2px solid var(--color-ink);
+}
+
+o-alert[variant="danger"] {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-cloud);
+}
+
+o-alert[variant="danger"] > p {
+  color: inherit;
+  opacity: 0.8;
+}

@@ -63,6 +63,7 @@ export const RULES = {
     "Two solid buttons side by side. One main action; the rest outline or ghost.",
   "unnamed-control": "A form control with no label.",
   "unnamed-button": "A button or link with nothing to call it.",
+  "wordless-tone": "A badge with a tone and no words. The color only helps; a word must say it.",
   "missing-alt": 'An image with no alt attribute. Use alt="" if it is decoration.',
   "heading-order": "More than one h1, or a heading level skipped.",
   "duplicate-id": "An id used twice.",
@@ -360,6 +361,9 @@ export function lintHtml(html, contract) {
           node,
           `${show} has no label. Give it a <label for>, wrap it in a <label>, or add aria-label.`,
         );
+    }
+    if (tag === "o-badge" && "tone" in attrs && !allText(node).trim()) {
+      report("wordless-tone", node, `${show} has a tone and no words. Say the status in it.`);
     }
     if ((tag === "button" || (tag === "a" && "href" in attrs)) && !named(node)) {
       const said =

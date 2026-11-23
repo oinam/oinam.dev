@@ -422,3 +422,10 @@ test("from the command line, it exits with 1 and names the file and line", () =>
     ],
   );
 });
+
+test("a badge with a tone must say its status in words", () => {
+  assert.deepEqual(html('<o-badge tone="success"></o-badge>'), ["wordless-tone"]);
+  assert.deepEqual(html('<o-badge tone="success">  </o-badge>'), ["wordless-tone"]);
+  assert.deepEqual(html('<o-badge tone="success">Verified</o-badge>'), []);
+  assert.deepEqual(html('<o-badge tone="purple">Verified</o-badge>'), ["unknown-value"]);
+});

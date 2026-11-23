@@ -23,6 +23,14 @@ weight alone, and a chart cannot tell five series apart.
 make clear enough to someone in a hurry. Then add one color, as a token, with a second cue beside
 it. Do not add it for decoration.
 
+**Revisited** in 0.7.0, for statuses. A report that stamps each row Verified, Unverified, or
+Failed was hard to read at a glance with a solid badge and two outlined ones, which is the case
+above. So a badge may take one of four tones, success, warning, danger, and info. The second cue is
+the word, which is always there, and the linter reports a toned badge without one. Each tone's text
+sits only on its own fill, so it passes whatever the page wears, and the hue stays on the badge:
+not on buttons, alerts, text, or borders. Base still has two colors, and a page that shows no
+status never sees a third.
+
 ## Tokens are the only way to change the look
 
 **Decision.** A variation is a stylesheet of token values and nothing else. It does not restyle a

@@ -1,4 +1,4 @@
-# Oinam UI v0.6.0
+# Oinam UI v0.7.0
 
 A design system in plain HTML, CSS, and JavaScript. No framework, no build step, and no
 dependencies. This page is the core of it, written for an AI agent to read once and then design
@@ -60,9 +60,9 @@ Every version is also served, frozen, at an address of its own, and any site may
 there never change, so a page that links them keeps its look whatever a later version renames.
 
 ```html
-<link rel="stylesheet" href="https://oinam.dev/ui/releases/0.6.0/ui.css" />
-<script src="https://oinam.dev/ui/releases/0.6.0/theme-init.js"></script>
-<script type="module" src="https://oinam.dev/ui/releases/0.6.0/ui.js"></script>
+<link rel="stylesheet" href="https://oinam.dev/ui/releases/0.7.0/ui.css" />
+<script src="https://oinam.dev/ui/releases/0.7.0/theme-init.js"></script>
+<script type="module" src="https://oinam.dev/ui/releases/0.7.0/ui.js"></script>
 ```
 
 - Only the files a page loads are there: the stylesheets, the scripts, and the fonts. The guide,
@@ -155,6 +155,12 @@ or when the owner asks you to.
 - **Two colors only.** Ink is nearly black; cloud is nearly white. Everything else is ink mixed
   into cloud. Do not add a hue. Show emphasis with weight, size, a border, or by swapping ink and
   cloud.
+- **One exception: a status read at a glance.** When a page shows several statuses side by side,
+  such as Verified, Unverified, and Failed on each row of a report, a badge may take a tone:
+  `<o-badge tone="success">`, `warning`, `danger`, or `info`. Only a badge, only for a status, and
+  always with the word: the color helps the eye, and the word says it. Never a tone for decoration,
+  emphasis, or a single status alone on a page. Each tone's text sits on its own fill, which keeps it
+  at 7 to 1 or better in both themes; do not set a status color on anything else.
 - **Use the tokens.** Never write a raw color, font, or radius. Use `var(--color-ink)`,
   `var(--space-4)`, `var(--radius-md)`.
 - **Lay out with the layout elements**, not with margins. `<o-stack>` for a column, `<o-row>` for a
@@ -402,7 +408,8 @@ Rules for a variation:
 - Give every color both values with `light-dark()`, so light and dark still come for free.
 - Keep text readable: ink on cloud, and the soft and faint inks on cloud and on milk, must stay at a
   contrast of 4.5 to 1 or better.
-- Base has two colors. A variation chooses its own two; it does not add a third.
+- Base has two colors. A variation chooses its own two; it does not add a third. It may change a
+  status color and its fill, as a pair, and the two must stay at 4.5 to 1 or better.
 - Keep the file outside the `ui/` folder, with the project's own styles, so that upgrading the
   system never touches it.
 
