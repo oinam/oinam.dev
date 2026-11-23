@@ -8,16 +8,17 @@
     by 196.5, turned 114.9 degrees, and its counter is 224.5 by 106.5, turned 105
     degrees. The slash is a bar 69.4 wide through the center, rising at 49.7
     degrees. The four paths are what is left of the square: a corner on each side
-    of the slash, and the two halves of the counter.
+    of the slash, and the two halves of the counter. The slash's four corners
+    are rounded, radius 8, tangent to its edges (2026-11-23).
 
     It is drawn in currentColor, so it takes the color of the text around it.
     Pages reference it instead of repeating it:
     <svg viewBox="0 0 600 600"><use href="/assets/logo.svg#mark" /></svg>
   -->
   <g id="mark" fill="currentColor">
-    <path d="M0.08 600L119.87 458.75A252.4 196.5 114.9 0 1 434.34 87.94L508.92 0L0 0L0 600Z" />
+    <path d="M17.35 600A8 8 0 0 1 11.25 586.83L119.87 458.75A252.4 196.5 114.9 0 1 434.34 87.94L506.52 2.83A8 8 0 0 1 512.62 0L0 0L0 600Z" />
     <path d="M181.87 385.65A224.5 106.5 105 0 1 401.87 126.23Z" />
-    <path d="M91.08 600L165.66 512.06A252.4 196.5 114.9 0 0 480.13 141.25L599.92 0L600 0L600 600Z" />
+    <path d="M87.38 600A8 8 0 0 0 93.48 597.17L165.66 512.06A252.4 196.5 114.9 0 0 480.13 141.25L588.75 13.17A8 8 0 0 0 582.65 0L600 0L600 600Z" />
     <path d="M198.13 473.77A224.5 106.5 105 0 0 418.13 214.35Z" />
   </g>
 </svg>
