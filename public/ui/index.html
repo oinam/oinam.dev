@@ -478,9 +478,9 @@
               <o-stack>
                 <h2>Alert</h2>
                 <p>
-                  <code>&lt;o-alert&gt;</code> sets a message apart. There is no red and no yellow
-                  here, so weight carries the meaning: a note is a thin frame, a warning is a heavy
-                  one, and danger turns the colors over.
+                  <code>&lt;o-alert&gt;</code> sets a message apart. Weight carries the meaning, not
+                  color: a note is a thin frame, a warning is a heavy one, and danger turns the
+                  colors over.
                 </p>
                 <o-example>
                   <o-stack>
@@ -495,6 +495,30 @@
                     <o-alert variant="danger" role="note">
                       <strong>Danger</strong>
                       <p>This cannot be undone.</p>
+                    </o-alert>
+                  </o-stack>
+                </o-example>
+                <p>
+                  An alert may take the tone of what it says, as a badge does. The weight still
+                  carries the meaning, so the tone agrees with the variant.
+                </p>
+                <o-example>
+                  <o-stack>
+                    <o-alert tone="info" role="note">
+                      <strong>Note</strong>
+                      <p>The new rates start on the first of the month.</p>
+                    </o-alert>
+                    <o-alert tone="success" role="note">
+                      <strong>Saved</strong>
+                      <p>Your changes are live.</p>
+                    </o-alert>
+                    <o-alert variant="warning" tone="warning" role="note">
+                      <strong>Unverified</strong>
+                      <p>Two rows have no receipt yet.</p>
+                    </o-alert>
+                    <o-alert variant="danger" tone="danger" role="note">
+                      <strong>Payment failed</strong>
+                      <p>The card was declined. Nothing was charged.</p>
                     </o-alert>
                   </o-stack>
                 </o-example>

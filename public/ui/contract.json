@@ -61,7 +61,8 @@
     "o-alert": {
       "component": "alert",
       "attributes": {
-        "variant": ["warning", "danger"]
+        "variant": ["warning", "danger"],
+        "tone": ["success", "warning", "danger", "info"]
       }
     },
     "o-table": {

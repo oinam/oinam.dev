@@ -18,24 +18,28 @@ The numbers mean what they say:
 
 2026-11-23
 
-Status tones: the one place the system uses a hue, for a status read at a glance. Base still has two
-colors, and nothing is renamed or removed.
+Status tones: the one place the system uses a hue, for a status read at a glance, on badges and
+alerts. Base still has two colors, and nothing is renamed or removed.
 
 - `<o-badge tone="success|warning|danger|info">`: a badge whose status sits among others like it,
   such as Verified, Unverified, and Failed on each row of a report, may take a tone. The word still
   says it. `variant="solid"` turns a tone over.
+- `<o-alert tone="success|warning|danger|info">`: an alert may take the tone of what it says. Its
+  weight still carries the meaning, so `variant="warning"` takes `tone="warning"`, and
+  `variant="danger"` takes `tone="danger"`, which turns the tone over.
 - `tokens.css` and `tokens.json`: eight new tokens, `--color-success`, `--color-warning`,
   `--color-danger`, and `--color-info`, each with a `-fill` to sit on, each with a light and a dark
   value. A status color is only ever set on its own fill, at 7 to 1 or better.
-- `tools/lint.js`: a toned badge with no words is a new finding, `wordless-tone`.
+- `tools/lint.js`: two new findings, `wordless-tone` for a toned badge with no words, and
+  `tone-disagrees` for an alert whose tone and variant say different things.
 - `guide.md` and `why.md`: when a hue is allowed, and why the two-color rule bends here and nowhere
   else.
 
 ### What to do
 
 Nothing in a page has to change. Replace `tokens.css`, `tokens.json`, `badge.css`, `ui.css` (its
-header names the version), `tools/lint.js`, `guide.md`, `why.md`, `contract.json`,
-`components/badge.md`, and `registry.json`; running the installer again does all of it.
+header names the version), `alert.css`, `tools/lint.js`, `guide.md`, `why.md`, `contract.json`,
+`components/badge.md`, `components/alert.md`, and `registry.json`; running the installer again does all of it.
 
 - A project that gave its statuses colors of its own may use the tones instead: set
   `tone="success"`, `tone="warning"`, or `tone="danger"` on the `<o-badge>`, and delete the

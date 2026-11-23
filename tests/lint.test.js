@@ -429,3 +429,22 @@ test("a badge with a tone must say its status in words", () => {
   assert.deepEqual(html('<o-badge tone="success">Verified</o-badge>'), []);
   assert.deepEqual(html('<o-badge tone="purple">Verified</o-badge>'), ["unknown-value"]);
 });
+
+test("an alert's tone must agree with its variant", () => {
+  assert.deepEqual(html('<o-alert tone="info" role="note"><p>Read.</p></o-alert>'), []);
+  assert.deepEqual(
+    html('<o-alert variant="danger" tone="danger" role="note"><p>Gone.</p></o-alert>'),
+    [],
+  );
+  assert.deepEqual(
+    html('<o-alert variant="danger" tone="success" role="note"><p>Gone.</p></o-alert>'),
+    ["tone-disagrees"],
+  );
+  assert.deepEqual(
+    html('<o-alert variant="warning" tone="info" role="note"><p>Careful.</p></o-alert>'),
+    ["tone-disagrees"],
+  );
+  assert.deepEqual(html('<o-alert tone="purple" role="note"><p>Read.</p></o-alert>'), [
+    "unknown-value",
+  ]);
+});

@@ -16,3 +16,25 @@ just did. Open with a `<strong>` title.
   <p>This rewrites history.</p>
 </o-alert>
 ```
+
+## Tone
+
+An alert may take a tone, `success`, `warning`, `danger`, or `info`, when the color helps the eye
+find what it says: a save that went through, a payment that failed. It is the same tone a badge
+takes, the text on its own fill, at 7 to 1 or better in both themes. The weight still carries the
+meaning, so a tone agrees with the variant: `variant="warning"` takes `tone="warning"`, and
+`variant="danger"` takes `tone="danger"`, where the tone turns over as ink and cloud do. The linter
+reports a tone that disagrees, as `tone-disagrees`.
+
+```html
+<o-alert tone="success" role="status">
+  <strong>Saved</strong>
+  <p>Your changes are live.</p>
+</o-alert>
+<o-alert variant="danger" tone="danger" role="alert">
+  <strong>Payment failed</strong>
+  <p>The card was declined. Nothing was charged.</p>
+</o-alert>
+```
+
+Without a tone, an alert is as it always was: weight alone, in the page's two colors.

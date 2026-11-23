@@ -64,6 +64,7 @@ export const RULES = {
   "unnamed-control": "A form control with no label.",
   "unnamed-button": "A button or link with nothing to call it.",
   "wordless-tone": "A badge with a tone and no words. The color only helps; a word must say it.",
+  "tone-disagrees": "An alert whose tone says one thing and whose variant another.",
   "missing-alt": 'An image with no alt attribute. Use alt="" if it is decoration.',
   "heading-order": "More than one h1, or a heading level skipped.",
   "duplicate-id": "An id used twice.",
@@ -364,6 +365,18 @@ export function lintHtml(html, contract) {
     }
     if (tag === "o-badge" && "tone" in attrs && !allText(node).trim()) {
       report("wordless-tone", node, `${show} has a tone and no words. Say the status in it.`);
+    }
+    if (
+      tag === "o-alert" &&
+      "tone" in attrs &&
+      ["warning", "danger"].includes(attrs.variant) &&
+      attrs.tone !== attrs.variant
+    ) {
+      report(
+        "tone-disagrees",
+        node,
+        `${show} is a ${attrs.variant} with a ${attrs.tone} tone. Make them agree: tone="${attrs.variant}".`,
+      );
     }
     if ((tag === "button" || (tag === "a" && "href" in attrs)) && !named(node)) {
       const said =

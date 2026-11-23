@@ -157,10 +157,13 @@ or when the owner asks you to.
   cloud.
 - **One exception: a status read at a glance.** When a page shows several statuses side by side,
   such as Verified, Unverified, and Failed on each row of a report, a badge may take a tone:
-  `<o-badge tone="success">`, `warning`, `danger`, or `info`. Only a badge, only for a status, and
-  always with the word: the color helps the eye, and the word says it. Never a tone for decoration,
-  emphasis, or a single status alone on a page. Each tone's text sits on its own fill, which keeps it
-  at 7 to 1 or better in both themes; do not set a status color on anything else.
+  `<o-badge tone="success">`, `warning`, `danger`, or `info`. An alert may take the tone of what it
+  says, `<o-alert tone="success">`, and a toned alert keeps its weight: `variant="warning"` takes
+  `tone="warning"`, and `variant="danger"` takes `tone="danger"`. Only a badge or an alert, only for
+  a status, and always with the words: the color helps the eye, and the words say it. Never a tone
+  for decoration, emphasis, or a single badge alone on a page. Each tone's text sits on its own
+  fill, which keeps it at 7 to 1 or better in both themes; do not set a status color on anything
+  else.
 - **Use the tokens.** Never write a raw color, font, or radius. Use `var(--color-ink)`,
   `var(--space-4)`, `var(--radius-md)`.
 - **Lay out with the layout elements**, not with margins. `<o-stack>` for a column, `<o-row>` for a

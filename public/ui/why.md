@@ -26,9 +26,11 @@ it. Do not add it for decoration.
 **Revisited** in 0.7.0, for statuses. A report that stamps each row Verified, Unverified, or
 Failed was hard to read at a glance with a solid badge and two outlined ones, which is the case
 above. So a badge may take one of four tones, success, warning, danger, and info. The second cue is
-the word, which is always there, and the linter reports a toned badge without one. Each tone's text
-sits only on its own fill, so it passes whatever the page wears, and the hue stays on the badge:
-not on buttons, alerts, text, or borders. Base still has two colors, and a page that shows no
+the word, which is always there, and the linter reports a toned badge without one. Alerts may take
+the same tones, because a message that says a payment failed or a save went through is a status
+too. An alert's weight still says how much it matters, so its tone must agree with its variant, and
+the linter reports one that does not. Each tone's text sits only on its own fill, so it passes
+whatever the page wears, and the hue stays on badges and alerts: not on buttons, text, or borders. Base still has two colors, and a page that shows no
 status never sees a third.
 
 ## Tokens are the only way to change the look
