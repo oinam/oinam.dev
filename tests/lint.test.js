@@ -448,3 +448,25 @@ test("an alert's tone must agree with its variant", () => {
     "unknown-value",
   ]);
 });
+
+test("a badge with a hue must say its kind in words, and is not also a status", () => {
+  assert.deepEqual(html('<o-badge hue="1"></o-badge>'), ["wordless-hue"]);
+  assert.deepEqual(html('<o-badge hue="1">Design</o-badge>'), []);
+  assert.deepEqual(html('<o-badge hue="7">Design</o-badge>'), ["unknown-value"]);
+  assert.deepEqual(html('<o-badge hue="2" tone="success">Design</o-badge>'), ["hue-and-tone"]);
+});
+
+test("an accent button is the solid one, so it counts as the one main action", () => {
+  assert.deepEqual(
+    html(
+      '<div><button class="button" data-variant="accent" type="button">Apply</button><button class="button" data-variant="outline" type="button">Save</button></div>',
+    ),
+    [],
+  );
+  assert.deepEqual(
+    html(
+      '<div><button class="button" data-variant="accent" type="button">Apply</button><button class="button" type="button">Save</button></div>',
+    ),
+    ["two-solid-buttons"],
+  );
+});

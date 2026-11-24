@@ -6,6 +6,7 @@
  *   <button class="button" type="button">Save</button>
  *   <a class="button" href="/docs/">Read the docs</a>
  *
+ * data-variant="accent"           The one main action, in the accent color.
  * data-variant="outline|ghost"    A quieter button, then a quieter one still.
  * data-size="small|large|icon"    icon is a square, for a lone icon.
  * aria-busy="true"                While it works: a spinner, and no more presses.
@@ -66,6 +67,23 @@
   border-radius: var(--radius-full);
   animation: button-busy 0.7s linear infinite;
   content: "";
+}
+
+/*
+ * The accent is the solid button in color, for the one main action. Its hover
+ * leans toward ink instead of fading, which would lower its label's contrast.
+ */
+
+.button[data-variant="accent"] {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+}
+
+.button[data-variant="accent"]:hover {
+  border-color: color-mix(in oklab, var(--color-accent) 85%, var(--color-ink));
+  background: color-mix(in oklab, var(--color-accent) 85%, var(--color-ink));
+  opacity: 1;
 }
 
 .button[data-variant="outline"] {

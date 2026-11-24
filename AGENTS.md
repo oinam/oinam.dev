@@ -126,7 +126,9 @@ components; read this to change them.
 - **Tokens only.** Every color, size, and shape is a custom property from `tokens.css`, and is
   written a second time in `tokens.json`, in the Design Tokens format; a test holds the two
   together, so change both. Two colors
-  do all the work, and no component adds a hue.
+  do all the work. Color is let in for three jobs only, each with its own tokens: a status (the
+  tones), a kind (the numbered hues), and the one main action (the accent). No component adds a
+  hue for anything else; why is in `public/ui/why.md`, under "Two colors".
 - **Base, and variations of it.** The values in `tokens.css` are Base, the default design. A
   variation is a new look made by changing tokens and nothing else, kept in a stylesheet of its
   own. A change that tokens cannot express is a change to Base, and is made here.

@@ -1,7 +1,7 @@
 /*
  * Badge
  *
- * <o-badge> is a small label: a status, a count, a "new".
+ * <o-badge> is a small label: a status, a kind, a count, a "new".
  *
  *   <o-badge>Soon</o-badge>
  *   <o-badge variant="solid">New</o-badge>
@@ -13,6 +13,14 @@
  *
  *   <o-badge tone="success">Verified</o-badge>
  *   <o-badge tone="danger" variant="solid">Failed</o-badge>
+ *
+ * A kind of thing, such as the topic of a post, told apart from other kinds
+ * at a glance, may take a hue, numbered 1 to 6. A page gives each kind its
+ * own number and keeps to it. A kind is a tag, not a status, so its corners
+ * are squarer than a tone's, which tells the two apart in a row of both.
+ *
+ *   <o-badge hue="1">Design</o-badge>
+ *   <o-badge hue="2">Engineering</o-badge>
  */
 
 o-badge {
@@ -66,4 +74,41 @@ o-badge[tone][variant="solid"] {
   border-color: var(--tone-text);
   background: var(--tone-text);
   color: var(--tone-fill);
+}
+
+o-badge[hue="1"] {
+  --tone-text: var(--color-hue-1);
+  --tone-fill: var(--color-hue-1-fill);
+}
+
+o-badge[hue="2"] {
+  --tone-text: var(--color-hue-2);
+  --tone-fill: var(--color-hue-2-fill);
+}
+
+o-badge[hue="3"] {
+  --tone-text: var(--color-hue-3);
+  --tone-fill: var(--color-hue-3-fill);
+}
+
+o-badge[hue="4"] {
+  --tone-text: var(--color-hue-4);
+  --tone-fill: var(--color-hue-4-fill);
+}
+
+o-badge[hue="5"] {
+  --tone-text: var(--color-hue-5);
+  --tone-fill: var(--color-hue-5-fill);
+}
+
+o-badge[hue="6"] {
+  --tone-text: var(--color-hue-6);
+  --tone-fill: var(--color-hue-6-fill);
+}
+
+o-badge[hue] {
+  border-color: var(--tone-fill);
+  border-radius: var(--radius-sm);
+  background: var(--tone-fill);
+  color: var(--tone-text);
 }

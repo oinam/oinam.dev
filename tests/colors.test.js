@@ -8,6 +8,7 @@ import assert from "node:assert/strict";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { test } from "node:test";
 
+import { contrast, parse, rgb } from "../scripts/color.js";
 import { colors, render } from "../scripts/colors.js";
 
 const ROOT = new URL("../", import.meta.url);
@@ -107,5 +108,21 @@ test("every color's page is in the sitemap", () => {
   assert.ok(sitemap.includes("<loc>https://oinam.dev/colors/</loc>"));
   for (const color of all) {
     assert.ok(sitemap.includes(`<loc>https://oinam.dev/colors/${color.id}/</loc>`), color.id);
+  }
+});
+
+test("Base's accent stands out on every color's page, in light and in dark", () => {
+  const tokens = read("public/ui/tokens.css");
+  const accents = tokens
+    .match(/--color-accent:\s*light-dark\((#[0-9a-f]+), (#[0-9a-f]+)\)/)
+    .slice(1)
+    .map(rgb);
+  for (const color of all) {
+    for (const [at, theme] of ["light", "dark"].entries()) {
+      for (const role of ["cloud", "milk"]) {
+        const edge = contrast(accents[at], parse(color[role][at]));
+        assert.ok(edge >= 3, `${color.name}, ${role}, ${theme}: ${edge.toFixed(2)} to 1`);
+      }
+    }
   }
 });

@@ -1,6 +1,6 @@
 {
   "name": "Oinam UI",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "A design system in plain HTML, CSS, and JavaScript: custom elements for structure, native elements for the work, and no framework or build step.",
   "design": "Base",
   "variations": "https://oinam.dev/garden/variations.json",
@@ -166,7 +166,7 @@
       "use": "<o-badge>",
       "files": ["badge.css"],
       "script": false,
-      "description": "A small label: a status, a count, a \"new\".",
+      "description": "A small label: a status, a kind, a count, a \"new\".",
       "doc": "components/badge.md"
     },
     {

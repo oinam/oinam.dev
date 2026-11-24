@@ -52,7 +52,7 @@
             <span class="brand-name">Oinam<span class="brand-tld">.DEV</span></span>
           </a>
           <a class="brand-version" href="/ui/CHANGELOG.md" title="What changed in each version"
-            ><code>v0.7.0</code></a
+            ><code>v0.8.0</code></a
           >
         </div>
 
@@ -181,7 +181,7 @@
 
           <div class="page">
             <o-stack gap="4">
-              <h1>Oinam UI <span class="version">v0.7.0</span></h1>
+              <h1>Oinam UI <span class="version">v0.8.0</span></h1>
               <p class="lede">
                 Components in plain HTML, CSS, and JavaScript, made so that the first draft of a
                 page does not look like every other page an AI has made. Custom elements give a page
@@ -258,9 +258,9 @@
                         itself always gets the newest version, and can break without warning.
                       </p>
                       <o-copy>
-                        <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://oinam.dev/ui/releases/0.7.0/ui.css&quot; /&gt;
-&lt;script src=&quot;https://oinam.dev/ui/releases/0.7.0/theme-init.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;module&quot; src=&quot;https://oinam.dev/ui/releases/0.7.0/ui.js&quot;&gt;&lt;/script&gt;</code></pre>
+                        <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://oinam.dev/ui/releases/0.8.0/ui.css&quot; /&gt;
+&lt;script src=&quot;https://oinam.dev/ui/releases/0.8.0/theme-init.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;module&quot; src=&quot;https://oinam.dev/ui/releases/0.8.0/ui.js&quot;&gt;&lt;/script&gt;</code></pre>
                       </o-copy>
                     </o-stack>
                   </section>
@@ -452,7 +452,9 @@
             <section class="specimen" id="badge">
               <o-stack>
                 <h2>Badge</h2>
-                <p><code>&lt;o-badge&gt;</code> is a small label: a status, a count, a "new".</p>
+                <p>
+                  <code>&lt;o-badge&gt;</code> is a small label: a status, a kind, a count, a "new".
+                </p>
                 <o-example>
                   <o-row>
                     <o-badge>Soon</o-badge>
@@ -470,6 +472,20 @@
                     <o-badge tone="danger">Failed, refunded</o-badge>
                     <o-badge tone="info">Beta</o-badge>
                     <o-badge tone="danger" variant="solid">Failed</o-badge>
+                  </o-row>
+                </o-example>
+                <p>
+                  Things of several kinds, such as the topics of a listing, may take a hue, numbered
+                  1 to 6. A kind is a tag, so its corners are squarer than a status.
+                </p>
+                <o-example>
+                  <o-row>
+                    <o-badge hue="1">Design</o-badge>
+                    <o-badge hue="2">Engineering</o-badge>
+                    <o-badge hue="3">Product</o-badge>
+                    <o-badge hue="4">Leadership</o-badge>
+                    <o-badge hue="5">AI</o-badge>
+                    <o-badge hue="6">Remote</o-badge>
                   </o-row>
                 </o-example>
               </o-stack>
@@ -751,7 +767,7 @@
                 <h2>Button</h2>
                 <p>
                   A class, because <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> already do
-                  the job. <code>data-variant</code> takes outline or ghost, and
+                  the job. <code>data-variant</code> takes accent, outline, or ghost, and
                   <code>data-size</code> takes small, large, or icon. While it works,
                   <code>aria-busy</code> shows a spinner and turns away further presses.
                 </p>
@@ -761,6 +777,19 @@
                     <button class="button" data-variant="outline" type="button">Preview</button>
                     <button class="button" data-variant="ghost" type="button">Cancel</button>
                     <button class="button" type="button" disabled>Disabled</button>
+                  </o-row>
+                </o-example>
+                <p>
+                  The one main action of a group may be the accent: the solid button in color. It
+                  takes the solid button's place, and the rest stay outline or ghost.
+                </p>
+                <o-example>
+                  <o-row>
+                    <a class="button" data-variant="accent" href="/apply/"
+                      >Open posting and apply</a
+                    >
+                    <button class="button" data-variant="outline" type="button">Save</button>
+                    <button class="button" data-variant="ghost" type="button">Hide</button>
                   </o-row>
                 </o-example>
                 <o-example>

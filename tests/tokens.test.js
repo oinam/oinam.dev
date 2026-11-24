@@ -158,3 +158,43 @@ test("each status color reads on its own fill, in light and in dark", () => {
     }
   }
 });
+
+test("each kind's color reads on its own fill, at 7 to 1, in light and in dark", () => {
+  for (let n = 1; n <= 6; n++) {
+    const text = pair(declared[`--color-hue-${n}`]);
+    const fill = pair(declared[`--color-hue-${n}-fill`]);
+    for (const [at, theme] of ["light", "dark"].entries()) {
+      const ratio = contrast(text[at], fill[at]);
+      assert.ok(ratio >= 7, `hue ${n}, ${theme}: ${ratio.toFixed(2)} to 1`);
+    }
+  }
+});
+
+test("the accent stands out from the page, and its label reads on it, hovered or not", () => {
+  const [accents, labels, inks, clouds, milks] = [
+    "--color-accent",
+    "--color-accent-text",
+    "--color-ink",
+    "--color-cloud",
+    "--color-milk",
+  ].map((name) => pair(declared[name]));
+  for (const [at, theme] of ["light", "dark"].entries()) {
+    const accent = accents[at];
+    // button.css leans the hovered accent 15% toward ink.
+    const hovered = mix(accent, inks[at], 0.85);
+    for (const [ground, name] of [
+      [clouds[at], "cloud"],
+      [milks[at], "milk"],
+    ]) {
+      const edge = contrast(accent, ground);
+      assert.ok(edge >= 3, `accent on ${name}, ${theme}: ${edge.toFixed(2)} to 1`);
+    }
+    for (const [fill, state] of [
+      [accent, "at rest"],
+      [hovered, "hovered"],
+    ]) {
+      const ratio = contrast(labels[at], fill);
+      assert.ok(ratio >= 4.5, `label ${state}, ${theme}: ${ratio.toFixed(2)} to 1`);
+    }
+  }
+});

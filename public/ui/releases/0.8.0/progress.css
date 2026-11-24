@@ -1,0 +1,34 @@
+/*
+ * Progress
+ *
+ * A class on <progress>, which already knows how far along it is and tells a
+ * screen reader so.
+ *
+ *   <label for="upload">Uploading the chart</label>
+ *   <progress class="progress" id="upload" value="40" max="100">40%</progress>
+ */
+
+.progress {
+  display: block;
+  width: 100%;
+  height: 0.5rem;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-line);
+  appearance: none;
+}
+
+/* Each browser draws the bar with a part of its own. */
+
+.progress::-webkit-progress-bar {
+  background: var(--color-line);
+}
+
+.progress::-webkit-progress-value {
+  background: var(--color-ink);
+}
+
+.progress::-moz-progress-bar {
+  background: var(--color-ink);
+}

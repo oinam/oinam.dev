@@ -130,6 +130,36 @@ for (const design of designs) {
     }
   });
 
+  test(`${design.name}: a kind color it changes still reads on its fill`, () => {
+    for (let n = 1; n <= 6; n++) {
+      const [text, fill] = [`--color-hue-${n}`, `--color-hue-${n}-fill`];
+      if (!(text in tokens) && !(fill in tokens)) continue;
+      const [texts, fills] = [text, fill].map((name) => pair(tokens[name] ?? known[name]));
+      for (const [at, theme] of ["light", "dark"].entries()) {
+        const ratio = contrast(texts[at], fills[at]);
+        assert.ok(ratio >= 4.5, `hue ${n}, ${theme}: ${ratio.toFixed(2)} to 1`);
+      }
+    }
+  });
+
+  test(`${design.name}: the accent stands out from its page, and its label reads on it`, () => {
+    const color = (name) => pair(tokens[name] ?? known[name]);
+    const [accents, labels, clouds, milks] = [
+      "--color-accent",
+      "--color-accent-text",
+      "--color-cloud",
+      "--color-milk",
+    ].map(color);
+    for (const [at, theme] of ["light", "dark"].entries()) {
+      for (const ground of [clouds[at], milks[at]]) {
+        const edge = contrast(accents[at], ground);
+        assert.ok(edge >= 3, `accent on the page, ${theme}: ${edge.toFixed(2)} to 1`);
+      }
+      const ratio = contrast(labels[at], accents[at]);
+      assert.ok(ratio >= 4.5, `accent label, ${theme}: ${ratio.toFixed(2)} to 1`);
+    }
+  });
+
   test(`${design.name}: keeps text readable, in light and in dark`, () => {
     const color = (name) => pair(tokens[name] ?? known[name]);
     const [inks, clouds, milks] = ["--color-ink", "--color-cloud", "--color-milk"].map(color);

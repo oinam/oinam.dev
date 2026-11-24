@@ -65,6 +65,8 @@ export const RULES = {
   "unnamed-button": "A button or link with nothing to call it.",
   "wordless-tone": "A badge with a tone and no words. The color only helps; a word must say it.",
   "tone-disagrees": "An alert whose tone says one thing and whose variant another.",
+  "wordless-hue": "A badge with a hue and no words. The color only helps; a word must say it.",
+  "hue-and-tone": "A badge with both a hue and a tone. A badge is a kind or a status, not both.",
   "missing-alt": 'An image with no alt attribute. Use alt="" if it is decoration.',
   "heading-order": "More than one h1, or a heading level skipped.",
   "duplicate-id": "An id used twice.",
@@ -366,6 +368,16 @@ export function lintHtml(html, contract) {
     if (tag === "o-badge" && "tone" in attrs && !allText(node).trim()) {
       report("wordless-tone", node, `${show} has a tone and no words. Say the status in it.`);
     }
+    if (tag === "o-badge" && "hue" in attrs && !allText(node).trim()) {
+      report("wordless-hue", node, `${show} has a hue and no words. Say the kind in it.`);
+    }
+    if (tag === "o-badge" && "hue" in attrs && "tone" in attrs) {
+      report(
+        "hue-and-tone",
+        node,
+        `${show} has a hue and a tone. Keep the tone for a status, or the hue for a kind.`,
+      );
+    }
     if (
       tag === "o-alert" &&
       "tone" in attrs &&
@@ -393,25 +405,19 @@ export function lintHtml(html, contract) {
     if (tag === "img" && !("alt" in attrs))
       report("missing-alt", node, `<img> has no alt attribute.`);
 
-    /* One main action in a group. */
-    if (
-      classes(node).includes("button") &&
-      !attrs["data-variant"] &&
-      !("disabled" in attrs) &&
-      attrs["aria-disabled"] !== "true"
-    ) {
-      const solid = node.parent.children.filter(
-        (other) =>
-          classes(other).includes("button") &&
-          !other.attrs["data-variant"] &&
-          !("disabled" in other.attrs) &&
-          other.attrs["aria-disabled"] !== "true",
-      );
+    /* One main action in a group. The accent is the solid button in color, so it counts. */
+    const solidButton = (one) =>
+      classes(one).includes("button") &&
+      [undefined, "accent"].includes(one.attrs["data-variant"]) &&
+      !("disabled" in one.attrs) &&
+      one.attrs["aria-disabled"] !== "true";
+    if (solidButton(node)) {
+      const solid = node.parent.children.filter(solidButton);
       if (solid.length > 1 && solid[1] === node) {
         report(
           "two-solid-buttons",
           node,
-          `${solid.length} solid buttons sit side by side. Keep one for the main action and give the rest data-variant="outline" or "ghost".`,
+          `${solid.length} solid buttons sit side by side. Keep one for the main action, solid or accent, and give the rest data-variant="outline" or "ghost".`,
         );
       }
     }

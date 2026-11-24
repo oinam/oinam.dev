@@ -30,8 +30,20 @@ the word, which is always there, and the linter reports a toned badge without on
 the same tones, because a message that says a payment failed or a save went through is a status
 too. An alert's weight still says how much it matters, so its tone must agree with its variant, and
 the linter reports one that does not. Each tone's text sits only on its own fill, so it passes
-whatever the page wears, and the hue stays on badges and alerts: not on buttons, text, or borders. Base still has two colors, and a page that shows no
-status never sees a third.
+whatever the page wears. Base still has two colors, and a page that shows no status never sees a
+third.
+
+**Revisited again** in 0.8.0, for kinds and for the one action. A page of job postings, each with
+its topics and its status, was still dark and hard to read: six topics in outlined badges looked
+alike, and the button to apply looked like the button to save. So color now has three jobs, and
+only three. A status takes a tone; a kind, such as a topic, takes one of six numbered hues; and the
+one main action of a group may be an accent button. Each has its second cue. A tone or a hue comes
+with the word, and the linter reports one without it. A kind badge has squarer corners than a
+status, so the two are not confused in one row, and one badge may not be both. The accent is the
+solid button in color, so it is still the only solid button in its group, and the linter counts it
+so. The hues are numbered, not named, so that a page gives a kind a number and not a meaning:
+violet does not mean design. Everything else stays in two colors: no hue on text, borders,
+headings, or for emphasis, and none for decoration.
 
 ## Tokens are the only way to change the look
 

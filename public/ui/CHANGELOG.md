@@ -14,6 +14,52 @@ The numbers mean what they say:
 - The first number changes when a page that worked may stop working: a class, an element, an
   attribute, or a token was renamed or removed. Before 1.0.0, the middle number does this job too.
 
+## 0.8.0
+
+2026-11-24
+
+Color for kinds and for the one action. Color now has three jobs, and only three: a status (the
+tones of 0.7.0), a kind (six numbered hues), and the one main action (the accent). Base still has
+two colors for everything else, and nothing is renamed or removed.
+
+- `<o-badge hue="1">` to `hue="6"`: a badge that names a kind of thing among others, such as the
+  topics on each item of a listing, may take a hue. A page gives each kind its own number and keeps
+  to it. A kind badge has squarer corners than a status badge, so the two are told apart in one
+  row.
+- `<button class="button" data-variant="accent">`: the solid button in color, for the one main
+  action of a group, when it must stand apart from the outline and ghost buttons beside it. It
+  takes the solid button's place. Its hover leans toward ink instead of fading.
+- `tokens.css` and `tokens.json`: fourteen new tokens. `--color-hue-1` to `--color-hue-6`, each
+  with a `-fill`, at 7 to 1 or better on its fill in light and dark; and `--color-accent`, at 3 to
+  1 or better against cloud and milk, with `--color-accent-text` for its label, at 4.5 to 1 or
+  better on it.
+- `tools/lint.js`: an accent button counts as solid for `two-solid-buttons`, and two new findings:
+  `wordless-hue`, a hued badge with no words, and `hue-and-tone`, a badge with both.
+- `guide.md` and `why.md`: the color rule is now one rule with three jobs, and what color is still
+  not for.
+
+### What to do
+
+Nothing in a page has to change. Replace `tokens.css`, `tokens.json`, `badge.css`, `button.css`,
+`ui.css` (its header names the version), `tools/lint.js`, `guide.md`, `why.md`, `contract.json`,
+`components/badge.md`, `components/button.md`, and `registry.json`; running the installer again does
+all of it.
+
+- A page whose badges name kinds of things, such as topics or categories, in plain outlined badges
+  may give each kind a hue: `<o-badge hue="1">Design</o-badge>`. Keep one number per kind across
+  the project, and keep `tone` for statuses. Never put both on one badge.
+- A group whose main action must stand apart may change its solid button,
+  `<button class="button">`, to `<button class="button" data-variant="accent">`. Leave the others
+  outline or ghost. Do not make an accent of a button beside another solid one; the linter reports
+  it.
+- A project that gave its main action or its tags colors of its own may use these instead, and
+  delete its own tokens and the page rules that set them.
+- A variation that already declares a token named `--color-accent`, `--color-accent-text`, or
+  `--color-hue-1` to `--color-hue-6` or their `-fill`s, now sets the system's. Keep each hue at 4.5
+  to 1 or better on its fill, and the accent at 3 to 1 against the variation's cloud and milk with
+  its label at 4.5 to 1 on it, in light and in dark, or rename it.
+- A page that links a release may change `/ui/releases/0.7.0/` to `/ui/releases/0.8.0/`.
+
 ## 0.7.0
 
 2026-11-23

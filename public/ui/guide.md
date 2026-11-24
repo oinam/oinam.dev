@@ -1,4 +1,4 @@
-# Oinam UI v0.7.0
+# Oinam UI v0.8.0
 
 A design system in plain HTML, CSS, and JavaScript. No framework, no build step, and no
 dependencies. This page is the core of it, written for an AI agent to read once and then design
@@ -60,9 +60,9 @@ Every version is also served, frozen, at an address of its own, and any site may
 there never change, so a page that links them keeps its look whatever a later version renames.
 
 ```html
-<link rel="stylesheet" href="https://oinam.dev/ui/releases/0.7.0/ui.css" />
-<script src="https://oinam.dev/ui/releases/0.7.0/theme-init.js"></script>
-<script type="module" src="https://oinam.dev/ui/releases/0.7.0/ui.js"></script>
+<link rel="stylesheet" href="https://oinam.dev/ui/releases/0.8.0/ui.css" />
+<script src="https://oinam.dev/ui/releases/0.8.0/theme-init.js"></script>
+<script type="module" src="https://oinam.dev/ui/releases/0.8.0/ui.js"></script>
 ```
 
 - Only the files a page loads are there: the stylesheets, the scripts, and the fonts. The guide,
@@ -152,18 +152,28 @@ elements are already styled.
 What each rule protects, and when it may be bent, is in `why.md`. Read that before you break one,
 or when the owner asks you to.
 
-- **Two colors only.** Ink is nearly black; cloud is nearly white. Everything else is ink mixed
-  into cloud. Do not add a hue. Show emphasis with weight, size, a border, or by swapping ink and
-  cloud.
-- **One exception: a status read at a glance.** When a page shows several statuses side by side,
-  such as Verified, Unverified, and Failed on each row of a report, a badge may take a tone:
-  `<o-badge tone="success">`, `warning`, `danger`, or `info`. An alert may take the tone of what it
-  says, `<o-alert tone="success">`, and a toned alert keeps its weight: `variant="warning"` takes
-  `tone="warning"`, and `variant="danger"` takes `tone="danger"`. Only a badge or an alert, only for
-  a status, and always with the words: the color helps the eye, and the words say it. Never a tone
-  for decoration, emphasis, or a single badge alone on a page. Each tone's text sits on its own
-  fill, which keeps it at 7 to 1 or better in both themes; do not set a status color on anything
-  else.
+- **Two colors, and color for three jobs only.** Ink is nearly black; cloud is nearly white.
+  Everything else is ink mixed into cloud. Show emphasis with weight, size, a border, or by
+  swapping ink and cloud, never with a hue. The system lets color in for three jobs, each with its
+  own tokens, and for nothing else:
+  - **A status read at a glance.** When a page shows several statuses side by side, such as
+    Verified, Unverified, and Failed on each row of a report, a badge may take a tone:
+    `<o-badge tone="success">`, `warning`, `danger`, or `info`. An alert may take the tone of what
+    it says, `<o-alert tone="success">`, and keeps its weight: `variant="warning"` takes
+    `tone="warning"`, and `variant="danger"` takes `tone="danger"`.
+  - **A kind told apart from other kinds.** When things of several kinds sit together, such as the
+    topics on each item of a listing, a badge may take a hue: `<o-badge hue="1">` to `"6"`. Give
+    each kind its own number and keep to it on every page. A kind is never a status: one badge
+    takes a hue or a tone, not both.
+  - **The one main action.** The single main action of a group, such as "Apply" beside "Save",
+    may be an accent button: `<button class="button" data-variant="accent">`. It is the solid
+    button in color, so it takes the solid button's place; the rest stay outline or ghost.
+
+  Always with the words: the color helps the eye, and the words say it. Never a hue for
+  decoration or emphasis, never a toned or hued badge alone on a page, where a plain one says it as
+  well, and never more than one accent button in a group. Each tone's and hue's text sits on its
+  own fill, at 7 to 1 or better in both themes; do not set those colors on anything else.
+
 - **Use the tokens.** Never write a raw color, font, or radius. Use `var(--color-ink)`,
   `var(--space-4)`, `var(--radius-md)`.
 - **Lay out with the layout elements**, not with margins. `<o-stack>` for a column, `<o-row>` for a
@@ -202,10 +212,11 @@ the one the owner sees.
   are written like sentences.
 - No row of three or four equal cards, each an icon, a title, and a sentence.
 - No icon that is only decoration, and no emoji standing in for one.
-- No badge on ordinary text. A badge is for a status.
+- No badge on ordinary text. A badge is for a status, or for a kind of thing among others.
 - No card inside a card, and no box around what spacing already groups. Reach for space and type
   before a border.
-- No two solid buttons side by side. One main action per group; the rest are outline or ghost.
+- No two solid buttons side by side, and an accent counts as solid. One main action per group; the
+  rest are outline or ghost.
 - No centered paragraphs. Center a short heading at most. Set everything else from the left, in
   lines of 60 to 70 characters; `<o-wrap narrow>` and `<o-prose>` do this.
 - No heading that could sit on any site, such as "Unlock your potential". Say the particular thing.
@@ -269,7 +280,9 @@ It reads the page as text and checks what a program can check:
 - headings do not skip a level, and there is one `h1`;
 - no `style` attribute, no script written into the page, no color or font written out raw, no gradient, no forced capitals, no
   `!important`, no emoji;
-- no two solid buttons side by side;
+- no two solid buttons side by side, counting an accent as solid;
+- no tone or hue on a badge without words, no badge with both, and no alert whose tone disagrees
+  with its variant;
 - the system is not loaded from oinam.dev.
 
 It prints the file, the line, the rule, and what to do, and exits with 1 if it found anything. Mend
@@ -360,26 +373,29 @@ hand it back, look at it". Do not commit the `seen/` folder.
 All of them are custom properties on `:root`, defined in `tokens.css`. The same values are in
 `tokens.json`, in the Design Tokens format, for a tool that cannot read CSS; a page uses the CSS.
 
-| Token                           | Value                                   | Use                                            |
-| ------------------------------- | --------------------------------------- | ---------------------------------------------- |
-| `--color-ink`                   | `#161618` light, `#eceef1` dark         | Text, solid buttons                            |
-| `--color-cloud`                 | `#f5f6f8` light, `#0c0c0c` dark         | The page background                            |
-| `--color-milk`                  | `#fcfcfd` light, `#161618` dark         | Raised surfaces: cards, fields                 |
-| `--color-ink-soft`              | 68% ink in cloud                        | Secondary text                                 |
-| `--color-ink-faint`             | 58% ink in cloud                        | Labels, placeholders                           |
-| `--color-line-strong`           | 24% ink in cloud                        | Borders of controls                            |
-| `--color-line`                  | 12% ink in cloud                        | Hairlines, borders of surfaces                 |
-| `--color-wash`                  | 6% ink, see-through                     | Hover fills                                    |
-| `--font-serif`                  | Iowan Old Style, Baskerville, Times     | Headings                                       |
-| `--font-sans`                   | The system UI font                      | Everything else                                |
-| `--font-mono`                   | The system monospace font               | Code, eyebrows, badges                         |
-| `--font-heading`, `--font-body` | The serif, and the sans                 | What headings, and everything else, are set in |
-| `--text-xs` to `-4xl`           | 0.75, 0.875, 1, 1.125, 1.25, 1.5, 2 rem | Type sizes; `4xl` is fluid                     |
-| `--space-1` to `-16`            | 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4 rem    | Steps 1, 2, 3, 4, 6, 8, 12, 16                 |
-| `--radius-sm/md/lg`             | 6px, 10px, 14px, and `--radius-full`    | Small things, controls, surfaces               |
-| `--shadow-sm/md/lg`             | Three soft shadows                      | Fields, hover, dialogs                         |
-| `--control-sm/-/lg`             | 2rem, 2.5rem (`--control`), 3rem        | The height of a button or field                |
-| `--duration`, `--ease`          | 0.2s, an ease-out curve                 | Transitions                                    |
+| Token                            | Value                                   | Use                                            |
+| -------------------------------- | --------------------------------------- | ---------------------------------------------- |
+| `--color-ink`                    | `#161618` light, `#eceef1` dark         | Text, solid buttons                            |
+| `--color-cloud`                  | `#f5f6f8` light, `#0c0c0c` dark         | The page background                            |
+| `--color-milk`                   | `#fcfcfd` light, `#161618` dark         | Raised surfaces: cards, fields                 |
+| `--color-ink-soft`               | 68% ink in cloud                        | Secondary text                                 |
+| `--color-ink-faint`              | 58% ink in cloud                        | Labels, placeholders                           |
+| `--color-line-strong`            | 24% ink in cloud                        | Borders of controls                            |
+| `--color-line`                   | 12% ink in cloud                        | Hairlines, borders of surfaces                 |
+| `--color-wash`                   | 6% ink, see-through                     | Hover fills                                    |
+| `--color-success` and three more | Each with a `-fill`                     | Status tones: success, warning, danger, info   |
+| `--color-hue-1` to `-6`          | Each with a `-fill`                     | Kind hues, on badges                           |
+| `--color-accent`                 | With `--color-accent-text`              | The one main action, on a button               |
+| `--font-serif`                   | Iowan Old Style, Baskerville, Times     | Headings                                       |
+| `--font-sans`                    | The system UI font                      | Everything else                                |
+| `--font-mono`                    | The system monospace font               | Code, eyebrows, badges                         |
+| `--font-heading`, `--font-body`  | The serif, and the sans                 | What headings, and everything else, are set in |
+| `--text-xs` to `-4xl`            | 0.75, 0.875, 1, 1.125, 1.25, 1.5, 2 rem | Type sizes; `4xl` is fluid                     |
+| `--space-1` to `-16`             | 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4 rem    | Steps 1, 2, 3, 4, 6, 8, 12, 16                 |
+| `--radius-sm/md/lg`              | 6px, 10px, 14px, and `--radius-full`    | Small things, controls, surfaces               |
+| `--shadow-sm/md/lg`              | Three soft shadows                      | Fields, hover, dialogs                         |
+| `--control-sm/-/lg`              | 2rem, 2.5rem (`--control`), 3rem        | The height of a button or field                |
+| `--duration`, `--ease`           | 0.2s, an ease-out curve                 | Transitions                                    |
 
 ## Base and variations
 
@@ -485,7 +501,7 @@ The four layout elements are in every page, so here they are in brief:
 | Text              | `.eyebrow, .lede`               | A small label above a heading, and an opening paragraph a size up.             | `components/text.md`         |
 | Prose             | `<o-prose>`                     | A run of writing. Plain headings, paragraphs, and lists get their rhythm.      | `components/prose.md`        |
 | Card              | `<o-card>`                      | Groups related things on a raised surface.                                     | `components/card.md`         |
-| Badge             | `<o-badge>`                     | A small label: a status, a count, a "new".                                     | `components/badge.md`        |
+| Badge             | `<o-badge>`                     | A small label: a status, a kind, a count, a "new".                             | `components/badge.md`        |
 | Alert             | `<o-alert>`                     | Sets a message apart: a note, a warning, or danger.                            | `components/alert.md`        |
 | Table             | `<o-table>`                     | Frames a plain table and lets a wide one scroll sideways.                      | `components/table.md`        |
 | Facts             | `.facts`                        | A list of names and their values, each pair on a line, ruled apart.            | `components/facts.md`        |

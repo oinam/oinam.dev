@@ -72,7 +72,7 @@
   {
     "title": "Badge",
     "url": "/ui/#badge",
-    "text": "A small label: a status, a count, a \"new\"."
+    "text": "A small label: a status, a kind, a count, a \"new\"."
   },
   {
     "title": "Alert",

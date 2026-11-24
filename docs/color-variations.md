@@ -120,9 +120,10 @@ What makes it feel like a new site, not Base in a tint:
 
 ## What stays the same
 
-- Two colors. A variation chooses its own two; it does not add a third. An accent color, if one is
-  ever wanted, is a decision for `public/ui/why.md` first, under "Two colors", and comes with a
-  second cue beside it.
+- Two colors. A variation chooses its own two; it does not add a third. Since 0.8.0 the system has
+  an accent, for the one main action, and hues for kinds and tones for statuses, each decided in
+  `public/ui/why.md` under "Two colors". A variation may set them, and the tests hold it to the
+  same contrast as Base's: the accent at 3 to 1 against its cloud and milk.
 - Tokens only. A pair that needs a component restyled is not a variation.
 - Contrast is a gate, not a warning. See "Accessible" in `AGENTS.md`.
 
