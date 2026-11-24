@@ -26,7 +26,7 @@ import { fileURLToPath } from "node:url";
 
 import * as prettier from "prettier";
 
-import { contrast, hex, mix, parse, toOklab } from "./color.js";
+import { contrast, hex, mix, oklch, parse, toOklab, toOklch } from "./color.js";
 
 const ROOT = new URL("../", import.meta.url);
 const read = (path) => readFileSync(new URL(path, ROOT), "utf8");
@@ -96,9 +96,62 @@ function rounded(color) {
   return `oklch(${trim(L * 100, 1)}% ${trim(C, 3)} ${trim(H, 1)}deg)`;
 }
 
+/** A color from its lightness, chroma, and hue, its chroma cut until a screen can show it. */
+function shown(L, C, H) {
+  for (let chroma = C; chroma > 0.002; chroma -= 0.002) {
+    const color = oklch(`oklch(${L.toFixed(3)} ${chroma.toFixed(3)} ${H.toFixed(1)})`);
+    if (color.every((value) => value >= 0 && value <= 1)) return color;
+  }
+  return oklch(`oklch(${L.toFixed(3)} 0 0)`);
+}
+
+/*
+ * The accent, the fill of the one main action, and the label on it. A color may set its own in the
+ * list. One that does not takes it from its inks: the hue of whichever ink has more color, in both
+ * themes, so the accent is one color by day and by night, with the chroma of a color meant to be
+ * seen, as light as it can be by day and as deep as it can be by night while its label reaches 7
+ * to 1. A pair whose inks are grey has no color to lend, and a lighter grey reads as a button that
+ * is turned off, so there the accent is the ink, as the solid button is. By day the label is white; by night it is the page's
+ * own cloud. The fill stands at 3 to 1 or better against cloud and milk either way.
+ */
+const ACCENT_CHROMA = 0.15;
+const ACCENT_LABEL = 7;
+
+function accentOf(color) {
+  if (color.accent) return { accent: color.accent, accentText: color.accentText };
+  const accent = [];
+  const accentText = [];
+  const [inkChroma, hue] = color.ink
+    .map((ink) => toOklab(parse(ink)))
+    .map(([, a, b]) => [Math.hypot(a, b), ((Math.atan2(b, a) * 180) / Math.PI + 360) % 360])
+    .reduce((more, other) => (other[0] > more[0] ? other : more));
+  if (inkChroma < 0.03) return { accent: color.ink, accentText: color.cloud };
+  const chroma = Math.max(inkChroma, ACCENT_CHROMA);
+  for (const at of [0, 1]) {
+    const [cloud, milk] = [color.cloud[at], color.milk[at]].map(parse);
+    const label = at === 0 ? [1, 1, 1] : cloud;
+    // By day, from light to dark; by night, from dark to light. The first that passes is the one.
+    const steps = Array.from({ length: 160 }, (_, step) => 0.98 - step * 0.005);
+    if (at === 1) steps.reverse();
+    const fill = steps
+      .map((L) => shown(L, chroma, hue))
+      .map((candidate) => parse(toOklch(candidate)))
+      .find(
+        (candidate) =>
+          contrast(label, candidate) >= ACCENT_LABEL &&
+          contrast(candidate, cloud) >= 3 &&
+          contrast(candidate, milk) >= 3,
+      );
+    accent.push(toOklch(fill));
+    accentText.push(toOklch(label));
+  }
+  return { accent, accentText };
+}
+
 /** Every color in the list, with its shades and its contrast worked out, in light then dark. */
 export function colors(list = JSON.parse(read("public/colors/colors.json")).colors) {
-  return list.map((color) => {
+  return list.map((given) => {
+    const color = { ...given, ...accentOf(given), given: Boolean(given.accent) };
     const themes = THEMES.map((theme, at) => {
       const [ink, cloud, milk] = [color.ink[at], color.cloud[at], color.milk[at]].map(parse);
       const shades = Object.fromEntries(
@@ -114,7 +167,7 @@ export function colors(list = JSON.parse(read("public/colors/colors.json")).colo
       return {
         theme,
         values: Object.fromEntries(
-          ["ink", "cloud", "milk"].map((key) => [
+          ["ink", "cloud", "milk", "accent", "accentText"].map((key) => [
             key,
             { oklch: color[key][at], hex: hex(parse(color[key][at])) },
           ]),
@@ -126,6 +179,11 @@ export function colors(list = JSON.parse(read("public/colors/colors.json")).colo
           ]),
         ),
         ratios,
+        accent: {
+          label: contrast(parse(color.accentText[at]), parse(color.accent[at])),
+          cloud: contrast(parse(color.accent[at]), cloud),
+          milk: contrast(parse(color.accent[at]), milk),
+        },
       };
     });
     return { ...color, themes, path: `/colors/${color.id}/${color.name}/` };
@@ -449,6 +507,46 @@ ${ratios}
               </o-table>
             </o-stack>
           </section>
+          <section aria-labelledby="accent">
+            <o-stack gap="4">
+              <h2 id="accent">The accent</h2>
+              <p>
+                The one main action of a group may be an accent button, the solid button in color.
+                ${color.given ? "This color sets its own." : color.accent === color.ink ? "This color's inks are grey, with no color to lend, so its accent is its ink, as the solid button is." : "This color takes it from its ink: the same hue, with enough color to be seen, and as light by day, or as deep by night, as it can be while its label reads at 7 to 1."}
+                Its fill stands at 3 to 1 or better against the page and a raised surface.
+              </p>
+              <o-row>
+                <button class="button" data-variant="accent" type="button">Send to the skipper</button>
+                <button class="button" data-variant="outline" type="button">Save</button>
+              </o-row>
+              <o-table>
+                <table>
+                  <thead>
+                    <tr>
+                      <th scope="col">Token</th>
+                      <th scope="col">Light</th>
+                      <th scope="col">Dark</th>
+                      <th scope="col">What it is for</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+<tr>
+  <th scope="row"><code>--color-accent</code></th>
+  <td>${both(light.values.accent)}</td>
+  <td>${both(dark.values.accent)}</td>
+  <td>The fill: ${ratio(Math.min(light.accent.cloud, light.accent.milk))} to 1 against the page by day, ${ratio(Math.min(dark.accent.cloud, dark.accent.milk))} by night.</td>
+</tr>
+<tr>
+  <th scope="row"><code>--color-accent-text</code></th>
+  <td>${both(light.values.accentText)}</td>
+  <td>${both(dark.values.accentText)}</td>
+  <td>The label: ${ratio(light.accent.label)} to 1 on the fill by day, ${ratio(dark.accent.label)} by night.</td>
+</tr>
+                  </tbody>
+                </table>
+              </o-table>
+            </o-stack>
+          </section>
 ${origin(color)}          <section aria-labelledby="use">
             <o-stack gap="4">
               <h2 id="use">Use it</h2>
@@ -461,12 +559,17 @@ ${use}
 ${bottom}`;
 }
 
-const tokens = (color, indent) =>
-  THREE.map(
-    ({ key, token }) => `${indent}${token}: light-dark(${color[key][0]}, ${color[key][1]});`,
-  ).join("\n");
+const ACCENT = [
+  { key: "accent", token: "--color-accent" },
+  { key: "accentText", token: "--color-accent-text" },
+];
 
-/** The stylesheet to take away: three tokens, nothing else. */
+const tokens = (color, indent) =>
+  [...THREE, ...ACCENT]
+    .map(({ key, token }) => `${indent}${token}: light-dark(${color[key][0]}, ${color[key][1]});`)
+    .join("\n");
+
+/** The stylesheet to take away: three tokens and the accent, nothing else. */
 function takeAway(color) {
   return `/*
  * ${color.title}, color ${color.id} of Oinam UI
@@ -474,7 +577,8 @@ function takeAway(color) {
  *
  * ${color.description}${color.from ? `\n * Adapted from ${color.from.name} (${color.from.license}): ${color.from.url}` : ""}
  *
- * Link it after the components. Every other shade is mixed from these three.
+ * Link it after the components. Every other shade is mixed from the first
+ * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {

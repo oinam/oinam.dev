@@ -5,11 +5,14 @@
  * Between violet and blue.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
- * Link it after the components. Every other shade is mixed from these three.
+ * Link it after the components. Every other shade is mixed from the first
+ * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
   --color-ink: light-dark(oklch(24.5% 0.099 277.7deg), oklch(91.4% 0.042 287deg));
   --color-cloud: light-dark(oklch(98.1% 0.009 286.2deg), oklch(19.2% 0.022 284.1deg));
   --color-milk: light-dark(oklch(99.5% 0.003 286.4deg), oklch(20.9% 0.029 286.6deg));
+  --color-accent: light-dark(oklch(47% 0.15 277.7deg), oklch(71.5% 0.15 277.7deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(19.2% 0.022 284.1deg));
 }

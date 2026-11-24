@@ -5,11 +5,14 @@
  * A dull, antique gold.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
- * Link it after the components. Every other shade is mixed from these three.
+ * Link it after the components. Every other shade is mixed from the first
+ * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
   --color-ink: light-dark(oklch(23.9% 0.019 77.7deg), oklch(91.8% 0.014 78.3deg));
   --color-cloud: light-dark(oklch(98.1% 0.009 100deg), oklch(18.2% 0.002 106.6deg));
   --color-milk: light-dark(oklch(99.4% 0.001 106.4deg), oklch(21.8% 0.006 91.6deg));
+  --color-accent: light-dark(oklch(23.9% 0.019 77.7deg), oklch(91.8% 0.014 78.3deg));
+  --color-accent-text: light-dark(oklch(98.1% 0.009 100deg), oklch(18.2% 0.002 106.6deg));
 }

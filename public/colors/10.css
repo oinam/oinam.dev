@@ -5,11 +5,14 @@
  * A grey leaning toward olive.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
- * Link it after the components. Every other shade is mixed from these three.
+ * Link it after the components. Every other shade is mixed from the first
+ * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
   --color-ink: light-dark(oklch(23.8% 0.011 139.4deg), oklch(94.7% 0.003 145.5deg));
   --color-cloud: light-dark(oklch(98.3% 0.003 145.5deg), oklch(18% 0.004 128.7deg));
   --color-milk: light-dark(oklch(99.3% 0.002 145.6deg), oklch(21.2% 0.004 128.7deg));
+  --color-accent: light-dark(oklch(23.8% 0.011 139.4deg), oklch(94.7% 0.003 145.5deg));
+  --color-accent-text: light-dark(oklch(98.3% 0.003 145.5deg), oklch(18% 0.004 128.7deg));
 }

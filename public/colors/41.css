@@ -5,11 +5,14 @@
  * A warm grey with a little brown.
  * Adapted from Tailwind CSS (MIT): https://tailwindcss.com/docs/colors
  *
- * Link it after the components. Every other shade is mixed from these three.
+ * Link it after the components. Every other shade is mixed from the first
+ * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
   --color-ink: light-dark(oklch(14.7% 0.004 49.2deg), oklch(98.5% 0.001 106.4deg));
   --color-cloud: light-dark(oklch(98.5% 0.001 106.4deg), oklch(14.7% 0.004 49.2deg));
   --color-milk: light-dark(oklch(100% 0 0deg), oklch(18.9% 0.004 48.5deg));
+  --color-accent: light-dark(oklch(14.7% 0.004 49.2deg), oklch(98.5% 0.001 106.4deg));
+  --color-accent-text: light-dark(oklch(98.5% 0.001 106.4deg), oklch(14.7% 0.004 49.2deg));
 }

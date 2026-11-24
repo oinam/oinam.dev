@@ -5,11 +5,14 @@
  * A fresh, yellow-leaning green.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
- * Link it after the components. Every other shade is mixed from these three.
+ * Link it after the components. Every other shade is mixed from the first
+ * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
   --color-ink: light-dark(oklch(23.6% 0.052 149.1deg), oklch(91.1% 0.078 144.9deg));
   --color-cloud: light-dark(oklch(98.2% 0.01 145.5deg), oklch(18.7% 0.013 159.7deg));
   --color-milk: light-dark(oklch(99.4% 0.005 145.5deg), oklch(21% 0.013 149.9deg));
+  --color-accent: light-dark(oklch(45% 0.14 144.9deg), oklch(69% 0.15 144.9deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(18.7% 0.013 159.7deg));
 }

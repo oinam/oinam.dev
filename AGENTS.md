@@ -91,7 +91,8 @@ together. `CONTRIBUTING.md` says how a design is sent, the tests are the gate, a
 `docs/garden-plan.md` is where this is heading.
 
 The colors at `/colors/` are pairs of colors, each three tokens in light and dark, listed in
-`public/colors/colors.json`, which is kept by hand. Every page and stylesheet in `public/colors/` is
+`public/colors/colors.json`, which is kept by hand. Each also carries an accent, for the one main
+action: set in the list, or, where it is not, worked out from the color's ink by the script. Every page and stylesheet in `public/colors/` is
 written from that list by `mise run colors`; edit the list, run it, and commit both. A color's
 number is its address and never changes; its name follows the number only for reading, and may.
 Why, and Oinam's own colors, are in `docs/color-variations.md`.

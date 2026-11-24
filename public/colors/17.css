@@ -5,11 +5,14 @@
  * A purple leaning toward pink.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
- * Link it after the components. Every other shade is mixed from these three.
+ * Link it after the components. Every other shade is mixed from the first
+ * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
   --color-ink: light-dark(oklch(25.5% 0.122 321deg), oklch(90.6% 0.055 326deg));
   --color-cloud: light-dark(oklch(98.2% 0.01 325.7deg), oklch(19% 0.018 326.2deg));
   --color-milk: light-dark(oklch(99.3% 0.004 314.8deg), oklch(21% 0.032 326.6deg));
+  --color-accent: light-dark(oklch(48% 0.15 321deg), oklch(72% 0.15 321deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(19% 0.018 326.2deg));
 }

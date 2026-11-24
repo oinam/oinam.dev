@@ -4,11 +4,14 @@
  *
  * Black on white, as plain as a screen allows, with no tint in either.
  *
- * Link it after the components. Every other shade is mixed from these three.
+ * Link it after the components. Every other shade is mixed from the first
+ * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
   --color-ink: light-dark(oklch(17.8% 0 0deg), oklch(94.6% 0 0deg));
   --color-cloud: light-dark(oklch(98.5% 0 0deg), oklch(14.5% 0 0deg));
   --color-milk: light-dark(oklch(100% 0 0deg), oklch(19.6% 0 0deg));
+  --color-accent: light-dark(oklch(17.8% 0 0deg), oklch(94.6% 0 0deg));
+  --color-accent-text: light-dark(oklch(98.5% 0 0deg), oklch(14.5% 0 0deg));
 }

@@ -8,7 +8,7 @@ import assert from "node:assert/strict";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { test } from "node:test";
 
-import { contrast, parse, rgb } from "../scripts/color.js";
+import { contrast, hex, mix, parse, rgb } from "../scripts/color.js";
 import { colors, render } from "../scripts/colors.js";
 
 const ROOT = new URL("../", import.meta.url);
@@ -48,13 +48,13 @@ test("color 0 is Base, as tokens.css has it", () => {
   const tokens = read("public/ui/tokens.css");
   const [base] = all;
   assert.equal(base.name, "base");
-  for (const key of ["ink", "cloud", "milk"]) {
+  for (const key of ["ink", "cloud", "milk", "accent", "accent-text"]) {
     const value = tokens.match(
       new RegExp(`--color-${key}: light-dark\\((#[0-9a-f]+), (#[0-9a-f]+)\\)`),
     );
     assert.deepEqual(
-      base.themes.map((theme) => theme.values[key].hex),
-      [value[1], value[2]],
+      base.themes.map((theme) => theme.values[key === "accent-text" ? "accentText" : key].hex),
+      [value[1], value[2]].map((written) => hex(rgb(written))),
       key,
     );
   }
@@ -62,7 +62,7 @@ test("color 0 is Base, as tokens.css has it", () => {
 
 test("colors are written in OKLCH, the way the style linter asks", () => {
   for (const color of all) {
-    for (const key of ["ink", "cloud", "milk"]) {
+    for (const key of ["ink", "cloud", "milk", "accent", "accentText"]) {
       for (const value of color[key]) {
         assert.match(
           value,
@@ -111,18 +111,42 @@ test("every color's page is in the sitemap", () => {
   }
 });
 
-test("Base's accent stands out on every color's page, in light and in dark", () => {
-  const tokens = read("public/ui/tokens.css");
-  const accents = tokens
-    .match(/--color-accent:\s*light-dark\((#[0-9a-f]+), (#[0-9a-f]+)\)/)
-    .slice(1)
-    .map(rgb);
-  for (const color of all) {
-    for (const [at, theme] of ["light", "dark"].entries()) {
-      for (const role of ["cloud", "milk"]) {
-        const edge = contrast(accents[at], parse(color[role][at]));
-        assert.ok(edge >= 3, `${color.name}, ${role}, ${theme}: ${edge.toFixed(2)} to 1`);
+for (const color of all) {
+  test(`${color.id} ${color.name}: its accent stands out, and its label reads on it`, () => {
+    for (const [at, { theme }] of color.themes.entries()) {
+      const [accent, label, ink, cloud, milk] = [
+        color.accent[at],
+        color.accentText[at],
+        color.ink[at],
+        color.cloud[at],
+        color.milk[at],
+      ].map(parse);
+      for (const [ground, name] of [
+        [cloud, "cloud"],
+        [milk, "milk"],
+      ]) {
+        const edge = contrast(accent, ground);
+        assert.ok(edge >= 3, `${theme}: accent on ${name} is ${edge.toFixed(2)} to 1`);
+      }
+      // button.css leans the hovered accent 15% toward ink.
+      for (const [fill, state] of [
+        [accent, "at rest"],
+        [mix(accent, ink, 0.85), "hovered"],
+      ]) {
+        const ratio = contrast(label, fill);
+        assert.ok(ratio >= 4.5, `${theme}: label ${state} is ${ratio.toFixed(2)} to 1`);
       }
     }
+  });
+}
+
+test("every take-away stylesheet carries its accent", () => {
+  for (const color of all.filter((one) => one.id !== "0")) {
+    const css = read(`public/colors/${color.id}.css`);
+    assert.ok(
+      css.includes(`--color-accent: light-dark(${color.accent[0]}, ${color.accent[1]});`),
+      color.id,
+    );
+    assert.ok(css.includes("--color-accent-text: light-dark("), color.id);
   }
 });

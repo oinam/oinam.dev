@@ -5,11 +5,14 @@
  * A warm red with orange in it.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
- * Link it after the components. Every other shade is mixed from these three.
+ * Link it after the components. Every other shade is mixed from the first
+ * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
   --color-ink: light-dark(oklch(25% 0.08 30.5deg), oklch(90.8% 0.046 31.2deg));
   --color-cloud: light-dark(oklch(98.4% 0.008 27.2deg), oklch(18.7% 0.012 18.3deg));
   --color-milk: light-dark(oklch(99.3% 0.003 17.2deg), oklch(20.8% 0.017 31.4deg));
+  --color-accent: light-dark(oklch(48% 0.15 30.5deg), oklch(72% 0.15 30.5deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(18.7% 0.012 18.3deg));
 }

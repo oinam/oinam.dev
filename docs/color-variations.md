@@ -45,6 +45,13 @@ with a page for each.
   fixed count, here 99, and reads like a code. Base is 0, and the variations count from 1.
 - **Colors are not named after a product.** Different products may wear different colors, so a
   color says what it looks like, such as Navy, and a product says which one it wears.
+- **Each color carries its accent.** Since 0.8.0 the accent button has a token of its own, and a
+  site that wears a color should not keep Base's blue for it. So every take-away stylesheet sets
+  `--color-accent` and `--color-accent-text` too. A color may set them in the list; one that does
+  not takes them from its inks: the hue of the more colorful ink, chroma 0.15, as light as it can be by day under a white label, and as deep as it can be
+  by night under the page's own cloud, while the label reaches 7 to 1 and the fill 3 to 1 against
+  cloud and milk. A pair whose inks are grey takes its ink as the accent, as the solid button does, since a lighter grey reads as a button turned off. Base sets its own, the blue in `tokens.css`. `tests/colors.test.js` holds every
+  color to it, hovered as well.
 - **The list page cannot just set tokens on each strip.** A shade such as `--color-ink-soft` is
   worked out on `:root` from the page's own ink, and a descendant that sets another ink still
   inherits the page's shades. So `public/colors/colors.css` declares the mixes again on each strip.

@@ -5,11 +5,14 @@
  * A clear red.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
- * Link it after the components. Every other shade is mixed from these three.
+ * Link it after the components. Every other shade is mixed from the first
+ * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
   --color-ink: light-dark(oklch(25.2% 0.101 19deg), oklch(90.4% 0.052 6.2deg));
   --color-cloud: light-dark(oklch(98.2% 0.009 17.3deg), oklch(18.8% 0.013 18.4deg));
   --color-milk: light-dark(oklch(99.3% 0.003 17.2deg), oklch(20.5% 0.022 14.1deg));
+  --color-accent: light-dark(oklch(48% 0.15 19deg), oklch(72% 0.15 19deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(18.8% 0.013 18.4deg));
 }

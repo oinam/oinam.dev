@@ -9,7 +9,9 @@
       "description": "The default: a cool near-black on a grey cloud, with almost no color at all.",
       "ink": ["oklch(20.1% 0.004 286deg)", "oklch(94.8% 0.005 258.3deg)"],
       "cloud": ["oklch(97.3% 0.003 264.5deg)", "oklch(15.4% 0 0deg)"],
-      "milk": ["oklch(99.1% 0.001 286.4deg)", "oklch(20.1% 0.004 286deg)"]
+      "milk": ["oklch(99.1% 0.001 286.4deg)", "oklch(20.1% 0.004 286deg)"],
+      "accent": ["oklch(42.1% 0.16 263.9deg)", "oklch(79.9% 0.101 264.3deg)"],
+      "accentText": ["oklch(100% 0 0deg)", "oklch(17.7% 0.034 269.6deg)"]
     },
     {
       "id": "1",

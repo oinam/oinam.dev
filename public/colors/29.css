@@ -5,11 +5,14 @@
  * A muted, metallic brown.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
- * Link it after the components. Every other shade is mixed from these three.
+ * Link it after the components. Every other shade is mixed from the first
+ * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
   --color-ink: light-dark(oklch(24.4% 0.03 33.1deg), oklch(91.8% 0.017 50.4deg));
   --color-cloud: light-dark(oklch(98% 0.007 39.5deg), oklch(18.1% 0.005 39.3deg));
   --color-milk: light-dark(oklch(99.2% 0.001 17.2deg), oklch(21.6% 0.006 56deg));
+  --color-accent: light-dark(oklch(48% 0.15 33.1deg), oklch(71.5% 0.15 33.1deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(18.1% 0.005 39.3deg));
 }

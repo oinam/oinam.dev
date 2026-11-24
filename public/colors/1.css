@@ -4,11 +4,14 @@
  *
  * A bright navy for text by day, and a deep one for the ground by night, on a cloud of the same blue.
  *
- * Link it after the components. Every other shade is mixed from these three.
+ * Link it after the components. Every other shade is mixed from the first
+ * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
   --color-ink: light-dark(oklch(24% 0.101 264.4deg), oklch(94.2% 0.016 248deg));
   --color-cloud: light-dark(oklch(97.5% 0.007 260.7deg), oklch(21.4% 0.063 265.5deg));
   --color-milk: light-dark(oklch(99.4% 0.003 264.5deg), oklch(24.6% 0.07 266.4deg));
+  --color-accent: light-dark(oklch(46.5% 0.15 264.4deg), oklch(72.5% 0.14 264.4deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(21.4% 0.063 265.5deg));
 }
