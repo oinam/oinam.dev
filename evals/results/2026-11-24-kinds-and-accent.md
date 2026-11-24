@@ -17,8 +17,7 @@ was run on the 0.7.0 guide and on 0.8.0; the other five ran on 0.8.0 and are com
 
 Where color was called for, it was used as the guide asks:
 
-- **crew, 0.7.0.** Statuses took tones (Open as success, Filling as warning), and the kinds of work
-  were plain badges, since the guide gave them nothing else.
+- **crew, 0.7.0.** Statuses took tones (Open as success, Filling as warning), and the kinds of work took no color, since the guide gave them none.
 - **crew, 0.8.0.** Statuses took the same tones, and Taken was left plain. Each kind of work kept one
   hue on every row: Deck 1, Navigation 3, Engine 4, Cooking 2, First aid 5. The accent went on the
   one action that sends something, "Send to the skipper", in each form, with Cancel beside it
