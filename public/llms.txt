@@ -22,6 +22,7 @@ If you were told to read https://oinam.dev/ and build something with it, the nex
 
 - [AGENTS.md](https://raw.githubusercontent.com/oinam/oinam.dev/main/AGENTS.md): The canonical instructions for any agent working in or pointed at the repository: its scope, audience, standards, and style.
 - [Docs](https://oinam.dev/docs/): Where the documentation begins.
+- [License](https://oinam.dev/license/): The MIT license, in full, that everything here is under; the fonts carry their own.
 - [Repository](https://github.com/oinam/oinam.dev): Everything here, under the MIT license.
 
 ## Optional

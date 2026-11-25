@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://oinam.dev/</loc></url>
   <url><loc>https://oinam.dev/docs/</loc></url>
+  <url><loc>https://oinam.dev/license/</loc></url>
   <url><loc>https://oinam.dev/ui/</loc></url>
   <url><loc>https://oinam.dev/ui/patterns/</loc></url>
   <url><loc>https://oinam.dev/play/</loc></url>

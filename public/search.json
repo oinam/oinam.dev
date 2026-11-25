@@ -10,6 +10,11 @@
     "text": "Start here. What oinam.dev is, and how an agent should read it."
   },
   {
+    "title": "License",
+    "url": "/license/",
+    "text": "The MIT license, in full. Everything here is open and free; the fonts carry their own license."
+  },
+  {
     "title": "Standards",
     "url": "/docs/#standards",
     "text": "Linted, formatted, evaluated, tested, followed, and documented."

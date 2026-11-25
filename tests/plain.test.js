@@ -96,3 +96,24 @@ test("no page shows a stray escape where a line break was meant", () => {
     assert.doesNotMatch(read(path), /\\n/, path);
   }
 });
+
+test("the license is on the site, word for word, and every footer links to it", () => {
+  // Many readers are agents that never visit the repository, so the license cannot live only there.
+  const words = (text) =>
+    text
+      .replace(/<[^>]+>/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  const page = read("public/license/index.html").replaceAll("&quot;", '"');
+  assert.ok(words(page).includes(words(read("LICENSE"))), "the page does not carry LICENSE");
+
+  for (const path of find("public/**/*.html")) {
+    const html = read(path);
+    if (!html.includes('class="site-footer"')) continue;
+    assert.match(
+      html,
+      /<a href="\/license\/">MIT license<\/a>/,
+      `${path} does not link the license`,
+    );
+  }
+});
