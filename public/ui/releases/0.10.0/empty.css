@@ -1,0 +1,31 @@
+/*
+ * Empty
+ *
+ * <onm-empty> stands where content will be once there is some. Say what is
+ * missing, and offer the one thing to do about it.
+ *
+ *   <onm-empty>
+ *     <h3>No bookings yet</h3>
+ *     <p>When a boat books a berth, it shows up here.</p>
+ *     <button class="onm-button" type="button">Book a berth</button>
+ *   </onm-empty>
+ */
+
+onm-empty {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: center;
+  padding: var(--space-12) var(--space-6);
+  border: 1px dashed var(--color-line-strong);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+onm-empty > :is(h2, h3, h4) {
+  font-size: var(--text-xl);
+}
+
+onm-empty > p {
+  max-width: 28rem;
+  color: var(--color-ink-soft);
+}

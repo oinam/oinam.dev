@@ -1,21 +1,21 @@
 /*
  * Example
  *
- * <o-example> shows a piece of markup at work and, beside it, its source. See
+ * <onm-example> shows a piece of markup at work and, beside it, its source. See
  * example.js. The frame is around the live part either way, script or not.
  */
 
-o-example {
+onm-example {
   display: block;
 }
 
-o-example:not(:defined),
-o-example [data-part="preview"] {
+onm-example:not(:defined),
+onm-example [data-part="preview"] {
   padding: var(--space-8);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-lg);
 }
 
-o-example:defined > o-tabs > [role="tabpanel"] {
+onm-example:defined > onm-tabs > [role="tabpanel"] {
   margin-top: var(--space-4);
 }

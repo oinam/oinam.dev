@@ -2,11 +2,11 @@
 
 A button, on a <button> or an <a>.
 
-- Use: `.button`
+- Use: `.onm-button`
 - Files: `button.css`. It is CSS alone, and needs no script.
 - Part of Oinam UI. The rules for using it are in `../guide.md`.
 
-`class="button"` on a `<button>` or an `<a>`.
+`class="onm-button"` on a `<button>` or an `<a>`.
 
 - `data-variant`: `accent`, `outline`, or `ghost`. Without it, the button is solid ink. Use one
   solid button per group, for the main action. `accent` is the solid button in color, for when the
@@ -18,16 +18,16 @@ A button, on a <button> or an <a>.
 - `aria-busy="true"` while it works: it shows a spinner and takes no more presses.
 
 ```html
-<button class="button" type="button">Save</button>
-<button class="button" data-variant="outline" type="button">Preview</button>
-<button class="button" data-variant="ghost" data-size="small" type="button">Cancel</button>
-<a class="button" data-size="large" href="/docs/">Read the docs</a>
+<button class="onm-button" type="button">Save</button>
+<button class="onm-button" data-variant="outline" type="button">Preview</button>
+<button class="onm-button" data-variant="ghost" data-size="small" type="button">Cancel</button>
+<a class="onm-button" data-size="large" href="/docs/">Read the docs</a>
 ```
 
 When the main action must stand apart, make it the accent, and keep the rest quieter:
 
 ```html
-<a class="button" data-variant="accent" href="/apply/">Open posting and apply</a>
-<button class="button" data-variant="outline" type="button">Save</button>
-<button class="button" data-variant="ghost" type="button">Hide</button>
+<a class="onm-button" data-variant="accent" href="/apply/">Open posting and apply</a>
+<button class="onm-button" data-variant="outline" type="button">Save</button>
+<button class="onm-button" data-variant="ghost" type="button">Hide</button>
 ```

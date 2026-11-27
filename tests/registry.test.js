@@ -133,9 +133,10 @@ test("every component is on the components page, with a link in its contents", (
 test("every custom element the stylesheets define is shown on a component's page", () => {
   const css = files
     .filter((name) => name.endsWith(".css"))
-    .map(read)
+    // Comments show markup, classes and all; only the rules say what is styled.
+    .map((name) => read(name).replace(/\/\*[\s\S]*?\*\//g, ""))
     .join("\n");
-  const elements = new Set(css.match(/\bo-[a-z]+(?:-[a-z]+)*\b/g));
+  const elements = new Set(css.match(/(?<![.\w-])onm-[a-z]+(?:-[a-z]+)*\b/g));
   const pages = registry.components.map((component) => read(component.doc)).join("\n");
 
   assert.ok(elements.size > 0);

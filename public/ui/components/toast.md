@@ -2,15 +2,15 @@
 
 Brief messages that appear in a corner and go away again.
 
-- Use: `<o-toast>`
+- Use: `<onm-toast>`
 - Files: `toast.css`, `toast.js`, `button.css`. It needs its script; without it, the markup still reads correctly.
 - Part of Oinam UI. The rules for using it are in `../guide.md`.
 
-`<o-toast>` is where brief messages appear, in a corner, and go away again. A button with `data-toast` shows its message when pressed, with no script of your own.
+`<onm-toast>` is where brief messages appear, in a corner, and go away again. A button with `data-toast` shows its message when pressed, with no script of your own.
 
 ```html
 <button
-  class="button"
+  class="onm-button"
   data-variant="outline"
   type="button"
   data-toast="Berth 12 is yours until Friday"

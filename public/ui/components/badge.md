@@ -2,14 +2,14 @@
 
 A small label: a status, a kind, a count, a "new".
 
-- Use: `<o-badge>`
+- Use: `<onm-badge>`
 - Files: `badge.css`. It is CSS alone, and needs no script.
 - Part of Oinam UI. The rules for using it are in `../guide.md`.
 
-`<o-badge>` is a small label. `variant="solid"` fills it.
+`<onm-badge>` is a small label. `variant="solid"` fills it.
 
 ```html
-<o-badge>Soon</o-badge> <o-badge variant="solid">New</o-badge>
+<onm-badge>Soon</onm-badge> <onm-badge variant="solid">New</onm-badge>
 ```
 
 ## Tone
@@ -19,16 +19,16 @@ A status that must be read at a glance, beside others like it, may take a tone: 
 status; the color only helps the eye. A toned badge with no words is a finding of the linter.
 
 ```html
-<o-badge tone="success">Verified</o-badge>
-<o-badge tone="warning">Unverified</o-badge>
-<o-badge tone="danger">Failed, refunded</o-badge>
-<o-badge tone="info">Beta</o-badge>
+<onm-badge tone="success">Verified</onm-badge>
+<onm-badge tone="warning">Unverified</onm-badge>
+<onm-badge tone="danger">Failed, refunded</onm-badge>
+<onm-badge tone="info">Beta</onm-badge>
 ```
 
 `variant="solid"` turns a tone over: the status color becomes the fill.
 
 ```html
-<o-badge tone="danger" variant="solid">Failed</o-badge>
+<onm-badge tone="danger" variant="solid">Failed</onm-badge>
 ```
 
 Each tone is a pair of tokens, `--color-success` on `--color-success-fill`, and the same for the
@@ -45,12 +45,12 @@ only helps the eye. A hued badge with no words is a finding of the linter, as is
 a hue and a tone: a badge is a kind or a status, not both.
 
 ```html
-<o-badge hue="1">Design</o-badge>
-<o-badge hue="2">Engineering</o-badge>
-<o-badge hue="3">Product</o-badge>
-<o-badge hue="4">Leadership</o-badge>
-<o-badge hue="5">AI</o-badge>
-<o-badge hue="6">Remote</o-badge>
+<onm-badge hue="1">Design</onm-badge>
+<onm-badge hue="2">Engineering</onm-badge>
+<onm-badge hue="3">Product</onm-badge>
+<onm-badge hue="4">Leadership</onm-badge>
+<onm-badge hue="5">AI</onm-badge>
+<onm-badge hue="6">Remote</onm-badge>
 ```
 
 A kind badge has squarer corners than a status badge, so the two are told apart in one row. Each

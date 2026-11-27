@@ -1,18 +1,18 @@
 /*
  * Card
  *
- * <o-card> groups related things on a raised surface. What goes inside is
+ * <onm-card> groups related things on a raised surface. What goes inside is
  * plain HTML: a heading, some text, and a <footer> for actions, which is held
  * to the bottom so that cards in a row line up.
  *
- *   <o-card>
+ *   <onm-card>
  *     <h3>Standards</h3>
  *     <p>The rules every project inherits.</p>
- *     <footer><a class="button" href="/docs/">Read</a></footer>
- *   </o-card>
+ *     <footer><a class="onm-button" href="/docs/">Read</a></footer>
+ *   </onm-card>
  */
 
-o-card {
+onm-card {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
@@ -22,15 +22,15 @@ o-card {
   background: var(--color-milk);
 }
 
-o-card > :is(h2, h3, h4) {
+onm-card > :is(h2, h3, h4) {
   font-size: var(--text-xl);
 }
 
-o-card > p {
+onm-card > p {
   color: var(--color-ink-soft);
 }
 
-o-card > footer {
+onm-card > footer {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);

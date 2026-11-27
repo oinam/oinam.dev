@@ -18,14 +18,14 @@ const css = (rules) => lintCss(rules).map((finding) => finding.rule);
 
 test("the reader finds elements, their attributes, and the lines they start on", () => {
   const { nodes } = parse(
-    '<main>\n  <o-stack gap="2" hidden>\n    <p class=lede>Hi</p>\n  </o-stack>\n</main>',
+    '<main>\n  <onm-stack gap="2" hidden>\n    <p class=lede>Hi</p>\n  </onm-stack>\n</main>',
   );
 
   assert.deepEqual(
     nodes.map(({ tag, line }) => [tag, line]),
     [
       ["main", 1],
-      ["o-stack", 2],
+      ["onm-stack", 2],
       ["p", 3],
     ],
   );
@@ -36,7 +36,7 @@ test("the reader finds elements, their attributes, and the lines they start on",
 
 test("the reader does not take what is in a script, a style, or a comment for markup", () => {
   const { nodes } = parse(
-    "<script>if (a < b) document.write('<o-nonsense>')</script><!-- <o-gone> --><p>x</p>",
+    "<script>if (a < b) document.write('<onm-nonsense>')</script><!-- <onm-gone> --><p>x</p>",
   );
   assert.deepEqual(
     nodes.map((node) => node.tag),
@@ -50,34 +50,42 @@ test("a clean page has nothing to mend", () => {
   assert.deepEqual(
     html(`
       <main>
-        <o-wrap narrow>
-          <o-stack gap="6" align="start">
+        <onm-wrap narrow>
+          <onm-stack gap="6" align="start">
             <h1>Tide table</h1>
-            <p class="lede">High water for the week.</p>
-            <o-row>
-              <button class="button" type="button">Book a berth</button>
-              <a class="button" data-variant="ghost" href="/contact/">Contact the office</a>
-            </o-row>
-          </o-stack>
-        </o-wrap>
+            <p class="onm-lede">High water for the week.</p>
+            <onm-row>
+              <button class="onm-button" type="button">Book a berth</button>
+              <a class="onm-button" data-variant="ghost" href="/contact/">Contact the office</a>
+            </onm-row>
+          </onm-stack>
+        </onm-wrap>
       </main>`),
     [],
   );
 });
 
 test("an element the system does not have is caught", () => {
-  assert.deepEqual(html("<o-hero>Welcome</o-hero>"), ["unknown-element"]);
+  assert.deepEqual(html("<onm-hero>Welcome</onm-hero>"), ["unknown-element"]);
+});
+
+test("an element by its name before 0.10.0 is caught, with the name it has now", () => {
+  const [finding] = lintHtml("<o-card>Hi</o-card>", contract);
+  assert.equal(finding.rule, "unknown-element");
+  assert.match(finding.message, /<onm-card>/);
+  // Another library's o- element is none of the system's business.
+  assert.deepEqual(html("<o-hero>Welcome</o-hero>"), []);
 });
 
 test("an attribute an element does not take is caught, with what it does take", () => {
-  const [finding] = lintHtml('<o-stack spacing="4"></o-stack>', contract);
+  const [finding] = lintHtml('<onm-stack spacing="4"></onm-stack>', contract);
 
   assert.equal(finding.rule, "unknown-attribute");
   assert.match(finding.message, /It takes: gap, align\./);
 });
 
 test("a value an attribute does not take is caught, with the ones it does", () => {
-  const [finding] = lintHtml('<o-stack gap="5"></o-stack>', contract);
+  const [finding] = lintHtml('<onm-stack gap="5"></onm-stack>', contract);
 
   assert.equal(finding.rule, "unknown-value");
   assert.match(finding.message, /Use one of: 1, 2, 3, 4, 6, 8, 12, 16\./);
@@ -85,32 +93,32 @@ test("a value an attribute does not take is caught, with the ones it does", () =
 
 test("attributes every element takes, and aria- and data- ones, are left alone", () => {
   assert.deepEqual(
-    html('<o-card id="a" class="b" role="group" aria-label="c" data-x="d" hidden></o-card>'),
+    html('<onm-card id="a" class="b" role="group" aria-label="c" data-x="d" hidden></onm-card>'),
     [],
   );
 });
 
 test("a class of the system on the wrong element is caught", () => {
-  assert.deepEqual(html('<div class="button">Save</div>'), ["wrong-element"]);
+  assert.deepEqual(html('<div class="onm-button">Save</div>'), ["wrong-element"]);
 });
 
 test("a variant a class does not have is caught", () => {
   assert.deepEqual(
-    html('<button class="button" data-variant="primary" type="button">Save</button>'),
+    html('<button class="onm-button" data-variant="primary" type="button">Save</button>'),
     ["unknown-value"],
   );
 });
 
 test("an element without the part it is built around is caught", () => {
-  assert.deepEqual(html("<o-table><p>No table here</p></o-table>"), ["missing-part"]);
-  assert.deepEqual(html("<o-tabs><div>One</div></o-tabs>"), ["missing-part"]);
-  assert.deepEqual(html('<o-tooltip><button type="button">Go</button></o-tooltip>'), [
+  assert.deepEqual(html("<onm-table><p>No table here</p></onm-table>"), ["missing-part"]);
+  assert.deepEqual(html("<onm-tabs><div>One</div></onm-tabs>"), ["missing-part"]);
+  assert.deepEqual(html('<onm-tooltip><button type="button">Go</button></onm-tooltip>'), [
     "missing-part",
   ]);
 });
 
 test("a card inside a card is caught, however deep", () => {
-  assert.deepEqual(html("<o-card><o-stack><o-card>Inner</o-card></o-stack></o-card>"), [
+  assert.deepEqual(html("<onm-card><onm-stack><onm-card>Inner</onm-card></onm-stack></onm-card>"), [
     "nested-card",
   ]);
 });
@@ -120,7 +128,7 @@ test("a card inside a card is caught, however deep", () => {
 test("two solid buttons side by side are caught, once", () => {
   assert.deepEqual(
     html(
-      '<o-row><button class="button" type="button">Save</button><button class="button" type="button">Publish</button><button class="button" type="button">Send</button></o-row>',
+      '<onm-row><button class="onm-button" type="button">Save</button><button class="onm-button" type="button">Publish</button><button class="onm-button" type="button">Send</button></onm-row>',
     ),
     ["two-solid-buttons"],
   );
@@ -129,7 +137,7 @@ test("two solid buttons side by side are caught, once", () => {
 test("a solid button beside quieter or disabled ones is fine", () => {
   assert.deepEqual(
     html(
-      '<o-row><button class="button" type="button">Save</button><button class="button" data-variant="outline" type="button">Preview</button><button class="button" type="button" disabled>Send</button></o-row>',
+      '<onm-row><button class="onm-button" type="button">Save</button><button class="onm-button" data-variant="outline" type="button">Preview</button><button class="onm-button" type="button" disabled>Send</button></onm-row>',
     ),
     [],
   );
@@ -141,9 +149,10 @@ test("a style attribute is caught", () => {
 
 test("script written into the page is caught; a linked script and data are not", () => {
   assert.deepEqual(html("<script>window.print()</script>"), ["inline-script"]);
-  assert.deepEqual(html('<button class="button" type="button" onclick="print()">Print</button>'), [
-    "inline-script",
-  ]);
+  assert.deepEqual(
+    html('<button class="onm-button" type="button" onclick="print()">Print</button>'),
+    ["inline-script"],
+  );
   assert.deepEqual(html('<script type="module" src="page.js"></script>'), []);
   assert.deepEqual(html('<script type="application/ld+json">{"@type": "Place"}</script>'), []);
 });
@@ -168,23 +177,26 @@ test("the system linked from oinam.dev is caught; a link to the site is not", ()
 /* Names */
 
 test("a control with no label is caught", () => {
-  assert.deepEqual(html('<input class="input" type="text" />'), ["unnamed-control"]);
+  assert.deepEqual(html('<input class="onm-input" type="text" />'), ["unnamed-control"]);
 });
 
 test("a control is named by a label for it, a label around it, or aria-label", () => {
-  assert.deepEqual(html('<label for="a">Name</label><input class="input" id="a" />'), []);
-  assert.deepEqual(html('<label class="choice"><input type="checkbox" /> Remember me</label>'), []);
-  assert.deepEqual(html('<input class="input" type="search" aria-label="Search" />'), []);
+  assert.deepEqual(html('<label for="a">Name</label><input class="onm-input" id="a" />'), []);
+  assert.deepEqual(
+    html('<label class="onm-choice"><input type="checkbox" /> Remember me</label>'),
+    [],
+  );
+  assert.deepEqual(html('<input class="onm-input" type="search" aria-label="Search" />'), []);
 });
 
 test("a button with nothing to call it is caught; an icon with a name is fine", () => {
   assert.deepEqual(
-    html('<button class="button" data-size="icon" type="button"><svg></svg></button>'),
+    html('<button class="onm-button" data-size="icon" type="button"><svg></svg></button>'),
     ["unnamed-button"],
   );
   assert.deepEqual(
     html(
-      '<button class="button" data-size="icon" type="button" aria-label="Close"><svg></svg></button>',
+      '<button class="onm-button" data-size="icon" type="button" aria-label="Close"><svg></svg></button>',
     ),
     [],
   );
@@ -205,7 +217,10 @@ test("a second h1, and a skipped level, are caught", () => {
 });
 
 test("headings inside a dialog are their own outline", () => {
-  assert.deepEqual(html('<h1>Page</h1><dialog class="dialog" id="d"><h2>Sure?</h2></dialog>'), []);
+  assert.deepEqual(
+    html('<h1>Page</h1><dialog class="onm-dialog" id="d"><h2>Sure?</h2></dialog>'),
+    [],
+  );
 });
 
 test("an id used twice is caught", () => {
@@ -274,7 +289,7 @@ test("a style element in a page is checked as a stylesheet, at the page's line",
 test("a rule can be set aside for a line, with a reason", () => {
   assert.deepEqual(
     html(
-      '<o-row>\n<button class="button" type="button">Yes</button>\n<!-- lint-allow two-solid-buttons: the two are equal choices -->\n<button class="button" type="button">No</button>\n</o-row>',
+      '<onm-row>\n<button class="onm-button" type="button">Yes</button>\n<!-- lint-allow two-solid-buttons: the two are equal choices -->\n<button class="onm-button" type="button">No</button>\n</onm-row>',
     ),
     [],
   );
@@ -302,7 +317,7 @@ test("setting one rule aside does not set aside another", () => {
 const OLD_POST =
   "<h1>Archive</h1>\n" +
   "<!-- lint-allow-start heading-order missing-alt: posts from before the system, kept as written -->\n" +
-  "<o-prose>\n<h4>2006</h4>\n<img src=a.png>\n</o-prose>\n" +
+  "<onm-prose>\n<h4>2006</h4>\n<img src=a.png>\n</onm-prose>\n" +
   "<!-- lint-allow-end -->\n" +
   "<h2>Since</h2>\n<h4>Skipped</h4>\n<img src=b.png>";
 
@@ -424,48 +439,48 @@ test("from the command line, it exits with 1 and names the file and line", () =>
 });
 
 test("a badge with a tone must say its status in words", () => {
-  assert.deepEqual(html('<o-badge tone="success"></o-badge>'), ["wordless-tone"]);
-  assert.deepEqual(html('<o-badge tone="success">  </o-badge>'), ["wordless-tone"]);
-  assert.deepEqual(html('<o-badge tone="success">Verified</o-badge>'), []);
-  assert.deepEqual(html('<o-badge tone="purple">Verified</o-badge>'), ["unknown-value"]);
+  assert.deepEqual(html('<onm-badge tone="success"></onm-badge>'), ["wordless-tone"]);
+  assert.deepEqual(html('<onm-badge tone="success">  </onm-badge>'), ["wordless-tone"]);
+  assert.deepEqual(html('<onm-badge tone="success">Verified</onm-badge>'), []);
+  assert.deepEqual(html('<onm-badge tone="purple">Verified</onm-badge>'), ["unknown-value"]);
 });
 
 test("an alert's tone must agree with its variant", () => {
-  assert.deepEqual(html('<o-alert tone="info" role="note"><p>Read.</p></o-alert>'), []);
+  assert.deepEqual(html('<onm-alert tone="info" role="note"><p>Read.</p></onm-alert>'), []);
   assert.deepEqual(
-    html('<o-alert variant="danger" tone="danger" role="note"><p>Gone.</p></o-alert>'),
+    html('<onm-alert variant="danger" tone="danger" role="note"><p>Gone.</p></onm-alert>'),
     [],
   );
   assert.deepEqual(
-    html('<o-alert variant="danger" tone="success" role="note"><p>Gone.</p></o-alert>'),
+    html('<onm-alert variant="danger" tone="success" role="note"><p>Gone.</p></onm-alert>'),
     ["tone-disagrees"],
   );
   assert.deepEqual(
-    html('<o-alert variant="warning" tone="info" role="note"><p>Careful.</p></o-alert>'),
+    html('<onm-alert variant="warning" tone="info" role="note"><p>Careful.</p></onm-alert>'),
     ["tone-disagrees"],
   );
-  assert.deepEqual(html('<o-alert tone="purple" role="note"><p>Read.</p></o-alert>'), [
+  assert.deepEqual(html('<onm-alert tone="purple" role="note"><p>Read.</p></onm-alert>'), [
     "unknown-value",
   ]);
 });
 
 test("a badge with a hue must say its kind in words, and is not also a status", () => {
-  assert.deepEqual(html('<o-badge hue="1"></o-badge>'), ["wordless-hue"]);
-  assert.deepEqual(html('<o-badge hue="1">Design</o-badge>'), []);
-  assert.deepEqual(html('<o-badge hue="7">Design</o-badge>'), ["unknown-value"]);
-  assert.deepEqual(html('<o-badge hue="2" tone="success">Design</o-badge>'), ["hue-and-tone"]);
+  assert.deepEqual(html('<onm-badge hue="1"></onm-badge>'), ["wordless-hue"]);
+  assert.deepEqual(html('<onm-badge hue="1">Design</onm-badge>'), []);
+  assert.deepEqual(html('<onm-badge hue="7">Design</onm-badge>'), ["unknown-value"]);
+  assert.deepEqual(html('<onm-badge hue="2" tone="success">Design</onm-badge>'), ["hue-and-tone"]);
 });
 
 test("an accent button is the solid one, so it counts as the one main action", () => {
   assert.deepEqual(
     html(
-      '<div><button class="button" data-variant="accent" type="button">Apply</button><button class="button" data-variant="outline" type="button">Save</button></div>',
+      '<div><button class="onm-button" data-variant="accent" type="button">Apply</button><button class="onm-button" data-variant="outline" type="button">Save</button></div>',
     ),
     [],
   );
   assert.deepEqual(
     html(
-      '<div><button class="button" data-variant="accent" type="button">Apply</button><button class="button" type="button">Save</button></div>',
+      '<div><button class="onm-button" data-variant="accent" type="button">Apply</button><button class="onm-button" type="button">Save</button></div>',
     ),
     ["two-solid-buttons"],
   );

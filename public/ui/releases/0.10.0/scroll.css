@@ -1,0 +1,22 @@
+/*
+ * Scroll
+ *
+ * <onm-scroll> is a frame for something too long to show at once. It scrolls
+ * inside, with a thin bar, so the page keeps its length. Give it tabindex="0"
+ * and a name, so the keyboard can reach it and scroll.
+ *
+ *   <onm-scroll tabindex="0" role="group" aria-label="Arrivals this week">
+ *     ...
+ *   </onm-scroll>
+ */
+
+onm-scroll {
+  display: block;
+  max-height: var(--scroll, 16rem);
+  padding: var(--space-4);
+  overflow: auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  scrollbar-color: var(--color-line-strong) transparent;
+  scrollbar-width: thin;
+}

@@ -4,7 +4,7 @@
  * A class on the <nav> around a list of page links. The page being shown has
  * aria-current="page".
  *
- *   <nav class="pagination" aria-label="Pages">
+ *   <nav class="onm-pagination" aria-label="Pages">
  *     <ul>
  *       <li><a href="?page=1">Previous</a></li>
  *       <li><a href="?page=1">1</a></li>
@@ -15,7 +15,7 @@
  *   </nav>
  */
 
-.pagination ul {
+.onm-pagination ul {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-1);
@@ -25,7 +25,7 @@
   list-style: none;
 }
 
-.pagination a {
+.onm-pagination a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -39,11 +39,11 @@
   text-decoration: none;
 }
 
-.pagination a:hover {
+.onm-pagination a:hover {
   background: var(--color-wash);
 }
 
-.pagination a[aria-current="page"] {
+.onm-pagination a[aria-current="page"] {
   border-color: var(--color-line-strong);
   background: var(--color-milk);
 }

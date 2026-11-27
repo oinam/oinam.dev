@@ -1,7 +1,7 @@
 /*
- * <o-tabs>: sections become tabs.
+ * <onm-tabs>: sections become tabs.
  *
- *   <o-tabs label="Install">
+ *   <onm-tabs label="Install">
  *     <section>
  *       <h3>Link it</h3>
  *       <p>...</p>
@@ -10,7 +10,7 @@
  *       <h3>Copy it</h3>
  *       <p>...</p>
  *     </section>
- *   </o-tabs>
+ *   </onm-tabs>
  *
  * Write one <section> per tab, each opening with a heading. This element
  * builds the row of tabs from those headings, shows one section at a time,
@@ -43,7 +43,7 @@ export class Tabs extends HTMLElement {
     this.#panels = [...this.children].filter((child) => child.localName === "section");
     if (this.#panels.length === 0) return;
 
-    const id = `o-tabs-${++sets}`;
+    const id = `onm-tabs-${++sets}`;
     const list = document.createElement("div");
     list.setAttribute("role", "tablist");
     if (this.hasAttribute("label")) list.setAttribute("aria-label", this.getAttribute("label"));
@@ -123,4 +123,4 @@ export class Tabs extends HTMLElement {
   }
 }
 
-if (!customElements.get("o-tabs")) customElements.define("o-tabs", Tabs);
+if (!customElements.get("onm-tabs")) customElements.define("onm-tabs", Tabs);

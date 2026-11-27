@@ -1,0 +1,120 @@
+/*
+ * Dialog
+ *
+ * A class on <dialog>, which already traps focus, closes on Escape, and dims
+ * the page behind it. The buttons open and close it by naming it, so there is
+ * no script to write.
+ *
+ *   <button class="onm-button" type="button" commandfor="confirm" command="show-modal">
+ *     Delete
+ *   </button>
+ *
+ *   <dialog class="onm-dialog" id="confirm" aria-labelledby="confirm-title" closedby="any">
+ *     <h2 id="confirm-title">Delete the file?</h2>
+ *     <p>This cannot be undone.</p>
+ *     <footer>
+ *       <button class="onm-button" data-variant="ghost" type="button"
+ *               commandfor="confirm" command="close">Cancel</button>
+ *       <button class="onm-button" type="button">Delete</button>
+ *     </footer>
+ *   </dialog>
+ *
+ * data-side="right|left|bottom" makes it a drawer: a panel that slides in from
+ * that edge, for a form or a set of details beside the page.
+ *
+ * For a question that must be answered, give it role="alertdialog" and leave
+ * off closedby, so that only its buttons can close it.
+ */
+
+.onm-dialog {
+  width: min(28rem, 100vw - 2rem);
+  padding: var(--space-6);
+  border: 1px solid var(--color-line);
+  border-radius: calc(var(--radius-lg) + 4px);
+  background: var(--color-milk);
+  box-shadow: var(--shadow-lg);
+  color: var(--color-ink);
+}
+
+.onm-dialog[open] {
+  display: grid;
+  gap: var(--space-3);
+  animation: dialog-in var(--duration) var(--ease) both;
+}
+
+.onm-dialog::backdrop {
+  background: color-mix(in oklab, var(--color-cloud) 60%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.onm-dialog > :is(h2, h3) {
+  font-size: var(--text-2xl);
+}
+
+.onm-dialog > p {
+  color: var(--color-ink-soft);
+}
+
+.onm-dialog > footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: flex-end;
+  padding-top: var(--space-3);
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    translate: 0 0.5rem;
+  }
+}
+
+/* Drawers */
+
+.onm-dialog[data-side] {
+  max-height: none;
+  border-radius: 0;
+  animation-name: drawer-in;
+}
+
+.onm-dialog[data-side][open] {
+  align-content: start;
+}
+
+.onm-dialog:is([data-side="right"], [data-side="left"]) {
+  width: min(24rem, 100vw - 2rem);
+  height: 100dvh;
+  border-block: 0;
+}
+
+.onm-dialog[data-side="right"] {
+  --from: 2rem 0;
+
+  margin: 0 0 0 auto;
+  border-right: 0;
+}
+
+.onm-dialog[data-side="left"] {
+  --from: -2rem 0;
+
+  margin: 0 auto 0 0;
+  border-left: 0;
+}
+
+.onm-dialog[data-side="bottom"] {
+  --from: 0 2rem;
+
+  width: 100vw;
+  max-width: none;
+  margin: auto 0 0;
+  border-inline: 0;
+  border-bottom: 0;
+}
+
+@keyframes drawer-in {
+  from {
+    opacity: 0;
+    translate: var(--from);
+  }
+}

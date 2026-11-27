@@ -47,7 +47,9 @@ export function score(folder, contract) {
     ),
   ];
 
-  const custom = [...new Set(nodes.map((node) => node.tag).filter((tag) => tag.startsWith("o-")))];
+  const custom = [
+    ...new Set(nodes.map((node) => node.tag).filter((tag) => tag.startsWith("onm-"))),
+  ];
   const usesCopy = nodes.some(
     (node) =>
       node.tag === "link" &&
@@ -59,12 +61,13 @@ export function score(folder, contract) {
   const notes = [];
   const cardRows = nodes.filter(
     (node) =>
-      node.tag === "o-grid" && node.children.filter((child) => child.tag === "o-card").length >= 3,
+      node.tag === "onm-grid" &&
+      node.children.filter((child) => child.tag === "onm-card").length >= 3,
   );
   if (cardRows.length > 0) notes.push(`${cardRows.length} row(s) of three or more equal cards`);
   const centered = (css.match(/text-align:\s*center/g) ?? []).length;
   if (centered > 0) notes.push(`text-align: center, ${centered} time(s)`);
-  const badges = nodes.filter((node) => node.tag === "o-badge").length;
+  const badges = nodes.filter((node) => node.tag === "onm-badge").length;
   if (badges > 4) notes.push(`${badges} badges`);
   if (!nodes.some((node) => node.tag === "h1")) notes.push("no h1");
   if (!nodes.some((node) => node.tag === "main")) notes.push("no main");

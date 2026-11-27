@@ -5,15 +5,15 @@
  * from the button that names it, closes it on Escape or a click elsewhere,
  * and keeps it above everything. This file places it under that button.
  *
- *   <button class="button" type="button" popovertarget="hours">Hours</button>
+ *   <button class="onm-button" type="button" popovertarget="hours">Hours</button>
  *
- *   <div class="popover" id="hours" popover>
+ *   <div class="onm-popover" id="hours" popover>
  *     <strong>Office hours</strong>
  *     <p>Eight to five, every day but Sunday.</p>
  *   </div>
  */
 
-.popover {
+.onm-popover {
   inset: auto;
   width: max-content;
   max-width: min(20rem, 100vw - 2rem);
@@ -34,14 +34,14 @@
     flip-block flip-inline;
 }
 
-.popover > p {
+.onm-popover > p {
   color: var(--color-ink-soft);
 }
 
 /* A browser that cannot place it by its button shows it in the middle of the page. */
 
 @supports not (position-area: bottom) {
-  .popover {
+  .onm-popover {
     inset: 0;
     margin: auto;
   }

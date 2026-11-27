@@ -18,7 +18,7 @@
   font-size: var(--text-sm);
 }
 
-.bar o-wrap > o-row {
+.bar onm-wrap > onm-row {
   min-height: var(--control-lg);
 }
 

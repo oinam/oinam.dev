@@ -5,10 +5,10 @@
  * screen reader so.
  *
  *   <label for="upload">Uploading the chart</label>
- *   <progress class="progress" id="upload" value="40" max="100">40%</progress>
+ *   <progress class="onm-progress" id="upload" value="40" max="100">40%</progress>
  */
 
-.progress {
+.onm-progress {
   display: block;
   width: 100%;
   height: 0.5rem;
@@ -21,14 +21,14 @@
 
 /* Each browser draws the bar with a part of its own. */
 
-.progress::-webkit-progress-bar {
+.onm-progress::-webkit-progress-bar {
   background: var(--color-line);
 }
 
-.progress::-webkit-progress-value {
+.onm-progress::-webkit-progress-value {
   background: var(--color-ink);
 }
 
-.progress::-moz-progress-bar {
+.onm-progress::-moz-progress-bar {
   background: var(--color-ink);
 }

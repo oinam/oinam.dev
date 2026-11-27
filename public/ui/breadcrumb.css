@@ -4,7 +4,7 @@
  * A class on the <nav> around an ordered list of links: where this page sits,
  * from the top down. The last item is the page itself, and is not a link.
  *
- *   <nav class="breadcrumb" aria-label="Breadcrumb">
+ *   <nav class="onm-breadcrumb" aria-label="Breadcrumb">
  *     <ol>
  *       <li><a href="/">Home</a></li>
  *       <li><a href="/harbor/">Harbor</a></li>
@@ -13,7 +13,7 @@
  *   </nav>
  */
 
-.breadcrumb ol {
+.onm-breadcrumb ol {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
@@ -24,21 +24,21 @@
   list-style: none;
 }
 
-.breadcrumb li + li::before {
+.onm-breadcrumb li + li::before {
   margin-right: var(--space-2);
   color: var(--color-ink-faint);
   content: "/";
 }
 
-.breadcrumb a {
+.onm-breadcrumb a {
   text-decoration: none;
 }
 
-.breadcrumb a:hover {
+.onm-breadcrumb a:hover {
   color: var(--color-ink);
 }
 
-.breadcrumb [aria-current="page"] {
+.onm-breadcrumb [aria-current="page"] {
   color: var(--color-ink);
   font-weight: 500;
 }

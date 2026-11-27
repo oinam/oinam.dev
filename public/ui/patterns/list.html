@@ -27,51 +27,51 @@
 
   <body>
     <header class="bar">
-      <o-wrap>
-        <o-row justify="between">
+      <onm-wrap>
+        <onm-row justify="between">
           <a class="bar-name" href="./">Harbor office</a>
           <nav aria-label="Main">
-            <o-row gap="4">
+            <onm-row gap="4">
               <a href="table.html">Berths</a>
               <a href="list.html">Arrivals</a>
               <a href="settings.html">Settings</a>
-            </o-row>
+            </onm-row>
           </nav>
-        </o-row>
-      </o-wrap>
+        </onm-row>
+      </onm-wrap>
     </header>
 
     <main>
-      <o-wrap narrow>
-        <o-stack class="page" gap="12">
-          <o-row justify="between" align="start">
-            <o-stack gap="2">
+      <onm-wrap narrow>
+        <onm-stack class="page" gap="12">
+          <onm-row justify="between" align="start">
+            <onm-stack gap="2">
               <h1>Arrivals</h1>
-              <p class="lede">Boats expected today, in the order of the tide.</p>
-            </o-stack>
-            <a class="button" href="form.html">Book a berth</a>
-          </o-row>
+              <p class="onm-lede">Boats expected today, in the order of the tide.</p>
+            </onm-stack>
+            <a class="onm-button" href="form.html">Book a berth</a>
+          </onm-row>
 
           <section aria-labelledby="full-title">
-            <o-stack gap="3">
+            <onm-stack gap="3">
               <h2 id="full-title">With boats expected</h2>
               <div>
-                <o-item>
-                  <o-avatar role="img" aria-label="Kestrel">K</o-avatar>
+                <onm-item>
+                  <onm-avatar role="img" aria-label="Kestrel">K</onm-avatar>
                   <div>
                     <strong>Kestrel</strong>
                     <p>9.2 m sloop, berth E 11. On the morning tide.</p>
                   </div>
-                  <o-badge variant="solid">Arrived</o-badge>
-                </o-item>
-                <o-item>
-                  <o-avatar role="img" aria-label="Marguerite">M</o-avatar>
+                  <onm-badge variant="solid">Arrived</onm-badge>
+                </onm-item>
+                <onm-item>
+                  <onm-avatar role="img" aria-label="Marguerite">M</onm-avatar>
                   <div>
                     <strong>Marguerite</strong>
                     <p>12 m ketch, berth E 13. On the evening tide.</p>
                   </div>
                   <button
-                    class="button"
+                    class="onm-button"
                     data-variant="outline"
                     data-size="small"
                     type="button"
@@ -79,15 +79,15 @@
                   >
                     Mark as arrived
                   </button>
-                </o-item>
-                <o-item>
-                  <o-avatar role="img" aria-label="Two Brothers">T</o-avatar>
+                </onm-item>
+                <onm-item>
+                  <onm-avatar role="img" aria-label="Two Brothers">T</onm-avatar>
                   <div>
                     <strong>Two Brothers</strong>
                     <p>7.5 m motor launch, berth to be given. On the evening tide.</p>
                   </div>
                   <button
-                    class="button"
+                    class="onm-button"
                     data-variant="outline"
                     data-size="small"
                     type="button"
@@ -95,48 +95,48 @@
                   >
                     Mark as arrived
                   </button>
-                </o-item>
+                </onm-item>
               </div>
-            </o-stack>
+            </onm-stack>
           </section>
 
           <section aria-labelledby="empty-title">
-            <o-stack gap="3">
+            <onm-stack gap="3">
               <h2 id="empty-title">With none</h2>
-              <o-empty>
+              <onm-empty>
                 <h3>No boats expected today</h3>
                 <p>
                   When a berth is booked for today, the boat shows up here with the tide it is
                   coming on.
                 </p>
-                <a class="button" data-variant="outline" href="form.html">Book a berth</a>
-              </o-empty>
-            </o-stack>
+                <a class="onm-button" data-variant="outline" href="form.html">Book a berth</a>
+              </onm-empty>
+            </onm-stack>
           </section>
 
           <section aria-labelledby="loading-title">
-            <o-stack gap="3">
+            <onm-stack gap="3">
               <h2 id="loading-title">While it loads</h2>
-              <o-stack gap="4" aria-busy="true" aria-label="Loading arrivals">
-                <o-row>
-                  <o-skeleton shape="circle"></o-skeleton>
-                  <o-stack class="grow" gap="2">
-                    <o-skeleton></o-skeleton>
-                    <o-skeleton></o-skeleton>
-                  </o-stack>
-                </o-row>
-                <o-row>
-                  <o-skeleton shape="circle"></o-skeleton>
-                  <o-stack class="grow" gap="2">
-                    <o-skeleton></o-skeleton>
-                    <o-skeleton></o-skeleton>
-                  </o-stack>
-                </o-row>
-              </o-stack>
-            </o-stack>
+              <onm-stack gap="4" aria-busy="true" aria-label="Loading arrivals">
+                <onm-row>
+                  <onm-skeleton shape="circle"></onm-skeleton>
+                  <onm-stack class="grow" gap="2">
+                    <onm-skeleton></onm-skeleton>
+                    <onm-skeleton></onm-skeleton>
+                  </onm-stack>
+                </onm-row>
+                <onm-row>
+                  <onm-skeleton shape="circle"></onm-skeleton>
+                  <onm-stack class="grow" gap="2">
+                    <onm-skeleton></onm-skeleton>
+                    <onm-skeleton></onm-skeleton>
+                  </onm-stack>
+                </onm-row>
+              </onm-stack>
+            </onm-stack>
           </section>
-        </o-stack>
-      </o-wrap>
+        </onm-stack>
+      </onm-wrap>
     </main>
   </body>
 </html>

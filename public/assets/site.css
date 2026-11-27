@@ -49,7 +49,7 @@ main {
   backdrop-filter: blur(14px) saturate(1.4);
 }
 
-.site-header > o-wrap {
+.site-header > onm-wrap {
   display: grid;
   grid-template-columns: 1fr minmax(0, 36rem) 1fr;
   gap: clamp(0.75rem, 2vw, 2rem);
@@ -196,7 +196,7 @@ main {
 
 /* Search and the theme toggle need their scripts. Until those arrive, they step aside. */
 
-o-theme:not(:defined) {
+onm-theme:not(:defined) {
   visibility: hidden;
 }
 
@@ -207,7 +207,7 @@ o-theme:not(:defined) {
 }
 
 @media (width < 52rem) {
-  .site-header > o-wrap {
+  .site-header > onm-wrap {
     grid-template-columns: auto 1fr auto;
   }
 
@@ -225,7 +225,7 @@ o-theme:not(:defined) {
 
   .search-text,
   .search-keys,
-  .site-nav o-badge {
+  .site-nav onm-badge {
     display: none;
   }
 }
@@ -415,7 +415,7 @@ o-theme:not(:defined) {
   line-height: 1.04;
 }
 
-.hero .lede {
+.hero .onm-lede {
   max-width: 34em;
 }
 
@@ -449,11 +449,11 @@ o-theme:not(:defined) {
   font-family: var(--font-body);
 }
 
-.share o-copy:defined > pre {
+.share onm-copy:defined > pre {
   padding-right: var(--space-4);
 }
 
-.share o-copy:defined > button {
+.share onm-copy:defined > button {
   top: auto;
   bottom: var(--space-2);
 }
@@ -550,11 +550,11 @@ o-theme:not(:defined) {
   list-style: none;
 }
 
-.toc li.eyebrow {
+.toc li.onm-eyebrow {
   font-size: var(--text-xs);
 }
 
-.toc li.eyebrow:not(:first-child) {
+.toc li.onm-eyebrow:not(:first-child) {
   margin-top: var(--space-4);
 }
 
@@ -973,6 +973,6 @@ button.color-value:hover code {
   list-style: none;
 }
 
-.site-footer o-row {
+.site-footer onm-row {
   padding-block: var(--space-6);
 }

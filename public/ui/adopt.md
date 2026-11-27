@@ -97,9 +97,9 @@ the four `--font-*` tokens are the usual ones. Then choose a side for each value
 ## Old content
 
 A site with years of posts has markup it should not edit, written before the system and often
-without classes. Wrap where it appears, in the layout or template, in `<o-prose>`. That styles it
+without classes. Wrap where it appears, in the layout or template, in `<onm-prose>`. That styles it
 without touching it. The system's base styles take margins off, so look at old posts for what
-`<o-prose>` does not reach: raw HTML, embedded media, and tables.
+`<onm-prose>` does not reach: raw HTML, embedded media, and tables.
 
 ## The linter on an existing site
 
@@ -127,10 +127,10 @@ Two findings are common in a site's header, on every page:
 
 ## A toggle the site already has
 
-`<o-theme>` keeps the visitor's choice under the `theme` key in `localStorage`, as `light` or
+`<onm-theme>` keeps the visitor's choice under the `theme` key in `localStorage`, as `light` or
 `dark`, and following the system stores nothing. Any other stored value, such as `auto`, is read as
 following the system, so a site's earlier toggle hands over cleanly. For a toggle with three
-states, light, dark, and the system's, use `<o-theme auto>`; `components/theme.md` has it.
+states, light, dark, and the system's, use `<onm-theme auto>`; `components/theme.md` has it.
 
 ## While the version starts with 0
 

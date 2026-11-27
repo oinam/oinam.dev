@@ -64,8 +64,8 @@ accepts that it may break.
 
 ## A class on a native element, a custom element for the rest
 
-**Decision.** A button is `<button class="button">`. A text field is `<input class="input">`.
-Anything HTML has no element for is a custom element with an `o-` name. A native element is never
+**Decision.** A button is `<button class="onm-button">`. A text field is `<input class="onm-input">`.
+Anything HTML has no element for is a custom element with an `onm-` name. A native element is never
 wrapped or rebuilt.
 
 **Why.** The browser's own elements come with the keyboard, the screen reader, forms, focus, and
@@ -79,6 +79,15 @@ controls look the way the browser allows: the list a `<select>` opens is not our
 **Revisit** per control, when the browser's version cannot do what a page needs. Then build that
 one, with its keyboard and its tests, and say in the guide what it gives up.
 
+**Revisited** in 0.10.0, for the names. The elements began `o-` and the classes had no prefix, so a
+page could hold another library's `o-` element, or a site's own `.button` and `.input`, under the
+same name as ours. A custom element's name is one per page, and the browser refuses a second
+definition of it; a class of the same name quietly mixes two sets of styles. Both now take `onm-`,
+which is the system's alone, and the same prefix on both shows at a glance which names in a page
+are the system's. It costs two letters a tag, which compression all but erases: 15 bytes on the
+components page. Attributes, tokens, and layers keep their names, because they only mean anything
+on or inside the system's own elements and stylesheets.
+
 ## A classless sheet beside Base, not a classless Base
 
 **Decision.** A page of plain HTML, with no classes, links `classless.css`. It imports the tokens
@@ -89,7 +98,7 @@ clears margins, and leaves a `<button>` to the browser until it has the class.
 their own when they adopted the system. If Base dressed every bare `<button>`, `<input>`, and
 `<table>`, those sites would find their own elements restyled, and every component built on a
 native element would first have to undo what Base did. Spacing is the same: Base leaves it to
-`<o-stack>` and `<o-prose>`, which know what they hold, and a page-wide rhythm would fight them. A
+`<onm-stack>` and `<onm-prose>`, which know what they hold, and a page-wide rhythm would fight them. A
 separate sheet gives a page with no classes everything at once, and costs a page with components
 nothing.
 

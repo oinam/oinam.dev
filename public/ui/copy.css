@@ -1,11 +1,11 @@
 /*
  * Copy
  *
- * <o-copy> goes around a <pre>. See copy.js: it adds the button, and this
+ * <onm-copy> goes around a <pre>. See copy.js: it adds the button, and this
  * file puts it in the corner.
  */
 
-o-copy {
+onm-copy {
   position: relative;
   display: block;
 }
@@ -17,7 +17,7 @@ o-copy {
  * it beside the line it starts with.
  */
 
-o-copy > button {
+onm-copy > button {
   position: absolute;
   top: calc(1px + var(--space-4) + var(--text-sm) * 1.55 / 2 - var(--control-sm) / 2);
   right: var(--space-2);
@@ -25,6 +25,6 @@ o-copy > button {
 
 /* Keep the first line of code clear of the button. */
 
-o-copy:defined > pre {
+onm-copy:defined > pre {
   padding-right: 5.5rem;
 }

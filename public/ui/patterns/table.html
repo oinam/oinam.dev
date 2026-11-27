@@ -28,48 +28,48 @@
 
   <body>
     <header class="bar">
-      <o-wrap>
-        <o-row justify="between">
+      <onm-wrap>
+        <onm-row justify="between">
           <a class="bar-name" href="./">Harbor office</a>
           <nav aria-label="Main">
-            <o-row gap="4">
+            <onm-row gap="4">
               <a href="table.html">Berths</a>
               <a href="list.html">Arrivals</a>
               <a href="settings.html">Settings</a>
-            </o-row>
+            </onm-row>
           </nav>
-        </o-row>
-      </o-wrap>
+        </onm-row>
+      </onm-wrap>
     </header>
 
     <main>
-      <o-wrap>
-        <o-stack class="page" gap="6">
-          <o-row justify="between" align="start">
-            <o-stack gap="2">
+      <onm-wrap>
+        <onm-stack class="page" gap="6">
+          <onm-row justify="between" align="start">
+            <onm-stack gap="2">
               <h1>Berths</h1>
-              <p class="lede">Forty on the east quay. Twenty-six are taken tonight.</p>
-            </o-stack>
-            <a class="button" href="form.html">Book a berth</a>
-          </o-row>
+              <p class="onm-lede">Forty on the east quay. Twenty-six are taken tonight.</p>
+            </onm-stack>
+            <a class="onm-button" href="form.html">Book a berth</a>
+          </onm-row>
 
-          <o-row justify="between">
-            <o-toggle-group role="group" aria-label="Show">
-              <label class="toggle"><input type="radio" name="show" checked /> All</label>
-              <label class="toggle"><input type="radio" name="show" /> Free</label>
-              <label class="toggle"><input type="radio" name="show" /> Taken</label>
-            </o-toggle-group>
-            <o-input-group class="find">
+          <onm-row justify="between">
+            <onm-toggle-group role="group" aria-label="Show">
+              <label class="onm-toggle"><input type="radio" name="show" checked /> All</label>
+              <label class="onm-toggle"><input type="radio" name="show" /> Free</label>
+              <label class="onm-toggle"><input type="radio" name="show" /> Taken</label>
+            </onm-toggle-group>
+            <onm-input-group class="find">
               <input
-                class="input"
+                class="onm-input"
                 type="search"
                 aria-label="Find a berth or a boat"
                 placeholder="Find a berth or a boat"
               />
-            </o-input-group>
-          </o-row>
+            </onm-input-group>
+          </onm-row>
 
-          <o-table>
+          <onm-table>
             <table>
               <thead>
                 <tr>
@@ -87,11 +87,11 @@
                   <td>Kestrel</td>
                   <td>Thursday</td>
                   <td>2.4 m</td>
-                  <td><o-badge variant="solid">Taken</o-badge></td>
+                  <td><onm-badge variant="solid">Taken</onm-badge></td>
                   <td>
-                    <o-menu>
+                    <onm-menu>
                       <button
-                        class="button"
+                        class="onm-button"
                         data-variant="ghost"
                         data-size="small"
                         type="button"
@@ -99,13 +99,13 @@
                       >
                         Actions
                       </button>
-                      <div class="popover" id="row-e11" popover>
+                      <div class="onm-popover" id="row-e11" popover>
                         <button type="button">Extend the stay</button>
                         <button type="button">Move to another berth</button>
                         <hr />
                         <button type="button">Release</button>
                       </div>
-                    </o-menu>
+                    </onm-menu>
                   </td>
                 </tr>
                 <tr>
@@ -113,9 +113,9 @@
                   <td>None</td>
                   <td>Free</td>
                   <td>2.4 m</td>
-                  <td><o-badge>Free</o-badge></td>
+                  <td><onm-badge>Free</onm-badge></td>
                   <td>
-                    <a class="button" data-variant="ghost" data-size="small" href="form.html"
+                    <a class="onm-button" data-variant="ghost" data-size="small" href="form.html"
                       >Book</a
                     >
                   </td>
@@ -125,11 +125,11 @@
                   <td>Marguerite</td>
                   <td>Tomorrow</td>
                   <td>1.9 m</td>
-                  <td><o-badge variant="solid">Taken</o-badge></td>
+                  <td><onm-badge variant="solid">Taken</onm-badge></td>
                   <td>
-                    <o-menu>
+                    <onm-menu>
                       <button
-                        class="button"
+                        class="onm-button"
                         data-variant="ghost"
                         data-size="small"
                         type="button"
@@ -137,13 +137,13 @@
                       >
                         Actions
                       </button>
-                      <div class="popover" id="row-e13" popover>
+                      <div class="onm-popover" id="row-e13" popover>
                         <button type="button">Extend the stay</button>
                         <button type="button">Move to another berth</button>
                         <hr />
                         <button type="button">Release</button>
                       </div>
-                    </o-menu>
+                    </onm-menu>
                   </td>
                 </tr>
                 <tr>
@@ -151,16 +151,16 @@
                   <td>None</td>
                   <td>Closed until spring</td>
                   <td>0.8 m</td>
-                  <td><o-badge>Closed</o-badge></td>
+                  <td><onm-badge>Closed</onm-badge></td>
                   <td></td>
                 </tr>
               </tbody>
             </table>
-          </o-table>
+          </onm-table>
 
-          <o-row justify="between">
+          <onm-row justify="between">
             <p class="quiet-text">Berths 11 to 14 of 40</p>
-            <nav class="pagination" aria-label="Pages">
+            <nav class="onm-pagination" aria-label="Pages">
               <ul>
                 <li><a href="table.html">Previous</a></li>
                 <li><a href="table.html">1</a></li>
@@ -169,9 +169,9 @@
                 <li><a href="table.html">Next</a></li>
               </ul>
             </nav>
-          </o-row>
-        </o-stack>
-      </o-wrap>
+          </onm-row>
+        </onm-stack>
+      </onm-wrap>
     </main>
   </body>
 </html>

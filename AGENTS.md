@@ -118,8 +118,8 @@ components; read this to change them.
   dependencies. Every file runs exactly as it is written. People should be able to read it, learn
   from it, and build their own.
 - **Web components are the structure.** Anything HTML has no element for is a custom element with
-  an `o-` name, such as `<o-card>`. A native element that already does the job takes a class
-  instead, such as `<button class="button">`; it is never wrapped or rebuilt.
+  an `onm-` name, such as `<onm-card>`. A native element that already does the job takes a class
+  instead, such as `<button class="onm-button">`; it is never wrapped or rebuilt.
 - **Script is the exception.** Most elements are styled by CSS alone, and the browser's own
   `popover`, `<dialog>`, `<details>`, and form controls are used before any script is written. One that needs behavior wraps
   ordinary HTML in the light DOM, with no shadow DOM, so the page reads correctly before the script
@@ -170,7 +170,7 @@ A new component is added in each of these places, and the tests fail until it is
 - `public/ui/registry.json`, the components as data, and `public/ui/contract.json`, what each
   element and class accepts
 - `public/ui/components/<name>.md`, its own page, and a row in the table in `public/ui/guide.md`
-- `public/ui/index.html`, as a specimen in an `<o-example>`, with a link in the contents
+- `public/ui/index.html`, as a specimen in an `<onm-example>`, with a link in the contents
 - `public/search.json`
 
 A new version is named in each of these places, and the tests fail until they agree:

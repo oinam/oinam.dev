@@ -35,10 +35,10 @@
   </head>
 
   <body>
-    <a class="skip button" href="#main">Skip to content</a>
+    <a class="skip onm-button" href="#main">Skip to content</a>
 
     <header class="site-header">
-      <o-wrap>
+      <onm-wrap>
         <div class="brand-group">
           <a class="brand" href="/" aria-label="Oinam.DEV, home">
             <svg class="brand-mark" viewBox="0 0 600 600" aria-hidden="true">
@@ -47,7 +47,7 @@
             <span class="brand-name">Oinam<span class="brand-tld">.DEV</span></span>
           </a>
           <a class="brand-version" href="/ui/CHANGELOG.md" title="What changed in each version"
-            ><code>v0.9.0</code></a
+            ><code>v0.10.0</code></a
           >
         </div>
 
@@ -83,7 +83,7 @@
               />
             </svg>
           </a>
-          <o-theme>
+          <onm-theme>
             <button type="button" aria-label="Switch theme">
               <svg
                 class="icon icon-moon"
@@ -112,16 +112,16 @@
                 />
               </svg>
             </button>
-          </o-theme>
+          </onm-theme>
         </nav>
-      </o-wrap>
+      </onm-wrap>
     </header>
 
     <main id="main">
-      <o-wrap>
-        <o-prose class="page">
+      <onm-wrap>
+        <onm-prose class="page">
           <h1>Start here</h1>
-          <p class="lede">
+          <p class="onm-lede">
             Oinam.DEV holds design and development assets, ideas, and standards for AI, and their
             agents, tools, and harnesses. The documentation is only beginning, and this page is
             where it begins.
@@ -161,10 +161,10 @@
           <p>
             It brings the same tokens and the same Base as the components. The body becomes one
             column at a measure made for reading, and the writing in it is spaced as in
-            <code>&lt;o-prose&gt;</code>. A submit button looks like the solid button, and any other
-            button like the outline one. Fields, labels, checkboxes, tables, details, and dialogs
-            look as their components do. A variation, linked after it, changes it the same way it
-            changes the components. An element with a class of its own is left alone.
+            <code>&lt;onm-prose&gt;</code>. A submit button looks like the solid button, and any
+            other button like the outline one. Fields, labels, checkboxes, tables, details, and
+            dialogs look as their components do. A variation, linked after it, changes it the same
+            way it changes the components. An element with a class of its own is left alone.
           </p>
           <p>
             It is for a page that has not yet earned the components: a readme turned into a page, a
@@ -179,7 +179,7 @@
             <li>
               <strong>Or link a release</strong>, to try it on a page. A release never changes, so
               the page keeps its look when a later version renames something.
-              <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://oinam.dev/ui/releases/0.9.0/classless.css&quot; /&gt;</code></pre>
+              <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://oinam.dev/ui/releases/0.10.0/classless.css&quot; /&gt;</code></pre>
             </li>
             <li>
               <strong>To grow into the components</strong>, link <code>ui.css</code> after it. The
@@ -224,13 +224,13 @@
             other fonts, corners, and colors on the components, go and
             <a href="/play/">play</a>.
           </p>
-        </o-prose>
-      </o-wrap>
+        </onm-prose>
+      </onm-wrap>
     </main>
 
     <footer class="site-footer">
-      <o-wrap>
-        <o-row justify="between">
+      <onm-wrap>
+        <onm-row justify="between">
           <p>
             Oinam.DEV by <a href="https://oinam.com">oinam.com</a>. Open and free, under the
             <a href="/license/">MIT license</a>.
@@ -244,8 +244,8 @@
             <li><a href="/llms.txt">llms.txt</a></li>
             <li><a href="https://github.com/oinam/oinam.dev">GitHub</a></li>
           </ul>
-        </o-row>
-      </o-wrap>
+        </onm-row>
+      </onm-wrap>
     </footer>
   </body>
 </html>

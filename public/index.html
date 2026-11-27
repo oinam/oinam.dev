@@ -42,10 +42,10 @@
   </head>
 
   <body>
-    <a class="skip button" href="#main">Skip to content</a>
+    <a class="skip onm-button" href="#main">Skip to content</a>
 
     <header class="site-header">
-      <o-wrap>
+      <onm-wrap>
         <div class="brand-group">
           <a class="brand" href="/" aria-label="Oinam.DEV, home">
             <svg class="brand-mark" viewBox="0 0 600 600" aria-hidden="true">
@@ -54,7 +54,7 @@
             <span class="brand-name">Oinam<span class="brand-tld">.DEV</span></span>
           </a>
           <a class="brand-version" href="/ui/CHANGELOG.md" title="What changed in each version"
-            ><code>v0.9.0</code></a
+            ><code>v0.10.0</code></a
           >
         </div>
 
@@ -90,7 +90,7 @@
               />
             </svg>
           </a>
-          <o-theme>
+          <onm-theme>
             <button type="button" aria-label="Switch theme">
               <svg
                 class="icon icon-moon"
@@ -119,28 +119,28 @@
                 />
               </svg>
             </button>
-          </o-theme>
+          </onm-theme>
         </nav>
-      </o-wrap>
+      </onm-wrap>
     </header>
 
     <main id="main">
-      <o-wrap>
+      <onm-wrap>
         <div class="intro">
-          <o-stack class="hero" gap="6" align="start">
+          <onm-stack class="hero" gap="6" align="start">
             <h1>Written for agents. Kept by hand.</h1>
-            <p class="lede">
+            <p class="onm-lede">
               Design and development assets, ideas, and standards for AI, and their agents, tools,
               and harnesses. Open, free, and plain text.
             </p>
-          </o-stack>
+          </onm-stack>
 
           <aside class="share" aria-labelledby="share-title">
-            <o-stack gap="3">
+            <onm-stack gap="3">
               <h2 id="share-title">Pass it on</h2>
-              <o-copy>
+              <onm-copy>
                 <pre><code>A design system written for AI agents, in plain HTML and CSS. Hand your AI agent a one-liner: Read https://oinam.dev/ and build the page with it.</code></pre>
-              </o-copy>
+              </onm-copy>
               <p class="share-links">
                 <a
                   href="https://x.com/intent/post?text=A%20design%20system%20written%20for%20AI%20agents%2C%20in%20plain%20HTML%20and%20CSS.%20Hand%20your%20AI%20agent%20a%20one-liner%3A%20Read%20https%3A%2F%2Foinam.dev%2F%20and%20build%20the%20page%20with%20it."
@@ -176,7 +176,7 @@
                 >
                 <!-- Shown by site.js where the device has a share sheet of its own. -->
                 <button
-                  class="button"
+                  class="onm-button"
                   data-variant="outline"
                   data-size="small"
                   type="button"
@@ -186,34 +186,34 @@
                   Other apps
                 </button>
               </p>
-            </o-stack>
+            </onm-stack>
           </aside>
 
           <section class="handoff" aria-labelledby="handoff-title">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="handoff-title">One line, and an agent can start designing</h2>
               <p>Hand this line to any AI agent. This address is all it needs.</p>
-              <o-copy>
+              <onm-copy>
                 <pre><code>Read https://oinam.dev/ and build the page with it.</code></pre>
-              </o-copy>
+              </onm-copy>
               <p>
                 <strong>If you are that agent,</strong> you are at the front door. Read
                 <a href="/ui/guide.md">https://oinam.dev/ui/guide.md</a> next, and follow it. It is
                 the design system in plain text: how to take a copy into the project, the rules, and
                 the list of components, each with a page of its own.
               </p>
-              <o-row gap="3">
-                <a class="button" href="/ui/">See the components</a>
-                <a class="button" data-variant="ghost" href="/play/">Play with them</a>
-              </o-row>
-            </o-stack>
+              <onm-row gap="3">
+                <a class="onm-button" href="/ui/">See the components</a>
+                <a class="onm-button" data-variant="ghost" href="/play/">Play with them</a>
+              </onm-row>
+            </onm-stack>
           </section>
         </div>
 
         <section class="ledger" aria-labelledby="ledger-title">
-          <o-stack gap="4">
+          <onm-stack gap="4">
             <h2 id="ledger-title">What is here</h2>
-            <o-table>
+            <onm-table>
               <table>
                 <thead>
                   <tr>
@@ -281,15 +281,15 @@
                   </tr>
                 </tbody>
               </table>
-            </o-table>
-          </o-stack>
+            </onm-table>
+          </onm-stack>
         </section>
-      </o-wrap>
+      </onm-wrap>
     </main>
 
     <footer class="site-footer">
-      <o-wrap>
-        <o-row justify="between">
+      <onm-wrap>
+        <onm-row justify="between">
           <p>
             Oinam.DEV by <a href="https://oinam.com">oinam.com</a>. Open and free, under the
             <a href="/license/">MIT license</a>.
@@ -303,8 +303,8 @@
             <li><a href="/llms.txt">llms.txt</a></li>
             <li><a href="https://github.com/oinam/oinam.dev">GitHub</a></li>
           </ul>
-        </o-row>
-      </o-wrap>
+        </onm-row>
+      </onm-wrap>
     </footer>
   </body>
 </html>

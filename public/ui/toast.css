@@ -1,14 +1,14 @@
 /*
  * Toast
  *
- * <o-toast> is where brief messages appear, in a corner, and go away again.
+ * <onm-toast> is where brief messages appear, in a corner, and go away again.
  * See toast.js for how one is shown; this file is only how they look.
  *
  * A toast is for news that needs no answer: "Saved", "Copied". Anything a
  * person must act on belongs in the page, or in a dialog.
  */
 
-o-toast {
+onm-toast {
   position: fixed;
   right: var(--space-4);
   bottom: var(--space-4);
@@ -19,7 +19,7 @@ o-toast {
   width: min(22rem, 100vw - 2rem);
 }
 
-o-toast > [role="status"] {
+onm-toast > [role="status"] {
   display: flex;
   gap: var(--space-3);
   align-items: center;

@@ -13,7 +13,7 @@ beforeEach(() => {
   delete root.dataset.themeChoice;
 });
 
-const build = () => mount('<o-theme><button type="button">Theme</button></o-theme>');
+const build = () => mount('<onm-theme><button type="button">Theme</button></onm-theme>');
 
 /** Wait for the page to notice a change to the theme. */
 const settled = () => new Promise((resolve) => setTimeout(resolve));
@@ -58,10 +58,10 @@ test("the label says where a press will take you", async () => {
 test("two toggles on a page stay in step", async () => {
   mount(`
     <div>
-      <o-theme><button type="button">One</button></o-theme>
-      <o-theme><button type="button">Two</button></o-theme>
+      <onm-theme><button type="button">One</button></onm-theme>
+      <onm-theme><button type="button">Two</button></onm-theme>
     </div>`);
-  const [one, two] = document.querySelectorAll("o-theme button");
+  const [one, two] = document.querySelectorAll("onm-theme button");
 
   one.click();
   await settled();
@@ -70,7 +70,7 @@ test("two toggles on a page stay in step", async () => {
 });
 
 test("a click elsewhere inside it does nothing", () => {
-  const theme = mount('<o-theme><span>Theme</span><button type="button">Go</button></o-theme>');
+  const theme = mount('<onm-theme><span>Theme</span><button type="button">Go</button></onm-theme>');
 
   theme.querySelector("span").click();
 
@@ -79,7 +79,7 @@ test("a click elsewhere inside it does nothing", () => {
 
 /* Three states, for a site whose visitors may go back to following the system. */
 
-const buildAuto = () => mount('<o-theme auto><button type="button">Theme</button></o-theme>');
+const buildAuto = () => mount('<onm-theme auto><button type="button">Theme</button></onm-theme>');
 
 test("a stored value it does not know follows the system", () => {
   // Another toggle, from before the site took the system, may have stored "auto".
@@ -130,10 +130,10 @@ test("with auto, the label says where a press will take you, auto included", asy
 test("two toggles stay in step when one goes back to auto", async () => {
   mount(`
     <div>
-      <o-theme auto><button type="button">One</button></o-theme>
-      <o-theme auto><button type="button">Two</button></o-theme>
+      <onm-theme auto><button type="button">One</button></onm-theme>
+      <onm-theme auto><button type="button">Two</button></onm-theme>
     </div>`);
-  const [one, two] = document.querySelectorAll("o-theme button");
+  const [one, two] = document.querySelectorAll("onm-theme button");
 
   one.click();
   one.click();

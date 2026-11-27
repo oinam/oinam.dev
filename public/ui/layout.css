@@ -3,15 +3,15 @@
  *
  * Four elements cover most pages. Each does one thing, and they nest.
  *
- * <o-wrap>   Centers the page content and keeps it off the edges.
- * <o-stack>  A column. Children sit one under the other, a gap apart.
- * <o-row>    A row that wraps. Children sit side by side, a gap apart.
- * <o-grid>   Equal columns, as many as fit. No breakpoints needed.
+ * <onm-wrap>   Centers the page content and keeps it off the edges.
+ * <onm-stack>  A column. Children sit one under the other, a gap apart.
+ * <onm-row>    A row that wraps. Children sit side by side, a gap apart.
+ * <onm-grid>   Equal columns, as many as fit. No breakpoints needed.
  *
  * gap="1|2|3|4|6|8|12|16" sets the gap on any of them, in space steps.
  */
 
-o-wrap {
+onm-wrap {
   display: block;
   width: 100%;
   max-width: var(--wrap, 1600px);
@@ -21,101 +21,101 @@ o-wrap {
 
 /* narrow suits a page of reading; the default suits everything else. */
 
-o-wrap[narrow] {
+onm-wrap[narrow] {
   --wrap: 56rem;
 }
 
 /* A long word or a block of code inside must not push a layout wider than its place. */
 
-:is(o-stack, o-row, o-grid) > * {
+:is(onm-stack, onm-row, onm-grid) > * {
   min-width: 0;
 }
 
-o-stack {
+onm-stack {
   display: flex;
   flex-direction: column;
   gap: var(--gap, var(--space-4));
 }
 
-o-stack[align="start"] {
+onm-stack[align="start"] {
   align-items: flex-start;
 }
 
-o-stack[align="center"] {
+onm-stack[align="center"] {
   align-items: center;
 }
 
-o-row {
+onm-row {
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap, var(--space-3));
   align-items: center;
 }
 
-o-row[align="start"] {
+onm-row[align="start"] {
   align-items: flex-start;
 }
 
-o-row[align="baseline"] {
+onm-row[align="baseline"] {
   align-items: baseline;
 }
 
-o-row[justify="between"] {
+onm-row[justify="between"] {
   justify-content: space-between;
 }
 
-o-row[justify="center"] {
+onm-row[justify="center"] {
   justify-content: center;
 }
 
-o-row[justify="end"] {
+onm-row[justify="end"] {
   justify-content: flex-end;
 }
 
 /* A column is never narrower than --min, and never wider than the grid. */
 
-o-grid {
+onm-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(var(--min, 16rem), 100%), 1fr));
   gap: var(--gap, var(--space-6));
 }
 
-o-grid[min="small"] {
+onm-grid[min="small"] {
   --min: 11rem;
 }
 
-o-grid[min="large"] {
+onm-grid[min="large"] {
   --min: 24rem;
 }
 
-:is(o-stack, o-row, o-grid)[gap="1"] {
+:is(onm-stack, onm-row, onm-grid)[gap="1"] {
   --gap: var(--space-1);
 }
 
-:is(o-stack, o-row, o-grid)[gap="2"] {
+:is(onm-stack, onm-row, onm-grid)[gap="2"] {
   --gap: var(--space-2);
 }
 
-:is(o-stack, o-row, o-grid)[gap="3"] {
+:is(onm-stack, onm-row, onm-grid)[gap="3"] {
   --gap: var(--space-3);
 }
 
-:is(o-stack, o-row, o-grid)[gap="4"] {
+:is(onm-stack, onm-row, onm-grid)[gap="4"] {
   --gap: var(--space-4);
 }
 
-:is(o-stack, o-row, o-grid)[gap="6"] {
+:is(onm-stack, onm-row, onm-grid)[gap="6"] {
   --gap: var(--space-6);
 }
 
-:is(o-stack, o-row, o-grid)[gap="8"] {
+:is(onm-stack, onm-row, onm-grid)[gap="8"] {
   --gap: var(--space-8);
 }
 
-:is(o-stack, o-row, o-grid)[gap="12"] {
+:is(onm-stack, onm-row, onm-grid)[gap="12"] {
   --gap: var(--space-12);
 }
 
-:is(o-stack, o-row, o-grid)[gap="16"] {
+:is(onm-stack, onm-row, onm-grid)[gap="16"] {
   --gap: var(--space-16);
 }

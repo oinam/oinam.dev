@@ -1,0 +1,138 @@
+/*
+ * Button
+ *
+ * A class, because <button> and <a> already do the job.
+ *
+ *   <button class="onm-button" type="button">Save</button>
+ *   <a class="onm-button" href="/docs/">Read the docs</a>
+ *
+ * data-variant="accent"           The one main action, in the accent color.
+ * data-variant="outline|ghost"    A quieter button, then a quieter one still.
+ * data-size="small|large|icon"    icon is a square, for a lone icon.
+ * aria-busy="true"                While it works: a spinner, and no more presses.
+ */
+
+.onm-button {
+  display: inline-flex;
+  flex: none;
+  gap: var(--space-2);
+  align-items: center;
+  justify-content: center;
+  height: var(--control);
+  padding-inline: var(--space-4);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-md);
+  background: var(--color-ink);
+  color: var(--color-cloud);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    opacity var(--duration) var(--ease),
+    background-color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease);
+}
+
+.onm-button:hover {
+  opacity: 0.85;
+}
+
+.onm-button:active {
+  translate: 0 1px;
+}
+
+/* A disabled button takes no pointer at all, so it never shows a hover state. */
+
+.onm-button:is(:disabled, [aria-disabled="true"]) {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* A busy button keeps its place and its width, and turns away further presses. */
+
+.onm-button[aria-busy="true"] {
+  pointer-events: none;
+}
+
+.onm-button[aria-busy="true"]::before {
+  flex: none;
+  width: 1em;
+  height: 1em;
+  border: 1.5px solid currentcolor;
+  border-top-color: transparent;
+  border-radius: var(--radius-full);
+  animation: button-busy 0.7s linear infinite;
+  content: "";
+}
+
+/*
+ * The accent is the solid button in color, for the one main action. Its hover
+ * leans toward ink instead of fading, which would lower its label's contrast.
+ */
+
+.onm-button[data-variant="accent"] {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+}
+
+.onm-button[data-variant="accent"]:hover {
+  border-color: color-mix(in oklab, var(--color-accent) 85%, var(--color-ink));
+  background: color-mix(in oklab, var(--color-accent) 85%, var(--color-ink));
+  opacity: 1;
+}
+
+.onm-button[data-variant="outline"] {
+  border-color: var(--color-line-strong);
+  background: var(--color-milk);
+  color: var(--color-ink);
+}
+
+.onm-button[data-variant="ghost"] {
+  border-color: transparent;
+  background: none;
+  color: var(--color-ink);
+}
+
+.onm-button:is([data-variant="outline"], [data-variant="ghost"]):hover {
+  background: var(--color-wash);
+  opacity: 1;
+}
+
+.onm-button[data-variant="outline"]:hover {
+  border-color: var(--color-ink);
+}
+
+.onm-button[data-size="small"] {
+  height: var(--control-sm);
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+}
+
+.onm-button[data-size="large"] {
+  height: var(--control-lg);
+  padding-inline: var(--space-6);
+  font-size: var(--text-base);
+}
+
+.onm-button[data-size="icon"] {
+  width: var(--control);
+  padding: 0;
+}
+
+.onm-button > svg {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+@keyframes button-busy {
+  to {
+    rotate: 1turn;
+  }
+}

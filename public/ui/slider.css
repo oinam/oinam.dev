@@ -5,10 +5,10 @@
  * with touch.
  *
  *   <label for="draft">Draft, in meters</label>
- *   <input class="slider" id="draft" type="range" min="0" max="5" step="0.1" />
+ *   <input class="onm-slider" id="draft" type="range" min="0" max="5" step="0.1" />
  */
 
-.slider {
+.onm-slider {
   width: 100%;
   height: 1.25rem;
   margin: 0;
@@ -19,25 +19,25 @@
 
 /* Each browser draws the track and the thumb with parts of its own. */
 
-.slider::-webkit-slider-runnable-track {
+.onm-slider::-webkit-slider-runnable-track {
   height: 0.25rem;
   border-radius: var(--radius-full);
   background: var(--color-line-strong);
 }
 
-.slider::-moz-range-track {
+.onm-slider::-moz-range-track {
   height: 0.25rem;
   border-radius: var(--radius-full);
   background: var(--color-line-strong);
 }
 
-.slider::-moz-range-progress {
+.onm-slider::-moz-range-progress {
   height: 0.25rem;
   border-radius: var(--radius-full);
   background: var(--color-ink);
 }
 
-.slider::-webkit-slider-thumb {
+.onm-slider::-webkit-slider-thumb {
   width: 1.125rem;
   height: 1.125rem;
   margin-top: -0.4375rem;
@@ -47,7 +47,7 @@
   appearance: none;
 }
 
-.slider::-moz-range-thumb {
+.onm-slider::-moz-range-thumb {
   box-sizing: border-box;
   width: 1.125rem;
   height: 1.125rem;
@@ -56,7 +56,7 @@
   background: var(--color-milk);
 }
 
-.slider:disabled {
+.onm-slider:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }

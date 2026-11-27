@@ -40,10 +40,10 @@
   </head>
 
   <body>
-    <a class="skip button" href="#main">Skip to content</a>
+    <a class="skip onm-button" href="#main">Skip to content</a>
 
     <header class="site-header">
-      <o-wrap>
+      <onm-wrap>
         <div class="brand-group">
           <a class="brand" href="/" aria-label="Oinam.DEV, home">
             <svg class="brand-mark" viewBox="0 0 600 600" aria-hidden="true">
@@ -52,7 +52,7 @@
             <span class="brand-name">Oinam<span class="brand-tld">.DEV</span></span>
           </a>
           <a class="brand-version" href="/ui/CHANGELOG.md" title="What changed in each version"
-            ><code>v0.9.0</code></a
+            ><code>v0.10.0</code></a
           >
         </div>
 
@@ -88,7 +88,7 @@
               />
             </svg>
           </a>
-          <o-theme>
+          <onm-theme>
             <button type="button" aria-label="Switch theme">
               <svg
                 class="icon icon-moon"
@@ -117,25 +117,25 @@
                 />
               </svg>
             </button>
-          </o-theme>
+          </onm-theme>
         </nav>
-      </o-wrap>
+      </onm-wrap>
     </header>
 
     <main id="main">
-      <o-wrap>
+      <onm-wrap>
         <div class="gallery">
           <nav class="toc" aria-label="Components">
             <ul>
-              <li class="eyebrow">Start</li>
+              <li class="onm-eyebrow">Start</li>
               <li><a href="#install">Install</a></li>
               <li><a href="#tokens">Tokens</a></li>
-              <li class="eyebrow">Layout</li>
+              <li class="onm-eyebrow">Layout</li>
               <li><a href="#wrap">Wrap</a></li>
               <li><a href="#stack">Stack</a></li>
               <li><a href="#row">Row</a></li>
               <li><a href="#grid">Grid</a></li>
-              <li class="eyebrow">Content</li>
+              <li class="onm-eyebrow">Content</li>
               <li><a href="#text">Text</a></li>
               <li><a href="#prose">Prose</a></li>
               <li><a href="#card">Card</a></li>
@@ -151,7 +151,7 @@
               <li><a href="#ratio">Ratio</a></li>
               <li><a href="#scroll">Scroll</a></li>
               <li><a href="#facts">Facts</a></li>
-              <li class="eyebrow">Controls</li>
+              <li class="onm-eyebrow">Controls</li>
               <li><a href="#button">Button</a></li>
               <li><a href="#button-group">Button group</a></li>
               <li><a href="#field">Field</a></li>
@@ -159,30 +159,30 @@
               <li><a href="#choice">Choice and switch</a></li>
               <li><a href="#slider">Slider</a></li>
               <li><a href="#toggle">Toggle</a></li>
-              <li class="eyebrow">Navigation</li>
+              <li class="onm-eyebrow">Navigation</li>
               <li><a href="#breadcrumb">Breadcrumb</a></li>
               <li><a href="#pagination">Pagination</a></li>
-              <li class="eyebrow">Disclosure</li>
+              <li class="onm-eyebrow">Disclosure</li>
               <li><a href="#accordion">Accordion</a></li>
               <li><a href="#tabs">Tabs</a></li>
               <li><a href="#dialog">Dialog</a></li>
               <li><a href="#popover">Popover</a></li>
               <li><a href="#menu">Menu</a></li>
               <li><a href="#tooltip">Tooltip</a></li>
-              <li class="eyebrow">Utilities</li>
+              <li class="onm-eyebrow">Utilities</li>
               <li><a href="#copy">Copy</a></li>
               <li><a href="#theme">Theme</a></li>
               <li><a href="#toast">Toast</a></li>
               <li><a href="#example">Example</a></li>
-              <li class="eyebrow">More</li>
+              <li class="onm-eyebrow">More</li>
               <li><a href="#contribute">Contribute</a></li>
             </ul>
           </nav>
 
           <div class="page">
-            <o-stack gap="4">
-              <h1>Oinam UI <span class="version">v0.9.0</span></h1>
-              <p class="lede">
+            <onm-stack gap="4">
+              <h1>Oinam UI <span class="version">v0.10.0</span></h1>
+              <p class="onm-lede">
                 Components in plain HTML, CSS, and JavaScript, made so that the first draft of a
                 page does not look like every other page an AI has made. Custom elements give a page
                 its structure, native elements do the work, and there is no framework and no build
@@ -197,60 +197,60 @@
                 is in the <a href="/ui/CHANGELOG.md">changelog</a>. For a site that already has its
                 own styles and build, <a href="/ui/adopt.md">adopt.md</a> says how to bring it in.
               </p>
-            </o-stack>
+            </onm-stack>
 
             <section class="specimen" id="install">
-              <o-stack>
+              <onm-stack>
                 <h2>Install</h2>
                 <p>
                   Take a copy. The system is meant to live inside your project, not to be linked
                   from this site. One line puts every file in <code>./ui/</code>, and from then on
                   they are yours.
                 </p>
-                <o-copy>
+                <onm-copy>
                   <pre><code>curl -fsSL https://oinam.dev/ui/install.sh | sh</code></pre>
-                </o-copy>
-                <o-tabs label="After installing">
+                </onm-copy>
+                <onm-tabs label="After installing">
                   <section>
                     <h3>Link your copy</h3>
-                    <o-stack>
+                    <onm-stack>
                       <p>
                         Three lines in the <code>&lt;head&gt;</code>, with the path as your site
                         serves it. The stylesheet is the system; the two scripts are only for the
                         theme toggle and the few elements that need behavior.
                       </p>
-                      <o-copy>
+                      <onm-copy>
                         <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/ui/ui.css&quot; /&gt;
 &lt;script src=&quot;/ui/theme-init.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;module&quot; src=&quot;/ui/ui.js&quot;&gt;&lt;/script&gt;</code></pre>
-                      </o-copy>
-                    </o-stack>
+                      </onm-copy>
+                    </onm-stack>
                   </section>
                   <section>
                     <h3>Or hand it to an agent</h3>
-                    <o-stack>
+                    <onm-stack>
                       <p>
                         One line is enough. The front page sends the agent to the guide, and the
                         guide tells it to take a copy first, and then how to design with it.
                       </p>
-                      <o-copy>
+                      <onm-copy>
                         <pre><code>Read https://oinam.dev/ and build the page with it.</code></pre>
-                      </o-copy>
-                    </o-stack>
+                      </onm-copy>
+                    </onm-stack>
                   </section>
                   <section>
                     <h3>Without a shell</h3>
-                    <o-stack>
+                    <onm-stack>
                       <p>
                         Every file under <code>/ui/</code> stands alone and has no dependencies.
                         <a href="/ui/registry.json">registry.json</a> names them all, and which ones
                         each component needs. Download those into one folder, keeping their names.
                       </p>
-                    </o-stack>
+                    </onm-stack>
                   </section>
                   <section>
                     <h3>Without classes</h3>
-                    <o-stack>
+                    <onm-stack>
                       <p>
                         For a page of plain HTML, with no classes and no components, link
                         <a href="/ui/classless.css">classless.css</a> in place of the three lines.
@@ -260,33 +260,33 @@
                         <code>ui.css</code> after it. <a href="/ui/classless">See a page</a> made
                         with nothing else.
                       </p>
-                      <o-copy>
+                      <onm-copy>
                         <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/ui/classless.css&quot; /&gt;</code></pre>
-                      </o-copy>
-                    </o-stack>
+                      </onm-copy>
+                    </onm-stack>
                   </section>
                   <section>
                     <h3>Link a release</h3>
-                    <o-stack>
+                    <onm-stack>
                       <p>
                         To try it on a page without taking a copy, link a release. Each version is
                         kept at an address of its own and never changes, so the page keeps its look
                         when a later version renames something. Linking <code>/ui/ui.css</code>
                         itself always gets the newest version, and can break without warning.
                       </p>
-                      <o-copy>
-                        <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://oinam.dev/ui/releases/0.9.0/ui.css&quot; /&gt;
-&lt;script src=&quot;https://oinam.dev/ui/releases/0.9.0/theme-init.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;module&quot; src=&quot;https://oinam.dev/ui/releases/0.9.0/ui.js&quot;&gt;&lt;/script&gt;</code></pre>
-                      </o-copy>
-                    </o-stack>
+                      <onm-copy>
+                        <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://oinam.dev/ui/releases/0.10.0/ui.css&quot; /&gt;
+&lt;script src=&quot;https://oinam.dev/ui/releases/0.10.0/theme-init.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;module&quot; src=&quot;https://oinam.dev/ui/releases/0.10.0/ui.js&quot;&gt;&lt;/script&gt;</code></pre>
+                      </onm-copy>
+                    </onm-stack>
                   </section>
-                </o-tabs>
-              </o-stack>
+                </onm-tabs>
+              </onm-stack>
             </section>
 
             <section class="specimen" id="tokens">
-              <o-stack>
+              <onm-stack>
                 <h2>Tokens</h2>
                 <p>
                   Two colors do all the work: ink, which is nearly black, and cloud, which is nearly
@@ -301,271 +301,272 @@
                   changing tokens and nothing else: a small stylesheet of your own, holding only the
                   values that differ, linked after this one.
                 </p>
-                <o-grid min="small" gap="4">
-                  <o-stack gap="1"
+                <onm-grid min="small" gap="4">
+                  <onm-stack gap="1"
                     ><div class="swatch" data-color="ink"></div>
-                    <code>--color-ink</code></o-stack
-                  ><o-stack gap="1"
+                    <code>--color-ink</code></onm-stack
+                  ><onm-stack gap="1"
                     ><div class="swatch" data-color="ink-soft"></div>
-                    <code>--color-ink-soft</code></o-stack
-                  ><o-stack gap="1"
+                    <code>--color-ink-soft</code></onm-stack
+                  ><onm-stack gap="1"
                     ><div class="swatch" data-color="ink-faint"></div>
-                    <code>--color-ink-faint</code></o-stack
-                  ><o-stack gap="1"
+                    <code>--color-ink-faint</code></onm-stack
+                  ><onm-stack gap="1"
                     ><div class="swatch" data-color="line-strong"></div>
-                    <code>--color-line-strong</code></o-stack
-                  ><o-stack gap="1"
+                    <code>--color-line-strong</code></onm-stack
+                  ><onm-stack gap="1"
                     ><div class="swatch" data-color="line"></div>
-                    <code>--color-line</code></o-stack
-                  ><o-stack gap="1"
+                    <code>--color-line</code></onm-stack
+                  ><onm-stack gap="1"
                     ><div class="swatch" data-color="cloud"></div>
-                    <code>--color-cloud</code></o-stack
-                  ><o-stack gap="1"
+                    <code>--color-cloud</code></onm-stack
+                  ><onm-stack gap="1"
                     ><div class="swatch" data-color="milk"></div>
-                    <code>--color-milk</code></o-stack
+                    <code>--color-milk</code></onm-stack
                   >
-                </o-grid>
-              </o-stack>
+                </onm-grid>
+              </onm-stack>
             </section>
 
             <section class="specimen" id="wrap">
-              <o-stack>
+              <onm-stack>
                 <h2>Wrap</h2>
                 <p>
-                  <code>&lt;o-wrap&gt;</code> centers the page content and keeps it off the edges.
+                  <code>&lt;onm-wrap&gt;</code> centers the page content and keeps it off the edges.
                   It is 1600px wide at most; add <code>narrow</code> for a page of reading.
                 </p>
-                <o-example>
-                  <o-wrap narrow>
+                <onm-example>
+                  <onm-wrap narrow>
                     <p>The content of the page goes here.</p>
-                  </o-wrap>
-                </o-example>
-              </o-stack>
+                  </onm-wrap>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="stack">
-              <o-stack>
+              <onm-stack>
                 <h2>Stack</h2>
                 <p>
-                  <code>&lt;o-stack&gt;</code> is a column. Children sit one under the other, a gap
-                  apart. The <code>gap</code> attribute takes a space step: 1, 2, 3, 4, 6, 8, 12, or
-                  16.
+                  <code>&lt;onm-stack&gt;</code> is a column. Children sit one under the other, a
+                  gap apart. The <code>gap</code> attribute takes a space step: 1, 2, 3, 4, 6, 8,
+                  12, or 16.
                 </p>
-                <o-example>
-                  <o-stack gap="2">
-                    <o-card>One</o-card>
-                    <o-card>Two</o-card>
-                    <o-card>Three</o-card>
-                  </o-stack>
-                </o-example>
-              </o-stack>
+                <onm-example>
+                  <onm-stack gap="2">
+                    <onm-card>One</onm-card>
+                    <onm-card>Two</onm-card>
+                    <onm-card>Three</onm-card>
+                  </onm-stack>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="row">
-              <o-stack>
+              <onm-stack>
                 <h2>Row</h2>
                 <p>
-                  <code>&lt;o-row&gt;</code> is a row that wraps. <code>justify</code> takes
+                  <code>&lt;onm-row&gt;</code> is a row that wraps. <code>justify</code> takes
                   between, center, or end, and <code>align</code> takes start or baseline.
                 </p>
-                <o-example>
-                  <o-row justify="between">
+                <onm-example>
+                  <onm-row justify="between">
                     <strong>Invoice 204</strong>
-                    <o-row gap="2">
-                      <button class="button" data-variant="ghost" type="button">Decline</button>
-                      <button class="button" type="button">Pay</button>
-                    </o-row>
-                  </o-row>
-                </o-example>
-              </o-stack>
+                    <onm-row gap="2">
+                      <button class="onm-button" data-variant="ghost" type="button">Decline</button>
+                      <button class="onm-button" type="button">Pay</button>
+                    </onm-row>
+                  </onm-row>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="grid">
-              <o-stack>
+              <onm-stack>
                 <h2>Grid</h2>
                 <p>
-                  <code>&lt;o-grid&gt;</code> lays out equal columns, as many as fit, with no
+                  <code>&lt;onm-grid&gt;</code> lays out equal columns, as many as fit, with no
                   breakpoints to write. <code>min</code> takes small or large to change how narrow a
                   column may get.
                 </p>
-                <o-example>
-                  <o-grid min="small" gap="4">
-                    <o-card>One</o-card>
-                    <o-card>Two</o-card>
-                    <o-card>Three</o-card>
-                    <o-card>Four</o-card>
-                  </o-grid>
-                </o-example>
-              </o-stack>
+                <onm-example>
+                  <onm-grid min="small" gap="4">
+                    <onm-card>One</onm-card>
+                    <onm-card>Two</onm-card>
+                    <onm-card>Three</onm-card>
+                    <onm-card>Four</onm-card>
+                  </onm-grid>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="text">
-              <o-stack>
+              <onm-stack>
                 <h2>Text</h2>
                 <p>
                   Headings, paragraphs, links, and code are styled as they are. Two classes mark the
-                  special cases: <code>.eyebrow</code> above a heading, and <code>.lede</code> for
-                  the opening paragraph.
+                  special cases: <code>.onm-eyebrow</code> above a heading, and
+                  <code>.onm-lede</code> for the opening paragraph.
                 </p>
-                <o-example>
-                  <o-stack gap="3">
-                    <p class="eyebrow">Field notes, 21 November</p>
+                <onm-example>
+                  <onm-stack gap="3">
+                    <p class="onm-eyebrow">Field notes, 21 November</p>
                     <h2>A heading in the serif</h2>
-                    <p class="lede">The opening paragraph, a size up.</p>
+                    <p class="onm-lede">The opening paragraph, a size up.</p>
                     <p>
                       A paragraph with <a href="/docs/">a link</a>, some <code>code</code>, and
                       <kbd>Esc</kbd>.
                     </p>
-                  </o-stack>
-                </o-example>
-              </o-stack>
+                  </onm-stack>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="prose">
-              <o-stack>
+              <onm-stack>
                 <h2>Prose</h2>
                 <p>
-                  <code>&lt;o-prose&gt;</code> is for a run of writing. It gives plain headings,
+                  <code>&lt;onm-prose&gt;</code> is for a run of writing. It gives plain headings,
                   paragraphs, and lists their rhythm, so the HTML inside needs no classes.
                 </p>
-                <o-example>
-                  <o-prose>
+                <onm-example>
+                  <onm-prose>
                     <h2>Standards</h2>
                     <p>A change is not done until every point below holds.</p>
                     <ul>
                       <li><strong>Linted</strong>, with zero warnings.</li>
                       <li><strong>Tested</strong>, with a suite that passes.</li>
                     </ul>
-                  </o-prose>
-                </o-example>
-              </o-stack>
+                  </onm-prose>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="card">
-              <o-stack>
+              <onm-stack>
                 <h2>Card</h2>
                 <p>
-                  <code>&lt;o-card&gt;</code> groups related things on a raised surface. A
+                  <code>&lt;onm-card&gt;</code> groups related things on a raised surface. A
                   <code>&lt;footer&gt;</code> inside is held to the bottom, so cards in a row line
                   up.
                 </p>
-                <o-example>
-                  <o-grid>
-                    <o-card>
+                <onm-example>
+                  <onm-grid>
+                    <onm-card>
                       <h3>Standards</h3>
                       <p>The rules every project inherits.</p>
                       <footer>
-                        <a class="button" data-variant="outline" href="/docs/">Read</a>
+                        <a class="onm-button" data-variant="outline" href="/docs/">Read</a>
                       </footer>
-                    </o-card>
-                    <o-card>
+                    </onm-card>
+                    <onm-card>
                       <h3>Components</h3>
                       <p>
                         Plain HTML, CSS, and JavaScript, with nothing to install and nothing to
                         build.
                       </p>
                       <footer>
-                        <a class="button" data-variant="outline" href="/ui/">Browse</a>
+                        <a class="onm-button" data-variant="outline" href="/ui/">Browse</a>
                       </footer>
-                    </o-card>
-                  </o-grid>
-                </o-example>
-              </o-stack>
+                    </onm-card>
+                  </onm-grid>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="badge">
-              <o-stack>
+              <onm-stack>
                 <h2>Badge</h2>
                 <p>
-                  <code>&lt;o-badge&gt;</code> is a small label: a status, a kind, a count, a "new".
+                  <code>&lt;onm-badge&gt;</code> is a small label: a status, a kind, a count, a
+                  "new".
                 </p>
-                <o-example>
-                  <o-row>
-                    <o-badge>Soon</o-badge>
-                    <o-badge variant="solid">New</o-badge>
-                  </o-row>
-                </o-example>
+                <onm-example>
+                  <onm-row>
+                    <onm-badge>Soon</onm-badge>
+                    <onm-badge variant="solid">New</onm-badge>
+                  </onm-row>
+                </onm-example>
                 <p>
                   A status read at a glance, beside others like it, may take a tone. The word still
                   says it.
                 </p>
-                <o-example>
-                  <o-row>
-                    <o-badge tone="success">Verified</o-badge>
-                    <o-badge tone="warning">Unverified</o-badge>
-                    <o-badge tone="danger">Failed, refunded</o-badge>
-                    <o-badge tone="info">Beta</o-badge>
-                    <o-badge tone="danger" variant="solid">Failed</o-badge>
-                  </o-row>
-                </o-example>
+                <onm-example>
+                  <onm-row>
+                    <onm-badge tone="success">Verified</onm-badge>
+                    <onm-badge tone="warning">Unverified</onm-badge>
+                    <onm-badge tone="danger">Failed, refunded</onm-badge>
+                    <onm-badge tone="info">Beta</onm-badge>
+                    <onm-badge tone="danger" variant="solid">Failed</onm-badge>
+                  </onm-row>
+                </onm-example>
                 <p>
                   Things of several kinds, such as the topics of a listing, may take a hue, numbered
                   1 to 6. A kind is a tag, so its corners are squarer than a status.
                 </p>
-                <o-example>
-                  <o-row>
-                    <o-badge hue="1">Design</o-badge>
-                    <o-badge hue="2">Engineering</o-badge>
-                    <o-badge hue="3">Product</o-badge>
-                    <o-badge hue="4">Leadership</o-badge>
-                    <o-badge hue="5">AI</o-badge>
-                    <o-badge hue="6">Remote</o-badge>
-                  </o-row>
-                </o-example>
-              </o-stack>
+                <onm-example>
+                  <onm-row>
+                    <onm-badge hue="1">Design</onm-badge>
+                    <onm-badge hue="2">Engineering</onm-badge>
+                    <onm-badge hue="3">Product</onm-badge>
+                    <onm-badge hue="4">Leadership</onm-badge>
+                    <onm-badge hue="5">AI</onm-badge>
+                    <onm-badge hue="6">Remote</onm-badge>
+                  </onm-row>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="alert">
-              <o-stack>
+              <onm-stack>
                 <h2>Alert</h2>
                 <p>
-                  <code>&lt;o-alert&gt;</code> sets a message apart. Weight carries the meaning, not
-                  color: a note is a thin frame, a warning is a heavy one, and danger turns the
+                  <code>&lt;onm-alert&gt;</code> sets a message apart. Weight carries the meaning,
+                  not color: a note is a thin frame, a warning is a heavy one, and danger turns the
                   colors over.
                 </p>
-                <o-example>
-                  <o-stack>
-                    <o-alert role="note">
+                <onm-example>
+                  <onm-stack>
+                    <onm-alert role="note">
                       <strong>Note</strong>
                       <p>Every push to main deploys the site.</p>
-                    </o-alert>
-                    <o-alert variant="warning" role="note">
+                    </onm-alert>
+                    <onm-alert variant="warning" role="note">
                       <strong>Warning</strong>
                       <p>This rewrites history.</p>
-                    </o-alert>
-                    <o-alert variant="danger" role="note">
+                    </onm-alert>
+                    <onm-alert variant="danger" role="note">
                       <strong>Danger</strong>
                       <p>This cannot be undone.</p>
-                    </o-alert>
-                  </o-stack>
-                </o-example>
+                    </onm-alert>
+                  </onm-stack>
+                </onm-example>
                 <p>
                   An alert may take the tone of what it says, as a badge does. The weight still
                   carries the meaning, so the tone agrees with the variant.
                 </p>
-                <o-example>
-                  <o-stack>
-                    <o-alert tone="info" role="note">
+                <onm-example>
+                  <onm-stack>
+                    <onm-alert tone="info" role="note">
                       <strong>Note</strong>
                       <p>The new rates start on the first of the month.</p>
-                    </o-alert>
-                    <o-alert tone="success" role="note">
+                    </onm-alert>
+                    <onm-alert tone="success" role="note">
                       <strong>Saved</strong>
                       <p>Your changes are live.</p>
-                    </o-alert>
-                    <o-alert variant="warning" tone="warning" role="note">
+                    </onm-alert>
+                    <onm-alert variant="warning" tone="warning" role="note">
                       <strong>Unverified</strong>
                       <p>Two rows have no receipt yet.</p>
-                    </o-alert>
-                    <o-alert variant="danger" tone="danger" role="note">
+                    </onm-alert>
+                    <onm-alert variant="danger" tone="danger" role="note">
                       <strong>Payment failed</strong>
                       <p>The card was declined. Nothing was charged.</p>
-                    </o-alert>
-                  </o-stack>
-                </o-example>
-              </o-stack>
+                    </onm-alert>
+                  </onm-stack>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="table">
-              <o-stack>
+              <onm-stack>
                 <h2>Table</h2>
                 <p>
-                  <code>&lt;o-table&gt;</code> goes around a plain table. It draws the frame, and
+                  <code>&lt;onm-table&gt;</code> goes around a plain table. It draws the frame, and
                   lets a wide table scroll sideways without pushing the page wider.
                 </p>
-                <o-example>
-                  <o-table>
+                <onm-example>
+                  <onm-table>
                     <table>
                       <thead>
                         <tr>
@@ -592,153 +593,163 @@
                         </tr>
                       </tbody>
                     </table>
-                  </o-table>
-                </o-example>
-              </o-stack>
+                  </onm-table>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="avatar">
-              <o-stack>
+              <onm-stack>
                 <h2>Avatar</h2>
                 <p>
-                  <code>&lt;o-avatar&gt;</code> is a small round picture of someone, or their
+                  <code>&lt;onm-avatar&gt;</code> is a small round picture of someone, or their
                   initials when there is no picture. <code>size</code> takes <code>small</code> or
                   <code>large</code>.
                 </p>
-                <o-example>
-                  <o-row>
-                    <o-avatar size="small" role="img" aria-label="Asha Rao">AR</o-avatar>
-                    <o-avatar role="img" aria-label="Asha Rao">AR</o-avatar>
-                    <o-avatar size="large" role="img" aria-label="Asha Rao">AR</o-avatar>
-                  </o-row>
-                </o-example>
-              </o-stack>
+                <onm-example>
+                  <onm-row>
+                    <onm-avatar size="small" role="img" aria-label="Asha Rao">AR</onm-avatar>
+                    <onm-avatar role="img" aria-label="Asha Rao">AR</onm-avatar>
+                    <onm-avatar size="large" role="img" aria-label="Asha Rao">AR</onm-avatar>
+                  </onm-row>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="item">
-              <o-stack>
+              <onm-stack>
                 <h2>Item</h2>
                 <p>
-                  <code>&lt;o-item&gt;</code> is one row in a list of things: something to recognize
-                  it by, a <code>&lt;div&gt;</code> with a title and a line under it, and an action
-                  at the end. Rows that follow one another are ruled apart.
+                  <code>&lt;onm-item&gt;</code> is one row in a list of things: something to
+                  recognize it by, a <code>&lt;div&gt;</code> with a title and a line under it, and
+                  an action at the end. Rows that follow one another are ruled apart.
                 </p>
-                <o-example>
+                <onm-example>
                   <div>
-                    <o-item>
-                      <o-avatar role="img" aria-label="Asha Rao">AR</o-avatar>
+                    <onm-item>
+                      <onm-avatar role="img" aria-label="Asha Rao">AR</onm-avatar>
                       <div>
                         <strong>Asha Rao</strong>
                         <p>Harbor master</p>
                       </div>
-                      <button class="button" data-variant="outline" data-size="small" type="button">
+                      <button
+                        class="onm-button"
+                        data-variant="outline"
+                        data-size="small"
+                        type="button"
+                      >
                         Call
                       </button>
-                    </o-item>
-                    <o-item>
-                      <o-avatar role="img" aria-label="Tomas Lind">TL</o-avatar>
+                    </onm-item>
+                    <onm-item>
+                      <onm-avatar role="img" aria-label="Tomas Lind">TL</onm-avatar>
                       <div>
                         <strong>Tomas Lind</strong>
                         <p>Night watch</p>
                       </div>
-                      <button class="button" data-variant="outline" data-size="small" type="button">
+                      <button
+                        class="onm-button"
+                        data-variant="outline"
+                        data-size="small"
+                        type="button"
+                      >
                         Call
                       </button>
-                    </o-item>
+                    </onm-item>
                   </div>
-                </o-example>
-              </o-stack>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="empty">
-              <o-stack>
+              <onm-stack>
                 <h2>Empty</h2>
                 <p>
-                  <code>&lt;o-empty&gt;</code> stands where content will be once there is some. Say
-                  what is missing, and offer the one thing to do about it.
+                  <code>&lt;onm-empty&gt;</code> stands where content will be once there is some.
+                  Say what is missing, and offer the one thing to do about it.
                 </p>
-                <o-example>
-                  <o-empty>
+                <onm-example>
+                  <onm-empty>
                     <h3>No bookings yet</h3>
                     <p>When a boat books a berth, it shows up here.</p>
-                    <button class="button" type="button">Book a berth</button>
-                  </o-empty>
-                </o-example>
-              </o-stack>
+                    <button class="onm-button" type="button">Book a berth</button>
+                  </onm-empty>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="skeleton">
-              <o-stack>
+              <onm-stack>
                 <h2>Skeleton</h2>
                 <p>
-                  <code>&lt;o-skeleton&gt;</code> holds the place of something that is still
+                  <code>&lt;onm-skeleton&gt;</code> holds the place of something that is still
                   loading. It is a line of text by default; <code>shape</code> takes
                   <code>circle</code> or <code>block</code>.
                 </p>
-                <o-example>
-                  <o-row aria-busy="true">
-                    <o-skeleton shape="circle"></o-skeleton>
-                    <o-stack gap="2" class="specimen-fill">
-                      <o-skeleton></o-skeleton>
-                      <o-skeleton></o-skeleton>
-                    </o-stack>
-                  </o-row>
-                </o-example>
-              </o-stack>
+                <onm-example>
+                  <onm-row aria-busy="true">
+                    <onm-skeleton shape="circle"></onm-skeleton>
+                    <onm-stack gap="2" class="specimen-fill">
+                      <onm-skeleton></onm-skeleton>
+                      <onm-skeleton></onm-skeleton>
+                    </onm-stack>
+                  </onm-row>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="spinner">
-              <o-stack>
+              <onm-stack>
                 <h2>Spinner</h2>
                 <p>
-                  <code>&lt;o-spinner&gt;</code> says that something is under way. It takes the size
-                  of the text around it.
+                  <code>&lt;onm-spinner&gt;</code> says that something is under way. It takes the
+                  size of the text around it.
                 </p>
-                <o-example>
-                  <o-row>
-                    <o-spinner role="status" aria-label="Loading the tide table"></o-spinner>
+                <onm-example>
+                  <onm-row>
+                    <onm-spinner role="status" aria-label="Loading the tide table"></onm-spinner>
                     <span>Loading the tide table</span>
-                  </o-row>
-                </o-example>
-              </o-stack>
+                  </onm-row>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="progress">
-              <o-stack>
+              <onm-stack>
                 <h2>Progress</h2>
                 <p>
-                  <code>class="progress"</code> on a <code>&lt;progress&gt;</code>, which already
-                  knows how far along it is and tells a screen reader so.
+                  <code>class="onm-progress"</code> on a <code>&lt;progress&gt;</code>, which
+                  already knows how far along it is and tells a screen reader so.
                 </p>
-                <o-example>
-                  <o-stack gap="2">
+                <onm-example>
+                  <onm-stack gap="2">
                     <label for="progress-upload">Uploading the chart</label>
-                    <progress class="progress" id="progress-upload" value="40" max="100">
+                    <progress class="onm-progress" id="progress-upload" value="40" max="100">
                       40%
                     </progress>
-                  </o-stack>
-                </o-example>
-              </o-stack>
+                  </onm-stack>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="ratio">
-              <o-stack>
+              <onm-stack>
                 <h2>Ratio</h2>
                 <p>
-                  <code>&lt;o-ratio&gt;</code> keeps a picture, a video, or a frame to a fixed
+                  <code>&lt;onm-ratio&gt;</code> keeps a picture, a video, or a frame to a fixed
                   shape, and crops it to fit. It is 16 by 9 unless <code>ratio</code> says
                   <code>4/3</code>, <code>1/1</code>, or <code>21/9</code>.
                 </p>
-                <o-example>
-                  <o-ratio ratio="21/9">
+                <onm-example>
+                  <onm-ratio ratio="21/9">
                     <img src="/assets/logo.svg" alt="The Oinam mark, cropped to a wide frame" />
-                  </o-ratio>
-                </o-example>
-              </o-stack>
+                  </onm-ratio>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="scroll">
-              <o-stack>
+              <onm-stack>
                 <h2>Scroll</h2>
                 <p>
-                  <code>&lt;o-scroll&gt;</code> is a frame for something too long to show at once.
+                  <code>&lt;onm-scroll&gt;</code> is a frame for something too long to show at once.
                   It scrolls inside, with a thin bar, so the page keeps its length.
                 </p>
-                <o-example>
-                  <o-scroll tabindex="0" role="group" aria-label="Arrivals this week">
-                    <o-stack gap="3">
+                <onm-example>
+                  <onm-scroll tabindex="0" role="group" aria-label="Arrivals this week">
+                    <onm-stack gap="3">
                       <p>Monday: Kestrel, Marguerite, Two Brothers.</p>
                       <p>Tuesday: Halcyon, Petrel.</p>
                       <p>Wednesday: none expected.</p>
@@ -748,21 +759,22 @@
                       <p>Sunday: the office is closed. Berths stay open.</p>
                       <p>Next Monday: Marguerite leaves on the morning tide.</p>
                       <p>Next Tuesday: dredging at the entrance until four.</p>
-                    </o-stack>
-                  </o-scroll>
-                </o-example>
-              </o-stack>
+                    </onm-stack>
+                  </onm-scroll>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="facts">
-              <o-stack>
+              <onm-stack>
                 <h2>Facts</h2>
                 <p>
-                  <code>class="facts"</code> on a <code>&lt;dl&gt;</code>: a list of names and their
-                  values, each pair on a line and ruled apart. It is for the details of one thing,
-                  where a table would be too much. Each pair goes in a <code>&lt;div&gt;</code>.
+                  <code>class="onm-facts"</code> on a <code>&lt;dl&gt;</code>: a list of names and
+                  their values, each pair on a line and ruled apart. It is for the details of one
+                  thing, where a table would be too much. Each pair goes in a
+                  <code>&lt;div&gt;</code>.
                 </p>
-                <o-example>
-                  <dl class="facts">
+                <onm-example>
+                  <dl class="onm-facts">
                     <div>
                       <dt>Berth</dt>
                       <dd>E 11</dd>
@@ -776,11 +788,11 @@
                       <dd>Four</dd>
                     </div>
                   </dl>
-                </o-example>
-              </o-stack>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="button">
-              <o-stack>
+              <onm-stack>
                 <h2>Button</h2>
                 <p>
                   A class, because <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> already do
@@ -788,163 +800,171 @@
                   <code>data-size</code> takes small, large, or icon. While it works,
                   <code>aria-busy</code> shows a spinner and turns away further presses.
                 </p>
-                <o-example>
-                  <o-row>
-                    <button class="button" type="button">Save</button>
-                    <button class="button" data-variant="outline" type="button">Preview</button>
-                    <button class="button" data-variant="ghost" type="button">Cancel</button>
-                    <button class="button" type="button" disabled>Disabled</button>
-                  </o-row>
-                </o-example>
+                <onm-example>
+                  <onm-row>
+                    <button class="onm-button" type="button">Save</button>
+                    <button class="onm-button" data-variant="outline" type="button">Preview</button>
+                    <button class="onm-button" data-variant="ghost" type="button">Cancel</button>
+                    <button class="onm-button" type="button" disabled>Disabled</button>
+                  </onm-row>
+                </onm-example>
                 <p>
                   The one main action of a group may be the accent: the solid button in color. It
                   takes the solid button's place, and the rest stay outline or ghost.
                 </p>
-                <o-example>
-                  <o-row>
-                    <a class="button" data-variant="accent" href="/apply/"
+                <onm-example>
+                  <onm-row>
+                    <a class="onm-button" data-variant="accent" href="/apply/"
                       >Open posting and apply</a
                     >
-                    <button class="button" data-variant="outline" type="button">Save</button>
-                    <button class="button" data-variant="ghost" type="button">Hide</button>
-                  </o-row>
-                </o-example>
-                <o-example>
-                  <o-row>
-                    <button class="button" data-variant="outline" data-size="small" type="button">
+                    <button class="onm-button" data-variant="outline" type="button">Save</button>
+                    <button class="onm-button" data-variant="ghost" type="button">Hide</button>
+                  </onm-row>
+                </onm-example>
+                <onm-example>
+                  <onm-row>
+                    <button
+                      class="onm-button"
+                      data-variant="outline"
+                      data-size="small"
+                      type="button"
+                    >
                       Small
                     </button>
-                    <button class="button" data-variant="outline" type="button">Default</button>
-                    <a class="button" data-variant="outline" data-size="large" href="/docs/"
+                    <button class="onm-button" data-variant="outline" type="button">Default</button>
+                    <a class="onm-button" data-variant="outline" data-size="large" href="/docs/"
                       >A large link</a
                     >
-                    <button class="button" type="button" aria-busy="true">Saving</button>
-                  </o-row>
-                </o-example>
-              </o-stack>
+                    <button class="onm-button" type="button" aria-busy="true">Saving</button>
+                  </onm-row>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="button-group">
-              <o-stack>
+              <onm-stack>
                 <h2>Button group</h2>
                 <p>
-                  <code>&lt;o-button-group&gt;</code> joins buttons that belong together into one
+                  <code>&lt;onm-button-group&gt;</code> joins buttons that belong together into one
                   piece. It suits outline buttons best.
                 </p>
-                <o-example>
-                  <o-button-group role="group" aria-label="Zoom">
-                    <button class="button" data-variant="outline" type="button">Out</button>
-                    <button class="button" data-variant="outline" type="button">Reset</button>
-                    <button class="button" data-variant="outline" type="button">In</button>
-                  </o-button-group>
-                </o-example>
-              </o-stack>
+                <onm-example>
+                  <onm-button-group role="group" aria-label="Zoom">
+                    <button class="onm-button" data-variant="outline" type="button">Out</button>
+                    <button class="onm-button" data-variant="outline" type="button">Reset</button>
+                    <button class="onm-button" data-variant="outline" type="button">In</button>
+                  </onm-button-group>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="field">
-              <o-stack>
+              <onm-stack>
                 <h2>Field</h2>
                 <p>
-                  <code>&lt;o-field&gt;</code> keeps a label, its control, and a line of help
-                  together. The control takes <code>.input</code>, whether it is an input, a select,
-                  or a textarea.
+                  <code>&lt;onm-field&gt;</code> keeps a label, its control, and a line of help
+                  together. The control takes <code>.onm-input</code>, whether it is an input, a
+                  select, or a textarea.
                 </p>
-                <o-example>
-                  <o-stack>
-                    <o-field>
+                <onm-example>
+                  <onm-stack>
+                    <onm-field>
                       <label for="field-email">Email</label>
                       <input
-                        class="input"
+                        class="onm-input"
                         id="field-email"
                         type="email"
                         placeholder="you@example.com"
                         aria-describedby="field-email-help"
                       />
                       <small id="field-email-help">Used for sign-in only.</small>
-                    </o-field>
-                    <o-field>
+                    </onm-field>
+                    <onm-field>
                       <label for="field-role">Role</label>
-                      <select class="input" id="field-role">
+                      <select class="onm-input" id="field-role">
                         <option>Reader</option>
                         <option>Editor</option>
                         <option>Owner</option>
                       </select>
-                    </o-field>
-                    <o-field>
+                    </onm-field>
+                    <onm-field>
                       <label for="field-note">Note</label>
-                      <textarea class="input" id="field-note"></textarea>
-                    </o-field>
-                  </o-stack>
-                </o-example>
-              </o-stack>
+                      <textarea class="onm-input" id="field-note"></textarea>
+                    </onm-field>
+                  </onm-stack>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="input-group">
-              <o-stack>
+              <onm-stack>
                 <h2>Input group</h2>
                 <p>
-                  <code>&lt;o-input-group&gt;</code> puts something before or after a field, inside
-                  its frame: a <code>&lt;span&gt;</code> for a unit or a prefix, or a small button.
+                  <code>&lt;onm-input-group&gt;</code> puts something before or after a field,
+                  inside its frame: a <code>&lt;span&gt;</code> for a unit or a prefix, or a small
+                  button.
                 </p>
-                <o-example>
-                  <o-stack>
-                    <o-field>
+                <onm-example>
+                  <onm-stack>
+                    <onm-field>
                       <label for="input-group-length">Length</label>
-                      <o-input-group>
+                      <onm-input-group>
                         <input
-                          class="input"
+                          class="onm-input"
                           id="input-group-length"
                           type="number"
                           inputmode="decimal"
                         />
                         <span>meters</span>
-                      </o-input-group>
-                    </o-field>
-                    <o-field>
+                      </onm-input-group>
+                    </onm-field>
+                    <onm-field>
                       <label for="input-group-site">Website</label>
-                      <o-input-group>
+                      <onm-input-group>
                         <span>https://</span>
-                        <input class="input" id="input-group-site" type="text" />
-                        <button class="button" data-size="small" type="button">Check</button>
-                      </o-input-group>
-                    </o-field>
-                  </o-stack>
-                </o-example>
-              </o-stack>
+                        <input class="onm-input" id="input-group-site" type="text" />
+                        <button class="onm-button" data-size="small" type="button">Check</button>
+                      </onm-input-group>
+                    </onm-field>
+                  </onm-stack>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="choice">
-              <o-stack>
+              <onm-stack>
                 <h2>Choice and switch</h2>
                 <p>
                   A checkbox or a radio button sits inside a
-                  <code>&lt;label class="choice"&gt;</code>. A switch is a checkbox that says so,
-                  with <code>role="switch"</code>.
+                  <code>&lt;label class="onm-choice"&gt;</code>. A switch is a checkbox that says
+                  so, with <code>role="switch"</code>.
                 </p>
-                <o-example>
-                  <o-stack gap="3" align="start">
-                    <label class="choice"
+                <onm-example>
+                  <onm-stack gap="3" align="start">
+                    <label class="onm-choice"
                       ><input type="checkbox" checked /> Send me the changelog</label
                     >
-                    <label class="choice"
+                    <label class="onm-choice"
                       ><input type="radio" name="choice-plan" checked /> Monthly</label
                     >
-                    <label class="choice"><input type="radio" name="choice-plan" /> Yearly</label>
-                    <label class="choice"
+                    <label class="onm-choice"
+                      ><input type="radio" name="choice-plan" /> Yearly</label
+                    >
+                    <label class="onm-choice"
                       ><input type="checkbox" role="switch" checked /> Deploy on push</label
                     >
-                  </o-stack>
-                </o-example>
-              </o-stack>
+                  </onm-stack>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="slider">
-              <o-stack>
+              <onm-stack>
                 <h2>Slider</h2>
                 <p>
-                  <code>class="slider"</code> on an <code>&lt;input type="range"&gt;</code>, which
-                  already works with the keyboard and with touch.
+                  <code>class="onm-slider"</code> on an <code>&lt;input type="range"&gt;</code>,
+                  which already works with the keyboard and with touch.
                 </p>
-                <o-example>
-                  <o-field>
+                <onm-example>
+                  <onm-field>
                     <label for="slider-draft">Draft, in meters</label>
                     <input
-                      class="slider"
+                      class="onm-slider"
                       id="slider-draft"
                       type="range"
                       min="0"
@@ -952,44 +972,48 @@
                       step="0.1"
                       value="1.8"
                     />
-                  </o-field>
-                </o-example>
-              </o-stack>
+                  </onm-field>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="toggle">
-              <o-stack>
+              <onm-stack>
                 <h2>Toggle</h2>
                 <p>
                   A toggle is a button that stays pressed. It is a checkbox underneath, so it needs
-                  no script and sends its value with a form: <code>class="toggle"</code> on the
+                  no script and sends its value with a form: <code>class="onm-toggle"</code> on the
                   <code>&lt;label&gt;</code> around the <code>&lt;input&gt;</code>.
-                  <code>&lt;o-toggle-group&gt;</code> sets several side by side in one frame; with
+                  <code>&lt;onm-toggle-group&gt;</code> sets several side by side in one frame; with
                   radio buttons of one name inside, only one can be pressed at a time.
                 </p>
-                <o-example>
-                  <o-row gap="6">
-                    <label class="toggle"><input type="checkbox" checked /> Shore power</label>
-                    <o-toggle-group role="group" aria-label="View">
-                      <label class="toggle"
+                <onm-example>
+                  <onm-row gap="6">
+                    <label class="onm-toggle"><input type="checkbox" checked /> Shore power</label>
+                    <onm-toggle-group role="group" aria-label="View">
+                      <label class="onm-toggle"
                         ><input type="radio" name="toggle-view" checked /> List</label
                       >
-                      <label class="toggle"><input type="radio" name="toggle-view" /> Map</label>
-                      <label class="toggle"><input type="radio" name="toggle-view" /> Tides</label>
-                    </o-toggle-group>
-                  </o-row>
-                </o-example>
-              </o-stack>
+                      <label class="onm-toggle"
+                        ><input type="radio" name="toggle-view" /> Map</label
+                      >
+                      <label class="onm-toggle"
+                        ><input type="radio" name="toggle-view" /> Tides</label
+                      >
+                    </onm-toggle-group>
+                  </onm-row>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="breadcrumb">
-              <o-stack>
+              <onm-stack>
                 <h2>Breadcrumb</h2>
                 <p>
-                  <code>class="breadcrumb"</code> on the <code>&lt;nav&gt;</code> around an ordered
-                  list of links: where this page sits, from the top down. The last item is the page
-                  itself, and is not a link.
+                  <code>class="onm-breadcrumb"</code> on the <code>&lt;nav&gt;</code> around an
+                  ordered list of links: where this page sits, from the top down. The last item is
+                  the page itself, and is not a link.
                 </p>
-                <o-example>
-                  <nav class="breadcrumb" aria-label="Breadcrumb">
+                <onm-example>
+                  <nav class="onm-breadcrumb" aria-label="Breadcrumb">
                     <ol>
                       <li><a href="/">Home</a></li>
                       <li><a href="/ui/">Components</a></li>
@@ -997,18 +1021,18 @@
                       <li aria-current="page">Breadcrumb</li>
                     </ol>
                   </nav>
-                </o-example>
-              </o-stack>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="pagination">
-              <o-stack>
+              <onm-stack>
                 <h2>Pagination</h2>
                 <p>
-                  <code>class="pagination"</code> on the <code>&lt;nav&gt;</code> around a list of
-                  page links. The page being shown has <code>aria-current="page"</code>.
+                  <code>class="onm-pagination"</code> on the <code>&lt;nav&gt;</code> around a list
+                  of page links. The page being shown has <code>aria-current="page"</code>.
                 </p>
-                <o-example>
-                  <nav class="pagination" aria-label="Pages">
+                <onm-example>
+                  <nav class="onm-pagination" aria-label="Pages">
                     <ul>
                       <li><a href="#pagination">Previous</a></li>
                       <li><a href="#pagination">1</a></li>
@@ -1017,19 +1041,19 @@
                       <li><a href="#pagination">Next</a></li>
                     </ul>
                   </nav>
-                </o-example>
-              </o-stack>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="accordion">
-              <o-stack>
+              <onm-stack>
                 <h2>Accordion</h2>
                 <p>
-                  <code>&lt;o-accordion&gt;</code> goes around a set of
+                  <code>&lt;onm-accordion&gt;</code> goes around a set of
                   <code>&lt;details&gt;</code>. The browser already opens and closes them; give them
                   the same <code>name</code> and it keeps one open at a time.
                 </p>
-                <o-example>
-                  <o-accordion>
+                <onm-example>
+                  <onm-accordion>
                     <details name="accordion-faq" open>
                       <summary>Is it free?</summary>
                       <p>Yes. Everything is open, under the MIT license.</p>
@@ -1042,20 +1066,20 @@
                       <summary>Is there a build step?</summary>
                       <p>No. Link the files, or copy them.</p>
                     </details>
-                  </o-accordion>
-                </o-example>
-              </o-stack>
+                  </onm-accordion>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="tabs">
-              <o-stack>
+              <onm-stack>
                 <h2>Tabs</h2>
                 <p>
-                  <code>&lt;o-tabs&gt;</code> turns a run of sections into tabs, each named after
+                  <code>&lt;onm-tabs&gt;</code> turns a run of sections into tabs, each named after
                   its heading. The arrow keys move between them. Without the script, the sections
                   simply follow one another.
                 </p>
-                <o-example>
-                  <o-tabs label="Ways to use it">
+                <onm-example>
+                  <onm-tabs label="Ways to use it">
                     <section>
                       <h3>Link it</h3>
                       <p>Point a stylesheet and a script at a release on oinam.dev.</p>
@@ -1068,12 +1092,12 @@
                       <h3>Change it</h3>
                       <p>Every value lives in tokens.css.</p>
                     </section>
-                  </o-tabs>
-                </o-example>
-              </o-stack>
+                  </onm-tabs>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="dialog">
-              <o-stack>
+              <onm-stack>
                 <h2>Dialog</h2>
                 <p>
                   A class on <code>&lt;dialog&gt;</code>, which already traps focus, closes on
@@ -1081,9 +1105,9 @@
                   no script to write. With <code>data-side</code> it is a drawer that slides in from
                   an edge.
                 </p>
-                <o-example>
+                <onm-example>
                   <button
-                    class="button"
+                    class="onm-button"
                     data-variant="outline"
                     type="button"
                     commandfor="dialog-confirm"
@@ -1093,7 +1117,7 @@
                   </button>
 
                   <dialog
-                    class="dialog"
+                    class="onm-dialog"
                     id="dialog-confirm"
                     aria-labelledby="dialog-confirm-title"
                     closedby="any"
@@ -1102,7 +1126,7 @@
                     <p>This cannot be undone.</p>
                     <footer>
                       <button
-                        class="button"
+                        class="onm-button"
                         data-variant="ghost"
                         type="button"
                         commandfor="dialog-confirm"
@@ -1111,7 +1135,7 @@
                         Cancel
                       </button>
                       <button
-                        class="button"
+                        class="onm-button"
                         type="button"
                         commandfor="dialog-confirm"
                         command="close"
@@ -1120,10 +1144,10 @@
                       </button>
                     </footer>
                   </dialog>
-                </o-example>
-                <o-example>
+                </onm-example>
+                <onm-example>
                   <button
-                    class="button"
+                    class="onm-button"
                     data-variant="outline"
                     type="button"
                     commandfor="dialog-drawer"
@@ -1133,7 +1157,7 @@
                   </button>
 
                   <dialog
-                    class="dialog"
+                    class="onm-dialog"
                     id="dialog-drawer"
                     data-side="right"
                     aria-labelledby="dialog-drawer-title"
@@ -1143,7 +1167,7 @@
                     <p>East quay, deep water. Shore power and fresh water at the berth.</p>
                     <footer>
                       <button
-                        class="button"
+                        class="onm-button"
                         type="button"
                         commandfor="dialog-drawer"
                         command="close"
@@ -1152,21 +1176,21 @@
                       </button>
                     </footer>
                   </dialog>
-                </o-example>
-              </o-stack>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="popover">
-              <o-stack>
+              <onm-stack>
                 <h2>Popover</h2>
                 <p>
-                  <code>class="popover"</code> on any element with the
+                  <code>class="onm-popover"</code> on any element with the
                   <code>popover</code> attribute. The browser opens it from the button that names it
                   with <code>popovertarget</code>, closes it on Escape or a click elsewhere, and
                   keeps it above everything. There is no script to write.
                 </p>
-                <o-example>
+                <onm-example>
                   <button
-                    class="button"
+                    class="onm-button"
                     data-variant="outline"
                     type="button"
                     popovertarget="popover-hours"
@@ -1174,56 +1198,56 @@
                     Office hours
                   </button>
 
-                  <div class="popover" id="popover-hours" popover>
+                  <div class="onm-popover" id="popover-hours" popover>
                     <strong>Office hours</strong>
                     <p>Eight to five, every day but Sunday.</p>
                   </div>
-                </o-example>
-              </o-stack>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="menu">
-              <o-stack>
+              <onm-stack>
                 <h2>Menu</h2>
                 <p>
-                  <code>&lt;o-menu&gt;</code> is a button and the short list of actions it opens.
+                  <code>&lt;onm-menu&gt;</code> is a button and the short list of actions it opens.
                   The list is a popover of plain <code>&lt;button&gt;</code> and
                   <code>&lt;a&gt;</code> elements, with <code>&lt;hr&gt;</code> between groups. The
                   arrow keys move between items, and choosing one closes the list. Without the
                   script, Tab still reaches every item.
                 </p>
-                <o-example>
-                  <o-menu>
+                <onm-example>
+                  <onm-menu>
                     <button
-                      class="button"
+                      class="onm-button"
                       data-variant="outline"
                       type="button"
                       popovertarget="menu-berth"
                     >
                       Berth 12
                     </button>
-                    <div class="popover" id="menu-berth" popover>
+                    <div class="onm-popover" id="menu-berth" popover>
                       <button type="button">Rename</button>
                       <a href="#menu">Open</a>
                       <hr />
                       <button type="button" disabled>Release</button>
                     </div>
-                  </o-menu>
-                </o-example>
-              </o-stack>
+                  </onm-menu>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="tooltip">
-              <o-stack>
+              <onm-stack>
                 <h2>Tooltip</h2>
                 <p>
-                  <code>&lt;o-tooltip&gt;</code> shows a few words about a control when the pointer
-                  is over it or the keyboard is on it. Inside go the control and a
+                  <code>&lt;onm-tooltip&gt;</code> shows a few words about a control when the
+                  pointer is over it or the keyboard is on it. Inside go the control and a
                   <code>&lt;span role="tooltip"&gt;</code>, tied together with
                   <code>aria-describedby</code>.
                 </p>
-                <o-example>
-                  <o-tooltip>
+                <onm-example>
+                  <onm-tooltip>
                     <button
-                      class="button"
+                      class="onm-button"
                       data-variant="outline"
                       type="button"
                       aria-describedby="tooltip-release"
@@ -1233,84 +1257,84 @@
                     <span role="tooltip" id="tooltip-release"
                       >Frees the berth for the next boat</span
                     >
-                  </o-tooltip>
-                </o-example>
-              </o-stack>
+                  </onm-tooltip>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="copy">
-              <o-stack>
+              <onm-stack>
                 <h2>Copy</h2>
                 <p>
-                  <code>&lt;o-copy&gt;</code> goes around a <code>&lt;pre&gt;</code> and adds a
+                  <code>&lt;onm-copy&gt;</code> goes around a <code>&lt;pre&gt;</code> and adds a
                   button that copies its text.
                 </p>
-                <o-example>
-                  <o-copy>
+                <onm-example>
+                  <onm-copy>
                     <pre><code>mise run check</code></pre>
-                  </o-copy>
-                </o-example>
-              </o-stack>
+                  </onm-copy>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="theme">
-              <o-stack>
+              <onm-stack>
                 <h2>Theme</h2>
                 <p>
-                  <code>&lt;o-theme&gt;</code> goes around a button and makes it a light and dark
+                  <code>&lt;onm-theme&gt;</code> goes around a button and makes it a light and dark
                   toggle. It remembers the choice, and follows the system until one is made. With
                   <code>auto</code>, a third press goes back to following the system.
                 </p>
-                <o-example>
-                  <o-row>
-                    <o-theme>
-                      <button class="button" data-variant="outline" type="button">
+                <onm-example>
+                  <onm-row>
+                    <onm-theme>
+                      <button class="onm-button" data-variant="outline" type="button">
                         Switch theme
                       </button>
-                    </o-theme>
-                    <o-theme auto>
-                      <button class="button" data-variant="ghost" type="button">
+                    </onm-theme>
+                    <onm-theme auto>
+                      <button class="onm-button" data-variant="ghost" type="button">
                         Light, dark, or system
                       </button>
-                    </o-theme>
-                  </o-row>
-                </o-example>
-              </o-stack>
+                    </onm-theme>
+                  </onm-row>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="toast">
-              <o-stack>
+              <onm-stack>
                 <h2>Toast</h2>
                 <p>
-                  <code>&lt;o-toast&gt;</code> is where brief messages appear, in a corner, and go
+                  <code>&lt;onm-toast&gt;</code> is where brief messages appear, in a corner, and go
                   away again. A button with <code>data-toast</code> shows its message when pressed,
                   with no script of your own.
                 </p>
-                <o-example>
+                <onm-example>
                   <button
-                    class="button"
+                    class="onm-button"
                     data-variant="outline"
                     type="button"
                     data-toast="Berth 12 is yours until Friday"
                   >
                     Book the berth
                   </button>
-                </o-example>
-              </o-stack>
+                </onm-example>
+              </onm-stack>
             </section>
             <section class="specimen" id="example">
-              <o-stack>
+              <onm-stack>
                 <h2>Example</h2>
                 <p>
-                  <code>&lt;o-example&gt;</code> shows markup at work and prints its source beside
+                  <code>&lt;onm-example&gt;</code> shows markup at work and prints its source beside
                   it. Every specimen on this page is one, so the code you read is the code that is
                   running.
                 </p>
-                <o-example>
-                  <o-badge>Written once</o-badge>
-                </o-example>
-              </o-stack>
+                <onm-example>
+                  <onm-badge>Written once</onm-badge>
+                </onm-example>
+              </onm-stack>
             </section>
 
             <section class="specimen" id="contribute">
-              <o-stack>
+              <onm-stack>
                 <h2>Contribute</h2>
                 <p>
                   The system grows from what real projects turn out to need. When a page needs
@@ -1324,16 +1348,16 @@
                   >
                   has the rest.
                 </p>
-              </o-stack>
+              </onm-stack>
             </section>
           </div>
         </div>
-      </o-wrap>
+      </onm-wrap>
     </main>
 
     <footer class="site-footer">
-      <o-wrap>
-        <o-row justify="between">
+      <onm-wrap>
+        <onm-row justify="between">
           <p>
             Oinam.DEV by <a href="https://oinam.com">oinam.com</a>. Open and free, under the
             <a href="/license/">MIT license</a>.
@@ -1346,8 +1370,8 @@
             <li><a href="/llms.txt">llms.txt</a></li>
             <li><a href="https://github.com/oinam/oinam.dev">GitHub</a></li>
           </ul>
-        </o-row>
-      </o-wrap>
+        </onm-row>
+      </onm-wrap>
     </footer>
   </body>
 </html>

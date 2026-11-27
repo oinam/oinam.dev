@@ -1,15 +1,15 @@
 /*
- * <o-example>: markup at work, and its source beside it.
+ * <onm-example>: markup at work, and its source beside it.
  *
- *   <o-example>
- *     <button class="button" type="button">Save</button>
- *   </o-example>
+ *   <onm-example>
+ *     <button class="onm-button" type="button">Save</button>
+ *   </onm-example>
  *
  * Write the markup once. This element shows it live under a "Preview" tab and
  * prints the very same markup under a "Code" tab, with a copy button, so the
  * example and its source can never drift apart.
  *
- * It builds on <o-tabs> and <o-copy>. Define this element before those two
+ * It builds on <onm-tabs> and <onm-copy>. Define this element before those two
  * (ui.js does), because it has to read its own markup before anything inside
  * it has had the chance to rewrite theirs.
  */
@@ -57,17 +57,17 @@ export class Example extends HTMLElement {
 
     const pre = document.createElement("pre");
     pre.append(code);
-    const copy = document.createElement("o-copy");
+    const copy = document.createElement("onm-copy");
     copy.append(pre);
 
     const preview = section("Preview", ...this.childNodes);
     preview.dataset.part = "preview";
 
-    const tabs = document.createElement("o-tabs");
+    const tabs = document.createElement("onm-tabs");
     tabs.setAttribute("label", "Example");
     tabs.append(preview, section("Code", copy));
     this.append(tabs);
   }
 }
 
-if (!customElements.get("o-example")) customElements.define("o-example", Example);
+if (!customElements.get("onm-example")) customElements.define("onm-example", Example);

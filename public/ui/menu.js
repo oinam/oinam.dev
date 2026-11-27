@@ -1,5 +1,5 @@
 /*
- * <o-menu>: a button and the short list of actions it opens.
+ * <onm-menu>: a button and the short list of actions it opens.
  *
  * The markup is in menu.css. The browser already opens and closes the list,
  * which is a popover. This element adds what a list of actions needs on top:
@@ -91,4 +91,4 @@ export class Menu extends HTMLElement {
   }
 }
 
-if (!customElements.get("o-menu")) customElements.define("o-menu", Menu);
+if (!customElements.get("onm-menu")) customElements.define("onm-menu", Menu);

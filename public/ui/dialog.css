@@ -5,17 +5,17 @@
  * the page behind it. The buttons open and close it by naming it, so there is
  * no script to write.
  *
- *   <button class="button" type="button" commandfor="confirm" command="show-modal">
+ *   <button class="onm-button" type="button" commandfor="confirm" command="show-modal">
  *     Delete
  *   </button>
  *
- *   <dialog class="dialog" id="confirm" aria-labelledby="confirm-title" closedby="any">
+ *   <dialog class="onm-dialog" id="confirm" aria-labelledby="confirm-title" closedby="any">
  *     <h2 id="confirm-title">Delete the file?</h2>
  *     <p>This cannot be undone.</p>
  *     <footer>
- *       <button class="button" data-variant="ghost" type="button"
+ *       <button class="onm-button" data-variant="ghost" type="button"
  *               commandfor="confirm" command="close">Cancel</button>
- *       <button class="button" type="button">Delete</button>
+ *       <button class="onm-button" type="button">Delete</button>
  *     </footer>
  *   </dialog>
  *
@@ -26,7 +26,7 @@
  * off closedby, so that only its buttons can close it.
  */
 
-.dialog {
+.onm-dialog {
   width: min(28rem, 100vw - 2rem);
   padding: var(--space-6);
   border: 1px solid var(--color-line);
@@ -36,26 +36,26 @@
   color: var(--color-ink);
 }
 
-.dialog[open] {
+.onm-dialog[open] {
   display: grid;
   gap: var(--space-3);
   animation: dialog-in var(--duration) var(--ease) both;
 }
 
-.dialog::backdrop {
+.onm-dialog::backdrop {
   background: color-mix(in oklab, var(--color-cloud) 60%, transparent);
   backdrop-filter: blur(6px);
 }
 
-.dialog > :is(h2, h3) {
+.onm-dialog > :is(h2, h3) {
   font-size: var(--text-2xl);
 }
 
-.dialog > p {
+.onm-dialog > p {
   color: var(--color-ink-soft);
 }
 
-.dialog > footer {
+.onm-dialog > footer {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
@@ -72,37 +72,37 @@
 
 /* Drawers */
 
-.dialog[data-side] {
+.onm-dialog[data-side] {
   max-height: none;
   border-radius: 0;
   animation-name: drawer-in;
 }
 
-.dialog[data-side][open] {
+.onm-dialog[data-side][open] {
   align-content: start;
 }
 
-.dialog:is([data-side="right"], [data-side="left"]) {
+.onm-dialog:is([data-side="right"], [data-side="left"]) {
   width: min(24rem, 100vw - 2rem);
   height: 100dvh;
   border-block: 0;
 }
 
-.dialog[data-side="right"] {
+.onm-dialog[data-side="right"] {
   --from: 2rem 0;
 
   margin: 0 0 0 auto;
   border-right: 0;
 }
 
-.dialog[data-side="left"] {
+.onm-dialog[data-side="left"] {
   --from: -2rem 0;
 
   margin: 0 auto 0 0;
   border-left: 0;
 }
 
-.dialog[data-side="bottom"] {
+.onm-dialog[data-side="bottom"] {
   --from: 0 2rem;
 
   width: 100vw;

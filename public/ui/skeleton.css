@@ -1,17 +1,17 @@
 /*
  * Skeleton
  *
- * <o-skeleton> holds the place of something that is still loading: a line of
+ * <onm-skeleton> holds the place of something that is still loading: a line of
  * text by default, or shape="circle|block". Give its container
  * aria-busy="true", so a screen reader knows to wait.
  *
- *   <o-stack aria-busy="true">
- *     <o-skeleton></o-skeleton>
- *     <o-skeleton></o-skeleton>
- *   </o-stack>
+ *   <onm-stack aria-busy="true">
+ *     <onm-skeleton></onm-skeleton>
+ *     <onm-skeleton></onm-skeleton>
+ *   </onm-stack>
  */
 
-o-skeleton {
+onm-skeleton {
   display: block;
   height: 1em;
   border-radius: var(--radius-sm);
@@ -19,13 +19,13 @@ o-skeleton {
   animation: skeleton 1.2s ease-in-out infinite alternate;
 }
 
-o-skeleton[shape="circle"] {
+onm-skeleton[shape="circle"] {
   width: var(--control);
   height: var(--control);
   border-radius: var(--radius-full);
 }
 
-o-skeleton[shape="block"] {
+onm-skeleton[shape="block"] {
   height: 6rem;
   border-radius: var(--radius-md);
 }

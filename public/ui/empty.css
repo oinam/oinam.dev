@@ -1,17 +1,17 @@
 /*
  * Empty
  *
- * <o-empty> stands where content will be once there is some. Say what is
+ * <onm-empty> stands where content will be once there is some. Say what is
  * missing, and offer the one thing to do about it.
  *
- *   <o-empty>
+ *   <onm-empty>
  *     <h3>No bookings yet</h3>
  *     <p>When a boat books a berth, it shows up here.</p>
- *     <button class="button" type="button">Book a berth</button>
- *   </o-empty>
+ *     <button class="onm-button" type="button">Book a berth</button>
+ *   </onm-empty>
  */
 
-o-empty {
+onm-empty {
   display: grid;
   gap: var(--space-3);
   justify-items: center;
@@ -21,11 +21,11 @@ o-empty {
   text-align: center;
 }
 
-o-empty > :is(h2, h3, h4) {
+onm-empty > :is(h2, h3, h4) {
   font-size: var(--text-xl);
 }
 
-o-empty > p {
+onm-empty > p {
   max-width: 28rem;
   color: var(--color-ink-soft);
 }

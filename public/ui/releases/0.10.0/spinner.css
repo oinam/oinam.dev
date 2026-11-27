@@ -1,0 +1,26 @@
+/*
+ * Spinner
+ *
+ * <onm-spinner> says that something is under way. It takes the size of the text
+ * around it. Name what is happening, for those who cannot see it turn.
+ *
+ *   <onm-spinner role="status" aria-label="Loading the tide table"></onm-spinner>
+ */
+
+onm-spinner {
+  display: inline-block;
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+  border: 2px solid var(--color-line-strong);
+  border-top-color: var(--color-ink);
+  border-radius: var(--radius-full);
+  vertical-align: middle;
+  animation: spinner 0.7s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    rotate: 1turn;
+  }
+}

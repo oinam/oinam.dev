@@ -1,40 +1,40 @@
 /*
  * Menu
  *
- * <o-menu> is a button and the short list of actions it opens. The list is a
+ * <onm-menu> is a button and the short list of actions it opens. The list is a
  * popover of plain buttons and links, with <hr> between groups. See menu.js
  * for the arrow keys; without it, Tab still reaches every item.
  *
- *   <o-menu>
- *     <button class="button" data-variant="outline" type="button" popovertarget="berth-menu">
+ *   <onm-menu>
+ *     <button class="onm-button" data-variant="outline" type="button" popovertarget="berth-menu">
  *       Berth 12
  *     </button>
- *     <div class="popover" id="berth-menu" popover>
+ *     <div class="onm-popover" id="berth-menu" popover>
  *       <button type="button">Rename</button>
  *       <a href="/berths/12/">Open</a>
  *       <hr />
  *       <button type="button">Release</button>
  *     </div>
- *   </o-menu>
+ *   </onm-menu>
  *
  * With the context attribute, the list opens where the pointer is on a right
  * click anywhere inside the element, and needs no button.
  */
 
-o-menu {
+onm-menu {
   display: inline-block;
 }
 
-o-menu[context] {
+onm-menu[context] {
   display: block;
 }
 
-o-menu > [popover] {
+onm-menu > [popover] {
   min-width: 11rem;
   padding: var(--space-1);
 }
 
-o-menu > [popover] > :is(button, a) {
+onm-menu > [popover] > :is(button, a) {
   display: flex;
   gap: var(--space-2);
   align-items: center;
@@ -50,19 +50,19 @@ o-menu > [popover] > :is(button, a) {
   cursor: pointer;
 }
 
-o-menu > [popover] > :is(button, a):is(:hover, :focus-visible) {
+onm-menu > [popover] > :is(button, a):is(:hover, :focus-visible) {
   background: var(--color-wash);
 }
 
-o-menu > [popover] > :is(button, a):focus-visible {
+onm-menu > [popover] > :is(button, a):focus-visible {
   outline-offset: -2px;
 }
 
-o-menu > [popover] > button:disabled {
+onm-menu > [popover] > button:disabled {
   opacity: 0.45;
   pointer-events: none;
 }
 
-o-menu > [popover] > hr {
+onm-menu > [popover] > hr {
   margin: var(--space-1) 0;
 }

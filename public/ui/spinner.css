@@ -1,13 +1,13 @@
 /*
  * Spinner
  *
- * <o-spinner> says that something is under way. It takes the size of the text
+ * <onm-spinner> says that something is under way. It takes the size of the text
  * around it. Name what is happening, for those who cannot see it turn.
  *
- *   <o-spinner role="status" aria-label="Loading the tide table"></o-spinner>
+ *   <onm-spinner role="status" aria-label="Loading the tide table"></onm-spinner>
  */
 
-o-spinner {
+onm-spinner {
   display: inline-block;
   flex: none;
   width: 1.25em;

@@ -78,7 +78,7 @@ test("asked for something that is not there, it says what there is", () => {
 
 test("lint checks markup and styles, and says where each fault is", () => {
   const result = call("lint", {
-    html: "<p>Fine</p>\n<o-hero></o-hero>",
+    html: "<p>Fine</p>\n<onm-hero></onm-hero>",
     css: ".a { color: #333; }",
   });
 
@@ -89,7 +89,7 @@ test("lint checks markup and styles, and says where each fault is", () => {
 
 test("lint says so when there is nothing to mend, and when it was given nothing", () => {
   assert.equal(
-    said(call("lint", { html: '<o-stack gap="2"><p>Hi</p></o-stack>' })),
+    said(call("lint", { html: '<onm-stack gap="2"><p>Hi</p></onm-stack>' })),
     "Clean. Nothing to mend.",
   );
   assert.equal(call("lint").isError, true);

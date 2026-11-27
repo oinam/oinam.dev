@@ -21,7 +21,7 @@ Read [AGENTS.md](AGENTS.md) first, the Components section above all. It is the c
 of how the components are made. In short:
 
 - Plain HTML, CSS, and JavaScript. No framework, no build step, and no dependencies.
-- A native element that does the job takes a class. Anything else is an `o-` custom element.
+- A native element that does the job takes a class. Anything else is an `onm-` custom element.
 - Script is an enhancement, in the light DOM, around HTML that reads correctly without it.
 - Tokens only. Base has two colors, and no component adds a hue.
 

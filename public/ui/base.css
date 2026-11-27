@@ -2,8 +2,8 @@
  * Base
  *
  * How plain HTML looks before any component is involved. Margins are cleared,
- * because spacing belongs to whatever lays the elements out: <o-stack> for a
- * column of things, <o-prose> for a run of writing.
+ * because spacing belongs to whatever lays the elements out: <onm-stack> for a
+ * column of things, <onm-prose> for a run of writing.
  */
 
 *,

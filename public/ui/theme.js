@@ -1,11 +1,11 @@
 /*
- * <o-theme>: a light and dark toggle.
+ * <onm-theme>: a light and dark toggle.
  *
- *   <o-theme>
+ *   <onm-theme>
  *     <button type="button" aria-label="Switch theme">...</button>
- *   </o-theme>
+ *   </onm-theme>
  *
- *   <o-theme auto>...</o-theme>     light, dark, and back to the system
+ *   <onm-theme auto>...</onm-theme>     light, dark, and back to the system
  *
  * Put a <button> inside; this element makes it work. A press flips the theme
  * and remembers the choice. Until the visitor has chosen, the theme follows
@@ -133,4 +133,4 @@ export class Theme extends HTMLElement {
   }
 }
 
-if (!customElements.get("o-theme")) customElements.define("o-theme", Theme);
+if (!customElements.get("onm-theme")) customElements.define("onm-theme", Theme);

@@ -2,19 +2,19 @@
 
 Sets a message apart: a note, a warning, or danger.
 
-- Use: `<o-alert>`
+- Use: `<onm-alert>`
 - Files: `alert.css`. It is CSS alone, and needs no script.
 - Part of Oinam UI. The rules for using it are in `../guide.md`.
 
-`<o-alert>` sets a message apart. `variant` takes `warning` (a heavy frame) or `danger` (ink and
+`<onm-alert>` sets a message apart. `variant` takes `warning` (a heavy frame) or `danger` (ink and
 cloud swapped); without it, the alert is a note. Give it `role="note"`, or `role="alert"` when it appears in answer to something the reader
 just did. Open with a `<strong>` title.
 
 ```html
-<o-alert variant="warning" role="note">
+<onm-alert variant="warning" role="note">
   <strong>Warning</strong>
   <p>This rewrites history.</p>
-</o-alert>
+</onm-alert>
 ```
 
 ## Tone
@@ -27,14 +27,14 @@ meaning, so a tone agrees with the variant: `variant="warning"` takes `tone="war
 reports a tone that disagrees, as `tone-disagrees`.
 
 ```html
-<o-alert tone="success" role="status">
+<onm-alert tone="success" role="status">
   <strong>Saved</strong>
   <p>Your changes are live.</p>
-</o-alert>
-<o-alert variant="danger" tone="danger" role="alert">
+</onm-alert>
+<onm-alert variant="danger" tone="danger" role="alert">
   <strong>Payment failed</strong>
   <p>The card was declined. Nothing was charged.</p>
-</o-alert>
+</onm-alert>
 ```
 
 Without a tone, an alert is as it always was: weight alone, in the page's two colors.

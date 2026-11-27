@@ -5,7 +5,7 @@
  * ruled apart. It is for the details of one thing, such as a booking or a
  * place, where a table would be too much. Each pair goes in a <div>.
  *
- *   <dl class="facts">
+ *   <dl class="onm-facts">
  *     <div>
  *       <dt>Berth</dt>
  *       <dd>E 11</dd>
@@ -17,11 +17,11 @@
  *   </dl>
  */
 
-.facts {
+.onm-facts {
   margin: 0;
 }
 
-.facts > div {
+.onm-facts > div {
   display: flex;
   gap: var(--space-4);
   justify-content: space-between;
@@ -29,15 +29,15 @@
   border-top: 1px solid var(--color-line);
 }
 
-.facts > div:last-child {
+.onm-facts > div:last-child {
   border-bottom: 1px solid var(--color-line);
 }
 
-.facts dt {
+.onm-facts dt {
   color: var(--color-ink-soft);
 }
 
-.facts dd {
+.onm-facts dd {
   margin: 0;
   text-align: end;
 }

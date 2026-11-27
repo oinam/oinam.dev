@@ -40,7 +40,7 @@ test("an agent that built nothing scores as having built nothing", () => {
 
 test("a sound page scores clean, and names the elements it used", () => {
   const folder = project({
-    "index.html": `${HEAD}<main><o-wrap narrow><o-stack gap="4"><h1>Fees</h1><o-table><table><tbody><tr><th scope="row">Summer</th><td>3.20</td></tr></tbody></table></o-table></o-stack></o-wrap></main>`,
+    "index.html": `${HEAD}<main><onm-wrap narrow><onm-stack gap="4"><h1>Fees</h1><onm-table><table><tbody><tr><th scope="row">Summer</th><td>3.20</td></tr></tbody></table></onm-table></onm-stack></onm-wrap></main>`,
     "styles.css": ".total { font-weight: 600; color: var(--color-ink); }",
   });
 
@@ -48,7 +48,7 @@ test("a sound page scores clean, and names the elements it used", () => {
     built: true,
     usesCopy: true,
     findings: [],
-    elements: ["o-stack", "o-table", "o-wrap"],
+    elements: ["onm-stack", "onm-table", "onm-wrap"],
     unknown: [],
     notes: [],
   });
@@ -56,7 +56,7 @@ test("a sound page scores clean, and names the elements it used", () => {
 
 test("faults in the page and in its styles are both found, each with its file", () => {
   const folder = project({
-    "index.html": `${HEAD}<main><h1>Fees</h1><o-hero>Welcome</o-hero></main>`,
+    "index.html": `${HEAD}<main><h1>Fees</h1><onm-hero>Welcome</onm-hero></main>`,
     "styles.css": ".a {\n  color: #333;\n}",
   });
   const { findings, unknown } = score(folder, contract);
@@ -68,7 +68,7 @@ test("faults in the page and in its styles are both found, each with its file", 
       ["styles.css", 2, "raw-color"],
     ],
   );
-  assert.deepEqual(unknown, ["o-hero"]);
+  assert.deepEqual(unknown, ["onm-hero"]);
 });
 
 test("the system linked from the web, not from the project's copy, is told apart", () => {
@@ -80,9 +80,9 @@ test("the system linked from the web, not from the project's copy, is told apart
 });
 
 test("habits the linter lets pass are noted for the reader", () => {
-  const cards = "<o-card><h2>One</h2></o-card>".repeat(3);
+  const cards = "<onm-card><h2>One</h2></onm-card>".repeat(3);
   const folder = project({
-    "index.html": `${HEAD}<div><o-grid>${cards}</o-grid></div>`,
+    "index.html": `${HEAD}<div><onm-grid>${cards}</onm-grid></div>`,
     "styles.css": "p { text-align: center; }\nh2 { text-align: center; }",
   });
 
@@ -100,7 +100,7 @@ test("the write-up has a row for each brief and counts the rules broken", () => 
     built: true,
     usesCopy: true,
     findings: rules.map((rule) => ({ file: "index.html", line: 1, rule, message: "m" })),
-    elements: ["o-stack"],
+    elements: ["onm-stack"],
     unknown: [],
     notes: [],
     seen: [{ width: 320, theme: "light", overflow: 12, errors: [] }],
@@ -122,7 +122,7 @@ test("the write-up has a row for each brief and counts the rules broken", () => 
 
 test("the agent is told to read the guide, and is told nothing the guide should teach", () => {
   assert.match(INSTRUCTION, /Read ui\/guide\.md and follow it/);
-  assert.doesNotMatch(INSTRUCTION, /lint|token|o-stack|card|color/i);
+  assert.doesNotMatch(INSTRUCTION, /lint|token|onm-stack|card|color/i);
 });
 
 test("every brief says what the reader came for, and gives facts to build from", () => {
@@ -135,6 +135,6 @@ test("every brief says what the reader came for, and gives facts to build from",
     assert.ok(brief.includes("## What the reader came for\n"), name);
     assert.ok(brief.includes("## The facts\n"), name);
     // A brief describes the page. It must not tell the agent how to design it.
-    assert.doesNotMatch(brief, /<o-[a-z]+|Oinam UI|design system/i, name);
+    assert.doesNotMatch(brief, /<onm-[a-z]+|Oinam UI|design system/i, name);
   }
 });

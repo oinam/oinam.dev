@@ -1,18 +1,18 @@
 /*
  * Input group
  *
- * <o-input-group> puts something before or after a field, inside its frame: a
- * unit, a prefix, or a button. The group draws the frame, so the .input
+ * <onm-input-group> puts something before or after a field, inside its frame: a
+ * unit, a prefix, or a button. The group draws the frame, so the .onm-input
  * inside it has none of its own.
  *
- *   <o-input-group>
+ *   <onm-input-group>
  *     <span>https://</span>
- *     <input class="input" type="text" aria-label="Address" />
- *     <button class="button" data-size="small" type="button">Go</button>
- *   </o-input-group>
+ *     <input class="onm-input" type="text" aria-label="Address" />
+ *     <button class="onm-button" data-size="small" type="button">Go</button>
+ *   </onm-input-group>
  */
 
-o-input-group {
+onm-input-group {
   display: flex;
   align-items: center;
   height: var(--control);
@@ -22,19 +22,19 @@ o-input-group {
   transition: border-color var(--duration) var(--ease);
 }
 
-o-input-group:hover,
-o-input-group:focus-within {
+onm-input-group:hover,
+onm-input-group:focus-within {
   border-color: var(--color-ink);
 }
 
 /* The ring goes around the whole group, since the field inside has no edge to show it on. */
 
-o-input-group:has(.input:focus-visible) {
+onm-input-group:has(.onm-input:focus-visible) {
   outline: 2px solid var(--color-ink);
   outline-offset: 1px;
 }
 
-o-input-group > .input {
+onm-input-group > .onm-input {
   flex: 1;
   min-width: 0;
   height: 100%;
@@ -43,17 +43,17 @@ o-input-group > .input {
   background: none;
 }
 
-o-input-group > span {
+onm-input-group > span {
   padding-inline: var(--space-3);
   color: var(--color-ink-faint);
   font-size: var(--text-sm);
   white-space: nowrap;
 }
 
-o-input-group > span + .input {
+onm-input-group > span + .onm-input {
   padding-left: 0;
 }
 
-o-input-group > .button {
+onm-input-group > .onm-button {
   margin-inline: var(--space-1);
 }

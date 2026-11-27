@@ -6,7 +6,7 @@ import { test } from "node:test";
 await import("../public/ui/menu.js");
 
 const MARKUP = `
-  <o-menu>
+  <onm-menu>
     <button type="button" popovertarget="actions">Berth 12</button>
     <div id="actions" popover>
       <button type="button">Rename</button>
@@ -15,7 +15,7 @@ const MARKUP = `
       <button type="button" disabled>Release</button>
       <button type="button">Leave</button>
     </div>
-  </o-menu>`;
+  </onm-menu>`;
 
 function build(markup = MARKUP) {
   const menu = mount(markup);
@@ -108,10 +108,10 @@ test("a right click does nothing unless the menu is a context menu", () => {
 
 test("a context menu opens where the pointer is", () => {
   const { menu, list, asked } = build(`
-    <o-menu context>
+    <onm-menu context>
       <p>The quay</p>
       <div popover><button type="button">Book this berth</button></div>
-    </o-menu>`);
+    </onm-menu>`);
 
   const event = new MouseEvent("contextmenu", {
     bubbles: true,
@@ -128,7 +128,7 @@ test("a context menu opens where the pointer is", () => {
 });
 
 test("a menu with no list does nothing, and does not fail", () => {
-  const menu = mount("<o-menu><button type='button'>Nothing</button></o-menu>");
+  const menu = mount("<onm-menu><button type='button'>Nothing</button></onm-menu>");
   menu.querySelector("button").click();
   assert.equal(menu.list, null);
 });

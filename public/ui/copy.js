@@ -1,9 +1,9 @@
 /*
- * <o-copy>: a copy button for a block of code.
+ * <onm-copy>: a copy button for a block of code.
  *
- *   <o-copy>
+ *   <onm-copy>
  *     <pre><code>npm install</code></pre>
- *   </o-copy>
+ *   </onm-copy>
  *
  * Put a <pre> inside. This element adds a button that copies its text, and
  * says so for a moment. The button is made here, not written in the page, so
@@ -25,7 +25,7 @@ export class Copy extends HTMLElement {
 
     const button = document.createElement("button");
     button.type = "button";
-    button.className = "button";
+    button.className = "onm-button";
     button.dataset.variant = "outline";
     button.dataset.size = "small";
     button.textContent = "Copy";
@@ -62,4 +62,4 @@ export class Copy extends HTMLElement {
   }
 }
 
-if (!customElements.get("o-copy")) customElements.define("o-copy", Copy);
+if (!customElements.get("onm-copy")) customElements.define("onm-copy", Copy);

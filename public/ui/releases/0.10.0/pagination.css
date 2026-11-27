@@ -1,0 +1,49 @@
+/*
+ * Pagination
+ *
+ * A class on the <nav> around a list of page links. The page being shown has
+ * aria-current="page".
+ *
+ *   <nav class="onm-pagination" aria-label="Pages">
+ *     <ul>
+ *       <li><a href="?page=1">Previous</a></li>
+ *       <li><a href="?page=1">1</a></li>
+ *       <li><a href="?page=2" aria-current="page">2</a></li>
+ *       <li><a href="?page=3">3</a></li>
+ *       <li><a href="?page=3">Next</a></li>
+ *     </ul>
+ *   </nav>
+ */
+
+.onm-pagination ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.onm-pagination a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--control);
+  height: var(--control);
+  padding-inline: var(--space-3);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.onm-pagination a:hover {
+  background: var(--color-wash);
+}
+
+.onm-pagination a[aria-current="page"] {
+  border-color: var(--color-line-strong);
+  background: var(--color-milk);
+}

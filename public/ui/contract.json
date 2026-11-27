@@ -14,20 +14,20 @@
     "inert"
   ],
   "elements": {
-    "o-wrap": {
+    "onm-wrap": {
       "component": "wrap",
       "attributes": {
         "narrow": true
       }
     },
-    "o-stack": {
+    "onm-stack": {
       "component": "stack",
       "attributes": {
         "gap": ["1", "2", "3", "4", "6", "8", "12", "16"],
         "align": ["start", "center"]
       }
     },
-    "o-row": {
+    "onm-row": {
       "component": "row",
       "attributes": {
         "gap": ["1", "2", "3", "4", "6", "8", "12", "16"],
@@ -35,23 +35,23 @@
         "justify": ["between", "center", "end"]
       }
     },
-    "o-grid": {
+    "onm-grid": {
       "component": "grid",
       "attributes": {
         "gap": ["1", "2", "3", "4", "6", "8", "12", "16"],
         "min": ["small", "large"]
       }
     },
-    "o-prose": {
+    "onm-prose": {
       "component": "prose",
       "attributes": {}
     },
-    "o-card": {
+    "onm-card": {
       "component": "card",
       "attributes": {},
-      "not_inside": ["o-card"]
+      "not_inside": ["onm-card"]
     },
-    "o-badge": {
+    "onm-badge": {
       "component": "badge",
       "attributes": {
         "variant": ["solid"],
@@ -59,119 +59,119 @@
         "hue": ["1", "2", "3", "4", "5", "6"]
       }
     },
-    "o-alert": {
+    "onm-alert": {
       "component": "alert",
       "attributes": {
         "variant": ["warning", "danger"],
         "tone": ["success", "warning", "danger", "info"]
       }
     },
-    "o-table": {
+    "onm-table": {
       "component": "table",
       "attributes": {},
       "contains": ["table"]
     },
-    "o-avatar": {
+    "onm-avatar": {
       "component": "avatar",
       "attributes": {
         "size": ["small", "large"]
       }
     },
-    "o-item": {
+    "onm-item": {
       "component": "item",
       "attributes": {}
     },
-    "o-empty": {
+    "onm-empty": {
       "component": "empty",
       "attributes": {}
     },
-    "o-skeleton": {
+    "onm-skeleton": {
       "component": "skeleton",
       "attributes": {
         "shape": ["circle", "block"]
       }
     },
-    "o-spinner": {
+    "onm-spinner": {
       "component": "spinner",
       "attributes": {}
     },
-    "o-ratio": {
+    "onm-ratio": {
       "component": "ratio",
       "attributes": {
         "ratio": ["4/3", "1/1", "21/9"]
       }
     },
-    "o-scroll": {
+    "onm-scroll": {
       "component": "scroll",
       "attributes": {}
     },
-    "o-button-group": {
+    "onm-button-group": {
       "component": "button-group",
       "attributes": {},
-      "contains": [".button"]
+      "contains": [".onm-button"]
     },
-    "o-field": {
+    "onm-field": {
       "component": "field",
       "attributes": {},
       "contains": ["label"]
     },
-    "o-input-group": {
+    "onm-input-group": {
       "component": "input-group",
       "attributes": {},
-      "contains": [".input"]
+      "contains": [".onm-input"]
     },
-    "o-toggle-group": {
+    "onm-toggle-group": {
       "component": "toggle",
       "attributes": {},
-      "contains": [".toggle"]
+      "contains": [".onm-toggle"]
     },
-    "o-accordion": {
+    "onm-accordion": {
       "component": "accordion",
       "attributes": {},
       "contains": ["details"]
     },
-    "o-tabs": {
+    "onm-tabs": {
       "component": "tabs",
       "attributes": {
         "label": "text"
       },
       "contains": ["section"]
     },
-    "o-menu": {
+    "onm-menu": {
       "component": "menu",
       "attributes": {
         "context": true
       },
       "contains": ["[popover]"]
     },
-    "o-tooltip": {
+    "onm-tooltip": {
       "component": "tooltip",
       "attributes": {},
       "contains": ["[role=tooltip]"]
     },
-    "o-copy": {
+    "onm-copy": {
       "component": "copy",
       "attributes": {},
       "contains": ["pre"]
     },
-    "o-theme": {
+    "onm-theme": {
       "component": "theme",
       "attributes": {
         "auto": true
       },
       "contains": ["button"]
     },
-    "o-toast": {
+    "onm-toast": {
       "component": "toast",
       "attributes": {}
     },
-    "o-example": {
+    "onm-example": {
       "component": "example",
       "attributes": {}
     }
   },
   "classes": {
-    "button": {
+    "onm-button": {
       "component": "button",
       "on": ["button", "a"],
       "attributes": {
@@ -180,64 +180,64 @@
         "aria-busy": ["true", "false"]
       }
     },
-    "input": {
+    "onm-input": {
       "component": "field",
       "on": ["input", "select", "textarea"],
       "attributes": {}
     },
-    "choice": {
+    "onm-choice": {
       "component": "choice",
       "on": ["label"],
       "attributes": {}
     },
-    "slider": {
+    "onm-slider": {
       "component": "slider",
       "on": ["input"],
       "attributes": {}
     },
-    "toggle": {
+    "onm-toggle": {
       "component": "toggle",
       "on": ["label"],
       "attributes": {}
     },
-    "progress": {
+    "onm-progress": {
       "component": "progress",
       "on": ["progress"],
       "attributes": {}
     },
-    "dialog": {
+    "onm-dialog": {
       "component": "dialog",
       "on": ["dialog"],
       "attributes": {
         "data-side": ["right", "left", "bottom"]
       }
     },
-    "popover": {
+    "onm-popover": {
       "component": "popover",
       "on": ["*"],
       "attributes": {}
     },
-    "breadcrumb": {
+    "onm-breadcrumb": {
       "component": "breadcrumb",
       "on": ["nav"],
       "attributes": {}
     },
-    "pagination": {
+    "onm-pagination": {
       "component": "pagination",
       "on": ["nav"],
       "attributes": {}
     },
-    "eyebrow": {
+    "onm-eyebrow": {
       "component": "text",
       "on": ["*"],
       "attributes": {}
     },
-    "lede": {
+    "onm-lede": {
       "component": "text",
       "on": ["p"],
       "attributes": {}
     },
-    "facts": {
+    "onm-facts": {
       "component": "facts",
       "on": ["dl"],
       "attributes": {}

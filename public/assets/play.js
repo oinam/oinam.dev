@@ -30,21 +30,21 @@ function build() {
     label.textContent = option.label;
 
     const select = document.createElement("select");
-    select.className = "input";
+    select.className = "onm-input";
     select.id = label.htmlFor;
     select.name = key;
     select.append(
       ...Object.entries(option.choices).map(([value, choice]) => new Option(choice.label, value)),
     );
 
-    const field = document.createElement("o-field");
+    const field = document.createElement("onm-field");
     field.append(label, select);
     return field;
   });
 
   const reset = document.createElement("button");
   reset.type = "button";
-  reset.className = "button";
+  reset.className = "onm-button";
   reset.dataset.variant = "outline";
   reset.textContent = "Back to Base";
   reset.addEventListener("click", () => {
@@ -52,7 +52,7 @@ function build() {
     apply();
   });
 
-  const stack = document.createElement("o-stack");
+  const stack = document.createElement("onm-stack");
   stack.append(...fields, reset);
   panel.replaceChildren(stack);
 }

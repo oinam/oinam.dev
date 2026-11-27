@@ -19,24 +19,24 @@ test("dedent leaves flush markup alone", () => {
 
 const build = () =>
   mount(`
-    <o-example>
-      <button class="button" type="button" disabled>Save</button>
-    </o-example>`);
+    <onm-example>
+      <button class="onm-button" type="button" disabled>Save</button>
+    </onm-example>`);
 
 test("the markup stays live, under a Preview heading", () => {
   const example = build();
   const preview = example.querySelector('[data-part="preview"]');
 
   assert.equal(preview.querySelector("h4").textContent, "Preview");
-  assert.equal(preview.querySelector("button.button").textContent, "Save");
+  assert.equal(preview.querySelector("button.onm-button").textContent, "Save");
 });
 
 test("the same markup is printed as its source", () => {
   const example = build();
 
   assert.equal(
-    example.querySelector("o-copy pre code").textContent,
-    '<button class="button" type="button" disabled>Save</button>',
+    example.querySelector("onm-copy pre code").textContent,
+    '<button class="onm-button" type="button" disabled>Save</button>',
   );
 });
 

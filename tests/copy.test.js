@@ -16,7 +16,7 @@ beforeEach(() => {
   });
 });
 
-const build = () => mount("<o-copy><pre><code>\n  npm install\n</code></pre></o-copy>");
+const build = () => mount("<onm-copy><pre><code>\n  npm install\n</code></pre></onm-copy>");
 
 test("it adds one button, which the page did not have to write", () => {
   const copy = build();

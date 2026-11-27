@@ -1,7 +1,7 @@
 /*
  * Classless
  *
- * Base for a page written in plain HTML, with no classes and no o- elements.
+ * Base for a page written in plain HTML, with no classes and no onm- elements.
  * One link, in place of ui.css:
  *
  *   <link rel="stylesheet" href="ui/classless.css" />
@@ -24,10 +24,10 @@
  *   </body>
  *
  * The page gets the same tokens and the same Base as the components, and the
- * elements look as their components do: a <button> as .button, an <input> as
- * .input, a <table> as <o-table>, a run of <details> as <o-accordion>. The body
+ * elements look as their components do: a <button> as .onm-button, an <input> as
+ * .onm-input, a <table> as <onm-table>, a run of <details> as <onm-accordion>. The body
  * becomes one readable column, and the writing in it gets its rhythm, as in
- * <o-prose>. A variation's stylesheet, linked after this one, changes it the
+ * <onm-prose>. A variation's stylesheet, linked after this one, changes it the
  * same way it changes the components.
  *
  * A submit button is the solid one, because it is the form's main action.
@@ -182,7 +182,7 @@
   }
 
   /*
-   * Buttons, as .button. The selector names exactly what counts as a button,
+   * Buttons, as .onm-button. The selector names exactly what counts as a button,
    * so a checkbox or a text field is never caught by it.
    */
 
@@ -247,7 +247,7 @@
     margin-left: var(--space-2);
   }
 
-  /* Text fields and lists, as .input. Checkboxes, radios, and the rest keep their own shape. */
+  /* Text fields and lists, as .onm-input. Checkboxes, radios, and the rest keep their own shape. */
 
   :where(
     input:not(
@@ -342,8 +342,8 @@
   }
 
   /*
-   * Labels. One above its field, as in <o-field>. One around a checkbox or a
-   * radio button sits beside it, as .choice.
+   * Labels. One above its field, as in <onm-field>. One around a checkbox or a
+   * radio button sits beside it, as .onm-choice.
    */
 
   :where(label) {
@@ -395,7 +395,7 @@
   }
 
   /*
-   * Tables, as <o-table>. A table cannot scroll by itself without losing what
+   * Tables, as <onm-table>. A table cannot scroll by itself without losing what
    * it is to a screen reader, so a wide one goes inside a <figure>, which does.
    */
 
@@ -437,7 +437,7 @@
     text-align: start;
   }
 
-  /* Details, as <o-accordion>: one after another, ruled apart, with a chevron. */
+  /* Details, as <onm-accordion>: one after another, ruled apart, with a chevron. */
 
   :where(details):not([class]) {
     border-block: 1px solid var(--color-line);
@@ -489,7 +489,7 @@
     margin-top: 0;
   }
 
-  /* A dialog, as .dialog. */
+  /* A dialog, as .onm-dialog. */
 
   :where(dialog):not([class]) {
     width: min(28rem, 100vw - 2rem);

@@ -28,17 +28,17 @@ const entryFor = (subject) =>
 
 /**
  * Every (subject, attribute, value) the stylesheets select on, where a subject
- * is a custom element or a class: `o-stack[gap="2"]`, `.button[data-size="small"]`,
+ * is a custom element or a class: `onm-stack[gap="2"]`, `.onm-button[data-size="small"]`,
  * and the same inside `:is(...)`.
  */
 function selected() {
   const found = [];
   const pattern =
-    /(:is\(([^)]*)\)|o-[a-z-]+|\.[a-z-]+)((?:\[[^\]]+\])+|:is\(((?:\[[^\]]+\],?\s*)+)\))/g;
+    /(:is\(([^)]*)\)|onm-[a-z-]+|\.[a-z-]+)((?:\[[^\]]+\])+|:is\(((?:\[[^\]]+\],?\s*)+)\))/g;
 
   for (const [, subject, list, attributes] of css.matchAll(pattern)) {
     const subjects = list ? list.split(",").map((part) => part.trim()) : [subject];
-    for (const one of subjects.filter((part) => /^(o-[a-z-]+|\.[a-z-]+)$/.test(part))) {
+    for (const one of subjects.filter((part) => /^(onm-[a-z-]+|\.[a-z-]+)$/.test(part))) {
       for (const [, attribute, value = ""] of attributes.matchAll(
         /\[([a-z-]+)(?:="([^"]*)")?\]/g,
       )) {
@@ -53,7 +53,7 @@ function selected() {
 const STATES = new Set(["open"]);
 
 test("every custom element the stylesheets style is in the contract", () => {
-  for (const element of new Set(css.match(/\bo-[a-z]+(?:-[a-z]+)*\b/g))) {
+  for (const element of new Set(css.match(/(?<![.\w-])onm-[a-z]+(?:-[a-z]+)*\b/g))) {
     assert.ok(element in contract.elements, `${element} is styled but not in the contract`);
   }
 });
@@ -92,7 +92,7 @@ test("every attribute and value the stylesheets select on is in the contract", (
 test("every value in the contract is one the stylesheets act on", () => {
   const acted = selected();
   // Values that are the default, or that only a script reads, and so have no rule of their own.
-  const silent = new Set(['.button aria-busy="false"', 'o-theme auto=""']);
+  const silent = new Set(['.onm-button aria-busy="false"', 'onm-theme auto=""']);
 
   for (const [subject, entry] of [
     ...Object.entries(contract.elements),
@@ -123,7 +123,7 @@ test("every element and class belongs to a component in the registry", () => {
 
 test("every element and class the registry shows is in the contract", () => {
   for (const { name, use } of registry.components) {
-    for (const [, element] of use.matchAll(/<(o-[a-z-]+)>/g)) {
+    for (const [, element] of use.matchAll(/<(onm-[a-z-]+)>/g)) {
       assert.ok(element in contract.elements, `${name}: ${element}`);
     }
     for (const [, className] of use.matchAll(/(?:^|[\s,])\.([a-z-]+)/g)) {

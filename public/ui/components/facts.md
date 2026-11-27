@@ -2,16 +2,16 @@
 
 A list of names and their values, each pair on a line, ruled apart.
 
-- Use: `.facts`
+- Use: `.onm-facts`
 - Files: `facts.css`. It is CSS alone, and needs no script.
 - Part of Oinam UI. The rules for using it are in `../guide.md`.
 
-`class="facts"` on a `<dl>`. It is for the details of one thing, such as a booking, a place, or a
+`class="onm-facts"` on a `<dl>`. It is for the details of one thing, such as a booking, a place, or a
 person, where a table would be too much. Each name and its value go in a `<div>`, as a `<dt>` and a
 `<dd>`.
 
 ```html
-<dl class="facts">
+<dl class="onm-facts">
   <div>
     <dt>Berth</dt>
     <dd>E 11</dd>

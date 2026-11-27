@@ -45,8 +45,8 @@ import { fileURLToPath } from "node:url";
 
 /** Every rule, and the reason for it, in a sentence. */
 export const RULES = {
-  "unknown-element": "An o- element that Oinam UI does not have.",
-  "unknown-attribute": "An attribute an o- element does not take.",
+  "unknown-element": "An onm- element that Oinam UI does not have.",
+  "unknown-attribute": "An attribute an onm- element does not take.",
   "unknown-value": "A value an attribute does not take.",
   "wrong-element": "A class of the system on an element it is not for.",
   "missing-part": "An element without something it must contain.",
@@ -196,7 +196,7 @@ const named = (node) =>
     node.attrs["aria-label"]?.trim() || node.attrs["aria-labelledby"] || node.attrs.title?.trim(),
   );
 
-/** Does a node match one of the contract's simple tests: "table", ".button", "[popover]"? */
+/** Does a node match one of the contract's simple tests: "table", ".onm-button", "[popover]"? */
 function matches(node, test) {
   if (test.startsWith(".")) return classes(node).includes(test.slice(1));
   if (test.startsWith("[")) {
@@ -276,8 +276,13 @@ export function lintHtml(html, contract) {
         `${show} has a handler in its ${handler} attribute. Listen for the event from a script file.`,
       );
 
+    /* Before 0.10.0 the elements began o-. Say what one is called now, so an upgrade finds it. */
+    if (tag.startsWith("o-") && contract.elements[`onm-${tag.slice(2)}`]) {
+      report("unknown-element", node, `${show} was renamed in 0.10.0. Use <onm-${tag.slice(2)}>.`);
+    }
+
     /* Custom elements: is it one of ours, and does it take what it was given? */
-    if (tag.startsWith("o-")) {
+    if (tag.startsWith("onm-")) {
       const entry = contract.elements[tag];
       if (!entry) {
         report("unknown-element", node, `${show} is not an element of Oinam UI.`);
@@ -318,7 +323,7 @@ export function lintHtml(html, contract) {
         for (const outer of entry.not_inside ?? []) {
           if (within(node, (up) => up.tag === outer)) {
             report(
-              tag === "o-card" ? "nested-card" : "missing-part",
+              tag === "onm-card" ? "nested-card" : "missing-part",
               node,
               `${show} is inside another <${outer}>.`,
             );
@@ -365,13 +370,13 @@ export function lintHtml(html, contract) {
           `${show} has no label. Give it a <label for>, wrap it in a <label>, or add aria-label.`,
         );
     }
-    if (tag === "o-badge" && "tone" in attrs && !allText(node).trim()) {
+    if (tag === "onm-badge" && "tone" in attrs && !allText(node).trim()) {
       report("wordless-tone", node, `${show} has a tone and no words. Say the status in it.`);
     }
-    if (tag === "o-badge" && "hue" in attrs && !allText(node).trim()) {
+    if (tag === "onm-badge" && "hue" in attrs && !allText(node).trim()) {
       report("wordless-hue", node, `${show} has a hue and no words. Say the kind in it.`);
     }
-    if (tag === "o-badge" && "hue" in attrs && "tone" in attrs) {
+    if (tag === "onm-badge" && "hue" in attrs && "tone" in attrs) {
       report(
         "hue-and-tone",
         node,
@@ -379,7 +384,7 @@ export function lintHtml(html, contract) {
       );
     }
     if (
-      tag === "o-alert" &&
+      tag === "onm-alert" &&
       "tone" in attrs &&
       ["warning", "danger"].includes(attrs.variant) &&
       attrs.tone !== attrs.variant
@@ -407,7 +412,7 @@ export function lintHtml(html, contract) {
 
     /* One main action in a group. The accent is the solid button in color, so it counts. */
     const solidButton = (one) =>
-      classes(one).includes("button") &&
+      classes(one).includes("onm-button") &&
       [undefined, "accent"].includes(one.attrs["data-variant"]) &&
       !("disabled" in one.attrs) &&
       one.attrs["aria-disabled"] !== "true";

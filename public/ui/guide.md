@@ -1,4 +1,4 @@
-# Oinam UI v0.9.0
+# Oinam UI v0.10.0
 
 A design system in plain HTML, CSS, and JavaScript. No framework, no build step, and no
 dependencies. This page is the core of it, written for an AI agent to read once and then design
@@ -60,9 +60,9 @@ Every version is also served, frozen, at an address of its own, and any site may
 there never change, so a page that links them keeps its look whatever a later version renames.
 
 ```html
-<link rel="stylesheet" href="https://oinam.dev/ui/releases/0.9.0/ui.css" />
-<script src="https://oinam.dev/ui/releases/0.9.0/theme-init.js"></script>
-<script type="module" src="https://oinam.dev/ui/releases/0.9.0/ui.js"></script>
+<link rel="stylesheet" href="https://oinam.dev/ui/releases/0.10.0/ui.css" />
+<script src="https://oinam.dev/ui/releases/0.10.0/theme-init.js"></script>
+<script type="module" src="https://oinam.dev/ui/releases/0.10.0/ui.js"></script>
 ```
 
 - Only the files a page loads are there: the stylesheets, the scripts, and the fonts. The guide,
@@ -132,16 +132,16 @@ own copy, so they work offline and match the version the project has.
 
 Three rules cover the whole system.
 
-1. **A native element that does the job gets a class.** A button is a `<button class="button">`.
-   A text field is an `<input class="input">`. The classes are `.button`, `.input`, `.choice`, `.toggle`, `.slider`, `.progress`,
-   `.dialog`, `.popover`, `.breadcrumb`, `.pagination`, `.facts`, `.eyebrow`, and `.lede`.button`, `.input`, `.choice`,
-`.dialog`, `.eyebrow`, and `.lede`. Variants of these are `data-`attributes:`data-variant="outline"`, `data-size="small"`.
+1. **A native element that does the job gets a class.** A button is a `<button class="onm-button">`.
+   A text field is an `<input class="onm-input">`. The classes are `.onm-button`, `.onm-input`, `.onm-choice`, `.onm-toggle`, `.onm-slider`, `.onm-progress`,
+   `.onm-dialog`, `.onm-popover`, `.onm-breadcrumb`, `.onm-pagination`, `.onm-facts`, `.onm-eyebrow`, and `.onm-lede`.onm-button`, `.onm-input`, `.onm-choice`,
+`.onm-dialog`, `.onm-eyebrow`, and `.onm-lede`. Variants of these are `data-`attributes:`data-variant="outline"`, `data-size="small"`.
 2. **Anything HTML has no element for is a custom element.** Structure is spelled out in the tag
-   names: `<o-stack>`, `<o-card>`, `<o-field>`. Every one starts with `o-`. Variants of these are
+   names: `<onm-stack>`, `<onm-card>`, `<onm-field>`. Every one starts with `onm-`. Variants of these are
    plain attributes: `variant="warning"`, `gap="6"`.
 3. **Script is the exception.** Most of the elements are styled by CSS alone and work with scripts
-   off. Only six have behavior: `<o-tabs>`, `<o-menu>`, `<o-copy>`, `<o-theme>`, `<o-toast>`, and
-   `<o-example>`. Each of
+   off. Only six have behavior: `<onm-tabs>`, `<onm-menu>`, `<onm-copy>`, `<onm-theme>`, `<onm-toast>`, and
+   `<onm-example>`. Each of
    them wraps ordinary HTML that still reads correctly if the script never runs.
 
 Write plain, semantic HTML inside all of them: headings, paragraphs, lists, links. Unclassed
@@ -158,15 +158,15 @@ or when the owner asks you to.
   own tokens, and for nothing else:
   - **A status read at a glance.** When a page shows several statuses side by side, such as
     Verified, Unverified, and Failed on each row of a report, a badge may take a tone:
-    `<o-badge tone="success">`, `warning`, `danger`, or `info`. An alert may take the tone of what
-    it says, `<o-alert tone="success">`, and keeps its weight: `variant="warning"` takes
+    `<onm-badge tone="success">`, `warning`, `danger`, or `info`. An alert may take the tone of what
+    it says, `<onm-alert tone="success">`, and keeps its weight: `variant="warning"` takes
     `tone="warning"`, and `variant="danger"` takes `tone="danger"`.
   - **A kind told apart from other kinds.** When things of several kinds sit together, such as the
-    topics on each item of a listing, a badge may take a hue: `<o-badge hue="1">` to `"6"`. Give
+    topics on each item of a listing, a badge may take a hue: `<onm-badge hue="1">` to `"6"`. Give
     each kind its own number and keep to it on every page. A kind is never a status: one badge
     takes a hue or a tone, not both.
   - **The one main action.** The single main action of a group, such as "Apply" beside "Save",
-    may be an accent button: `<button class="button" data-variant="accent">`. It is the solid
+    may be an accent button: `<button class="onm-button" data-variant="accent">`. It is the solid
     button in color, so it takes the solid button's place; the rest stay outline or ghost.
 
   Always with the words: the color helps the eye, and the words say it. Never a hue for
@@ -176,8 +176,8 @@ or when the owner asks you to.
 
 - **Use the tokens.** Never write a raw color, font, or radius. Use `var(--color-ink)`,
   `var(--space-4)`, `var(--radius-md)`.
-- **Lay out with the layout elements**, not with margins. `<o-stack>` for a column, `<o-row>` for a
-  row, `<o-grid>` for columns, `<o-wrap>` for the page width. Margins on headings and paragraphs
+- **Lay out with the layout elements**, not with margins. `<onm-stack>` for a column, `<onm-row>` for a
+  row, `<onm-grid>` for columns, `<onm-wrap>` for the page width. Margins on headings and paragraphs
   are zero on purpose.
 - **Light and dark come for free.** Every token already has both values. Do not write
   `prefers-color-scheme` rules of your own.
@@ -200,7 +200,7 @@ the one the owner sees.
 - Write down, in one sentence, what the reader came for. That is the first thing on the page.
 - Let the content choose the layout. Do not reach for hero, three cards, call to action, footer. A
   price list is a table. A process is a numbered list. A choice is two things side by side. An
-  article is `<o-prose>`.
+  article is `<onm-prose>`.
 - One thing leads on each screen. If everything is the same size and weight, nothing has been
   decided yet.
 - Use real words. If you were not given the copy, write plain and specific copy from what you know,
@@ -218,7 +218,7 @@ the one the owner sees.
 - No two solid buttons side by side, and an accent counts as solid. One main action per group; the
   rest are outline or ghost.
 - No centered paragraphs. Center a short heading at most. Set everything else from the left, in
-  lines of 60 to 70 characters; `<o-wrap narrow>` and `<o-prose>` do this.
+  lines of 60 to 70 characters; `<onm-wrap narrow>` and `<onm-prose>` do this.
 - No heading that could sit on any site, such as "Unlock your potential". Say the particular thing.
 - No button that says "Get started" or "Learn more". Say what it does: "Book a berth", "Read the
   guide".
@@ -272,7 +272,7 @@ node ui/tools/lint.js site/
 
 It reads the page as text and checks what a program can check:
 
-- every `o-` element, attribute, and value is one the system has, and every class of the system is
+- every `onm-` element, attribute, and value is one the system has, and every class of the system is
   on an element it is for (`contract.json` is the list it reads);
 - an element has the part it is built around, and no card sits inside a card;
 - every control, button, and picture has a name;
@@ -337,32 +337,34 @@ hand it back, look at it". Do not commit the `seen/` folder.
   </head>
   <body>
     <main>
-      <o-wrap narrow>
-        <o-stack gap="12">
-          <o-stack gap="4" align="start">
-            <p class="eyebrow">Field notes</p>
+      <onm-wrap narrow>
+        <onm-stack gap="12">
+          <onm-stack gap="4" align="start">
+            <p class="onm-eyebrow">Field notes</p>
             <h1>Written for agents. Kept by hand.</h1>
-            <p class="lede">A short opening paragraph.</p>
-            <o-row>
-              <a class="button" href="/docs/">Read the docs</a>
-              <a class="button" data-variant="ghost" href="/about/">About</a>
-            </o-row>
-          </o-stack>
+            <p class="onm-lede">A short opening paragraph.</p>
+            <onm-row>
+              <a class="onm-button" href="/docs/">Read the docs</a>
+              <a class="onm-button" data-variant="ghost" href="/about/">About</a>
+            </onm-row>
+          </onm-stack>
 
-          <o-grid>
-            <o-card>
+          <onm-grid>
+            <onm-card>
               <h3>Standards</h3>
               <p>The rules every project inherits.</p>
-              <footer><a class="button" data-variant="outline" href="/standards/">Read</a></footer>
-            </o-card>
-            <o-card>
+              <footer>
+                <a class="onm-button" data-variant="outline" href="/standards/">Read</a>
+              </footer>
+            </onm-card>
+            <onm-card>
               <h3>Components</h3>
               <p>Plain HTML, CSS, and JavaScript.</p>
-              <footer><a class="button" data-variant="outline" href="/ui/">Browse</a></footer>
-            </o-card>
-          </o-grid>
-        </o-stack>
-      </o-wrap>
+              <footer><a class="onm-button" data-variant="outline" href="/ui/">Browse</a></footer>
+            </onm-card>
+          </onm-grid>
+        </onm-stack>
+      </onm-wrap>
     </main>
   </body>
 </html>
@@ -474,7 +476,7 @@ To try these on every component at once, see https://oinam.dev/play/.
 ## Theme
 
 The page follows the system setting. `data-theme="light"` or `data-theme="dark"` on `<html>` forces
-one; `<o-theme>` sets it for you. `<o-theme auto>` adds a way back to following the system.
+one; `<onm-theme>` sets it for you. `<onm-theme auto>` adds a way back to following the system.
 
 ## Components
 
@@ -485,53 +487,53 @@ are in `ui/components/` in the project's copy, and at `https://oinam.dev/ui/comp
 
 The four layout elements are in every page, so here they are in brief:
 
-- `<o-wrap>` centers the page and keeps it off the edges. `narrow` is for a page of reading.
-- `<o-stack>` is a column. `gap` takes `1`, `2`, `3`, `4`, `6`, `8`, `12`, or `16`; `align` takes
+- `<onm-wrap>` centers the page and keeps it off the edges. `narrow` is for a page of reading.
+- `<onm-stack>` is a column. `gap` takes `1`, `2`, `3`, `4`, `6`, `8`, `12`, or `16`; `align` takes
   `start` or `center`.
-- `<o-row>` is a row that wraps. `gap` as above; `justify` takes `between`, `center`, or `end`;
+- `<onm-row>` is a row that wraps. `gap` as above; `justify` takes `between`, `center`, or `end`;
   `align` takes `start` or `baseline`.
-- `<o-grid>` is equal columns, as many as fit. `gap` as above; `min` takes `small` or `large`.
+- `<onm-grid>` is equal columns, as many as fit. `gap` as above; `min` takes `small` or `large`.
 
-| Component         | Use                             | What it is                                                                     | Its page                     |
-| ----------------- | ------------------------------- | ------------------------------------------------------------------------------ | ---------------------------- |
-| Wrap              | `<o-wrap>`                      | Centers the page content and keeps it off the edges.                           | `components/wrap.md`         |
-| Stack             | `<o-stack>`                     | A column. Children sit one under the other, a gap apart.                       | `components/stack.md`        |
-| Row               | `<o-row>`                       | A row that wraps. Children sit side by side, a gap apart.                      | `components/row.md`          |
-| Grid              | `<o-grid>`                      | Equal columns, as many as fit, with no breakpoints.                            | `components/grid.md`         |
-| Text              | `.eyebrow, .lede`               | A small label above a heading, and an opening paragraph a size up.             | `components/text.md`         |
-| Prose             | `<o-prose>`                     | A run of writing. Plain headings, paragraphs, and lists get their rhythm.      | `components/prose.md`        |
-| Card              | `<o-card>`                      | Groups related things on a raised surface.                                     | `components/card.md`         |
-| Badge             | `<o-badge>`                     | A small label: a status, a kind, a count, a "new".                             | `components/badge.md`        |
-| Alert             | `<o-alert>`                     | Sets a message apart: a note, a warning, or danger.                            | `components/alert.md`        |
-| Table             | `<o-table>`                     | Frames a plain table and lets a wide one scroll sideways.                      | `components/table.md`        |
-| Facts             | `.facts`                        | A list of names and their values, each pair on a line, ruled apart.            | `components/facts.md`        |
-| Avatar            | `<o-avatar>`                    | A small round picture of someone, or their initials.                           | `components/avatar.md`       |
-| Item              | `<o-item>`                      | One row in a list: something to know it by, a title and a line, and an action. | `components/item.md`         |
-| Empty             | `<o-empty>`                     | Stands where content will be once there is some.                               | `components/empty.md`        |
-| Skeleton          | `<o-skeleton>`                  | Holds the place of something that is still loading.                            | `components/skeleton.md`     |
-| Spinner           | `<o-spinner>`                   | Says that something is under way.                                              | `components/spinner.md`      |
-| Progress          | `.progress`                     | How far along something is, on a <progress>.                                   | `components/progress.md`     |
-| Ratio             | `<o-ratio>`                     | Keeps a picture, a video, or a frame to a fixed shape.                         | `components/ratio.md`        |
-| Scroll            | `<o-scroll>`                    | A frame for something too long to show at once.                                | `components/scroll.md`       |
-| Button            | `.button`                       | A button, on a <button> or an <a>.                                             | `components/button.md`       |
-| Field             | `<o-field>, .input`             | A label, its control, and a line of help, kept together.                       | `components/field.md`        |
-| Choice and switch | `.choice, input[role="switch"]` | A checkbox, a radio button, or a switch, with its label.                       | `components/choice.md`       |
-| Button group      | `<o-button-group>`              | Joins buttons that belong together into one piece.                             | `components/button-group.md` |
-| Input group       | `<o-input-group>`               | Puts a unit, a prefix, or a button inside the frame of a field.                | `components/input-group.md`  |
-| Slider            | `.slider`                       | A value chosen by sliding, on an <input type="range">.                         | `components/slider.md`       |
-| Toggle            | `.toggle, <o-toggle-group>`     | A button that stays pressed, alone or in a group.                              | `components/toggle.md`       |
-| Breadcrumb        | `.breadcrumb`                   | Where this page sits, from the top down.                                       | `components/breadcrumb.md`   |
-| Pagination        | `.pagination`                   | Links to the pages of a long list.                                             | `components/pagination.md`   |
-| Accordion         | `<o-accordion>`                 | A set of <details> that open and close.                                        | `components/accordion.md`    |
-| Tabs              | `<o-tabs>`                      | Turns a run of sections into tabs.                                             | `components/tabs.md`         |
-| Dialog            | `.dialog`                       | A modal or a drawer, on a <dialog>, opened and closed without script.          | `components/dialog.md`       |
-| Popover           | `.popover`                      | A small panel that opens under the button that names it.                       | `components/popover.md`      |
-| Menu              | `<o-menu>`                      | A button and the short list of actions it opens.                               | `components/menu.md`         |
-| Tooltip           | `<o-tooltip>`                   | A few words about a control, on hover or focus.                                | `components/tooltip.md`      |
-| Copy              | `<o-copy>`                      | Adds a copy button to a block of code.                                         | `components/copy.md`         |
-| Theme             | `<o-theme>`                     | A light and dark toggle that remembers the choice, with `auto` for the system. | `components/theme.md`        |
-| Example           | `<o-example>`                   | Shows markup at work and prints its source beside it.                          | `components/example.md`      |
-| Toast             | `<o-toast>`                     | Brief messages that appear in a corner and go away again.                      | `components/toast.md`        |
+| Component         | Use                                 | What it is                                                                     | Its page                     |
+| ----------------- | ----------------------------------- | ------------------------------------------------------------------------------ | ---------------------------- |
+| Wrap              | `<onm-wrap>`                        | Centers the page content and keeps it off the edges.                           | `components/wrap.md`         |
+| Stack             | `<onm-stack>`                       | A column. Children sit one under the other, a gap apart.                       | `components/stack.md`        |
+| Row               | `<onm-row>`                         | A row that wraps. Children sit side by side, a gap apart.                      | `components/row.md`          |
+| Grid              | `<onm-grid>`                        | Equal columns, as many as fit, with no breakpoints.                            | `components/grid.md`         |
+| Text              | `.onm-eyebrow, .onm-lede`           | A small label above a heading, and an opening paragraph a size up.             | `components/text.md`         |
+| Prose             | `<onm-prose>`                       | A run of writing. Plain headings, paragraphs, and lists get their rhythm.      | `components/prose.md`        |
+| Card              | `<onm-card>`                        | Groups related things on a raised surface.                                     | `components/card.md`         |
+| Badge             | `<onm-badge>`                       | A small label: a status, a kind, a count, a "new".                             | `components/badge.md`        |
+| Alert             | `<onm-alert>`                       | Sets a message apart: a note, a warning, or danger.                            | `components/alert.md`        |
+| Table             | `<onm-table>`                       | Frames a plain table and lets a wide one scroll sideways.                      | `components/table.md`        |
+| Facts             | `.onm-facts`                        | A list of names and their values, each pair on a line, ruled apart.            | `components/facts.md`        |
+| Avatar            | `<onm-avatar>`                      | A small round picture of someone, or their initials.                           | `components/avatar.md`       |
+| Item              | `<onm-item>`                        | One row in a list: something to know it by, a title and a line, and an action. | `components/item.md`         |
+| Empty             | `<onm-empty>`                       | Stands where content will be once there is some.                               | `components/empty.md`        |
+| Skeleton          | `<onm-skeleton>`                    | Holds the place of something that is still loading.                            | `components/skeleton.md`     |
+| Spinner           | `<onm-spinner>`                     | Says that something is under way.                                              | `components/spinner.md`      |
+| Progress          | `.onm-progress`                     | How far along something is, on a <progress>.                                   | `components/progress.md`     |
+| Ratio             | `<onm-ratio>`                       | Keeps a picture, a video, or a frame to a fixed shape.                         | `components/ratio.md`        |
+| Scroll            | `<onm-scroll>`                      | A frame for something too long to show at once.                                | `components/scroll.md`       |
+| Button            | `.onm-button`                       | A button, on a <button> or an <a>.                                             | `components/button.md`       |
+| Field             | `<onm-field>, .onm-input`           | A label, its control, and a line of help, kept together.                       | `components/field.md`        |
+| Choice and switch | `.onm-choice, input[role="switch"]` | A checkbox, a radio button, or a switch, with its label.                       | `components/choice.md`       |
+| Button group      | `<onm-button-group>`                | Joins buttons that belong together into one piece.                             | `components/button-group.md` |
+| Input group       | `<onm-input-group>`                 | Puts a unit, a prefix, or a button inside the frame of a field.                | `components/input-group.md`  |
+| Slider            | `.onm-slider`                       | A value chosen by sliding, on an <input type="range">.                         | `components/slider.md`       |
+| Toggle            | `.onm-toggle, <onm-toggle-group>`   | A button that stays pressed, alone or in a group.                              | `components/toggle.md`       |
+| Breadcrumb        | `.onm-breadcrumb`                   | Where this page sits, from the top down.                                       | `components/breadcrumb.md`   |
+| Pagination        | `.onm-pagination`                   | Links to the pages of a long list.                                             | `components/pagination.md`   |
+| Accordion         | `<onm-accordion>`                   | A set of <details> that open and close.                                        | `components/accordion.md`    |
+| Tabs              | `<onm-tabs>`                        | Turns a run of sections into tabs.                                             | `components/tabs.md`         |
+| Dialog            | `.onm-dialog`                       | A modal or a drawer, on a <dialog>, opened and closed without script.          | `components/dialog.md`       |
+| Popover           | `.onm-popover`                      | A small panel that opens under the button that names it.                       | `components/popover.md`      |
+| Menu              | `<onm-menu>`                        | A button and the short list of actions it opens.                               | `components/menu.md`         |
+| Tooltip           | `<onm-tooltip>`                     | A few words about a control, on hover or focus.                                | `components/tooltip.md`      |
+| Copy              | `<onm-copy>`                        | Adds a copy button to a block of code.                                         | `components/copy.md`         |
+| Theme             | `<onm-theme>`                       | A light and dark toggle that remembers the choice, with `auto` for the system. | `components/theme.md`        |
+| Example           | `<onm-example>`                     | Shows markup at work and prints its source beside it.                          | `components/example.md`      |
+| Toast             | `<onm-toast>`                       | Brief messages that appear in a corner and go away again.                      | `components/toast.md`        |
 
 Marked "needs script" on their pages: Tabs, Menu, Copy, Theme, Toast, and Example. Everything else
 is CSS alone.
@@ -544,7 +546,7 @@ a page needs something the system does not have:
 1. **Build it in the project, by the same rules.** A native element with a class where one does the
    job (`popover`, `<details>`, and `<dialog>` cover a great deal), a custom element where none
    does, tokens for every value, and script only as an enhancement. Name the project's own elements
-   and classes with a prefix of the project's own, not `o-`, so that a later version of the system
+   and classes with a prefix of the project's own, not `onm-`, so that a later version of the system
    cannot collide with them. Keep the files outside `ui/`.
 2. **Send it back.** The system grows from what projects needed. Write up what the page needed,
    where, and the markup and CSS that answered it, as a "design need" at

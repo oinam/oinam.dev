@@ -121,7 +121,7 @@
   --ease: cubic-bezier(0.2, 0, 0, 1);
 }
 
-/* Without data-theme the page follows the system. <o-theme> sets it. */
+/* Without data-theme the page follows the system. <onm-theme> sets it. */
 
 :root[data-theme="light"] {
   color-scheme: light;

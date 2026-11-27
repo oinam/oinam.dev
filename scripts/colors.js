@@ -269,13 +269,13 @@ function origin(color) {
     ? ` The ink is deeper here than there ${sides}, with the same hue and chroma, so that the faint text reaches 4.5 to 1 when it is mixed the way these components mix it.`
     : " The values are as they are there.";
   return `          <section aria-labelledby="from">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="from">Where it comes from</h2>
               <p>
                 The ${escape(scale)} scale of <a href="${url}">${escape(name)}</a>, under the ${license}
                 license: ${MAPPING[name]}.${change}
               </p>
-            </o-stack>
+            </onm-stack>
           </section>
 `;
 }
@@ -325,10 +325,10 @@ ${strips}
     .join("\n");
 
   return `${head({ title: "Colors", description, url: "https://oinam.dev/colors/", styles: ["/colors/colors.css"] })}${top}    <main id="main">
-      <o-wrap>
-        <o-stack class="page" gap="4" align="start">
+      <onm-wrap>
+        <onm-stack class="page" gap="4" align="start">
           <h1>Colors</h1>
-          <p class="lede">
+          <p class="onm-lede">
             Pairs of colors for the components. Each is three tokens, and every other shade is mixed
             from them, in light and in dark.
           </p>
@@ -350,11 +350,11 @@ ${strips}
           <p>
             Press a chip to copy its color in OKLCH, or hold Shift as you press to copy its hex.
           </p>
-        </o-stack>
-        <o-stack class="color-list" gap="8">
+        </onm-stack>
+        <onm-stack class="color-list" gap="8">
 ${entries}
-        </o-stack>
-      </o-wrap>
+        </onm-stack>
+      </onm-wrap>
     </main>
 ${bottom}`;
 }
@@ -421,23 +421,23 @@ function colorPage(color) {
     url,
     styles: base ? [] : [`/colors/${color.id}.css`],
   })}${top}    <main id="main">
-      <o-wrap>
-        <o-stack class="page" gap="4" align="start">
-          <p class="eyebrow"><a href="/colors/">Colors</a>, number ${color.id}</p>
+      <onm-wrap>
+        <onm-stack class="page" gap="4" align="start">
+          <p class="onm-eyebrow"><a href="/colors/">Colors</a>, number ${color.id}</p>
           <h1>${escape(color.title)}</h1>
-          <p class="lede">${escape(color.description)}</p>
+          <p class="onm-lede">${escape(color.description)}</p>
           <p>${wears}</p>
-        </o-stack>
-        <o-stack class="color-page" gap="12">
+        </onm-stack>
+        <onm-stack class="color-page" gap="12">
           <section aria-labelledby="three">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="three">The three colors</h2>
               <p>
                 Ink is the text, and cloud is the page. Milk is a step off cloud, for a surface above
                 it. Each is written in OKLCH, with the same color in hex under it. Press a value to copy
                 it in OKLCH, or hold Shift as you press to copy the hex.
               </p>
-              <o-table>
+              <onm-table>
                 <table>
                   <thead>
                     <tr>
@@ -452,18 +452,18 @@ function colorPage(color) {
 ${three}
                   </tbody>
                 </table>
-              </o-table>
-            </o-stack>
+              </onm-table>
+            </onm-stack>
           </section>
           <section aria-labelledby="shades">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="shades">The shades between them</h2>
               <p>
                 Every other shade is ink mixed into cloud, so each one leans the way the pair leans,
                 and each follows the theme. The components work them out; the values below are what a
                 screen shows.
               </p>
-              <o-table>
+              <onm-table>
                 <table>
                   <thead>
                     <tr>
@@ -479,17 +479,17 @@ ${three}
 ${shades}
                   </tbody>
                 </table>
-              </o-table>
-            </o-stack>
+              </onm-table>
+            </onm-stack>
           </section>
           <section aria-labelledby="contrast">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="contrast">Contrast</h2>
               <p>
                 Every text shade reaches WCAG AA, 4.5 to 1, against the page and against a raised
                 surface, in both themes. A test holds it there.
               </p>
-              <o-table>
+              <onm-table>
                 <table>
                   <thead>
                     <tr>
@@ -504,22 +504,22 @@ ${shades}
 ${ratios}
                   </tbody>
                 </table>
-              </o-table>
-            </o-stack>
+              </onm-table>
+            </onm-stack>
           </section>
           <section aria-labelledby="accent">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="accent">The accent</h2>
               <p>
                 The one main action of a group may be an accent button, the solid button in color.
                 ${color.given ? "This color sets its own." : color.accent === color.ink ? "This color's inks are grey, with no color to lend, so its accent is its ink, as the solid button is." : "This color takes it from its ink: the same hue, with enough color to be seen, and as light by day, or as deep by night, as it can be while its label reads at 7 to 1."}
                 Its fill stands at 3 to 1 or better against the page and a raised surface.
               </p>
-              <o-row>
-                <button class="button" data-variant="accent" type="button">Send to the skipper</button>
-                <button class="button" data-variant="outline" type="button">Save</button>
-              </o-row>
-              <o-table>
+              <onm-row>
+                <button class="onm-button" data-variant="accent" type="button">Send to the skipper</button>
+                <button class="onm-button" data-variant="outline" type="button">Save</button>
+              </onm-row>
+              <onm-table>
                 <table>
                   <thead>
                     <tr>
@@ -544,17 +544,17 @@ ${ratios}
 </tr>
                   </tbody>
                 </table>
-              </o-table>
-            </o-stack>
+              </onm-table>
+            </onm-stack>
           </section>
 ${origin(color)}          <section aria-labelledby="use">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="use">Use it</h2>
 ${use}
-            </o-stack>
+            </onm-stack>
           </section>
-        </o-stack>
-      </o-wrap>
+        </onm-stack>
+      </onm-wrap>
     </main>
 ${bottom}`;
 }

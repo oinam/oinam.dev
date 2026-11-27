@@ -9,22 +9,22 @@ beforeEach(() => {
   document.body.replaceChildren();
 });
 
-const messages = () => [...document.querySelectorAll("o-toast [role=status]")];
+const messages = () => [...document.querySelectorAll("onm-toast [role=status]")];
 
 test("the region names itself for screen readers", () => {
-  const region = mount("<o-toast></o-toast>");
+  const region = mount("<onm-toast></onm-toast>");
 
   assert.equal(region.getAttribute("role"), "region");
   assert.equal(region.getAttribute("aria-label"), "Notifications");
 });
 
 test("a name the page gave the region is kept", () => {
-  const region = mount('<o-toast aria-label="News"></o-toast>');
+  const region = mount('<onm-toast aria-label="News"></onm-toast>');
   assert.equal(region.getAttribute("aria-label"), "News");
 });
 
 test("showing a message adds it, as a status that does not take the focus", () => {
-  const region = mount("<o-toast></o-toast>");
+  const region = mount("<onm-toast></onm-toast>");
 
   const message = region.show("Saved");
 
@@ -34,7 +34,7 @@ test("showing a message adds it, as a status that does not take the focus", () =
 });
 
 test("the text is shown as text, never read as markup", () => {
-  const region = mount("<o-toast></o-toast>");
+  const region = mount("<onm-toast></onm-toast>");
 
   const message = region.show("<img src=x> Saved");
 
@@ -44,7 +44,7 @@ test("the text is shown as text, never read as markup", () => {
 
 test("a message goes away after six seconds", () => {
   mock.timers.enable({ apis: ["setTimeout"] });
-  const region = mount("<o-toast></o-toast>");
+  const region = mount("<onm-toast></onm-toast>");
   region.show("Saved");
 
   mock.timers.tick(5999);
@@ -57,7 +57,7 @@ test("a message goes away after six seconds", () => {
 
 test("a message asked to stay, stays", () => {
   mock.timers.enable({ apis: ["setTimeout"] });
-  const region = mount("<o-toast></o-toast>");
+  const region = mount("<onm-toast></onm-toast>");
   region.show("Still here", { staysFor: 0 });
 
   mock.timers.tick(60_000);
@@ -67,7 +67,7 @@ test("a message asked to stay, stays", () => {
 });
 
 test("Dismiss removes that message, and only that one", () => {
-  const region = mount("<o-toast></o-toast>");
+  const region = mount("<onm-toast></onm-toast>");
   const first = region.show("One");
   region.show("Two");
 
@@ -83,7 +83,7 @@ test("toast() adds a region when the page has none, and reuses it after", () => 
   toast("One");
   toast("Two");
 
-  assert.equal(document.querySelectorAll("o-toast").length, 1);
+  assert.equal(document.querySelectorAll("onm-toast").length, 1);
   assert.equal(messages().length, 2);
 });
 

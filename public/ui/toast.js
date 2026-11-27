@@ -1,12 +1,12 @@
 /*
- * <o-toast>: brief messages that appear in a corner and go away again.
+ * <onm-toast>: brief messages that appear in a corner and go away again.
  *
- * Put one <o-toast> on the page, anywhere, or let this script add it when the
+ * Put one <onm-toast> on the page, anywhere, or let this script add it when the
  * first message is shown. There are two ways to show a message.
  *
  * From markup, with no script of your own. Pressing the button shows it:
  *
- *   <button class="button" type="button" data-toast="Berth 12 is yours">Book</button>
+ *   <button class="onm-button" type="button" data-toast="Berth 12 is yours">Book</button>
  *
  * From script:
  *
@@ -39,7 +39,7 @@ export class Toast extends HTMLElement {
 
     const dismiss = document.createElement("button");
     dismiss.type = "button";
-    dismiss.className = "button";
+    dismiss.className = "onm-button";
     dismiss.dataset.variant = "ghost";
     dismiss.dataset.size = "small";
     dismiss.textContent = "Dismiss";
@@ -56,19 +56,19 @@ export class Toast extends HTMLElement {
   }
 }
 
-if (!customElements.get("o-toast")) customElements.define("o-toast", Toast);
+if (!customElements.get("onm-toast")) customElements.define("onm-toast", Toast);
 
 /**
- * Show a message, adding an <o-toast> to the page if it has none.
+ * Show a message, adding an <onm-toast> to the page if it has none.
  *
  * @param {string} text
  * @param {{ staysFor?: number }} [options]
  * @returns {HTMLElement}
  */
 export function toast(text, options) {
-  let region = document.querySelector("o-toast");
+  let region = document.querySelector("onm-toast");
   if (!region) {
-    region = document.createElement("o-toast");
+    region = document.createElement("onm-toast");
     document.body.append(region);
   }
   return region.show(text, options);

@@ -27,56 +27,58 @@
 
   <body>
     <header class="bar">
-      <o-wrap>
-        <o-row justify="between">
+      <onm-wrap>
+        <onm-row justify="between">
           <a class="bar-name" href="./">Harbor office</a>
           <nav aria-label="Main">
-            <o-row gap="4">
+            <onm-row gap="4">
               <a href="table.html">Berths</a>
               <a href="list.html">Arrivals</a>
               <a href="settings.html">Settings</a>
-            </o-row>
+            </onm-row>
           </nav>
-        </o-row>
-      </o-wrap>
+        </onm-row>
+      </onm-wrap>
     </header>
 
     <main>
-      <o-wrap narrow>
-        <o-stack class="page" gap="8">
-          <o-stack gap="3">
-            <nav class="breadcrumb" aria-label="Breadcrumb">
+      <onm-wrap narrow>
+        <onm-stack class="page" gap="8">
+          <onm-stack gap="3">
+            <nav class="onm-breadcrumb" aria-label="Breadcrumb">
               <ol>
                 <li><a href="table.html">Berths</a></li>
                 <li aria-current="page">Book a berth</li>
               </ol>
             </nav>
             <h1>Book a berth</h1>
-            <p class="lede">For stays of up to three nights. Longer stays are arranged by phone.</p>
-          </o-stack>
+            <p class="onm-lede">
+              For stays of up to three nights. Longer stays are arranged by phone.
+            </p>
+          </onm-stack>
 
           <form class="form" action="list.html">
-            <o-stack gap="8">
+            <onm-stack gap="8">
               <fieldset>
                 <legend>The boat</legend>
-                <o-stack>
-                  <o-field>
+                <onm-stack>
+                  <onm-field>
                     <label for="boat-name">Name</label>
                     <input
-                      class="input"
+                      class="onm-input"
                       id="boat-name"
                       name="name"
                       type="text"
                       autocomplete="off"
                       required
                     />
-                  </o-field>
-                  <o-grid min="small" gap="4">
-                    <o-field>
+                  </onm-field>
+                  <onm-grid min="small" gap="4">
+                    <onm-field>
                       <label for="boat-length">Length overall</label>
-                      <o-input-group>
+                      <onm-input-group>
                         <input
-                          class="input"
+                          class="onm-input"
                           id="boat-length"
                           name="length"
                           type="number"
@@ -88,14 +90,14 @@
                           aria-describedby="boat-length-help"
                         />
                         <span>meters</span>
-                      </o-input-group>
+                      </onm-input-group>
                       <small id="boat-length-help">Bowsprit and davits included.</small>
-                    </o-field>
-                    <o-field>
+                    </onm-field>
+                    <onm-field>
                       <label for="boat-draft">Draft</label>
-                      <o-input-group>
+                      <onm-input-group>
                         <input
-                          class="input"
+                          class="onm-input"
                           id="boat-draft"
                           name="draft"
                           type="number"
@@ -106,45 +108,45 @@
                           required
                         />
                         <span>meters</span>
-                      </o-input-group>
-                    </o-field>
-                  </o-grid>
-                </o-stack>
+                      </onm-input-group>
+                    </onm-field>
+                  </onm-grid>
+                </onm-stack>
               </fieldset>
 
               <fieldset>
                 <legend>The stay</legend>
-                <o-stack>
-                  <o-grid min="small" gap="4">
-                    <o-field>
+                <onm-stack>
+                  <onm-grid min="small" gap="4">
+                    <onm-field>
                       <label for="stay-from">Arriving</label>
-                      <input class="input" id="stay-from" name="from" type="date" required />
-                    </o-field>
-                    <o-field>
+                      <input class="onm-input" id="stay-from" name="from" type="date" required />
+                    </onm-field>
+                    <onm-field>
                       <label for="stay-nights">Nights</label>
-                      <select class="input" id="stay-nights" name="nights">
+                      <select class="onm-input" id="stay-nights" name="nights">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
                       </select>
-                    </o-field>
-                  </o-grid>
-                  <label class="choice"
+                    </onm-field>
+                  </onm-grid>
+                  <label class="onm-choice"
                     ><input type="checkbox" name="power" role="switch" /> Shore power</label
                   >
-                  <label class="choice"
+                  <label class="onm-choice"
                     ><input type="checkbox" name="water" role="switch" checked /> Fresh water</label
                   >
-                </o-stack>
+                </onm-stack>
               </fieldset>
 
               <fieldset>
                 <legend>How to reach you</legend>
-                <o-stack>
-                  <o-field>
+                <onm-stack>
+                  <onm-field>
                     <label for="contact-phone">Phone</label>
                     <input
-                      class="input"
+                      class="onm-input"
                       id="contact-phone"
                       name="phone"
                       type="tel"
@@ -155,30 +157,30 @@
                     <small id="contact-phone-help"
                       >The watch calls this number if the berth has to change.</small
                     >
-                  </o-field>
-                  <o-field>
+                  </onm-field>
+                  <onm-field>
                     <label for="contact-note">Anything the office should know</label>
-                    <textarea class="input" id="contact-note" name="note"></textarea>
-                  </o-field>
-                </o-stack>
+                    <textarea class="onm-input" id="contact-note" name="note"></textarea>
+                  </onm-field>
+                </onm-stack>
               </fieldset>
 
-              <o-alert role="note">
+              <onm-alert role="note">
                 <strong>What happens next</strong>
                 <p>
                   The office confirms by phone before noon on the day you arrive. Nothing is charged
                   until then.
                 </p>
-              </o-alert>
+              </onm-alert>
 
-              <o-row>
-                <button class="button" type="submit">Ask for the berth</button>
-                <a class="button" data-variant="ghost" href="table.html">Cancel</a>
-              </o-row>
-            </o-stack>
+              <onm-row>
+                <button class="onm-button" type="submit">Ask for the berth</button>
+                <a class="onm-button" data-variant="ghost" href="table.html">Cancel</a>
+              </onm-row>
+            </onm-stack>
           </form>
-        </o-stack>
-      </o-wrap>
+        </onm-stack>
+      </onm-wrap>
     </main>
   </body>
 </html>

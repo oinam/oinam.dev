@@ -5,18 +5,18 @@
  * needs no script and sends its value with a form: a class on the <label>
  * around the <input>.
  *
- *   <label class="toggle"><input type="checkbox" /> Bold</label>
+ *   <label class="onm-toggle"><input type="checkbox" /> Bold</label>
  *
- * <o-toggle-group> sets several side by side in one frame. With radio buttons
+ * <onm-toggle-group> sets several side by side in one frame. With radio buttons
  * of one name inside, only one can be pressed at a time.
  *
- *   <o-toggle-group role="group" aria-label="View">
- *     <label class="toggle"><input type="radio" name="view" checked /> List</label>
- *     <label class="toggle"><input type="radio" name="view" /> Map</label>
- *   </o-toggle-group>
+ *   <onm-toggle-group role="group" aria-label="View">
+ *     <label class="onm-toggle"><input type="radio" name="view" checked /> List</label>
+ *     <label class="onm-toggle"><input type="radio" name="view" /> Map</label>
+ *   </onm-toggle-group>
  */
 
-.toggle {
+.onm-toggle {
   position: relative;
   display: inline-flex;
   gap: var(--space-2);
@@ -37,33 +37,33 @@
 
 /* The checkbox is out of sight but still there, for the keyboard and for forms. */
 
-.toggle > input {
+.onm-toggle > input {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
 
-.toggle:hover {
+.onm-toggle:hover {
   background: var(--color-wash);
   color: var(--color-ink);
 }
 
-.toggle:has(:checked) {
+.onm-toggle:has(:checked) {
   background: var(--color-ink);
   color: var(--color-cloud);
 }
 
-.toggle:has(:focus-visible) {
+.onm-toggle:has(:focus-visible) {
   outline: 2px solid var(--color-ink);
   outline-offset: 3px;
 }
 
-.toggle:has(:disabled) {
+.onm-toggle:has(:disabled) {
   opacity: 0.45;
   pointer-events: none;
 }
 
-o-toggle-group {
+onm-toggle-group {
   display: inline-flex;
   gap: var(--space-1);
   padding: 0.1875rem;

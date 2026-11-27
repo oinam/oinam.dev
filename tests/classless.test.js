@@ -53,12 +53,12 @@ test("its layer comes after Base and before the components", () => {
   assert.ok(own.indexOf("classless") < own.indexOf("layout"));
 });
 
-test("it selects no class and no o- element", () => {
+test("it selects no class and no onm- element", () => {
   const found = selectors();
   assert.ok(found.length > 20);
   for (const selector of found) {
     assert.doesNotMatch(selector, /(^|[\s,(>+~])\.[a-z]/, selector);
-    assert.doesNotMatch(selector, /\bo-[a-z]/, selector);
+    assert.doesNotMatch(selector, /\bonm-[a-z]/, selector);
   }
 });
 

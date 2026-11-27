@@ -14,6 +14,86 @@ The numbers mean what they say:
 - The first number changes when a page that worked may stop working: a class, an element, an
   attribute, or a token was renamed or removed. Before 1.0.0, the middle number does this job too.
 
+## 0.10.0
+
+2026-11-27
+
+One prefix for everything the system names. Every custom element is renamed from `o-` to `onm-`,
+and every class takes the same prefix: `<o-card>` is now `<onm-card>`, and `class="button"` is now
+`class="onm-button"`. A one-letter prefix, and classes with no prefix at all, were likely to clash
+with another library's elements or a site's own `.button` and `.input`. `onm-` is the system's
+alone, and one prefix on both makes the system's names plain to see in a page.
+
+What is not renamed: the attributes and their values (`gap`, `data-variant`, `tone`, and the
+rest), the tokens (`--color-ink` and the others), the cascade layers, the file names, and the
+component names in `registry.json` and the addresses of their pages. `classless.css` selects no
+class, so a classless page is unchanged.
+
+- Every stylesheet, script, and component page, `guide.md`, `why.md`, `adopt.md`, the skill, the
+  patterns, `contract.json`, and `registry.json` use the new names.
+- `tools/lint.js` knows the new names. It reports an `o-` element as `unknown-element`, and a class
+  of the old names is no longer one of the system's, so it is not checked.
+- The id `tabs.js` gives a set of tabs without one starts `onm-tabs-`.
+
+### What to do
+
+A page that worked with 0.9.0 does not work with 0.10.0 until every name below is changed: its
+elements lose their look and, for the scripted ones, their behavior. Change them all, in markup, in
+the project's own stylesheets and scripts, and in any `querySelector`, `closest`, `matches`, or
+`classList` call. Then run `tools/lint.js` over every page and look at each one.
+
+Elements, in opening and closing tags and in selectors:
+
+- `<o-accordion>` is now `<onm-accordion>`.
+- `<o-alert>` is now `<onm-alert>`.
+- `<o-avatar>` is now `<onm-avatar>`.
+- `<o-badge>` is now `<onm-badge>`.
+- `<o-button-group>` is now `<onm-button-group>`.
+- `<o-card>` is now `<onm-card>`.
+- `<o-copy>` is now `<onm-copy>`.
+- `<o-empty>` is now `<onm-empty>`.
+- `<o-example>` is now `<onm-example>`.
+- `<o-field>` is now `<onm-field>`.
+- `<o-grid>` is now `<onm-grid>`.
+- `<o-input-group>` is now `<onm-input-group>`.
+- `<o-item>` is now `<onm-item>`.
+- `<o-menu>` is now `<onm-menu>`.
+- `<o-prose>` is now `<onm-prose>`.
+- `<o-ratio>` is now `<onm-ratio>`.
+- `<o-row>` is now `<onm-row>`.
+- `<o-scroll>` is now `<onm-scroll>`.
+- `<o-skeleton>` is now `<onm-skeleton>`.
+- `<o-spinner>` is now `<onm-spinner>`.
+- `<o-stack>` is now `<onm-stack>`.
+- `<o-table>` is now `<onm-table>`.
+- `<o-tabs>` is now `<onm-tabs>`.
+- `<o-theme>` is now `<onm-theme>`.
+- `<o-toast>` is now `<onm-toast>`.
+- `<o-toggle-group>` is now `<onm-toggle-group>`.
+- `<o-tooltip>` is now `<onm-tooltip>`.
+- `<o-wrap>` is now `<onm-wrap>`.
+
+Classes, in `class` attributes and in selectors (`.button` becomes `.onm-button`):
+
+- `class="breadcrumb"` is now `class="onm-breadcrumb"`.
+- `class="button"` is now `class="onm-button"`.
+- `class="choice"` is now `class="onm-choice"`.
+- `class="dialog"` is now `class="onm-dialog"`.
+- `class="eyebrow"` is now `class="onm-eyebrow"`.
+- `class="facts"` is now `class="onm-facts"`.
+- `class="input"` is now `class="onm-input"`.
+- `class="lede"` is now `class="onm-lede"`.
+- `class="pagination"` is now `class="onm-pagination"`.
+- `class="popover"` is now `class="onm-popover"`.
+- `class="progress"` is now `class="onm-progress"`.
+- `class="slider"` is now `class="onm-slider"`.
+- `class="toggle"` is now `class="onm-toggle"`.
+
+- A project that built elements of its own under the system's rules keeps its own prefix; nothing
+  of it changes.
+- A page that links a release changes `/ui/releases/0.9.0/` to `/ui/releases/0.10.0/`, and its
+  names as above.
+
 ## 0.9.0
 
 2026-11-27

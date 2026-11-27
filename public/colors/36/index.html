@@ -30,10 +30,10 @@
     <script type="module" src="/assets/colors.js"></script>
   </head>
   <body>
-    <a class="skip button" href="#main">Skip to content</a>
+    <a class="skip onm-button" href="#main">Skip to content</a>
 
     <header class="site-header">
-      <o-wrap>
+      <onm-wrap>
         <div class="brand-group">
           <a class="brand" href="/" aria-label="Oinam.DEV, home">
             <svg class="brand-mark" viewBox="0 0 600 600" aria-hidden="true">
@@ -42,7 +42,7 @@
             <span class="brand-name">Oinam<span class="brand-tld">.DEV</span></span>
           </a>
           <a class="brand-version" href="/ui/CHANGELOG.md" title="What changed in each version"
-            ><code>v0.9.0</code></a
+            ><code>v0.10.0</code></a
           >
         </div>
 
@@ -78,7 +78,7 @@
               />
             </svg>
           </a>
-          <o-theme>
+          <onm-theme>
             <button type="button" aria-label="Switch theme">
               <svg
                 class="icon icon-moon"
@@ -107,29 +107,29 @@
                 />
               </svg>
             </button>
-          </o-theme>
+          </onm-theme>
         </nav>
-      </o-wrap>
+      </onm-wrap>
     </header>
 
     <main id="main">
-      <o-wrap>
-        <o-stack class="page" gap="4" align="start">
-          <p class="eyebrow"><a href="/colors/">Colors</a>, number 36</p>
+      <onm-wrap>
+        <onm-stack class="page" gap="4" align="start">
+          <p class="onm-eyebrow"><a href="/colors/">Colors</a>, number 36</p>
           <h1>Amber</h1>
-          <p class="lede">A golden orange-yellow.</p>
+          <p class="onm-lede">A golden orange-yellow.</p>
           <p>This page wears it. Switch the theme to see the other side.</p>
-        </o-stack>
-        <o-stack class="color-page" gap="12">
+        </onm-stack>
+        <onm-stack class="color-page" gap="12">
           <section aria-labelledby="three">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="three">The three colors</h2>
               <p>
                 Ink is the text, and cloud is the page. Milk is a step off cloud, for a surface
                 above it. Each is written in OKLCH, with the same color in hex under it. Press a
                 value to copy it in OKLCH, or hold Shift as you press to copy the hex.
               </p>
-              <o-table>
+              <onm-table>
                 <table>
                   <thead>
                     <tr>
@@ -218,18 +218,18 @@
                     </tr>
                   </tbody>
                 </table>
-              </o-table>
-            </o-stack>
+              </onm-table>
+            </onm-stack>
           </section>
           <section aria-labelledby="shades">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="shades">The shades between them</h2>
               <p>
                 Every other shade is ink mixed into cloud, so each one leans the way the pair leans,
                 and each follows the theme. The components work them out; the values below are what
                 a screen shows.
               </p>
-              <o-table>
+              <onm-table>
                 <table>
                   <thead>
                     <tr>
@@ -375,17 +375,17 @@
                     </tr>
                   </tbody>
                 </table>
-              </o-table>
-            </o-stack>
+              </onm-table>
+            </onm-stack>
           </section>
           <section aria-labelledby="contrast">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="contrast">Contrast</h2>
               <p>
                 Every text shade reaches WCAG AA, 4.5 to 1, against the page and against a raised
                 surface, in both themes. A test holds it there.
               </p>
-              <o-table>
+              <onm-table>
                 <table>
                   <thead>
                     <tr>
@@ -420,11 +420,11 @@
                     </tr>
                   </tbody>
                 </table>
-              </o-table>
-            </o-stack>
+              </onm-table>
+            </onm-stack>
           </section>
           <section aria-labelledby="accent">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="accent">The accent</h2>
               <p>
                 The one main action of a group may be an accent button, the solid button in color.
@@ -432,13 +432,13 @@
                 light by day, or as deep by night, as it can be while its label reads at 7 to 1. Its
                 fill stands at 3 to 1 or better against the page and a raised surface.
               </p>
-              <o-row>
-                <button class="button" data-variant="accent" type="button">
+              <onm-row>
+                <button class="onm-button" data-variant="accent" type="button">
                   Send to the skipper
                 </button>
-                <button class="button" data-variant="outline" type="button">Save</button>
-              </o-row>
-              <o-table>
+                <button class="onm-button" data-variant="outline" type="button">Save</button>
+              </onm-row>
+              <onm-table>
                 <table>
                   <thead>
                     <tr>
@@ -492,11 +492,11 @@
                     </tr>
                   </tbody>
                 </table>
-              </o-table>
-            </o-stack>
+              </onm-table>
+            </onm-stack>
           </section>
           <section aria-labelledby="from">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="from">Where it comes from</h2>
               <p>
                 The amber scale of <a href="https://www.radix-ui.com/colors">Radix Colors</a>, under
@@ -505,10 +505,10 @@
                 than there by day, with the same hue and chroma, so that the faint text reaches 4.5
                 to 1 when it is mixed the way these components mix it.
               </p>
-            </o-stack>
+            </onm-stack>
           </section>
           <section aria-labelledby="use">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="use">Use it</h2>
               <p>
                 Take a copy of <a href="/colors/36.css">36.css</a>, keep it with the site's own
@@ -516,15 +516,15 @@
               </p>
               <pre><code>&lt;link rel="stylesheet" href="/ui/ui.css" /&gt;
 &lt;link rel="stylesheet" href="/styles/amber.css" /&gt;</code></pre>
-            </o-stack>
+            </onm-stack>
           </section>
-        </o-stack>
-      </o-wrap>
+        </onm-stack>
+      </onm-wrap>
     </main>
 
     <footer class="site-footer">
-      <o-wrap>
-        <o-row justify="between">
+      <onm-wrap>
+        <onm-row justify="between">
           <p>
             Oinam.DEV by <a href="https://oinam.com">oinam.com</a>. Open and free, under the
             <a href="/license/">MIT license</a>.
@@ -538,8 +538,8 @@
             <li><a href="/llms.txt">llms.txt</a></li>
             <li><a href="https://github.com/oinam/oinam.dev">GitHub</a></li>
           </ul>
-        </o-row>
-      </o-wrap>
+        </onm-row>
+      </onm-wrap>
     </footer>
   </body>
 </html>

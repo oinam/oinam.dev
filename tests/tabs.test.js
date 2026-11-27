@@ -6,11 +6,11 @@ import { test } from "node:test";
 await import("../public/ui/tabs.js");
 
 const MARKUP = `
-  <o-tabs label="Install">
+  <onm-tabs label="Install">
     <section><h3>Link it</h3><p>One.</p></section>
     <section><h3>Copy it</h3><p>Two.</p></section>
     <section><h3>Change it</h3><p>Three.</p></section>
-  </o-tabs>`;
+  </onm-tabs>`;
 
 function build(markup = MARKUP) {
   const tabs = mount(markup);
@@ -126,12 +126,12 @@ test("the keyboard moves focus along with the selection", () => {
 });
 
 test("a section without a heading still gets a tab", () => {
-  const { buttons } = build("<o-tabs><section><p>One.</p></section></o-tabs>");
+  const { buttons } = build("<onm-tabs><section><p>One.</p></section></onm-tabs>");
   assert.equal(buttons[0].textContent, "Tab 1");
 });
 
 test("an element with no sections is left alone", () => {
-  const { list } = build("<o-tabs><p>Nothing to tab.</p></o-tabs>");
+  const { list } = build("<onm-tabs><p>Nothing to tab.</p></onm-tabs>");
   assert.equal(list, null);
 });
 

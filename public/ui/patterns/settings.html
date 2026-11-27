@@ -27,27 +27,27 @@
 
   <body>
     <header class="bar">
-      <o-wrap>
-        <o-row justify="between">
+      <onm-wrap>
+        <onm-row justify="between">
           <a class="bar-name" href="./">Harbor office</a>
           <nav aria-label="Main">
-            <o-row gap="4">
+            <onm-row gap="4">
               <a href="table.html">Berths</a>
               <a href="list.html">Arrivals</a>
               <a href="settings.html">Settings</a>
-            </o-row>
+            </onm-row>
           </nav>
-        </o-row>
-      </o-wrap>
+        </onm-row>
+      </onm-wrap>
     </header>
 
     <main>
-      <o-wrap narrow>
-        <o-stack class="page" gap="8">
+      <onm-wrap narrow>
+        <onm-stack class="page" gap="8">
           <h1>Settings</h1>
 
           <section aria-labelledby="notices-title">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="notices-title">Notices</h2>
               <div class="setting">
                 <div>
@@ -63,43 +63,43 @@
                 </div>
                 <input type="checkbox" role="switch" id="notice-tides" />
               </div>
-            </o-stack>
+            </onm-stack>
           </section>
 
           <hr />
 
           <section aria-labelledby="office-title">
             <form action="settings.html">
-              <o-stack gap="4">
+              <onm-stack gap="4">
                 <h2 id="office-title">The office</h2>
-                <o-field>
+                <onm-field>
                   <label for="office-name">Name on notices</label>
                   <input
-                    class="input"
+                    class="onm-input"
                     id="office-name"
                     name="name"
                     type="text"
                     value="Harbor office"
                   />
-                </o-field>
-                <o-field>
+                </onm-field>
+                <onm-field>
                   <label for="office-units">Lengths and depths in</label>
-                  <select class="input" id="office-units" name="units">
+                  <select class="onm-input" id="office-units" name="units">
                     <option>Meters</option>
                     <option>Feet</option>
                   </select>
-                </o-field>
-                <o-row>
-                  <button class="button" type="submit" data-toast="Saved">Save</button>
-                </o-row>
-              </o-stack>
+                </onm-field>
+                <onm-row>
+                  <button class="onm-button" type="submit" data-toast="Saved">Save</button>
+                </onm-row>
+              </onm-stack>
             </form>
           </section>
 
           <hr />
 
           <section aria-labelledby="close-title">
-            <o-stack gap="4">
+            <onm-stack gap="4">
               <h2 id="close-title">Close the account</h2>
               <div class="setting">
                 <p>
@@ -107,7 +107,7 @@
                   undone.
                 </p>
                 <button
-                  class="button"
+                  class="onm-button"
                   data-variant="outline"
                   type="button"
                   commandfor="close-account"
@@ -116,13 +116,13 @@
                   Close the account
                 </button>
               </div>
-            </o-stack>
+            </onm-stack>
           </section>
-        </o-stack>
-      </o-wrap>
+        </onm-stack>
+      </onm-wrap>
 
       <dialog
-        class="dialog"
+        class="onm-dialog"
         id="close-account"
         role="alertdialog"
         aria-labelledby="close-account-title"
@@ -132,7 +132,7 @@
         <p id="close-account-text">Three bookings will be released. This cannot be undone.</p>
         <footer>
           <button
-            class="button"
+            class="onm-button"
             data-variant="ghost"
             type="button"
             commandfor="close-account"
@@ -140,7 +140,7 @@
           >
             Keep it
           </button>
-          <button class="button" type="button" commandfor="close-account" command="close">
+          <button class="onm-button" type="button" commandfor="close-account" command="close">
             Close the account
           </button>
         </footer>

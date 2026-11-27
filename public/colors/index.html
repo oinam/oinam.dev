@@ -36,10 +36,10 @@
     <script type="module" src="/assets/colors.js"></script>
   </head>
   <body>
-    <a class="skip button" href="#main">Skip to content</a>
+    <a class="skip onm-button" href="#main">Skip to content</a>
 
     <header class="site-header">
-      <o-wrap>
+      <onm-wrap>
         <div class="brand-group">
           <a class="brand" href="/" aria-label="Oinam.DEV, home">
             <svg class="brand-mark" viewBox="0 0 600 600" aria-hidden="true">
@@ -48,7 +48,7 @@
             <span class="brand-name">Oinam<span class="brand-tld">.DEV</span></span>
           </a>
           <a class="brand-version" href="/ui/CHANGELOG.md" title="What changed in each version"
-            ><code>v0.9.0</code></a
+            ><code>v0.10.0</code></a
           >
         </div>
 
@@ -84,7 +84,7 @@
               />
             </svg>
           </a>
-          <o-theme>
+          <onm-theme>
             <button type="button" aria-label="Switch theme">
               <svg
                 class="icon icon-moon"
@@ -113,16 +113,16 @@
                 />
               </svg>
             </button>
-          </o-theme>
+          </onm-theme>
         </nav>
-      </o-wrap>
+      </onm-wrap>
     </header>
 
     <main id="main">
-      <o-wrap>
-        <o-stack class="page" gap="4" align="start">
+      <onm-wrap>
+        <onm-stack class="page" gap="4" align="start">
           <h1>Colors</h1>
-          <p class="lede">
+          <p class="onm-lede">
             Pairs of colors for the components. Each is three tokens, and every other shade is mixed
             from them, in light and in dark.
           </p>
@@ -145,8 +145,8 @@
           <p>
             Press a chip to copy its color in OKLCH, or hold Shift as you press to copy its hex.
           </p>
-        </o-stack>
-        <o-stack class="color-list" gap="8">
+        </onm-stack>
+        <onm-stack class="color-list" gap="8">
           <section class="color-entry" aria-labelledby="color-1">
             <div>
               <h2 id="color-1"><a href="/colors/1/base/">Base</a> <code>1</code></h2>
@@ -7310,13 +7310,13 @@
               </div>
             </div>
           </section>
-        </o-stack>
-      </o-wrap>
+        </onm-stack>
+      </onm-wrap>
     </main>
 
     <footer class="site-footer">
-      <o-wrap>
-        <o-row justify="between">
+      <onm-wrap>
+        <onm-row justify="between">
           <p>
             Oinam.DEV by <a href="https://oinam.com">oinam.com</a>. Open and free, under the
             <a href="/license/">MIT license</a>.
@@ -7330,8 +7330,8 @@
             <li><a href="/llms.txt">llms.txt</a></li>
             <li><a href="https://github.com/oinam/oinam.dev">GitHub</a></li>
           </ul>
-        </o-row>
-      </o-wrap>
+        </onm-row>
+      </onm-wrap>
     </footer>
   </body>
 </html>

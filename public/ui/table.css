@@ -1,18 +1,18 @@
 /*
  * Table
  *
- * <o-table> goes around a plain <table>. It draws the frame, and lets a wide
+ * <onm-table> goes around a plain <table>. It draws the frame, and lets a wide
  * table scroll sideways inside it without pushing the page wider.
  *
- *   <o-table>
+ *   <onm-table>
  *     <table>
  *       <thead><tr><th>Token</th><th>Value</th></tr></thead>
  *       <tbody><tr><td>--space-4</td><td>1rem</td></tr></tbody>
  *     </table>
- *   </o-table>
+ *   </onm-table>
  */
 
-o-table {
+onm-table {
   /* Anything placed absolutely inside, such as a hidden label, scrolls with the table. */
   position: relative;
   display: block;
@@ -22,19 +22,19 @@ o-table {
   background: var(--color-milk);
 }
 
-o-table table {
+onm-table table {
   width: 100%;
   border-collapse: collapse;
   font-size: var(--text-sm);
 }
 
-o-table :is(th, td) {
+onm-table :is(th, td) {
   padding: var(--space-3) var(--space-4);
   text-align: start;
   vertical-align: top;
 }
 
-o-table thead th {
+onm-table thead th {
   color: var(--color-ink-faint);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
@@ -42,10 +42,10 @@ o-table thead th {
   white-space: nowrap;
 }
 
-o-table tbody th {
+onm-table tbody th {
   font-weight: 500;
 }
 
-o-table tbody tr {
+onm-table tbody tr {
   border-top: 1px solid var(--color-line);
 }

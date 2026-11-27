@@ -1,25 +1,25 @@
 /*
  * Tooltip
  *
- * <o-tooltip> shows a few words about a control when the pointer is over it
+ * <onm-tooltip> shows a few words about a control when the pointer is over it
  * or the keyboard is on it. It is CSS alone. The words are tied to the
  * control with aria-describedby, so a screen reader reads them too.
  *
  * Keep it to a hint. Anything a person must read, or press, belongs on the
  * page or in a popover, because a tooltip cannot be reached by touch.
  *
- *   <o-tooltip>
- *     <button class="button" type="button" aria-describedby="tip-release">Release</button>
+ *   <onm-tooltip>
+ *     <button class="onm-button" type="button" aria-describedby="tip-release">Release</button>
  *     <span role="tooltip" id="tip-release">Frees the berth for the next boat</span>
- *   </o-tooltip>
+ *   </onm-tooltip>
  */
 
-o-tooltip {
+onm-tooltip {
   position: relative;
   display: inline-flex;
 }
 
-o-tooltip > [role="tooltip"] {
+onm-tooltip > [role="tooltip"] {
   position: absolute;
   bottom: calc(100% + var(--space-2));
   left: 50%;
@@ -42,7 +42,7 @@ o-tooltip > [role="tooltip"] {
     visibility var(--duration);
 }
 
-o-tooltip:is(:hover, :focus-within) > [role="tooltip"] {
+onm-tooltip:is(:hover, :focus-within) > [role="tooltip"] {
   visibility: visible;
   opacity: 1;
 }

@@ -1,0 +1,76 @@
+/*
+ * Toggle
+ *
+ * A toggle is a button that stays pressed. It is a checkbox underneath, so it
+ * needs no script and sends its value with a form: a class on the <label>
+ * around the <input>.
+ *
+ *   <label class="onm-toggle"><input type="checkbox" /> Bold</label>
+ *
+ * <onm-toggle-group> sets several side by side in one frame. With radio buttons
+ * of one name inside, only one can be pressed at a time.
+ *
+ *   <onm-toggle-group role="group" aria-label="View">
+ *     <label class="onm-toggle"><input type="radio" name="view" checked /> List</label>
+ *     <label class="onm-toggle"><input type="radio" name="view" /> Map</label>
+ *   </onm-toggle-group>
+ */
+
+.onm-toggle {
+  position: relative;
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+  justify-content: center;
+  height: var(--toggle-height, var(--control));
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease);
+}
+
+/* The checkbox is out of sight but still there, for the keyboard and for forms. */
+
+.onm-toggle > input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.onm-toggle:hover {
+  background: var(--color-wash);
+  color: var(--color-ink);
+}
+
+.onm-toggle:has(:checked) {
+  background: var(--color-ink);
+  color: var(--color-cloud);
+}
+
+.onm-toggle:has(:focus-visible) {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+.onm-toggle:has(:disabled) {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+onm-toggle-group {
+  display: inline-flex;
+  gap: var(--space-1);
+  padding: 0.1875rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: calc(var(--radius-md) + 0.1875rem);
+  background: var(--color-milk);
+
+  /* A toggle inside a group is a size smaller, so the group is the size of a button. */
+  --toggle-height: var(--control-sm);
+}
