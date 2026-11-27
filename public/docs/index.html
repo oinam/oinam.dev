@@ -151,6 +151,47 @@
             files and make them yours.
           </p>
 
+          <h2 id="classless">Without classes</h2>
+          <p>
+            A page of plain HTML, with no classes and no custom elements, can wear the components'
+            look with one stylesheet, <a href="/ui/classless.css">classless.css</a>, linked in place
+            of <code>ui.css</code>:
+          </p>
+          <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/ui/classless.css&quot; /&gt;</code></pre>
+          <p>
+            It brings the same tokens and the same Base as the components. The body becomes one
+            column at a measure made for reading, and the writing in it is spaced as in
+            <code>&lt;o-prose&gt;</code>. A submit button looks like the solid button, and any other
+            button like the outline one. Fields, labels, checkboxes, tables, details, and dialogs
+            look as their components do. A variation, linked after it, changes it the same way it
+            changes the components. An element with a class of its own is left alone.
+          </p>
+          <p>
+            It is for a page that has not yet earned the components: a readme turned into a page, a
+            quick form, a note. <a href="/ui/classless">A page made with it</a> has nothing else.
+          </p>
+          <ul>
+            <li>
+              <strong>Take a copy.</strong> The installer brings it with the rest, into
+              <code>ui/classless.css</code>. It imports <code>tokens.css</code> and
+              <code>base.css</code> from beside it, so keep the three together.
+            </li>
+            <li>
+              <strong>Or link a release</strong>, to try it on a page. A release never changes, so
+              the page keeps its look when a later version renames something.
+              <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://oinam.dev/ui/releases/0.9.0/classless.css&quot; /&gt;</code></pre>
+            </li>
+            <li>
+              <strong>To grow into the components</strong>, link <code>ui.css</code> after it. The
+              components win wherever the two speak. The other way round does not work: added after
+              <code>ui.css</code>, it would dress bare buttons and fields over the components.
+            </li>
+          </ul>
+          <p>
+            Why it is a sheet of its own, and Base is not classless, is in
+            <a href="/ui/why.md">why.md</a>.
+          </p>
+
           <h2 id="standards">Standards</h2>
           <p>A change is not done until every point below holds.</p>
           <ul>
