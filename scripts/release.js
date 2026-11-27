@@ -27,6 +27,7 @@ export function linked(registry) {
       registry.all.css,
       registry.all.js,
       registry.all.head,
+      registry.all.classless,
       ...registry.foundation,
       ...registry.components.flatMap((component) => component.files),
       ...registry.fonts.flatMap((font) => font.files),

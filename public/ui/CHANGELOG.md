@@ -14,6 +14,40 @@ The numbers mean what they say:
 - The first number changes when a page that worked may stop working: a class, an element, an
   attribute, or a token was renamed or removed. Before 1.0.0, the middle number does this job too.
 
+## 0.9.0
+
+2026-11-27
+
+A way in without classes. A page of plain HTML can now take the system with one link, and no class
+or custom element in it. Nothing is renamed or removed, and `ui.css` is unchanged.
+
+- `classless.css`: a stylesheet that stands in for `ui.css` on a page with no classes. It imports
+  the same `tokens.css` and `base.css`, then dresses the bare elements as their components look: a
+  submit `<button>` as the solid `.button`, any other button as the outline, `<input>`,
+  `<textarea>`, and `<select>` as `.input`, a `<label>` around a checkbox as `.choice`, a `<table>`
+  as `<o-table>`, a run of `<details>` as `<o-accordion>`, and `<dialog>` as `.dialog`. The body
+  becomes one column at a measure made for reading, and the writing in it gets the rhythm of
+  `<o-prose>`. An element with a class of its own is left alone. Its rules sit in a layer named
+  `classless`, after `base` and before `layout` and `components`.
+- `classless.html`: a page made with that one link and nothing else, at `/ui/classless`.
+- `registry.json`: `all.classless` names the sheet, so the installer takes it, and a release
+  holds it.
+- `why.md`: why this is a separate sheet, and Base still is not classless.
+
+### What to do
+
+Nothing in a page has to change. Running the installer again takes `classless.css` and the new
+`registry.json` and `why.md`.
+
+- A page that links `ui.css` keeps it, and does not add `classless.css` after it: the layer that
+  comes last in the page wins, so its bare buttons and fields would be dressed over the
+  components. The other way round works. A classless page that grows into the components links
+  `ui.css` after `classless.css`, and the components win wherever the two speak.
+- A project with pages of plain HTML that it styled by hand to look like the system, such as a
+  readme rendered to a page or a quick form, may link `classless.css` instead and delete the rules
+  it wrote, after looking at the page in light and in dark.
+- A page that links a release may change `/ui/releases/0.8.0/` to `/ui/releases/0.9.0/`.
+
 ## 0.8.0
 
 2026-11-24

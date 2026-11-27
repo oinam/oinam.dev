@@ -16,8 +16,11 @@ const registry = JSON.parse(read("registry.json"));
 const guide = read("guide.md");
 const page = read("index.html");
 
-/* Every stylesheet and script that belongs to the system, apart from the two that gather them. */
-const gathered = [registry.all.css, registry.all.js];
+/*
+ * Every stylesheet and script that belongs to the system, apart from the two
+ * that gather them and the classless sheet, which is the other way in.
+ */
+const gathered = [registry.all.css, registry.all.js, registry.all.classless];
 const files = readdirSync(UI).filter(
   (name) => /\.(css|js)$/.test(name) && !gathered.includes(name),
 );

@@ -1,0 +1,162 @@
+<!doctype html>
+<!--
+  Classless
+
+  This page has no classes, no o- elements, and no script. It links one
+  stylesheet, classless.css, and everything on it is plain HTML: a header,
+  writing, a form, a table, a few details, and a footer. It is here to show
+  what that one link does, and to be copied as the start of a page that has
+  not yet earned the components.
+
+  It is one page of a made-up harbor office. The places, people, and tides
+  are invented. Take the structure, not the words.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Classless - Harbor office</title>
+    <meta name="robots" content="noindex" />
+    <meta
+      name="description"
+      content="A page of plain HTML with no classes, dressed by Oinam UI's classless stylesheet."
+    />
+
+    <link rel="stylesheet" href="classless.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="./">Harbor office</a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#tides">Tides</a></li>
+          <li><a href="#berth">Book a berth</a></li>
+          <li><a href="#questions">Questions</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+        <h1>Coming in at Kettle Cove</h1>
+        <p>
+          The harbor is open every day but Sunday. The channel is narrow at low water, so most boats
+          come in on the flood and leave on the ebb. This page has what a skipper needs before the
+          first line goes ashore.
+        </p>
+
+        <blockquote>
+          <p>Call on channel 12 when you round the breakwater, and wait to be given a berth.</p>
+        </blockquote>
+
+        <h2 id="tides">Tides this week</h2>
+        <p>
+          Times are local. A <mark>spring tide</mark> falls on Thursday, when the low is lowest;
+          keep to the marked channel then.
+        </p>
+
+        <figure>
+          <table>
+            <caption>
+              High and low water, Kettle Cove
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Day</th>
+                <th scope="col">High</th>
+                <th scope="col">Low</th>
+                <th scope="col">Range</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Monday</th>
+                <td>06:12</td>
+                <td>12:30</td>
+                <td>3.1 m</td>
+              </tr>
+              <tr>
+                <th scope="row">Tuesday</th>
+                <td>06:58</td>
+                <td>13:15</td>
+                <td>3.4 m</td>
+              </tr>
+              <tr>
+                <th scope="row">Thursday</th>
+                <td>08:31</td>
+                <td>14:49</td>
+                <td>4.0 m</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+
+        <h2 id="berth">Book a berth</h2>
+        <p>A berth is held until noon on the day you name. Nothing is paid until you arrive.</p>
+
+        <form action="#berth">
+          <label for="boat">Name of the boat</label>
+          <input id="boat" name="boat" type="text" autocomplete="off" required />
+
+          <label for="length">Length, in meters</label>
+          <input id="length" name="length" type="number" min="3" max="30" step="0.5" />
+          <small>Over all, with the bowsprit.</small>
+
+          <label for="arrival">Arriving</label>
+          <select id="arrival" name="arrival">
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Thursday</option>
+          </select>
+
+          <fieldset>
+            <legend>What you need</legend>
+            <label><input type="checkbox" name="power" /> Shore power</label>
+            <label><input type="checkbox" name="water" /> Fresh water</label>
+          </fieldset>
+
+          <label for="note">Anything we should know</label>
+          <textarea id="note" name="note"></textarea>
+
+          <p>
+            <button type="submit">Hold the berth</button>
+            <button type="reset">Clear</button>
+          </p>
+        </form>
+
+        <h2 id="questions">Questions</h2>
+
+        <details name="questions">
+          <summary>Is there fuel?</summary>
+          <p>Diesel at the end of the east pontoon, from eight until four.</p>
+        </details>
+        <details name="questions">
+          <summary>Can I stay longer than a week?</summary>
+          <p>Ask at the office. Winter berths are let from October.</p>
+        </details>
+        <details name="questions">
+          <summary>Where do I leave the dinghy?</summary>
+          <p>On the slip by the office, tied to the rail, never to the ladder.</p>
+        </details>
+
+        <hr />
+
+        <h3>The office</h3>
+        <dl>
+          <dt>Open</dt>
+          <dd>Eight to five, every day but Sunday</dd>
+          <dt>Radio</dt>
+          <dd>Channel 12</dd>
+          <dt>Harbor master</dt>
+          <dd>Ines Cardoso</dd>
+        </dl>
+      </article>
+    </main>
+
+    <footer>
+      <p>Kettle Cove Harbor Office. This page has no classes; view its source.</p>
+    </footer>
+  </body>
+</html>

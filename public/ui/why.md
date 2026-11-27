@@ -79,6 +79,29 @@ controls look the way the browser allows: the list a `<select>` opens is not our
 **Revisit** per control, when the browser's version cannot do what a page needs. Then build that
 one, with its keyboard and its tests, and say in the guide what it gives up.
 
+## A classless sheet beside Base, not a classless Base
+
+**Decision.** A page of plain HTML, with no classes, links `classless.css`. It imports the tokens
+and Base and dresses bare elements as their components look. `base.css` itself stays as it is: it
+clears margins, and leaves a `<button>` to the browser until it has the class.
+
+**Why.** Base is under every page that links `ui.css`, including sites that already had styles of
+their own when they adopted the system. If Base dressed every bare `<button>`, `<input>`, and
+`<table>`, those sites would find their own elements restyled, and every component built on a
+native element would first have to undo what Base did. Spacing is the same: Base leaves it to
+`<o-stack>` and `<o-prose>`, which know what they hold, and a page-wide rhythm would fight them. A
+separate sheet gives a page with no classes everything at once, and costs a page with components
+nothing.
+
+**What it costs.** Two ways in, and the looks of a button, a field, a table, a details, and a
+dialog are written twice, once on the class and once on the bare element. They can drift. The tests
+hold the classless sheet to tokens only, so a variation changes both alike, but not to the same
+declarations as the components; a change to one of those components should be made in both.
+
+**Revisit when** the two copies drift in practice, or a third way in is wanted. Then the shared
+looks could move into one file each, selected both ways, at the price of a component file that is
+no longer about one class.
+
 ## No shadow DOM
 
 **Decision.** Custom elements keep their content in the page itself. The few with script enhance

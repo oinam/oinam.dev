@@ -1,0 +1,65 @@
+/*
+ * Accordion
+ *
+ * <o-accordion> goes around a set of <details>. The browser already opens and
+ * closes them; give them all the same name and it also keeps one open at a
+ * time.
+ *
+ *   <o-accordion>
+ *     <details name="faq">
+ *       <summary>Is it free?</summary>
+ *       <p>Yes.</p>
+ *     </details>
+ *   </o-accordion>
+ */
+
+o-accordion {
+  display: block;
+  border-block: 1px solid var(--color-line);
+}
+
+o-accordion > details + details {
+  border-top: 1px solid var(--color-line);
+}
+
+o-accordion summary {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-4);
+  font-weight: 500;
+  list-style: none;
+  cursor: pointer;
+}
+
+o-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+/* The marker is a chevron made of two borders. It turns over when open. */
+
+o-accordion summary::after {
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.25rem;
+  border-right: 1.5px solid currentcolor;
+  border-bottom: 1.5px solid currentcolor;
+  rotate: 45deg;
+  translate: 0 -0.125rem;
+  transition:
+    rotate var(--duration) var(--ease),
+    translate var(--duration) var(--ease);
+  content: "";
+}
+
+o-accordion details[open] > summary::after {
+  rotate: 225deg;
+  translate: 0 0.125rem;
+}
+
+o-accordion details > :not(summary) {
+  padding-bottom: var(--space-4);
+  color: var(--color-ink-soft);
+}

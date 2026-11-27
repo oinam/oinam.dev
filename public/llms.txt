@@ -9,6 +9,7 @@ If you were told to read https://oinam.dev/ and build something with it, the nex
 ## Design with it
 
 - [Components guide](https://oinam.dev/ui/guide.md): Oinam UI in plain text. Read this to design or build a page: how to take a copy, the rules, the tokens, and the list of components. Each component has a page of its own at https://oinam.dev/ui/components/<name>.md, such as https://oinam.dev/ui/components/button.md.
+- [Classless](https://oinam.dev/ui/classless.css): One stylesheet for a page of plain HTML with no classes. It brings the same tokens and Base, and dresses bare elements as their components look. [A page made with it](https://oinam.dev/ui/classless).
 - [Patterns](https://oinam.dev/ui/patterns/): Whole pages built from the components. Read the one nearest the page you are asked for; each says in a comment why it is laid out as it is.
 - [Registry](https://oinam.dev/ui/registry.json): The same components as data, with the files each one needs.
 - [Designs](https://oinam.dev/garden/variations.json): Variations of Base that others have made, each one stylesheet of token values. Use one when the owner names it.
