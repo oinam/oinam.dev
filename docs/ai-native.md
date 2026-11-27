@@ -18,6 +18,23 @@ The first list is done. These came out of the first eval run.
 - [ ] **Tell a clean page from a mended one.** Record whether the agent ran the linter, and what it
       found the first time, so a run shows what the guide taught and what the linter caught.
 
+Added on 2026-11-27, at the owner's word: tools for design judgment, of the kind Impeccable
+(https://impeccable.style) gives an agent, made part of Oinam.DEV. Impeccable steers any design
+after it is made. Oinam.DEV starts every page from a made design, the components, so these tools
+are the next step from there: improving on a page that is already sound, not rescuing one.
+
+- [ ] **The habits, documented.** A catalog of the habits that make a page look generated, each
+      with its name, a picture of it, why it hurts, and what to do instead. It grows out of the
+      guide's "Then leave out the habits", and the linter checks every habit a program can see.
+- [ ] **The best practices, documented.** The other side of the same catalog: what a made page
+      does, for type, color, layout, space, motion, and copy, each tied to the tokens and
+      components that carry it.
+- [ ] **The auditor.** A tool an agent runs on any page, one built with the system or not, which
+      reports what to fix, most important first: the linter's findings, the habits it can see,
+      contrast and accessibility, and the pictures from `tools/see.js`. It says, and changes
+      nothing. It is served through the MCP server too, so an agent finds it where it already
+      works.
+
 ## Done
 
 - [x] **Evals.** `evals/`: five briefs, a runner that has an agent build each with only the guide
