@@ -1,5 +1,6 @@
 /*
  * Table
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  * <onm-table> goes around a plain <table>. It draws the frame, and lets a wide
  * table scroll sideways inside it without pushing the page wider.

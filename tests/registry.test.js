@@ -243,3 +243,16 @@ test("every tool is in the registry, and every tool the registry names exists", 
   const folder = readdirSync(new URL("tools/", UI)).map((name) => `tools/${name}`);
   assert.deepEqual(folder.toSorted(), registry.tools.toSorted());
 });
+
+test("every stylesheet and script a project takes says where it came from", () => {
+  const link = " * From Oinam UI at https://oinam.dev/ui/, under the MIT license.\n";
+  const taken = globSync("**/*.{css,js}", {
+    cwd: UI,
+    exclude: (path) => path.startsWith("releases"),
+  });
+
+  assert.ok(taken.length > 40);
+  for (const name of taken) {
+    assert.ok(read(name).includes(link), `${name} does not say where it came from`);
+  }
+});

@@ -1,5 +1,6 @@
 /*
  * <onm-theme>: a light and dark toggle.
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  *   <onm-theme>
  *     <button type="button" aria-label="Switch theme">...</button>

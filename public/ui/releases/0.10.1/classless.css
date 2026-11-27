@@ -1,0 +1,509 @@
+/*
+ * Classless
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
+ *
+ * Base for a page written in plain HTML, with no classes and no onm- elements.
+ * One link, in place of ui.css:
+ *
+ *   <link rel="stylesheet" href="ui/classless.css" />
+ *
+ *   <body>
+ *     <header>
+ *       <a href="/">Harbor office</a>
+ *       <nav><ul><li><a href="/tides/">Tides</a></li></ul></nav>
+ *     </header>
+ *     <main>
+ *       <h1>Tide table</h1>
+ *       <p>High and low water for the week.</p>
+ *       <form>
+ *         <label for="berth">Berth</label>
+ *         <input id="berth" />
+ *         <button>Book</button>
+ *       </form>
+ *     </main>
+ *     <footer>Open every day but Sunday.</footer>
+ *   </body>
+ *
+ * The page gets the same tokens and the same Base as the components, and the
+ * elements look as their components do: a <button> as .onm-button, an <input> as
+ * .onm-input, a <table> as <onm-table>, a run of <details> as <onm-accordion>. The body
+ * becomes one readable column, and the writing in it gets its rhythm, as in
+ * <onm-prose>. A variation's stylesheet, linked after this one, changes it the
+ * same way it changes the components.
+ *
+ * A submit button is the solid one, because it is the form's main action.
+ * Any other button, <button type="button"> or type="reset", is the outline.
+ *
+ * An element with a class of its own is left alone: it belongs to the page's
+ * own CSS, or to a component. To move on to the components, link ui.css after
+ * this file, or in its place. These rules sit in a layer of their own, below
+ * the components, so the components win wherever the two speak.
+ */
+
+@layer tokens, base, classless, layout, components;
+
+@import url("tokens.css") layer(tokens);
+@import url("base.css") layer(base);
+
+@layer classless {
+  /* One column, at a measure made for reading. */
+
+  body {
+    max-width: 46rem;
+    margin-inline: auto;
+    padding: var(--space-8) var(--space-4) var(--space-16);
+  }
+
+  /*
+   * Rhythm. Base clears every margin, so give the things inside a block room
+   * from the one before. :where() keeps it at no specificity, so a page's own
+   * margin always wins.
+   */
+
+  :where(
+      body,
+      main,
+      article,
+      section,
+      aside,
+      header,
+      footer,
+      form,
+      fieldset,
+      blockquote,
+      figure,
+      details,
+      dialog,
+      li,
+      dd
+    )
+    > :where(* + *) {
+    margin-top: var(--space-4);
+  }
+
+  :where(main, article, section) > :where(h2) {
+    margin-top: var(--space-12);
+  }
+
+  :where(main, article, section) > :where(h3, h4) {
+    margin-top: var(--space-8);
+  }
+
+  :where(main, article, section) > :where(h1, h2, h3, h4) + * {
+    margin-top: var(--space-3);
+  }
+
+  :where(body) > :where(main) {
+    margin-top: var(--space-12);
+  }
+
+  :where(p, li, dd, blockquote, figcaption) {
+    color: var(--color-ink-soft);
+  }
+
+  :where(ul, ol) {
+    margin: 0;
+    padding-left: var(--space-6);
+  }
+
+  :where(li) + :where(li) {
+    margin-top: var(--space-2);
+  }
+
+  :where(dt) {
+    font-weight: 500;
+  }
+
+  :where(dd) {
+    margin-left: 0;
+  }
+
+  :where(dt) + :where(dd) {
+    margin-top: var(--space-1);
+  }
+
+  :where(dd) + :where(dt) {
+    margin-top: var(--space-4);
+  }
+
+  :where(hr) {
+    margin-block: var(--space-8);
+  }
+
+  :where(blockquote) {
+    padding-left: var(--space-4);
+    border-left: 2px solid var(--color-line-strong);
+  }
+
+  :where(figcaption) {
+    font-size: var(--text-sm);
+  }
+
+  :where(mark) {
+    padding-inline: 0.125em;
+    border-radius: var(--radius-sm);
+    background: var(--color-wash);
+    color: var(--color-ink);
+  }
+
+  /* The page's own header and footer: a name, the links, and a line under them. */
+
+  :where(body) > :where(header) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-6);
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  :where(body) > :where(header) > * {
+    margin-top: 0;
+  }
+
+  :where(nav) :where(ul, ol) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    padding: 0;
+    list-style: none;
+  }
+
+  :where(nav) :where(li) + :where(li) {
+    margin-top: 0;
+  }
+
+  :where(body) > :where(footer) {
+    margin-top: var(--space-16);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-line);
+    color: var(--color-ink-soft);
+    font-size: var(--text-sm);
+  }
+
+  /*
+   * Buttons, as .onm-button. The selector names exactly what counts as a button,
+   * so a checkbox or a text field is never caught by it.
+   */
+
+  :where(button, input:is([type="submit"], [type="button"], [type="reset"])):not([class]),
+  ::file-selector-button {
+    display: inline-flex;
+    gap: var(--space-2);
+    align-items: center;
+    justify-content: center;
+    height: var(--control);
+    padding-inline: var(--space-4);
+    border: 1px solid var(--color-ink);
+    border-radius: var(--radius-md);
+    background: var(--color-ink);
+    color: var(--color-cloud);
+    font: inherit;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      opacity var(--duration) var(--ease),
+      background-color var(--duration) var(--ease),
+      border-color var(--duration) var(--ease);
+  }
+
+  :where(button:is([type="button"], [type="reset"]), input:is([type="button"], [type="reset"])):not(
+    [class]
+  ),
+  ::file-selector-button {
+    border-color: var(--color-line-strong);
+    background: var(--color-milk);
+    color: var(--color-ink);
+  }
+
+  :where(button, input:is([type="submit"], [type="button"], [type="reset"])):not([class]):hover {
+    opacity: 0.85;
+  }
+
+  :where(button:is([type="button"], [type="reset"]), input:is([type="button"], [type="reset"])):not(
+      [class]
+    ):hover {
+    border-color: var(--color-ink);
+    background: var(--color-wash);
+    opacity: 1;
+  }
+
+  :where(button, input:is([type="submit"], [type="button"], [type="reset"])):not([class]):active {
+    translate: 0 1px;
+  }
+
+  :where(button, input:is([type="submit"], [type="button"], [type="reset"])):not([class]):disabled {
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  /* Buttons in a row are set apart by more than the space between words. */
+
+  :where(button, input:is([type="submit"], [type="button"], [type="reset"])):not([class])
+    + :where(button, input:is([type="submit"], [type="button"], [type="reset"])):not([class]) {
+    margin-left: var(--space-2);
+  }
+
+  /* Text fields and lists, as .onm-input. Checkboxes, radios, and the rest keep their own shape. */
+
+  :where(
+    input:not(
+      [type="checkbox"],
+      [type="radio"],
+      [type="range"],
+      [type="file"],
+      [type="color"],
+      [type="submit"],
+      [type="button"],
+      [type="reset"],
+      [type="image"],
+      [type="hidden"]
+    ),
+    textarea,
+    select
+  ):not([class]) {
+    display: block;
+    width: 100%;
+    height: var(--control);
+    padding-inline: var(--space-3);
+    border: 1px solid var(--color-line-strong);
+    border-radius: var(--radius-md);
+    background: var(--color-milk);
+    color: var(--color-ink);
+    font: inherit;
+    font-size: var(--text-sm);
+    transition: border-color var(--duration) var(--ease);
+  }
+
+  :where(input, textarea):not([class])::placeholder {
+    color: var(--color-ink-faint);
+  }
+
+  :where(input, textarea, select):not([class]):hover {
+    border-color: var(--color-ink);
+  }
+
+  :where(input, textarea, select):not([class]):focus-visible {
+    border-color: var(--color-ink);
+    outline-offset: 1px;
+  }
+
+  :where(textarea):not([class]) {
+    height: auto;
+    min-height: 6rem;
+    padding-block: var(--space-2);
+    line-height: var(--leading-normal);
+    resize: vertical;
+  }
+
+  /* The arrow is two gradients that meet in a point, so there is no image to load. */
+
+  :where(select):not([class], [multiple]) {
+    padding-right: var(--space-8);
+    background-image:
+      linear-gradient(45deg, transparent 50%, currentcolor 50%),
+      linear-gradient(135deg, currentcolor 50%, transparent 50%);
+    background-repeat: no-repeat;
+    background-position:
+      right 1.0625rem center,
+      right 0.75rem center;
+    background-size: 0.3125rem 0.3125rem;
+    appearance: none;
+  }
+
+  :where(select[multiple]):not([class]) {
+    height: auto;
+    padding-block: var(--space-2);
+  }
+
+  /* With one color to work in, a mistake is marked by line, not by hue. */
+
+  :where(input, textarea, select):not([class]):is(:user-invalid, [aria-invalid="true"]) {
+    border-color: var(--color-ink);
+    border-style: dashed;
+  }
+
+  :where(input, textarea, select):not([class]):disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  :where(input:is([type="checkbox"], [type="radio"])):not([class]) {
+    width: 1rem;
+    height: 1rem;
+    margin: 0;
+  }
+
+  :where(input[type="range"], progress, meter):not([class]) {
+    width: 100%;
+  }
+
+  /*
+   * Labels. One above its field, as in <onm-field>. One around a checkbox or a
+   * radio button sits beside it, as .onm-choice.
+   */
+
+  :where(label) {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  :where(label) + :where(input, textarea, select, small) {
+    margin-top: var(--space-2);
+  }
+
+  :where(label):has(> input:is([type="checkbox"], [type="radio"])) {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    width: fit-content;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  :where(form, fieldset) :where(small) {
+    display: block;
+    color: var(--color-ink-soft);
+  }
+
+  :where(input, textarea, select) + :where(small) {
+    margin-top: var(--space-2);
+  }
+
+  :where(fieldset) {
+    min-width: 0;
+    margin-inline: 0;
+    padding: var(--space-4);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+  }
+
+  :where(legend) {
+    padding-inline: var(--space-1);
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  /* Its legend is not in the flow, so the first thing after it starts at the top. */
+
+  :where(fieldset) > :where(legend + *) {
+    margin-top: 0;
+  }
+
+  /*
+   * Tables, as <onm-table>. A table cannot scroll by itself without losing what
+   * it is to a screen reader, so a wide one goes inside a <figure>, which does.
+   */
+
+  :where(figure):has(> table) {
+    overflow-x: auto;
+  }
+
+  :where(table):not([class]) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+
+  :where(table):not([class]) :where(th, td) {
+    padding: var(--space-3) var(--space-4) var(--space-3) 0;
+    text-align: start;
+    vertical-align: top;
+  }
+
+  :where(table):not([class]) :where(thead th) {
+    color: var(--color-ink-faint);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  :where(table):not([class]) :where(tbody th) {
+    font-weight: 500;
+  }
+
+  :where(table):not([class]) :where(tbody tr) {
+    border-top: 1px solid var(--color-line);
+  }
+
+  :where(table):not([class]) :where(caption) {
+    padding-bottom: var(--space-2);
+    color: var(--color-ink-soft);
+    text-align: start;
+  }
+
+  /* Details, as <onm-accordion>: one after another, ruled apart, with a chevron. */
+
+  :where(details):not([class]) {
+    border-block: 1px solid var(--color-line);
+  }
+
+  :where(details):not([class]) + :where(details):not([class]) {
+    margin-top: 0;
+    border-top: 0;
+  }
+
+  :where(details):not([class]) > :where(summary) {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--space-4);
+    font-weight: 500;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  :where(details):not([class]) > :where(summary)::-webkit-details-marker {
+    display: none;
+  }
+
+  :where(details):not([class]) > :where(summary)::after {
+    flex: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-right: 0.25rem;
+    border-right: 1.5px solid currentcolor;
+    border-bottom: 1.5px solid currentcolor;
+    rotate: 45deg;
+    translate: 0 -0.125rem;
+    transition: rotate var(--duration) var(--ease);
+    content: "";
+  }
+
+  :where(details[open]):not([class]) > :where(summary)::after {
+    rotate: 225deg;
+    translate: 0 0.125rem;
+  }
+
+  :where(details[open]):not([class]) {
+    padding-bottom: var(--space-4);
+  }
+
+  :where(details):not([class]) > :where(summary + *) {
+    margin-top: 0;
+  }
+
+  /* A dialog, as .onm-dialog. */
+
+  :where(dialog):not([class]) {
+    width: min(28rem, 100vw - 2rem);
+    padding: var(--space-6);
+    border: 1px solid var(--color-line);
+    border-radius: calc(var(--radius-lg) + 4px);
+    background: var(--color-milk);
+    box-shadow: var(--shadow-lg);
+    color: var(--color-ink);
+  }
+
+  :where(dialog):not([class])::backdrop {
+    background: color-mix(in oklab, var(--color-cloud) 60%, transparent);
+    backdrop-filter: blur(6px);
+  }
+}

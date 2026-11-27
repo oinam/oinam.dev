@@ -14,6 +14,25 @@ The numbers mean what they say:
 - The first number changes when a page that worked may stop working: a class, an element, an
   attribute, or a token was renamed or removed. Before 1.0.0, the middle number does this job too.
 
+## 0.10.1
+
+2026-11-27
+
+Every file says where it came from. A stylesheet or a script taken into a project travels on its
+own, and a reader who finds it there should be able to find the rest.
+
+- Every stylesheet and script in `ui/`, the fonts' stylesheets, the patterns' stylesheet, and the
+  tools now carry one line in their opening comment: "From Oinam UI at https://oinam.dev/ui/, under
+  the MIT license." A test holds every file to it.
+
+### What to do
+
+Nothing in a page has to change. Running the installer again brings the new line into every file.
+A file the project has changed is kept as it is, with the new one beside it as `.new`; add the
+line by hand there, or leave it.
+
+- A page that links a release may change `/ui/releases/0.10.0/` to `/ui/releases/0.10.1/`.
+
 ## 0.10.0
 
 2026-11-27

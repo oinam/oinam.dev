@@ -1,4 +1,6 @@
 /*
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
+ *
  * Sets the theme before first paint, so a stored choice never flashes the
  * wrong one. Load it in the <head> as a plain script, not a module:
  *

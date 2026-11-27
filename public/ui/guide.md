@@ -1,4 +1,4 @@
-# Oinam UI v0.10.0
+# Oinam UI v0.10.1
 
 A design system in plain HTML, CSS, and JavaScript. No framework, no build step, and no
 dependencies. This page is the core of it, written for an AI agent to read once and then design
@@ -60,9 +60,9 @@ Every version is also served, frozen, at an address of its own, and any site may
 there never change, so a page that links them keeps its look whatever a later version renames.
 
 ```html
-<link rel="stylesheet" href="https://oinam.dev/ui/releases/0.10.0/ui.css" />
-<script src="https://oinam.dev/ui/releases/0.10.0/theme-init.js"></script>
-<script type="module" src="https://oinam.dev/ui/releases/0.10.0/ui.js"></script>
+<link rel="stylesheet" href="https://oinam.dev/ui/releases/0.10.1/ui.css" />
+<script src="https://oinam.dev/ui/releases/0.10.1/theme-init.js"></script>
+<script type="module" src="https://oinam.dev/ui/releases/0.10.1/ui.js"></script>
 ```
 
 - Only the files a page loads are there: the stylesheets, the scripts, and the fonts. The guide,

@@ -1,5 +1,6 @@
 /*
  * Dialog
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  * A class on <dialog>, which already traps focus, closes on Escape, and dims
  * the page behind it. The buttons open and close it by naming it, so there is

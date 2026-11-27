@@ -1,5 +1,6 @@
 /*
  * Ratio
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  * <onm-ratio> keeps a picture, a video, or a frame to a fixed shape, and crops
  * it to fit. It is 16 by 9 unless ratio="4/3|1/1|21/9" says otherwise.

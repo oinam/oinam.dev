@@ -1,5 +1,6 @@
 /*
  * <onm-toast>: brief messages that appear in a corner and go away again.
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  * Put one <onm-toast> on the page, anywhere, or let this script add it when the
  * first message is shown. There are two ways to show a message.

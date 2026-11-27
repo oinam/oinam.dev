@@ -1,5 +1,6 @@
 /*
  * The patterns' own stylesheet: what a project's own stylesheet looks like.
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  * It is short, because the system does most of the work, and it holds to the
  * same rules: every value is a token, and there is no color written out.

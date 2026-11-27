@@ -1,5 +1,6 @@
 /*
  * Oinam UI
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  * Every element that needs a script, in one module:
  *

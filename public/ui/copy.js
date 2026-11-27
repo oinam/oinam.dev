@@ -1,5 +1,6 @@
 /*
  * <onm-copy>: a copy button for a block of code.
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  *   <onm-copy>
  *     <pre><code>npm install</code></pre>

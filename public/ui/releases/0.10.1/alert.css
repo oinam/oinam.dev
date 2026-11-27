@@ -1,0 +1,93 @@
+/*
+ * Alert
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
+ *
+ * <onm-alert> sets a message apart from the text around it. Weight carries the
+ * meaning, not color: a note is a thin frame, a warning is a heavy one, and
+ * danger turns the colors over.
+ *
+ * Give it role="note", or role="alert" when it appears in answer to something
+ * the reader just did.
+ *
+ *   <onm-alert variant="warning" role="note">
+ *     <strong>Warning</strong>
+ *     <p>This rewrites history.</p>
+ *   </onm-alert>
+ *
+ * An alert may also take a tone, success, warning, danger, or info, when its
+ * color helps the eye find it. The weight still carries the meaning, so a tone
+ * agrees with the variant: a warning frame is warning, and danger is danger.
+ * Each tone sets its text on its own fill, never on the page.
+ *
+ *   <onm-alert variant="danger" tone="danger" role="alert">
+ *     <strong>Payment failed</strong>
+ *     <p>The card was declined. Nothing was charged.</p>
+ *   </onm-alert>
+ */
+
+onm-alert {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-milk);
+  font-size: var(--text-sm);
+}
+
+onm-alert > p {
+  color: var(--color-ink-soft);
+}
+
+onm-alert[variant="warning"] {
+  border: 2px solid var(--color-ink);
+}
+
+onm-alert[variant="danger"] {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-cloud);
+}
+
+onm-alert[variant="danger"] > p {
+  color: inherit;
+  opacity: 0.8;
+}
+
+onm-alert[tone="success"] {
+  --tone-text: var(--color-success);
+  --tone-fill: var(--color-success-fill);
+}
+
+onm-alert[tone="warning"] {
+  --tone-text: var(--color-warning);
+  --tone-fill: var(--color-warning-fill);
+}
+
+onm-alert[tone="danger"] {
+  --tone-text: var(--color-danger);
+  --tone-fill: var(--color-danger-fill);
+}
+
+onm-alert[tone="info"] {
+  --tone-text: var(--color-info);
+  --tone-fill: var(--color-info-fill);
+}
+
+onm-alert[tone] {
+  border-color: var(--tone-text);
+  background: var(--tone-fill);
+  color: var(--tone-text);
+}
+
+/* The body keeps the tone's own text, at full strength, to stay at 7 to 1. */
+onm-alert[tone] > p {
+  color: inherit;
+  opacity: 1;
+}
+
+/* Danger turns a tone over, as it turns ink and cloud over. */
+onm-alert[tone][variant="danger"] {
+  background: var(--tone-text);
+  color: var(--tone-fill);
+}

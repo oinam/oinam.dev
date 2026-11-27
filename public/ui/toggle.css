@@ -1,5 +1,6 @@
 /*
  * Toggle
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  * A toggle is a button that stays pressed. It is a checkbox underneath, so it
  * needs no script and sends its value with a form: a class on the <label>

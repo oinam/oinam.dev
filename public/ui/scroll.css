@@ -1,5 +1,6 @@
 /*
  * Scroll
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  * <onm-scroll> is a frame for something too long to show at once. It scrolls
  * inside, with a thin bar, so the page keeps its length. Give it tabindex="0"

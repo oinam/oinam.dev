@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /*
  * Oinam UI: the linter.
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  *   node ui/tools/lint.js page.html styles.css
  *   node ui/tools/lint.js site/            every .html and .css file under a folder

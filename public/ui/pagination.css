@@ -1,5 +1,6 @@
 /*
  * Pagination
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  * A class on the <nav> around a list of page links. The page being shown has
  * aria-current="page".

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /*
  * Oinam UI: see a page.
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  *   node ui/tools/see.js http://localhost:8788/pricing/
  *   node ui/tools/see.js --root site pricing/index.html

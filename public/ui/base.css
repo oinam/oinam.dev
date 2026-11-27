@@ -1,5 +1,6 @@
 /*
  * Base
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  * How plain HTML looks before any component is involved. Margins are cleared,
  * because spacing belongs to whatever lays the elements out: <onm-stack> for a

@@ -1,5 +1,6 @@
 /*
  * <onm-menu>: a button and the short list of actions it opens.
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  * The markup is in menu.css. The browser already opens and closes the list,
  * which is a popover. This element adds what a list of actions needs on top:

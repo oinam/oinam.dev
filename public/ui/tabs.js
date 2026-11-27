@@ -1,5 +1,6 @@
 /*
  * <onm-tabs>: sections become tabs.
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  *   <onm-tabs label="Install">
  *     <section>

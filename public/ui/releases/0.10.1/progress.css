@@ -1,0 +1,35 @@
+/*
+ * Progress
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
+ *
+ * A class on <progress>, which already knows how far along it is and tells a
+ * screen reader so.
+ *
+ *   <label for="upload">Uploading the chart</label>
+ *   <progress class="onm-progress" id="upload" value="40" max="100">40%</progress>
+ */
+
+.onm-progress {
+  display: block;
+  width: 100%;
+  height: 0.5rem;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-line);
+  appearance: none;
+}
+
+/* Each browser draws the bar with a part of its own. */
+
+.onm-progress::-webkit-progress-bar {
+  background: var(--color-line);
+}
+
+.onm-progress::-webkit-progress-value {
+  background: var(--color-ink);
+}
+
+.onm-progress::-moz-progress-bar {
+  background: var(--color-ink);
+}

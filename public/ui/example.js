@@ -1,5 +1,6 @@
 /*
  * <onm-example>: markup at work, and its source beside it.
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  *   <onm-example>
  *     <button class="onm-button" type="button">Save</button>

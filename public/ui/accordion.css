@@ -1,5 +1,6 @@
 /*
  * Accordion
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  * <onm-accordion> goes around a set of <details>. The browser already opens and
  * closes them; give them all the same name and it also keeps one open at a

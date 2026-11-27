@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /*
  * Oinam UI: a Model Context Protocol server.
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
  *
  * It lets an agent ask for one thing at a time: the guide, the page of one
  * component, one pattern, or a check of what it has written. It answers from
