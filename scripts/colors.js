@@ -238,6 +238,7 @@ function head({ title, description, url, styles }) {
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/ui/ui.css" />
     <link rel="stylesheet" href="/assets/site.css" />
+    <link rel="preload" href="/assets/fonts/fraunces/fraunces.woff2" as="font" type="font/woff2" crossorigin />
 ${styles.map((href) => `    <link rel="stylesheet" href="${href}" />`).join("\n")}
     <script src="/ui/theme-init.js"></script>
     <script type="module" src="/ui/ui.js"></script>

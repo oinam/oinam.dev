@@ -68,8 +68,9 @@ push to `main` deploys it. How the Cloudflare zone around it is set up, and why,
   address written out. Keep that sentence on the page whatever else changes; a test checks for it.
 - **Static.** No build step, no framework, no server code, and no third-party requests. A page is a
   file. Reach for Cloudflare's dynamic features only when a static file cannot do the job.
-- **Fast.** System fonts, one stylesheet, and as little script as a page can get by on. Scripts
-  enhance; no content waits on them.
+- **Fast.** The reader's own fonts for text, and Fraunces, one small file served from here, for
+  headings (the garden and Play keep Base's fonts, since they show it). One stylesheet, and as
+  little script as a page can get by on. Scripts enhance; no content waits on them.
 - **Open.** No accounts, and nothing behind a sign-in.
 - **Crafted.** Write it the way a veteran programmer would at leisure, over a period of time:
   plain, unhurried, and pretty. Comment where a reader would otherwise stumble, say why rather than

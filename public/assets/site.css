@@ -10,6 +10,38 @@
   --header: 4.5rem;
 }
 
+/*
+ * Fraunces, for the site's headings. The text stays in the reader's own
+ * fonts. It is the file oinam.com serves, trimmed to what headings use:
+ * Latin, upright, and the one weight Base sets them in (400), with its
+ * optical sizes kept, so each heading is drawn for its size. 35 KB.
+ *
+ * No flash: every page preloads the file, and font-display: optional lets the
+ * browser use it only if it is there before the page is first drawn. If it is
+ * late, that page keeps the fallback serif rather than change fonts while it
+ * is read; the next page has it from the cache.
+ *
+ * The garden and Play show the components' own designs, Base among them, so
+ * their pages are marked data-base-fonts and keep Base's fonts.
+ *
+ * Fraunces is under the SIL Open Font License; see fonts/fraunces/license.txt.
+ */
+
+@font-face {
+  font-family: Fraunces;
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url("/assets/fonts/fraunces/fraunces.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root:not([data-base-fonts]) {
+  --font-heading: fraunces, var(--font-serif);
+}
+
 body {
   display: flex;
   flex-direction: column;
