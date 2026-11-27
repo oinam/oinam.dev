@@ -60,8 +60,11 @@ function buildPalette() {
   input.addEventListener("keydown", onPaletteKey);
 
   // A click on the backdrop lands on the dialog itself, not on its contents.
+  // A result followed, by click or by Enter, puts the palette away too. On
+  // another page that hardly matters, but a result on this one, such as one
+  // of its sections, is only a jump down the page, made behind the dialog.
   dialog.addEventListener("click", (event) => {
-    if (event.target === dialog) dialog.close();
+    if (event.target === dialog || event.target.closest?.("a")) dialog.close();
   });
 
   document.body.append(dialog);
@@ -102,7 +105,7 @@ async function renderResults() {
       const item = document.createElement("li");
       item.id = `palette-result-${position}`;
       item.role = "option";
-      item.ariaSelected = String(position === active);
+      item.setAttribute("aria-selected", String(position === active));
       item.addEventListener("pointermove", () => highlight(position));
       item.append(link);
       return item;
@@ -118,7 +121,7 @@ function highlight(position) {
 
   // Wrap around at either end.
   active = (position + items.length) % items.length;
-  items.forEach((item, at) => (item.ariaSelected = String(at === active)));
+  items.forEach((item, at) => item.setAttribute("aria-selected", String(at === active)));
   items[active].scrollIntoView({ block: "nearest" });
   palette.querySelector("input").setAttribute("aria-activedescendant", items[active].id);
 }
