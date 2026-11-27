@@ -334,7 +334,7 @@ ${strips}
           </p>
           <p>
             A color has a number, which is its address, and a name, which is only for reading:
-            <a href="/colors/1/navy/">/colors/1/navy/</a> and <a href="/colors/1/">/colors/1/</a> are
+            <a href="/colors/2/navy/">/colors/2/navy/</a> and <a href="/colors/2/">/colors/2/</a> are
             the same page. So a color can be renamed, and every link to it still works. The same list
             is in <a href="/colors/colors.json">colors.json</a>, as data. Every text shade in every color
             reaches 4.5 to 1, in both themes; a test holds them there.
@@ -362,7 +362,7 @@ ${bottom}`;
 /** One color's page, which wears that color. */
 function colorPage(color) {
   const { top, bottom } = chrome();
-  const base = color.id === "0";
+  const base = color.id === "1";
   const [light, dark] = color.themes;
   const url = `https://oinam.dev/colors/${color.id}/`;
 
@@ -628,7 +628,7 @@ export async function render() {
   };
   for (const color of all) {
     files[`public/colors/${color.id}/index.html`] = colorPage(color);
-    if (color.id !== "0") files[`public/colors/${color.id}.css`] = takeAway(color);
+    if (color.id !== "1") files[`public/colors/${color.id}.css`] = takeAway(color);
   }
   for (const [path, source] of Object.entries(files)) {
     const filepath = fileURLToPath(new URL(path, ROOT));

@@ -1,8 +1,8 @@
 /*
- * Yellow, color 34 of Oinam UI
- * https://oinam.dev/colors/34/yellow/
+ * Lime, color 34 of Oinam UI
+ * https://oinam.dev/colors/34/lime/
  *
- * A warm yellow, with a dark olive ink.
+ * A sharp yellow-green.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
  * Link it after the components. Every other shade is mixed from the first
@@ -10,9 +10,9 @@
  */
 
 :root {
-  --color-ink: light-dark(oklch(24.7% 0.046 85.5deg), oklch(94.2% 0.075 101.1deg));
-  --color-cloud: light-dark(oklch(98.8% 0.025 101.9deg), oklch(18.2% 0.014 94deg));
-  --color-milk: light-dark(oklch(99.3% 0.005 106.5deg), oklch(20.9% 0.017 91.8deg));
-  --color-accent: light-dark(oklch(46% 0.094 101.1deg), oklch(70% 0.146 101.1deg));
-  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(18.2% 0.014 94deg));
+  --color-ink: light-dark(oklch(23.7% 0.056 120.3deg), oklch(94.6% 0.082 122.7deg));
+  --color-cloud: light-dark(oklch(98.2% 0.009 119.6deg), oklch(18.2% 0.014 120.8deg));
+  --color-milk: light-dark(oklch(99.2% 0.004 121.6deg), oklch(20.9% 0.02 129.6deg));
+  --color-accent: light-dark(oklch(45.5% 0.11 122.7deg), oklch(69.5% 0.15 122.7deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(18.2% 0.014 120.8deg));
 }

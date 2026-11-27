@@ -4,5 +4,10 @@
 # A color's page is /colors/<id>/, and its name may follow: /colors/01/navy/. The number is the
 # address and the name is only for reading, so it is not checked: a color can be renamed, and
 # every old link still reaches it. A 200 serves the page without changing the address.
+# The colors were counted from 0 until 2026-11-27, and Base was 0. It is 1 now. These come first,
+# because the rewrite below would otherwise send /colors/0/base/ to a page that is gone.
+/colors/0/ /colors/1/ 301
+/colors/0/* /colors/1/ 301
+
 /colors/:id/:name/ /colors/:id/ 200
 /colors/:id/:name /colors/:id/ 200

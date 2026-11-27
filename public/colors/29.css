@@ -1,8 +1,8 @@
 /*
- * Bronze, color 29 of Oinam UI
- * https://oinam.dev/colors/29/bronze/
+ * Brown, color 29 of Oinam UI
+ * https://oinam.dev/colors/29/brown/
  *
- * A muted, metallic brown.
+ * A warm brown.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
  * Link it after the components. Every other shade is mixed from the first
@@ -10,9 +10,9 @@
  */
 
 :root {
-  --color-ink: light-dark(oklch(24.4% 0.03 33.1deg), oklch(91.8% 0.017 50.4deg));
-  --color-cloud: light-dark(oklch(98% 0.007 39.5deg), oklch(18.1% 0.005 39.3deg));
-  --color-milk: light-dark(oklch(99.2% 0.001 17.2deg), oklch(21.6% 0.006 56deg));
-  --color-accent: light-dark(oklch(48% 0.15 33.1deg), oklch(71.5% 0.15 33.1deg));
-  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(18.1% 0.005 39.3deg));
+  --color-ink: light-dark(oklch(24.5% 0.018 48deg), oklch(91.7% 0.036 75.5deg));
+  --color-cloud: light-dark(oklch(98.4% 0.005 67.8deg), oklch(17.8% 0.004 84.6deg));
+  --color-milk: light-dark(oklch(99.5% 0.002 67.8deg), oklch(21.3% 0.007 48.4deg));
+  --color-accent: light-dark(oklch(46.5% 0.096 75.5deg), oklch(70.5% 0.148 75.5deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(17.8% 0.004 84.6deg));
 }

@@ -1,8 +1,8 @@
 /*
- * Lime, color 33 of Oinam UI
- * https://oinam.dev/colors/33/lime/
+ * Mint, color 33 of Oinam UI
+ * https://oinam.dev/colors/33/mint/
  *
- * A sharp yellow-green.
+ * A cool, pale green.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
  * Link it after the components. Every other shade is mixed from the first
@@ -10,9 +10,9 @@
  */
 
 :root {
-  --color-ink: light-dark(oklch(23.7% 0.056 120.3deg), oklch(94.6% 0.082 122.7deg));
-  --color-cloud: light-dark(oklch(98.2% 0.009 119.6deg), oklch(18.2% 0.014 120.8deg));
-  --color-milk: light-dark(oklch(99.2% 0.004 121.6deg), oklch(20.9% 0.02 129.6deg));
-  --color-accent: light-dark(oklch(45.5% 0.11 122.7deg), oklch(69.5% 0.15 122.7deg));
-  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(18.2% 0.014 120.8deg));
+  --color-ink: light-dark(oklch(23.7% 0.043 179.4deg), oklch(93.1% 0.057 168.3deg));
+  --color-cloud: light-dark(oklch(98.1% 0.01 181.4deg), oklch(18.9% 0.011 196.3deg));
+  --color-milk: light-dark(oklch(99.3% 0.005 183deg), oklch(21.1% 0.017 195.9deg));
+  --color-accent: light-dark(oklch(45% 0.09 168.3deg), oklch(69% 0.138 168.3deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(18.9% 0.011 196.3deg));
 }

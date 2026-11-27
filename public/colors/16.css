@@ -1,8 +1,8 @@
 /*
- * Pink, color 16 of Oinam UI
- * https://oinam.dev/colors/16/pink/
+ * Crimson, color 16 of Oinam UI
+ * https://oinam.dev/colors/16/crimson/
  *
- * A bright pink.
+ * A cool, deep pink-red.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
  * Link it after the components. Every other shade is mixed from the first
@@ -10,9 +10,9 @@
  */
 
 :root {
-  --color-ink: light-dark(oklch(25.4% 0.107 347.2deg), oklch(90.9% 0.059 343.2deg));
-  --color-cloud: light-dark(oklch(98.3% 0.009 341.8deg), oklch(19.1% 0.017 335.3deg));
-  --color-milk: light-dark(oklch(99.4% 0.004 337.3deg), oklch(20.8% 0.032 337deg));
-  --color-accent: light-dark(oklch(48% 0.15 347.2deg), oklch(72.5% 0.15 347.2deg));
-  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(19.1% 0.017 335.3deg));
+  --color-ink: light-dark(oklch(25.4% 0.103 358.2deg), oklch(90.9% 0.054 346.6deg));
+  --color-cloud: light-dark(oklch(98.2% 0.008 357.8deg), oklch(18.9% 0.014 354.2deg));
+  --color-milk: light-dark(oklch(99.4% 0.003 354.7deg), oklch(20.6% 0.023 354.5deg));
+  --color-accent: light-dark(oklch(48% 0.15 358.2deg), oklch(72.5% 0.15 358.2deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(18.9% 0.014 354.2deg));
 }

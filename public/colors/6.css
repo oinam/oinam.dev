@@ -1,18 +1,17 @@
 /*
- * Gray, color 6 of Oinam UI
- * https://oinam.dev/colors/6/gray/
+ * Clay, color 6 of Oinam UI
+ * https://oinam.dev/colors/6/clay/
  *
- * A pure grey, with no tint at all.
- * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
+ * A dark earth red on a warm, faintly pink cloud.
  *
  * Link it after the components. Every other shade is mixed from the first
  * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
-  --color-ink: light-dark(oklch(23.9% 0 0deg), oklch(94.9% 0 0deg));
-  --color-cloud: light-dark(oklch(98.2% 0 0deg), oklch(17.8% 0 0deg));
-  --color-milk: light-dark(oklch(99.1% 0 0deg), oklch(21.3% 0 0deg));
-  --color-accent: light-dark(oklch(23.9% 0 0deg), oklch(94.9% 0 0deg));
-  --color-accent-text: light-dark(oklch(98.2% 0 0deg), oklch(17.8% 0 0deg));
+  --color-ink: light-dark(oklch(23% 0.059 40.3deg), oklch(93.9% 0.024 40.3deg));
+  --color-cloud: light-dark(oklch(97% 0.016 42.4deg), oklch(19% 0.03 41.3deg));
+  --color-milk: light-dark(oklch(99.1% 0.005 48.7deg), oklch(23% 0.03 40.2deg));
+  --color-accent: light-dark(oklch(47.5% 0.148 40.3deg), oklch(72% 0.15 40.3deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(19% 0.03 41.3deg));
 }

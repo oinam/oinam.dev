@@ -1,17 +1,17 @@
 /*
- * Forest, color 4 of Oinam UI
- * https://oinam.dev/colors/4/forest/
+ * Carbon, color 4 of Oinam UI
+ * https://oinam.dev/colors/4/carbon/
  *
- * A deep green on a pale green cloud, and the woods at night.
+ * Black on white, as plain as a screen allows, with no tint in either.
  *
  * Link it after the components. Every other shade is mixed from the first
  * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
-  --color-ink: light-dark(oklch(22.1% 0.057 152.8deg), oklch(94.1% 0.022 154.1deg));
-  --color-cloud: light-dark(oklch(97% 0.014 155.6deg), oklch(19.1% 0.03 155.1deg));
-  --color-milk: light-dark(oklch(99% 0.006 153.8deg), oklch(23% 0.029 155.9deg));
-  --color-accent: light-dark(oklch(45% 0.116 152.8deg), oklch(69% 0.15 152.8deg));
-  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(19.1% 0.03 155.1deg));
+  --color-ink: light-dark(oklch(17.8% 0 0deg), oklch(94.6% 0 0deg));
+  --color-cloud: light-dark(oklch(98.5% 0 0deg), oklch(14.5% 0 0deg));
+  --color-milk: light-dark(oklch(100% 0 0deg), oklch(19.6% 0 0deg));
+  --color-accent: light-dark(oklch(17.8% 0 0deg), oklch(94.6% 0 0deg));
+  --color-accent-text: light-dark(oklch(98.5% 0 0deg), oklch(14.5% 0 0deg));
 }

@@ -1,8 +1,8 @@
 /*
- * Teal, color 24 of Oinam UI
- * https://oinam.dev/colors/24/teal/
+ * Cyan, color 24 of Oinam UI
+ * https://oinam.dev/colors/24/cyan/
  *
- * A green-blue.
+ * A bright blue-green.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
  * Link it after the components. Every other shade is mixed from the first
@@ -10,9 +10,9 @@
  */
 
 :root {
-  --color-ink: light-dark(oklch(23.8% 0.042 184.3deg), oklch(90.5% 0.072 175.1deg));
-  --color-cloud: light-dark(oklch(98.2% 0.009 179.6deg), oklch(18.7% 0.012 186.7deg));
-  --color-milk: light-dark(oklch(99.4% 0.004 179.7deg), oklch(21.6% 0.016 189deg));
-  --color-accent: light-dark(oklch(45% 0.084 175.1deg), oklch(69% 0.128 175.1deg));
-  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(18.7% 0.012 186.7deg));
+  --color-ink: light-dark(oklch(23.5% 0.045 225.9deg), oklch(91% 0.057 211.5deg));
+  --color-cloud: light-dark(oklch(97.9% 0.009 205.9deg), oklch(19.2% 0.018 222.8deg));
+  --color-milk: light-dark(oklch(99.2% 0.003 219.5deg), oklch(21.4% 0.019 227.9deg));
+  --color-accent: light-dark(oklch(45.5% 0.078 211.5deg), oklch(69.5% 0.12 211.5deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(19.2% 0.018 222.8deg));
 }

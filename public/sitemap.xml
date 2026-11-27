@@ -8,7 +8,6 @@
   <url><loc>https://oinam.dev/play/</loc></url>
   <url><loc>https://oinam.dev/garden/</loc></url>
   <url><loc>https://oinam.dev/colors/</loc></url>
-  <url><loc>https://oinam.dev/colors/0/</loc></url>
   <url><loc>https://oinam.dev/colors/1/</loc></url>
   <url><loc>https://oinam.dev/colors/2/</loc></url>
   <url><loc>https://oinam.dev/colors/3/</loc></url>
@@ -50,4 +49,5 @@
   <url><loc>https://oinam.dev/colors/39/</loc></url>
   <url><loc>https://oinam.dev/colors/40/</loc></url>
   <url><loc>https://oinam.dev/colors/41/</loc></url>
+  <url><loc>https://oinam.dev/colors/42/</loc></url>
 </urlset>

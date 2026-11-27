@@ -34,17 +34,17 @@ test("nothing is left in public/colors/ that the script does not write", async (
   }
 });
 
-test("numbers count up from 0, with no zeros in front, and no two colors share a name", () => {
+test("numbers count up from 1, with no zeros in front, and no two colors share a name", () => {
   assert.deepEqual(
     all.map((color) => color.id),
-    all.map((_, at) => String(at)),
+    all.map((_, at) => String(at + 1)),
   );
   const names = all.map((color) => color.name);
   assert.equal(new Set(names).size, names.length);
   for (const name of names) assert.match(name, /^[a-z][a-z-]*$/, name);
 });
 
-test("color 0 is Base, as tokens.css has it", () => {
+test("color 1 is Base, as tokens.css has it", () => {
   const tokens = read("public/ui/tokens.css");
   const [base] = all;
   assert.equal(base.name, "base");
@@ -141,7 +141,7 @@ for (const color of all) {
 }
 
 test("every take-away stylesheet carries its accent", () => {
-  for (const color of all.filter((one) => one.id !== "0")) {
+  for (const color of all.filter((one) => one.id !== "1")) {
     const css = read(`public/colors/${color.id}.css`);
     assert.ok(
       css.includes(`--color-accent: light-dark(${color.accent[0]}, ${color.accent[1]});`),

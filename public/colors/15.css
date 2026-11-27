@@ -1,8 +1,8 @@
 /*
- * Crimson, color 15 of Oinam UI
- * https://oinam.dev/colors/15/crimson/
+ * Ruby, color 15 of Oinam UI
+ * https://oinam.dev/colors/15/ruby/
  *
- * A cool, deep pink-red.
+ * A deep red leaning toward pink.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
  * Link it after the components. Every other shade is mixed from the first
@@ -10,9 +10,9 @@
  */
 
 :root {
-  --color-ink: light-dark(oklch(25.4% 0.103 358.2deg), oklch(90.9% 0.054 346.6deg));
-  --color-cloud: light-dark(oklch(98.2% 0.008 357.8deg), oklch(18.9% 0.014 354.2deg));
-  --color-milk: light-dark(oklch(99.4% 0.003 354.7deg), oklch(20.6% 0.023 354.5deg));
-  --color-accent: light-dark(oklch(48% 0.15 358.2deg), oklch(72.5% 0.15 358.2deg));
-  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(18.9% 0.014 354.2deg));
+  --color-ink: light-dark(oklch(25.4% 0.101 12.1deg), oklch(91.1% 0.052 355.2deg));
+  --color-cloud: light-dark(oklch(98.3% 0.009 8.5deg), oklch(18.9% 0.014 1.9deg));
+  --color-milk: light-dark(oklch(99.4% 0.003 354.7deg), oklch(20.8% 0.015 3.6deg));
+  --color-accent: light-dark(oklch(48% 0.15 12.1deg), oklch(72% 0.15 12.1deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(18.9% 0.014 1.9deg));
 }

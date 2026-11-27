@@ -1,17 +1,17 @@
 /*
- * Paper, color 2 of Oinam UI
- * https://oinam.dev/colors/2/paper/
+ * Navy, color 2 of Oinam UI
+ * https://oinam.dev/colors/2/navy/
  *
- * Soft black on warm paper, like a printed page.
+ * A bright navy for text by day, and a deep one for the ground by night, on a cloud of the same blue.
  *
  * Link it after the components. Every other shade is mixed from the first
  * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
-  --color-ink: light-dark(oklch(21.8% 0.006 91.6deg), oklch(95.3% 0.01 87.5deg));
-  --color-cloud: light-dark(oklch(96.8% 0.009 84.6deg), oklch(17.8% 0.004 84.6deg));
-  --color-milk: light-dark(oklch(99.1% 0.004 91.4deg), oklch(21.9% 0.007 78.2deg));
-  --color-accent: light-dark(oklch(21.8% 0.006 91.6deg), oklch(95.3% 0.01 87.5deg));
-  --color-accent-text: light-dark(oklch(96.8% 0.009 84.6deg), oklch(17.8% 0.004 84.6deg));
+  --color-ink: light-dark(oklch(24% 0.101 264.4deg), oklch(94.2% 0.016 248deg));
+  --color-cloud: light-dark(oklch(97.5% 0.007 260.7deg), oklch(21.4% 0.063 265.5deg));
+  --color-milk: light-dark(oklch(99.4% 0.003 264.5deg), oklch(24.6% 0.07 266.4deg));
+  --color-accent: light-dark(oklch(46.5% 0.15 264.4deg), oklch(72.5% 0.14 264.4deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(21.4% 0.063 265.5deg));
 }

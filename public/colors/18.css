@@ -1,8 +1,8 @@
 /*
- * Purple, color 18 of Oinam UI
- * https://oinam.dev/colors/18/purple/
+ * Plum, color 18 of Oinam UI
+ * https://oinam.dev/colors/18/plum/
  *
- * A true purple.
+ * A purple leaning toward pink.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
  * Link it after the components. Every other shade is mixed from the first
@@ -10,9 +10,9 @@
  */
 
 :root {
-  --color-ink: light-dark(oklch(24.8% 0.111 303.4deg), oklch(91.1% 0.049 311deg));
-  --color-cloud: light-dark(oklch(98.1% 0.01 311.2deg), oklch(19.1% 0.022 315.6deg));
-  --color-milk: light-dark(oklch(99.3% 0.003 325.6deg), oklch(21.4% 0.03 313.1deg));
-  --color-accent: light-dark(oklch(48% 0.15 303.4deg), oklch(72% 0.15 303.4deg));
-  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(19.1% 0.022 315.6deg));
+  --color-ink: light-dark(oklch(25.5% 0.122 321deg), oklch(90.6% 0.055 326deg));
+  --color-cloud: light-dark(oklch(98.2% 0.01 325.7deg), oklch(19% 0.018 326.2deg));
+  --color-milk: light-dark(oklch(99.3% 0.004 314.8deg), oklch(21% 0.032 326.6deg));
+  --color-accent: light-dark(oklch(48% 0.15 321deg), oklch(72% 0.15 321deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(19% 0.018 326.2deg));
 }

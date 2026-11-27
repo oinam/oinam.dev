@@ -1,8 +1,8 @@
 /*
- * Cyan, color 23 of Oinam UI
- * https://oinam.dev/colors/23/cyan/
+ * Blue, color 23 of Oinam UI
+ * https://oinam.dev/colors/23/blue/
  *
- * A bright blue-green.
+ * A clear blue.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
  * Link it after the components. Every other shade is mixed from the first
@@ -10,9 +10,9 @@
  */
 
 :root {
-  --color-ink: light-dark(oklch(23.5% 0.045 225.9deg), oklch(91% 0.057 211.5deg));
-  --color-cloud: light-dark(oklch(97.9% 0.009 205.9deg), oklch(19.2% 0.018 222.8deg));
-  --color-milk: light-dark(oklch(99.2% 0.003 219.5deg), oklch(21.4% 0.019 227.9deg));
-  --color-accent: light-dark(oklch(45.5% 0.078 211.5deg), oklch(69.5% 0.12 211.5deg));
-  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(19.2% 0.018 222.8deg));
+  --color-ink: light-dark(oklch(24% 0.097 259.9deg), oklch(90.7% 0.051 238.4deg));
+  --color-cloud: light-dark(oklch(98.2% 0.009 242.8deg), oklch(19.4% 0.025 256.5deg));
+  --color-milk: light-dark(oklch(99.3% 0.003 247.9deg), oklch(21.3% 0.03 261.3deg));
+  --color-accent: light-dark(oklch(47% 0.15 259.9deg), oklch(71% 0.15 259.9deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(19.4% 0.025 256.5deg));
 }

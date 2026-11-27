@@ -1,17 +1,17 @@
 /*
- * Clay, color 5 of Oinam UI
- * https://oinam.dev/colors/5/clay/
+ * Forest, color 5 of Oinam UI
+ * https://oinam.dev/colors/5/forest/
  *
- * A dark earth red on a warm, faintly pink cloud.
+ * A deep green on a pale green cloud, and the woods at night.
  *
  * Link it after the components. Every other shade is mixed from the first
  * three; the accent is the fill of the one main action, and its label.
  */
 
 :root {
-  --color-ink: light-dark(oklch(23% 0.059 40.3deg), oklch(93.9% 0.024 40.3deg));
-  --color-cloud: light-dark(oklch(97% 0.016 42.4deg), oklch(19% 0.03 41.3deg));
-  --color-milk: light-dark(oklch(99.1% 0.005 48.7deg), oklch(23% 0.03 40.2deg));
-  --color-accent: light-dark(oklch(47.5% 0.148 40.3deg), oklch(72% 0.15 40.3deg));
-  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(19% 0.03 41.3deg));
+  --color-ink: light-dark(oklch(22.1% 0.057 152.8deg), oklch(94.1% 0.022 154.1deg));
+  --color-cloud: light-dark(oklch(97% 0.014 155.6deg), oklch(19.1% 0.03 155.1deg));
+  --color-milk: light-dark(oklch(99% 0.006 153.8deg), oklch(23% 0.029 155.9deg));
+  --color-accent: light-dark(oklch(45% 0.116 152.8deg), oklch(69% 0.15 152.8deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(19.1% 0.03 155.1deg));
 }

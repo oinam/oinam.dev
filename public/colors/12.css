@@ -1,8 +1,8 @@
 /*
- * Tomato, color 12 of Oinam UI
- * https://oinam.dev/colors/12/tomato/
+ * Sand, color 12 of Oinam UI
+ * https://oinam.dev/colors/12/sand/
  *
- * A warm red with orange in it.
+ * A warm grey, like dry sand.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
  * Link it after the components. Every other shade is mixed from the first
@@ -10,9 +10,9 @@
  */
 
 :root {
-  --color-ink: light-dark(oklch(25% 0.08 30.5deg), oklch(90.8% 0.046 31.2deg));
-  --color-cloud: light-dark(oklch(98.4% 0.008 27.2deg), oklch(18.7% 0.012 18.3deg));
-  --color-milk: light-dark(oklch(99.3% 0.003 17.2deg), oklch(20.8% 0.017 31.4deg));
-  --color-accent: light-dark(oklch(48% 0.15 30.5deg), oklch(72% 0.15 30.5deg));
-  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(18.7% 0.012 18.3deg));
+  --color-ink: light-dark(oklch(24.3% 0.008 95.4deg), oklch(94.9% 0.003 106.5deg));
+  --color-cloud: light-dark(oklch(98.2% 0.001 106.4deg), oklch(17.7% 0.002 106.6deg));
+  --color-milk: light-dark(oklch(99.4% 0.001 106.4deg), oklch(21.3% 0.002 106.6deg));
+  --color-accent: light-dark(oklch(24.3% 0.008 95.4deg), oklch(94.9% 0.003 106.5deg));
+  --color-accent-text: light-dark(oklch(98.2% 0.001 106.4deg), oklch(17.7% 0.002 106.6deg));
 }

@@ -1,8 +1,8 @@
 /*
- * Indigo, color 21 of Oinam UI
- * https://oinam.dev/colors/21/indigo/
+ * Iris, color 21 of Oinam UI
+ * https://oinam.dev/colors/21/iris/
  *
- * A deep blue with a little violet.
+ * Between violet and blue.
  * Adapted from Radix Colors (MIT): https://www.radix-ui.com/colors
  *
  * Link it after the components. Every other shade is mixed from the first
@@ -10,9 +10,9 @@
  */
 
 :root {
-  --color-ink: light-dark(oklch(24.3% 0.086 268.1deg), oklch(91.1% 0.043 269.6deg));
-  --color-cloud: light-dark(oklch(98.2% 0.008 271.3deg), oklch(19.1% 0.025 276.5deg));
-  --color-milk: light-dark(oklch(99.4% 0.001 286.4deg), oklch(20.9% 0.03 274.8deg));
-  --color-accent: light-dark(oklch(47% 0.15 268.1deg), oklch(71% 0.15 268.1deg));
-  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(19.1% 0.025 276.5deg));
+  --color-ink: light-dark(oklch(24.5% 0.099 277.7deg), oklch(91.4% 0.042 287deg));
+  --color-cloud: light-dark(oklch(98.1% 0.009 286.2deg), oklch(19.2% 0.022 284.1deg));
+  --color-milk: light-dark(oklch(99.5% 0.003 286.4deg), oklch(20.9% 0.029 286.6deg));
+  --color-accent: light-dark(oklch(47% 0.15 277.7deg), oklch(71.5% 0.15 277.7deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(19.2% 0.022 284.1deg));
 }

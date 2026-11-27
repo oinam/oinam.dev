@@ -1,8 +1,8 @@
 /*
- * Fuchsia, color 38 of Oinam UI
- * https://oinam.dev/colors/38/fuchsia/
+ * Emerald, color 38 of Oinam UI
+ * https://oinam.dev/colors/38/emerald/
  *
- * A vivid purple-pink.
+ * A rich, cool green.
  * Adapted from Tailwind CSS (MIT): https://tailwindcss.com/docs/colors
  *
  * Link it after the components. Every other shade is mixed from the first
@@ -10,9 +10,9 @@
  */
 
 :root {
-  --color-ink: light-dark(oklch(25.4% 0.119 324.6deg), oklch(98.3% 0.015 325.7deg));
-  --color-cloud: light-dark(oklch(97.7% 0.017 320.1deg), oklch(29.3% 0.136 325.8deg));
-  --color-milk: light-dark(oklch(100% 0 0deg), oklch(33.4% 0.136 325.7deg));
-  --color-accent: light-dark(oklch(48% 0.15 324.6deg), oklch(78.5% 0.15 324.6deg));
-  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(29.3% 0.136 325.8deg));
+  --color-ink: light-dark(oklch(23.5% 0.046 170.6deg), oklch(97.9% 0.021 166.1deg));
+  --color-cloud: light-dark(oklch(97.9% 0.021 166.1deg), oklch(26.1% 0.05 173.1deg));
+  --color-milk: light-dark(oklch(100% 0 0deg), oklch(30.4% 0.051 172.5deg));
+  --color-accent: light-dark(oklch(45% 0.088 170.6deg), oklch(74.5% 0.146 170.6deg));
+  --color-accent-text: light-dark(oklch(100% 0 0deg), oklch(26.1% 0.05 173.1deg));
 }
