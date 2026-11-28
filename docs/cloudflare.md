@@ -57,3 +57,6 @@ These are worth doing, and are left for later, by choice:
 
 No Workers, no Functions, no KV or databases, no forms, and no analytics script in the pages. If
 one is ever needed, it is added here first, with its reason.
+
+A service built on the system, such as a factory that takes design requests, is not a reason to
+add them here: it is a separate product, run elsewhere. See `docs/factory.md`.
