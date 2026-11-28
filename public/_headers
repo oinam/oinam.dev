@@ -29,5 +29,9 @@
 /ui/fonts/*
   Cache-Control: public, max-age=604800
 
+# Icons change only when Phosphor does.
+/ui/icons/*
+  Cache-Control: public, max-age=604800
+
 /assets/fonts/*
   Cache-Control: public, max-age=604800

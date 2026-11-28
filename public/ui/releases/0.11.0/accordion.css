@@ -1,0 +1,66 @@
+/*
+ * Accordion
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
+ *
+ * <onm-accordion> goes around a set of <details>. The browser already opens and
+ * closes them; give them all the same name and it also keeps one open at a
+ * time.
+ *
+ *   <onm-accordion>
+ *     <details name="faq">
+ *       <summary>Is it free?</summary>
+ *       <p>Yes.</p>
+ *     </details>
+ *   </onm-accordion>
+ */
+
+onm-accordion {
+  display: block;
+  border-block: 1px solid var(--color-line);
+}
+
+onm-accordion > details + details {
+  border-top: 1px solid var(--color-line);
+}
+
+onm-accordion summary {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-4);
+  font-weight: 500;
+  list-style: none;
+  cursor: pointer;
+}
+
+onm-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+/* The marker is a chevron made of two borders. It turns over when open. */
+
+onm-accordion summary::after {
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.25rem;
+  border-right: 1.5px solid currentcolor;
+  border-bottom: 1.5px solid currentcolor;
+  rotate: 45deg;
+  translate: 0 -0.125rem;
+  transition:
+    rotate var(--duration) var(--ease),
+    translate var(--duration) var(--ease);
+  content: "";
+}
+
+onm-accordion details[open] > summary::after {
+  rotate: 225deg;
+  translate: 0 0.125rem;
+}
+
+onm-accordion details > :not(summary) {
+  padding-bottom: var(--space-4);
+  color: var(--color-ink-soft);
+}

@@ -16,6 +16,7 @@ If you were told to read https://oinam.dev/ and build something with it, the nex
 - [Colors](https://oinam.dev/colors/colors.json): Pairs of colors as data, each three tokens (ink, cloud, and milk) in light and dark. A color's page is https://oinam.dev/colors/<id>/, and its stylesheet, to copy into a project and link after the components, is https://oinam.dev/colors/<id>.css.
 - [Adopting into an existing site](https://oinam.dev/ui/adopt.md): Read this only when the system is coming into a site that already has its own styles, build, or a generator that publishes Markdown: where the copy goes, folding it into a build with its layers, joining the tokens, old content, and the linter.
 - [Why](https://oinam.dev/ui/why.md): What each rule of the system protects, what it costs, and when it may be bent.
+- [Icons](https://oinam.dev/ui/icons.md): Read this before putting an icon on a page: Phosphor's icons, which weight goes where, how to inline one, and what to do when one is missing. Every icon's name and tags are in https://oinam.dev/ui/icons/icons.json.
 - [Tokens as data](https://oinam.dev/ui/tokens.json): The same tokens in the Design Tokens format (2025.10).
 - [Tokens](https://oinam.dev/ui/tokens.css): Every color, size, and shape the system uses.
 

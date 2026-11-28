@@ -138,6 +138,11 @@ components; read this to change them.
   none. The fonts in `public/ui/fonts/` are under the SIL Open Font License, each with its license
   beside it, a stylesheet that declares it and sets its token, and an entry under `fonts` in
   `registry.json`. No font is ever linked from another site.
+- **Icons are Phosphor's.** Every icon in an Oinam product or asset comes from
+  `public/ui/icons/phosphor/`, Phosphor's files copied untouched by `mise run icons`, with its MIT
+  license beside them. Oinam's own icons go in `public/ui/icons/oinam/`, drawn in Phosphor's hand,
+  only where Phosphor has none. Icons are inlined, never linked. Which weight goes where, and how
+  to draw one, is `public/ui/icons.md`.
 - **Each file stands alone.** One component, one stylesheet, and one script if it needs one, each
   opening with a comment that shows the markup. `ui.css` and `ui.js` gather them.
 - **Made to be taken.** A project does not link to oinam.dev; it takes a copy with
@@ -212,6 +217,8 @@ are defined; `package.json` only lists the linters and the formatter.
 - `mise run release` freezes the current version's stylesheets, scripts, and fonts in
   `public/ui/releases/<version>/`. It refuses a version already released.
 - `mise run colors` writes the color pages in `public/colors/` from `public/colors/colors.json`.
+- `mise run icons -- <folder>` copies Phosphor's icons into `public/ui/icons/` from an unpacked
+  `@phosphor-icons/core` package, and writes `icons.json`. How to fetch it is in `scripts/icons.js`.
 - `mise run social-card` draws `public/assets/www.oinam.dev.png`, the picture a shared link shows, from
   `docs/social-card.html`, with Chrome. Run it after changing that page, and commit both.
 

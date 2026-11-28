@@ -290,6 +290,16 @@
     "text": "What each rule of the system protects, what it costs, and when it may be bent."
   },
   {
+    "title": "Icons, on the docs page",
+    "url": "/docs/#icons",
+    "text": "Every icon is Phosphor's, in four weights, copied inline."
+  },
+  {
+    "title": "Icons",
+    "url": "/ui/icons.md",
+    "text": "Phosphor's icons in four weights: which goes where, how to inline one, and drawing one that is missing."
+  },
+  {
     "title": "Tokens as data",
     "url": "/ui/tokens.json",
     "text": "The tokens in the Design Tokens format, for tools that cannot read CSS."

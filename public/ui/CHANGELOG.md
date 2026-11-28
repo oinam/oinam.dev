@@ -14,6 +14,35 @@ The numbers mean what they say:
 - The first number changes when a page that worked may stop working: a class, an element, an
   attribute, or a token was renamed or removed. Before 1.0.0, the middle number does this job too.
 
+## 0.11.0
+
+2026-11-28
+
+Icons. Every icon in Oinam's products and assets is now Phosphor's, so they are drawn by one hand.
+
+- `icons/phosphor/` holds Phosphor 2.1.1, untouched, in four weights: regular, bold, fill, and
+  duotone, 1,512 icons in each, with Phosphor's MIT license beside them.
+- `icons/icons.json` lists every icon with its categories and tags, so an agent can find one by
+  what it means.
+- `icons.md` says which weight goes where, how to inline an icon, and what to do when one is
+  missing. The guide has a short "Icons" section that points to it.
+- `icons/oinam/` is where Oinam's own icons will go, drawn in Phosphor's hand. It is empty.
+- The registry names the icons under `icons`. The installer takes `icons.md` and `icons/icons.json`,
+  but not the icons themselves: a project copies the few it uses.
+- The icons are not frozen into the release, because they are inlined, never linked.
+
+### What to do
+
+Nothing in a page has to change. A project with icons of its own, or from another set, should
+replace them with Phosphor's when it next touches them:
+
+1. Find each icon's match in `icons/icons.json`, by name or tag.
+2. Copy that icon from `icons/phosphor/regular/` inline, with `width="1.25em" height="1.25em"`,
+   `fill="currentColor"`, and `aria-hidden="true"`, as `icons.md` shows. Its `viewBox` is
+   `0 0 256 256`.
+3. Remove any CSS that set a stroke on the old icons, since Phosphor's are filled shapes.
+4. Keep `icons/phosphor/LICENSE.txt` in the project.
+
 ## 0.10.1
 
 2026-11-27

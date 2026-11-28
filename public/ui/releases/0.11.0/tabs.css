@@ -1,0 +1,64 @@
+/*
+ * Tabs
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
+ *
+ * <onm-tabs> turns a run of sections into tabs. See tabs.js for the behavior;
+ * this file is only how it looks.
+ *
+ * Until the script has run, and wherever it never does, the sections simply
+ * follow one another under their headings, which reads fine.
+ */
+
+onm-tabs {
+  display: block;
+}
+
+onm-tabs > [role="tablist"] {
+  display: flex;
+  gap: var(--space-1);
+  overflow-x: auto;
+  border-bottom: 1px solid var(--color-line);
+}
+
+onm-tabs > [role="tablist"] > [role="tab"] {
+  flex: none;
+  height: var(--control);
+  margin-bottom: -1px;
+  padding-inline: var(--space-3);
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--color-ink-soft);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease);
+}
+
+onm-tabs > [role="tablist"] > [role="tab"]:hover {
+  color: var(--color-ink);
+}
+
+onm-tabs > [role="tablist"] > [role="tab"][aria-selected="true"] {
+  border-bottom-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+/* The ring would be clipped by the list's scroll box, so draw it inside. */
+
+onm-tabs > [role="tablist"] > [role="tab"]:focus-visible {
+  outline-offset: -2px;
+}
+
+onm-tabs > [role="tabpanel"] {
+  padding-top: var(--space-4);
+}
+
+/* Before the script has built the tabs, give the sections room to be read. */
+
+onm-tabs:not(:defined) > section + section {
+  margin-top: var(--space-6);
+}

@@ -221,6 +221,26 @@ on a Mac and Times New Roman on Windows.
 
 **Revisit** per project. A project that needs one look everywhere links a font in its variation.
 
+## Phosphor's icons, as Phosphor draws them
+
+**Decision.** Every icon in Oinam's products and assets is Phosphor's, copied untouched in four of
+its six weights, with its license beside it. Oinam draws its own only where Phosphor has none, in a
+folder of its own, in Phosphor's hand.
+
+**Why.** Icons drawn one at a time, by hand or by different sets, never quite agree: one line is
+thicker, one corner rounder. One set drawn by one hand agrees with itself, and Phosphor's is large
+enough that an icon is rarely missing. Its weights let the same drawing serve a screen and a
+poster, and its duotone fades the text's own color, so it stays within two colors. It is MIT, so it
+may be copied, served from here, and added to. It was chosen over Lucide, which agents know
+better, because Lucide is the look of the page every AI makes.
+
+**What it costs.** About 6,000 files in the repository, and an icon Phosphor lacks has to be drawn
+in four weights to stand beside the rest. Agents know Phosphor's names less well than Lucide's,
+which `icons/icons.json` makes up for.
+
+**Revisit when** Phosphor stops being kept up, or the icons Oinam draws itself outnumber the ones
+it takes.
+
 ## Sentence case, and no decoration that says nothing
 
 **Decision.** Headings and labels are written like sentences. No label in capitals above a heading,

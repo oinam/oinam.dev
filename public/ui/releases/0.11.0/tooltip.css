@@ -1,0 +1,49 @@
+/*
+ * Tooltip
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
+ *
+ * <onm-tooltip> shows a few words about a control when the pointer is over it
+ * or the keyboard is on it. It is CSS alone. The words are tied to the
+ * control with aria-describedby, so a screen reader reads them too.
+ *
+ * Keep it to a hint. Anything a person must read, or press, belongs on the
+ * page or in a popover, because a tooltip cannot be reached by touch.
+ *
+ *   <onm-tooltip>
+ *     <button class="onm-button" type="button" aria-describedby="tip-release">Release</button>
+ *     <span role="tooltip" id="tip-release">Frees the berth for the next boat</span>
+ *   </onm-tooltip>
+ */
+
+onm-tooltip {
+  position: relative;
+  display: inline-flex;
+}
+
+onm-tooltip > [role="tooltip"] {
+  position: absolute;
+  bottom: calc(100% + var(--space-2));
+  left: 50%;
+  z-index: 20;
+  width: max-content;
+  max-width: 16rem;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-ink);
+  color: var(--color-cloud);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  line-height: 1.4;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  translate: -50% 0;
+  transition:
+    opacity var(--duration) var(--ease),
+    visibility var(--duration);
+}
+
+onm-tooltip:is(:hover, :focus-within) > [role="tooltip"] {
+  visibility: visible;
+  opacity: 1;
+}

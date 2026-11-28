@@ -71,6 +71,10 @@ run = "node scripts/release.js"
 description = "Write the color pages in public/colors/ from public/colors/colors.json"
 run = "node scripts/colors.js"
 
+[tasks.icons]
+description = "Copy Phosphor's icons into public/ui/icons/ from an unpacked package (see scripts/icons.js)"
+run = "node scripts/icons.js"
+
 [tasks.social-card]
 description = "Draw the picture shown when a link to the site is shared, from docs/social-card.html"
 run = """

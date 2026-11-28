@@ -1,0 +1,22 @@
+/*
+ * Example
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
+ *
+ * <onm-example> shows a piece of markup at work and, beside it, its source. See
+ * example.js. The frame is around the live part either way, script or not.
+ */
+
+onm-example {
+  display: block;
+}
+
+onm-example:not(:defined),
+onm-example [data-part="preview"] {
+  padding: var(--space-8);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+}
+
+onm-example:defined > onm-tabs > [role="tabpanel"] {
+  margin-top: var(--space-4);
+}

@@ -1,0 +1,69 @@
+/*
+ * Menu
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
+ *
+ * <onm-menu> is a button and the short list of actions it opens. The list is a
+ * popover of plain buttons and links, with <hr> between groups. See menu.js
+ * for the arrow keys; without it, Tab still reaches every item.
+ *
+ *   <onm-menu>
+ *     <button class="onm-button" data-variant="outline" type="button" popovertarget="berth-menu">
+ *       Berth 12
+ *     </button>
+ *     <div class="onm-popover" id="berth-menu" popover>
+ *       <button type="button">Rename</button>
+ *       <a href="/berths/12/">Open</a>
+ *       <hr />
+ *       <button type="button">Release</button>
+ *     </div>
+ *   </onm-menu>
+ *
+ * With the context attribute, the list opens where the pointer is on a right
+ * click anywhere inside the element, and needs no button.
+ */
+
+onm-menu {
+  display: inline-block;
+}
+
+onm-menu[context] {
+  display: block;
+}
+
+onm-menu > [popover] {
+  min-width: 11rem;
+  padding: var(--space-1);
+}
+
+onm-menu > [popover] > :is(button, a) {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-ink);
+  font: inherit;
+  text-align: start;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+onm-menu > [popover] > :is(button, a):is(:hover, :focus-visible) {
+  background: var(--color-wash);
+}
+
+onm-menu > [popover] > :is(button, a):focus-visible {
+  outline-offset: -2px;
+}
+
+onm-menu > [popover] > button:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+onm-menu > [popover] > hr {
+  margin: var(--space-1) 0;
+}

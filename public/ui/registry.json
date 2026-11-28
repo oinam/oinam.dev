@@ -1,6 +1,6 @@
 {
   "name": "Oinam UI",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "description": "A design system in plain HTML, CSS, and JavaScript: custom elements for structure, native elements for the work, and no framework or build step.",
   "design": "Base",
   "variations": "https://oinam.dev/garden/variations.json",
@@ -16,10 +16,19 @@
     "classless": "classless.css"
   },
   "foundation": ["tokens.css", "base.css"],
-  "docs": ["guide.md", "adopt.md", "why.md", "CHANGELOG.md"],
+  "docs": ["guide.md", "adopt.md", "why.md", "icons.md", "CHANGELOG.md"],
   "data": ["tokens.json", "contract.json"],
   "tools": ["tools/lint.js", "tools/see.js", "tools/mcp.js"],
   "skill": "skill/SKILL.md",
+  "icons": {
+    "set": "Phosphor",
+    "version": "2.1.1",
+    "license": "MIT",
+    "folder": "icons/",
+    "list": "icons/icons.json",
+    "weights": ["regular", "bold", "fill", "duotone"],
+    "note": "Copied one at a time and inlined, never installed or linked; see icons.md."
+  },
   "fonts": [
     {
       "name": "geist",

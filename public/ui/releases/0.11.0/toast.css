@@ -1,0 +1,42 @@
+/*
+ * Toast
+ * From Oinam UI at https://oinam.dev/ui/, under the MIT license.
+ *
+ * <onm-toast> is where brief messages appear, in a corner, and go away again.
+ * See toast.js for how one is shown; this file is only how they look.
+ *
+ * A toast is for news that needs no answer: "Saved", "Copied". Anything a
+ * person must act on belongs in the page, or in a dialog.
+ */
+
+onm-toast {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: min(22rem, 100vw - 2rem);
+}
+
+onm-toast > [role="status"] {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-milk);
+  box-shadow: var(--shadow-md);
+  font-size: var(--text-sm);
+  animation: toast-in var(--duration) var(--ease) both;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    translate: 0 0.5rem;
+  }
+}

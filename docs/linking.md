@@ -46,6 +46,9 @@ Checked on 2026-11-22, against the live site and Cloudflare's documentation.
 - A release holds only what a page loads: the stylesheets, the scripts, and the fonts with their
   licenses. The guide, the tools, the data, and the patterns are read, not linked; git keeps every
   version of them. Leaving them out also keeps a stale guide from being found at a second address.
+- The icons are left out too. An icon is copied into the page inline, never linked, so a release
+  has no use for them, and freezing about 6,000 files into every version would soon outgrow what
+  Cloudflare Pages will serve.
 - A release is sent with `Cache-Control: public, max-age=31536000, immutable`. It does not repeat
   `Access-Control-Allow-Origin`, which it already has from the `/ui/*` rule: Pages joins a header
   that two matching rules both name, and `*, *` is not a valid origin.
